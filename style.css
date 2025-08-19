@@ -1,0 +1,27 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 32px;
+}
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 24px;
+}
+.about-me h2 {
+    color: #555;
+    margin-top: 0;
+}
+.about-me p {
+    color: #666;
+    font-size: 1.1em;
+}
