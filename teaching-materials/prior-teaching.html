@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prior Teaching - Joshua S Aaron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .institution-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+
+        .institution-header {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .institution-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .institution-header p {
+            opacity: 0.9;
+        }
+
+        details {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            cursor: pointer;
+        }
+
+        details[open] {
+            background: white;
+        }
+
+        summary {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px;
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: '▶';
+            color: var(--primary-color);
+            transition: transform 0.3s;
+            font-size: 0.8em;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .course-content {
+            padding: 20px;
+            margin-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .course-content h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .course-content h4 {
+            color: var(--text-primary);
+            margin-top: 16px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .course-content ul {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        .course-content li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .course-content p {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .resource-link {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 8px;
+            margin-right: 8px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .resource-link:hover {
+            background: #1d4ed8;
+        }
+
+        .week-item {
+            background: var(--surface);
+            padding: 12px;
+            border-left: 3px solid var(--primary-color);
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .week-item strong {
+            color: var(--text-primary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .page-header {
+                padding: 24px;
+            }
+
+            .institution-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../teaching-materials.html" class="back-link">← Back to Teaching Materials</a>
+
+        <div class="page-header">
+            <h1><i class="fas fa-history"></i> Prior Teaching</h1>
+            <p>Course materials and resources from previous teaching positions at DCFE and BFEI</p>
+        </div>
+
+        <!-- DCFE Section -->
+        <div class="institution-section">
+            <div class="institution-header">
+                <h2><i class="fas fa-university"></i> DCFE: Dundrum College of Further Education</h2>
+                <p>Previous course materials including programming, mathematics, and web development</p>
+            </div>
+
+            <!-- Foundations of AI for Business -->
+            <details>
+                <summary><i class="fas fa-robot"></i> Foundations of AI for Business</summary>
+                <div class="course-content">
+                    <p>Exploring AI/ML concepts, tools, and best practices for business applications. This course covered LLM tools, prompt engineering, and LinkedIn Learning integration.</p>
+
+                    <h3>Course Overview</h3>
+                    <p>Over the course of this year, we explored a series of concepts, tools and best practices regarding three different forms of what generally is called "Artificial Intelligence" but we referred to as three distinct machine learning applications.</p>
+
+                    <h3>Key Topics</h3>
+                    <ul>
+                        <li>Week 1: Introduction - Who am I and Who are You?</li>
+                        <li>Week 6-8: Prompt guides and multiline prompts</li>
+                        <li>Week 9: Pair Querying Activity</li>
+                        <li>LinkedIn Learning modules integration</li>
+                        <li>Dispelling myths and addressing biases in AI</li>
+                        <li>Ethical and safe use of ML systems</li>
+                    </ul>
+
+                    <h3>Skills Developed</h3>
+                    <ul>
+                        <li>Prompt engineering for LLMs (Claude, Gemini, ChatGPT, Deepseek, Perplexity)</li>
+                        <li>Context, Format, and Tone in prompting</li>
+                        <li>Cover letter and professional statement creation using AI</li>
+                        <li>Critical evaluation of AI/ML systems</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Maths for IT -->
+            <details>
+                <summary><i class="fas fa-calculator"></i> Maths for IT</summary>
+                <div class="course-content">
+                    <p>Comprehensive mathematics course covering algorithms, probability, statistics, calculus, and trigonometry with Python integration.</p>
+
+                    <h3>March: Algorithms and Exam Review</h3>
+                    <div class="week-item">
+                        <strong>Week 1:</strong> Algorithmic Runtime and Big-O notation
+                    </div>
+                    <div class="week-item">
+                        <strong>Week 2:</strong> Arrays and Indexing
+                    </div>
+                    <div class="week-item">
+                        <strong>Week 3:</strong> Search and Recursion
+                    </div>
+                    <div class="week-item">
+                        <strong>Week 4:</strong> Exam Review
+                    </div>
+
+                    <h3>February: Probability and Statistics</h3>
+                    <div class="week-item">
+                        <strong>Week 1:</strong> Random Variables, Means, Medians, Modes, Expected Value, and Variance
+                    </div>
+                    <div class="week-item">
+                        <strong>Week 2:</strong> Distributions and Descriptive Statistics
+                    </div>
+                    <div class="week-item">
+                        <strong>Week 4:</strong> Probability Games and Visualizations
+                    </div>
+
+                    <h3>Resources</h3>
+                    <ul>
+                        <li>3Blue1Brown Probability Playlist</li>
+                        <li>John Krohn Colab Notebooks</li>
+                        <li>Coding Probability Functions in Python</li>
+                        <li>Birthday Paradox Code Commenting Exercise</li>
+                    </ul>
+
+                    <a href="https://www.youtube.com/watch?v=HZGCoVF3YvM&list=PLiAulSm0XXgvCGe63mrAkda9UQ9478YQv" class="resource-link" target="_blank">
+                        <i class="fab fa-youtube"></i> 3Blue1Brown Playlist
+                    </a>
+                </div>
+            </details>
+
+            <!-- Web Authoring -->
+            <details>
+                <summary><i class="fas fa-code"></i> Web Authoring</summary>
+                <div class="course-content">
+                    <p>Learn HTML, CSS, JavaScript, and SQL. Build projects using GitHub Pages, Jupyter notebooks, and modern web frameworks.</p>
+
+                    <h3>Winter Term Topics</h3>
+                    <ul>
+                        <li>Databases with SQLite</li>
+                        <li>ipywidgets (connecting code to forms with Python)</li>
+                        <li>Sample Database Projects (V1 & V2)</li>
+                    </ul>
+
+                    <h3>Tools We Explored</h3>
+                    <ul>
+                        <li>Figma (design)</li>
+                        <li>Github Pages / Glitch (hosting)</li>
+                        <li>Jupyter Notebooks (interactive development)</li>
+                        <li>Website Builders: Jekyll, WordPress, Hugo</li>
+                    </ul>
+
+                    <h3>Online Resources</h3>
+                    <ul>
+                        <li><strong>Codecademy:</strong> HTML and CSS courses, Advanced CSS</li>
+                        <li><strong>FreeCodeCamp:</strong> Full web development curriculum</li>
+                        <li><strong>The Odin Project:</strong> Comprehensive foundations</li>
+                        <li><strong>Interactive Practice:</strong> CSS Grid Garden, Flexbox Froggy</li>
+                        <li><strong>MDN Web Docs:</strong> HTML and CSS reference</li>
+                    </ul>
+
+                    <a href="https://www.codecademy.com/catalog/language/html-css" class="resource-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Codecademy HTML/CSS
+                    </a>
+                    <a href="https://www.freecodecamp.org/" class="resource-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> FreeCodeCamp
+                    </a>
+                    <a href="https://cssgridgarden.com/" class="resource-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> CSS Grid Garden
+                    </a>
+                    <a href="https://flexboxfroggy.com/" class="resource-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Flexbox Froggy
+                    </a>
+                </div>
+            </details>
+
+            <!-- Programming Design Principles -->
+            <details>
+                <summary><i class="fab fa-python"></i> Programming Design Principles</summary>
+                <div class="course-content">
+                    <p>Python programming fundamentals with focus on practice problems, skills demonstrations, and project-based learning.</p>
+
+                    <h3>Skills Demonstrations</h3>
+                    <ul>
+                        <li><strong>Skills Demo 1:</strong> January 17 - February 28</li>
+                        <li><strong>Skills Demo 2:</strong> February 28 - March 28</li>
+                    </ul>
+
+                    <h3>Major Projects</h3>
+                    <h4>Game Map Experiment</h4>
+                    <p>Create a text-based game map with coordinate systems, distance calculations, and interactive features.</p>
+                    <ul>
+                        <li>Define coordinate system (grid or custom)</li>
+                        <li>Measure distances (Euclidean or Manhattan)</li>
+                        <li>Add points of interest and flavor text</li>
+                        <li>Enable user interaction</li>
+                    </ul>
+
+                    <h3>Practice Resources</h3>
+                    <ul>
+                        <li>Python practice problems with solutions (7 sets)</li>
+                        <li>Khan Academy class integration</li>
+                        <li>Group coding experiments (map making, slicing, reverse)</li>
+                    </ul>
+
+                    <h3>Group Work Reflections</h3>
+                    <ul>
+                        <li>What did I struggle with and ask for help about?</li>
+                        <li>What did I learn from my colleague?</li>
+                        <li>Communication challenges and successes</li>
+                        <li>Areas for improvement</li>
+                    </ul>
+
+                    <a href="https://www.khanacademy.org/" class="resource-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Khan Academy Python
+                    </a>
+                </div>
+            </details>
+        </div>
+
+        <!-- BFEI Section -->
+        <div class="institution-section">
+            <div class="institution-header" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">
+                <h2><i class="fas fa-university"></i> BFEI: Blackrock Further Education Institute</h2>
+                <p>Foundations of Object-Oriented Programming course materials</p>
+            </div>
+
+            <!-- Foundations of OOP -->
+            <details open>
+                <summary><i class="fas fa-cube"></i> Foundations of Object Oriented Programming (FOOP)</summary>
+                <div class="course-content">
+                    <p>Object-oriented programming in C# and Python. Includes mock exams, practice problems, and interactive notebooks.</p>
+
+                    <h3>Course Structure</h3>
+                    <p>Primary and alternative learning paths available. The course emphasized learning how to learn programming alongside technical skills.</p>
+
+                    <h3>Assessment Materials</h3>
+                    <ul>
+                        <li><strong>Mock Exam 1:</strong> FOOP Mock Exam with answers and empty version</li>
+                        <li><strong>Mock Exam 2:</strong> Fantasy notebook (semi-empty)</li>
+                        <li><strong>January Practice:</strong> Download and submit for feedback</li>
+                        <li><strong>March Practice:</strong> Additional practice problems</li>
+                        <li><strong>Skills Demo 1:</strong> C# notebook (same as Moodle)</li>
+                    </ul>
+
+                    <h3>Practice Problems</h3>
+                    <p>Extensive practice problems available in both Python and C#, including:</p>
+                    <ul>
+                        <li>Practice Problems 1-7 (with solutions)</li>
+                        <li>Additional "other" practice problems</li>
+                        <li>Both C# and Python versions</li>
+                    </ul>
+
+                    <h3>OOP Notebooks</h3>
+                    <ul>
+                        <li><strong>Hitchhiker's OOP Notebook:</strong> Fun introduction to OOP concepts</li>
+                        <li><strong>Jupyter Map Notebook:</strong> Interactive map with OOP</li>
+                        <li><strong>Visual Map Tutorial:</strong> Gentle introduction to OOP through visual application</li>
+                    </ul>
+
+                    <h4>Visual Map Tutorial Highlights</h4>
+                    <p>Build a simple application that:</p>
+                    <ul>
+                        <li>Displays a background map image</li>
+                        <li>Shows a movable marker</li>
+                        <li>Allows movement using arrow keys or buttons</li>
+                        <li>Prevents marker from moving outside boundaries</li>
+                    </ul>
+
+                    <h3>Learning C# Resources</h3>
+
+                    <h4>Primary Resources</h4>
+                    <ul>
+                        <li>Polyglot Notebooks in VS Code</li>
+                        <li>.NET C# interactive notebooks</li>
+                    </ul>
+
+                    <h4>Alternative Resources</h4>
+                    <ul>
+                        <li>Microsoft Learn C# collections</li>
+                        <li>Codecademy Learn C#</li>
+                        <li>TutorialsTeacher C#</li>
+                        <li>FreeCodeCamp Foundational C# with Microsoft</li>
+                    </ul>
+
+                    <h4>Video Tutorials</h4>
+                    <ul>
+                        <li>Microsoft C# for Beginners YouTube series</li>
+                        <li>Building a simple RPG with C#</li>
+                    </ul>
+
+                    <h4>Online C# Tools</h4>
+                    <ul>
+                        <li>Programiz C# Online Compiler</li>
+                        <li>OneCompiler C#</li>
+                        <li>Microsoft Try .NET</li>
+                    </ul>
+
+                    <h3>Class Structure</h3>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                        <tr style="background: var(--surface);">
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--border);">Time</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--border);">Main Tasks</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid var(--border);">Alternative Tasks</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid var(--border);">30 mins</td>
+                            <td style="padding: 12px; border: 1px solid var(--border);">Warm-Up Task, Write Questions, Pair-Programming</td>
+                            <td style="padding: 12px; border: 1px solid var(--border);">Work on Previous Problems, Alternative Resources, Projects</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid var(--border);">30 mins</td>
+                            <td style="padding: 12px; border: 1px solid var(--border);">Problems for the Day, Key Ideas, Comment Notes</td>
+                            <td style="padding: 12px; border: 1px solid var(--border);">Alternative Resources, Projects, Assignments</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid var(--border);">45 mins</td>
+                            <td style="padding: 12px; border: 1px solid var(--border);">Problems of the Day</td>
+                            <td style="padding: 12px; border: 1px solid var(--border);">Work through Alternative Resources, Projects</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid var(--border);">15 mins</td>
+                            <td style="padding: 12px; border: 1px solid var(--border);">Summary and Questions</td>
+                            <td style="padding: 12px; border: 1px solid var(--border);">Continue work on current tasks</td>
+                        </tr>
+                    </table>
+
+                    <a href="https://learn.microsoft.com/en-us/collections/yz26f8y64n7k07" class="resource-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Microsoft C# Tutorials
+                    </a>
+                    <a href="https://www.codecademy.com/learn/learn-c-sharp" class="resource-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Codecademy C#
+                    </a>
+                    <a href="https://code.visualstudio.com/docs/languages/polyglot" class="resource-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Polyglot Notebooks
+                    </a>
+                </div>
+            </details>
+        </div>
+    </div>
+</body>
+</html>
