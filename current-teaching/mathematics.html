@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths for IT - Joshua S Aaron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .math-notation {
+            font-family: 'Courier New', monospace;
+            background: #f8fafc;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.95em;
+        }
+
+        .jupyter-note {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .jupyter-note strong {
+            color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="../index_new.html" class="site-title">Joshua S Aaron</a>
+            <a href="../index_new.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="course-header">
+            <h1>Maths for IT</h1>
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">Comprehensive mathematics course covering linear algebra, probability, statistics, calculus, and their applications in computer science</p>
+
+            <div class="course-meta">
+                <div class="meta-item">
+                    <i class="fas fa-university"></i>
+                    <span>DCFE (Dundrum College of Further Education)</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Academic Year 2024-2025</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-content">
+            <h2>Course Overview</h2>
+            <p>This course explores mathematical concepts essential for IT and computer science. We'll be using Python and Jupyter notebooks to make mathematics more tangible and applicable to real-world problems. The emphasis is on understanding concepts deeply rather than memorization.</p>
+
+            <h3>Course Plan for the Year</h3>
+            <ul>
+                <li><strong>September:</strong> Review of foundations - Fractions, exponents, logarithms, graphing, algebra</li>
+                <li><strong>October:</strong> Introduction to Functions and Matrices</li>
+                <li><strong>November-December:</strong> Probability, Statistics, and Functions</li>
+                <li><strong>January:</strong> Functions, Calculus (Basic Derivatives and Integrals), and plotting</li>
+                <li><strong>February:</strong> Odds and Ends (Trigonometry and Tying things together)</li>
+                <li><strong>March:</strong> Neural Networks Project with Digit and Letter Recognition, and Exam Review</li>
+                <li><strong>April:</strong> Exam Review and Exam</li>
+                <li><strong>May:</strong> Exam Results</li>
+            </ul>
+
+            <div class="jupyter-note">
+                <strong>Note:</strong> All work will be done using Python in Jupyter Notebooks. You'll learn to code mathematical concepts, which helps develop both mathematical and programming skills simultaneously.
+            </div>
+
+            <h2>Weekly Content</h2>
+
+            <details open>
+                <summary>Week of Sept 15-17: Placement Tests & Khan Academy Setup</summary>
+                <div class="detail-content">
+                    <h4>Your Current Level in Maths</h4>
+                    <p>Today we are going to go through the Maths Australia Placement Test. The goal is to see where you fall, where your gaps are and where you struggle. If you don't know the answer to a question, feel free to put "I don't know". If you get through a test, go ahead and go to the next one.</p>
+
+                    <p><strong>NOTE:</strong> You do not need a calculator for the first 3 tests (not sure about the 4th-6th)</p>
+
+                    <h4>Assessment Options</h4>
+                    <ul>
+                        <li>Start with the Mathematics Australia Pre-Algebra Assessment</li>
+                        <li>Alternative: Monroe College Self Assessment</li>
+                    </ul>
+
+                    <h4>After You Complete Your Assessment</h4>
+                    <p>When you are done, go ahead and sign up for Khan Academy using your college email.</p>
+
+                    <h4>For Your Reference - Past Entry Tests</h4>
+                    <ul>
+                        <li>TUD Entry Tests: 2017, 2018, 2019</li>
+                        <li>Monroe University Assessment</li>
+                        <li>Oxford Assessment (we will work toward this)</li>
+                    </ul>
+
+                    <h4>Mathematical Challenges</h4>
+                    <ul>
+                        <li>Project Euler</li>
+                        <li>Euclidea</li>
+                        <li>Socratic</li>
+                    </ul>
+
+                    <h4>Graphing and Solving Equations</h4>
+                    <ul>
+                        <li>Wolfram Alpha</li>
+                        <li>Desmos</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>Week of Sept 19-26: Exploratory Worksheets & Khan Academy</summary>
+                <div class="detail-content">
+                    <h4>Individual Plan and Practice</h4>
+                    <p>Using Khan Academy, see if you can ascertain what level is right for you to start practicing. Some key chapters to consider:</p>
+                    <ul>
+                        <li>Fractions (addition and subtraction, multiplication, division)</li>
+                        <li>Logarithms</li>
+                        <li>Negative Exponents</li>
+                        <li>Cartesian Coordinates (Graphing)</li>
+                        <li>Trigonometric Functions (especially sketching them)</li>
+                        <li>Solving Systems of Equations</li>
+                    </ul>
+
+                    <h4>Questions to Consider</h4>
+                    <ol>
+                        <li>What units would you like time to work on in class for the next couple sessions with help from me?</li>
+                        <li>What units do you think you can best tackle at home (without assistance)?</li>
+                        <li>What other types of resources might prove helpful?</li>
+                        <li>Are you comfortable creating your own practice problems?</li>
+                    </ol>
+
+                    <h4>Shifting How We Think About Maths</h4>
+                    <p>We'll discuss:</p>
+                    <ul>
+                        <li>Objects</li>
+                        <li>Functions and operations</li>
+                        <li>Tuples, Lists, Matrices (Numbers in Lines and Boxes)</li>
+                        <li>Composition and Types of Functions and Representations (Recursion, Probability, Distributions)</li>
+                    </ul>
+
+                    <h4>Where We Are Headed</h4>
+                    <ul>
+                        <li>A toy neural network to play around with: TensorFlow Playground</li>
+                        <li>A full implementation of a neural net in Python</li>
+                        <li>Kaggle: Intro to Machine Learning</li>
+                    </ul>
+
+                    <h4>Practice Challenges</h4>
+                    <p>Using Pseudocode in a Jupyter Notebook, let's aim toward describing a method for computing addition (or, in order of difficulty, subtraction, multiplication, division) as you learned in grade school. We assume that each number is broken into a number of digits.</p>
+
+                    <p><strong>Warm Up: Equality</strong><br>
+                    Given two strings of the same unknown length, with some number of symbols, how would you determine if the two strings are equal?</p>
+
+                    <p><strong>Challenge 0: Same Length</strong><br>
+                    Given two strings, how would you determine if the strings are the same length?</p>
+
+                    <p><strong>Challenge 1: Digit Sum</strong><br>
+                    Given two lists of the same length where each entry in the list is a number, how would you write down a process for getting a new list where each entry is the sum of the two lists at that same entry?</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Week of Oct 1-10: Vectors and Matrices Introduction</summary>
+                <div class="detail-content">
+                    <h4>Tuesday October 1st-3rd</h4>
+                    <p>Today we will be looking over the basics of lists, vectors, and matrices, for that we will use some experimental notebooks that I have been working on.</p>
+
+                    <h4>Tuesday October 7th: Vectors and Matrices</h4>
+                    <p>Today we will be continuing to look at vectors and matrices, in particular we will start by going through what we touched on last week (vector/matrix addition, subtraction, our "weird multiplication" of vectors).</p>
+
+                    <p>We will investigate what happens when we look at vectors and their operations graphically (using the coordinate plane). We will also start on our adventure of coding up these vectors as lists and create a few basic functions in Python together.</p>
+
+                    <h4>October 8 and 10: Lists and Matrices Notebook</h4>
+                    <p>Here is what we discussed today! Have fun creating the functions for both dot product and scalar multiplication! We will go through these on Friday and Tuesday.</p>
+
+                    <div class="jupyter-note">
+                        <strong>Note:</strong> Sometimes the simplest thing you can do is the right thing! No need to over-complicate :)
+                    </div>
+                </div>
+            </details>
+
+            <details>
+                <summary>Week of Oct 14-24: Matrix Multiplication</summary>
+                <div class="detail-content">
+                    <h4>October 14-15: Transition to Matrix Multiplication</h4>
+                    <p>Today we are going to make the transition from the dot product to matrix multiplication (both on the board and in code).</p>
+
+                    <p><strong>Resources:</strong></p>
+                    <ul>
+                        <li>Start with Linear Algebra Fundamentals</li>
+                        <li>Python and Jupyter tutorials available in notebooks</li>
+                    </ul>
+
+                    <h4>October 17: Matrix Multiplication Continued</h4>
+                    <p>Today we continue with Matrix Multiplication, thinking through a few key examples and shapes of matrices:</p>
+                    <ul>
+                        <li>Diagonal matrices</li>
+                        <li>Identity matrix</li>
+                        <li>Zero matrix</li>
+                        <li>Row multiplier</li>
+                        <li>Row adder</li>
+                    </ul>
+
+                    <p>We'll see how they work in the 2×2 and 3×3 case and begin to introduce how that looks visually. For fancier graphics, check out 3Blue1Brown's Series on Linear Algebra (both written and video)—we will be stopping at Cramer's Rule.</p>
+
+                    <h4>October 21: Matrix Exponentiation</h4>
+                    <p>Today we explored more examples of 2×2 matrix multiplication as well as taking a matrix to a given power (using exponents). We discussed the pattern that happens when we have the matrix [[1,1],[0,1]] and take it to the nth power.</p>
+
+                    <p>In addition we went through the indexing that we use with matrices, how this "box of numbers" forces us to have a really clear idea of two indices combined. We also went through the "cross" of indices above, below, left and right, as well as how these relate to dimension.</p>
+
+                    <h4>October 22: Visual Representation</h4>
+                    <p>Today we went through some of the code for matrix multiplication as well as how things look visually (using the code in the linear algebra notebook). We will also discuss a couple examples of "interesting" 2×2 and 3×3 matrices like rotation matrices and scaling matrices to build up our "programming language of matrices".</p>
+
+                    <h4>October 24: List Comprehensions</h4>
+                    <p>Today we worked on the first 3 sections of the Lists and Matrices Notebook. We then discussed how to think about list comprehensions as for loops and how those relate to our matrix operations. Finally we went through the plan for Maths and assignments (in class skills demos) when you return.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>November 4: Practice Problems and Square Root of -I</summary>
+                <div class="detail-content">
+                    <h4>Summary of What We Have Covered So Far</h4>
+                    <ul>
+                        <li>Matrices as "Box-o-numbers"</li>
+                        <li>Vectors as "List-o-numbers"</li>
+                        <li>Dot product</li>
+                        <li>Matrix multiplication</li>
+                        <li>Exponents and matrix exponentiation (and some patterns that might arise)</li>
+                        <li>Solving linear equations with matrices (three operations):
+                            <ul>
+                                <li>Swap Rows</li>
+                                <li>Add one row to another row (leaving the first row alone)</li>
+                                <li>Multiply a row by a scalar (gives us subtraction and division)</li>
+                                <li>Any combination of the three until we get to the identity matrix on the left and a series of constants on the right</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>Practice Problem for Today</h4>
+                    <p>Can you find a 2×2 matrix that multiplies with itself to get -I (the Identity matrix (2×2) times negative 1)? What does that matrix look like? Let's call this the square root of -I or √(-I) = J. If you finish that, can you find something that squares to make J? Did you have to use a different method?</p>
+
+                    <h4>After Midterm Break</h4>
+                    <p>After the midterm break we will transition from discussing matrices to discussing probability and functions. Here is our approximate plan for the rest of the college year:</p>
+                    <ul>
+                        <li><strong>November-December:</strong> Probability, Statistics, and Functions</li>
+                        <li><strong>January:</strong> Functions, Calculus (Basic Derivatives and Integrals), and plotting</li>
+                        <li><strong>February:</strong> Odds and Ends (Trigonometry and Tying things together)</li>
+                        <li><strong>March:</strong> Neural Networks Project with Digit and Letter Recognition, and Exam Review</li>
+                        <li><strong>April:</strong> Exam Review and Exam</li>
+                        <li><strong>May:</strong> Exam Results</li>
+                    </ul>
+                </div>
+            </details>
+
+            <h2>Resources & Tools</h2>
+
+            <h3>Online Practice Platforms</h3>
+            <ul>
+                <li><strong>Khan Academy:</strong> Primary resource for practice and explanations</li>
+                <li><strong>Desmos:</strong> Graphing calculator and visualization tool</li>
+                <li><strong>Wolfram Alpha:</strong> Computational knowledge engine</li>
+                <li><strong>Project Euler:</strong> Mathematical programming challenges</li>
+                <li><strong>Euclidea:</strong> Geometric construction puzzles</li>
+            </ul>
+
+            <h3>Programming Tools</h3>
+            <ul>
+                <li><strong>Google Colab:</strong> Cloud-based Jupyter notebooks</li>
+                <li><strong>Local Jupyter:</strong> Run notebooks on your own machine</li>
+                <li><strong>Python:</strong> Primary programming language for this course</li>
+            </ul>
+
+            <h3>Recommended Resources</h3>
+            <ul>
+                <li><strong>3Blue1Brown:</strong> Excellent video series on Linear Algebra and Calculus</li>
+                <li><strong>TensorFlow Playground:</strong> Interactive neural network visualization</li>
+                <li><strong>Kaggle:</strong> Machine learning competitions and tutorials</li>
+            </ul>
+
+            <h2>Assessment</h2>
+            <p>Assessment in this course is continuous and skills-based. You will be evaluated on:</p>
+            <ul>
+                <li><strong>Skills Demonstrations (40%):</strong> In-class demonstrations of mathematical concepts and programming implementation</li>
+                <li><strong>Portfolio/Collection of Work (60%):</strong> Jupyter notebooks, practice problems, and projects with 1:1 feedback</li>
+            </ul>
+
+            <h3>Key Skills to Demonstrate</h3>
+            <ul>
+                <li>Understanding of vectors and matrices</li>
+                <li>Ability to perform matrix operations by hand and in code</li>
+                <li>Solving linear equations using matrix methods</li>
+                <li>Creating visualizations of mathematical concepts</li>
+                <li>Applying mathematical concepts to programming problems</li>
+                <li>Building and understanding a simple neural network (final project)</li>
+            </ul>
+
+            <div class="jupyter-note">
+                <strong>Philosophy:</strong> In my courses, you can expect me to be fully transparent about my policies, assignments, and assessments. One of my main goals is that you become more aware of both how you learn and how to find and evaluate the information you need. Notes are welcome but not necessary—all information exists "out there" and I'll provide multiple resources with different looks, feels, and media.
+            </div>
+        </div>
+    </main>
+</body>
+</html>

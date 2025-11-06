@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short-form Guides - Joshua S Aaron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .guide-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        .guide-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .guide-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .guide-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+
+        <div class="page-header">
+            <h1>Short-form Guides</h1>
+            <p>Quick guides and resources for learning programming, mathematics, and developing effective study habits.</p>
+        </div>
+
+        <div class="guide-grid">
+            <a href="teaching-materials/guides/how-to-learn-programming.html" class="guide-card">
+                <h3><i class="fas fa-code"></i> How to Learn Programming</h3>
+                <p>Understanding the five types of programming and developing effective coding practices</p>
+            </a>
+
+            <a href="teaching-materials/guides/how-to-learn-math.html" class="guide-card">
+                <h3><i class="fas fa-calculator"></i> How to Learn Math</h3>
+                <p>Strategies and approaches for mastering mathematical concepts</p>
+            </a>
+
+            <a href="teaching-materials/guides/how-i-recommend.html" class="guide-card">
+                <h3><i class="fas fa-lightbulb"></i> How I Recommend Learning to Learn</h3>
+                <p>Meta-learning strategies and developing your own learning process</p>
+            </a>
+
+            <a href="teaching-materials/guides/how-i-think-about.html" class="guide-card">
+                <h3><i class="fas fa-brain"></i> How I Think About Teaching</h3>
+                <p>My teaching philosophy and pedagogical approaches</p>
+            </a>
+
+            <a href="teaching-materials/guides/how-to-learn-computer.html" class="guide-card">
+                <h3><i class="fas fa-laptop-code"></i> How to Learn Computer Science</h3>
+                <p>Approaches to understanding computer science fundamentals</p>
+            </a>
+
+            <a href="teaching-materials/guides/learning-math-through.html" class="guide-card">
+                <h3><i class="fas fa-project-diagram"></i> Learning Math through Programming</h3>
+                <p>Using programming as a tool for understanding mathematical concepts</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
