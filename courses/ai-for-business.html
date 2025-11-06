@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundations of AI for Business - Joshua S Aaron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary: #94a3b8;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .site-header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .course-header {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .course-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+
+        .course-content {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .course-content h2 {
+            font-size: 1.75rem;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .course-content h3 {
+            font-size: 1.35rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .course-content p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .course-content ul, .course-content ol {
+            margin-bottom: 16px;
+            margin-left: 32px;
+        }
+
+        .course-content li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .course-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .week-section {
+            margin-top: 24px;
+            padding: 20px;
+            background: var(--surface);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .week-section h4 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+        }
+
+        details {
+            margin: 16px 0;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 15px;
+            background: var(--surface);
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-primary);
+            user-select: none;
+        }
+
+        summary:hover {
+            background: #e2e8f0;
+        }
+
+        .detail-content {
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .course-header, .course-content {
+                padding: 24px;
+            }
+
+            .course-header h1 {
+                font-size: 2rem;
+            }
+
+            .course-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="../index.html" class="site-title">Joshua S Aaron</a>
+            <a href="../index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="course-header">
+            <h1>Foundations of AI for Business</h1>
+            <p style="color: var(--text-secondary); font-size: 1.1rem;">Exploring AI/ML concepts, tools, and best practices for business applications</p>
+
+            <div class="course-meta">
+                <div class="meta-item">
+                    <i class="fas fa-university"></i>
+                    <span>DCFE (Dundrum College of Further Education)</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>joshuaaaron@dcfe.ie</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="course-content">
+            <h2>Introduction</h2>
+            <p>Over the course of this year, we will explore a series of concepts, tools and best practices regarding three different forms of what generally is called "Artificial Intelligence" but we will refer to as three distinct machine learning applications. This will mean dispelling some myths, uncovering and addressing some biases, and developing both facility and literacy surrounding how ML systems work, how they are sold to businesses, and how they are depicted in media. Hopefully this will enable us to better sort fact from fiction, use these tools effectively, ethically, and safely, and avoid both typical pitfalls and the snake-oil salesmen of today.</p>
+
+            <p>This is where our class summaries, reflection questions and other assignments will be posted, and you are welcome to email me with any questions or if you would like feedback on your assignments beyond what we discuss in class. After our initial explorations and building a solid digital foundation, some of the material of this course can be found on LinkedIn Learning.</p>
+
+            <h2>Course Structure</h2>
+
+            <details open>
+                <summary>Week 1: Introduction</summary>
+                <div class="detail-content">
+                    <h4>Introductions: Who am I and Who are You?</h4>
+                    <p>On a sheet of paper please write the following in bullet point form:</p>
+                    <ul>
+                        <li>Your Full Name</li>
+                        <li>How you would like to be addressed</li>
+                        <li>A bit about your background, professional or personal</li>
+                        <li>What brought you to this class</li>
+                        <li>What you hope to learn in this class</li>
+                        <li>What is an unexpected application or use of AI or Machine learning that you have seen in recent years?</li>
+                    </ul>
+
+                    <h4>Whimsy and Wile</h4>
+                    <p>Please take your answers and make them into a poem. You can use any rhyme or rhythmic scheme, but I recommend a limerick, sonnet, or simple AABB/ABAB scheme.</p>
+                    <p><em>As you write: why am I asking you to write this poem? How does the task feel?</em></p>
+
+                    <h4>Questions for us to Consider</h4>
+                    <ol>
+                        <li>How do we determine a tool is fit to purpose?</li>
+                        <li>What data questions might we ask of Machine Learning Applications?</li>
+                        <li>What concerns might we have of new AI/ML tools?</li>
+                        <li>What resources might we use to better educate ourselves on this and related topics?</li>
+                        <li>How do we know if a source is credible?</li>
+                        <li>What kind of media literacy did I need to navigate the digital world without AI/ML?</li>
+                        <li>How can an AI/ML application save me time or effort?</li>
+                        <li>How can we gain the computer literacy needed to be able to use these tools?</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>Week 2: Exploring Basic Tools</summary>
+                <div class="detail-content">
+                    <h4>Establishing Baselines</h4>
+                    <p>Before we jump into how Artificial Intelligence (AI) and Machine Learning (ML) work, I would like for us to look at a few different tools together. Sometimes the applications we use everyday have aspects that are based on ML and AI and we don't even know it!</p>
+
+                    <h4>Today's Plan</h4>
+                    <ul>
+                        <li>Introduction: trying things out</li>
+                        <li>Discussion of AI/ML Tools and how we will investigate</li>
+                        <li>Investigation of AI/ML Tools</li>
+                        <li>Critical Reflection: key questions and goals</li>
+                    </ul>
+
+                    <h4>Tools we will explore</h4>
+                    <ul>
+                        <li>Google Docs</li>
+                        <li>Google Sheets</li>
+                        <li>Grammarly</li>
+                        <li>LinkedIn</li>
+                        <li>Coda</li>
+                        <li>Notion</li>
+                        <li>Canva</li>
+                        <li>Figma</li>
+                    </ul>
+
+                    <h4>Key Questions</h4>
+                    <ol>
+                        <li>What does the AI portion of this tool claim to do?</li>
+                        <li>What kind of information or data does the AI portion of this tool give me?</li>
+                        <li>What kind of information is collected?</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>Week 3: Elaboration on AI and ML Tools</summary>
+                <div class="detail-content">
+                    <p>Before delving into the intricacies of how Artificial Intelligence (AI) and Machine Learning (ML) operate, it's essential to explore various tools that we interact with daily. Many applications we use unknowingly leverage AI and ML technologies.</p>
+
+                    <p>When examining these tools, we can adopt different perspectives: understanding the appropriate context for their usage, identifying potential challenges and risks, and ensuring ethical and safe engagement with these tools.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Weeks 4-5: Accounts & Individualized Learning Plans</summary>
+                <div class="detail-content">
+                    <h4>Creating Accounts</h4>
+                    <p>Going forward, it would be helpful to you in your job search to have a few accounts set up that involve AI tools:</p>
+                    <ul>
+                        <li>LinkedIn</li>
+                        <li>Google Gemini</li>
+                        <li>Microsoft Copilot</li>
+                        <li>Grammarly</li>
+                        <li>Claude</li>
+                        <li>ChatGPT</li>
+                    </ul>
+
+                    <h4>Individualized Learning Plans</h4>
+                    <p>For the remainder of this course we will begin to use Individualized Learning Plans so that each of us can learn and explore at our own pace and toward slightly different, individually appropriate outcomes.</p>
+
+                    <h4>Loose Structure of Course</h4>
+                    <ul>
+                        <li><strong>November:</strong> Tools and Precursors to Modern LLM/AI Systems</li>
+                        <li><strong>December:</strong> Internet and Data Safety</li>
+                        <li><strong>January:</strong> LinkedIn Learning, Intro to AI</li>
+                        <li><strong>February:</strong> Explorations and Presentations</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>Weeks 6-9: Using AI Tools for LinkedIn Profiles</summary>
+                <div class="detail-content">
+                    <h4>Plan for Today</h4>
+                    <ul>
+                        <li>Go to LinkedIn and Google Gemini and log in</li>
+                        <li>Compose 2 distinct multiline prompts for creating professional text</li>
+                        <li>Include the 3 features we discussed: Context, Format, and Tone</li>
+                    </ul>
+
+                    <h4>Three Parts of a Prompt</h4>
+                    <ul>
+                        <li><strong>Context:</strong> What is your why and for whom? Where will this be shown?</li>
+                        <li><strong>Format:</strong> How should your response be structured?</li>
+                        <li><strong>Tone:</strong> How do you want your response to sound?</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>Weeks 10-11: Discussing Prompts and Outputs</summary>
+                <div class="detail-content">
+                    <h4>Reflections</h4>
+                    <ol>
+                        <li>What did you find challenging or rewarding about writing your prompt?</li>
+                        <li>When you input the same prompt into different LLMs, what happens?</li>
+                        <li>In terms of Tone, Format, and Context, what do you notice about the responses?</li>
+                        <li>How do these responses compare to 1-line or search-query responses?</li>
+                        <li>What are some questions or concerns you might have about these tools?</li>
+                    </ol>
+
+                    <h4>Next Steps</h4>
+                    <ul>
+                        <li>Read through the responses of each AI and compile them into a document</li>
+                        <li>Edit an individual response or go back and forth with the LLM</li>
+                        <li>Check for factual or tone errors line by line</li>
+                        <li>Integrate into your LinkedIn profile or ILP project</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details>
+                <summary>Week 12: Using and Exploring LinkedIn Learning</summary>
+                <div class="detail-content">
+                    <p>Welcome back from break! For today we will be exploring LinkedIn Learning and connecting what we have learned about prompts and AI to our LinkedIn profiles.</p>
+
+                    <ol>
+                        <li>Sign into LinkedIn and navigate to LinkedIn Learning</li>
+                        <li>Have a look around! What courses might be interesting to you?</li>
+                        <li>Think about what your independent learning plans might be for the next few months</li>
+                        <li>Have a look at the Independent Learning Plan Template</li>
+                    </ol>
+                </div>
+            </details>
+
+            <details>
+                <summary>Weeks 15-16: Project Work</summary>
+                <div class="detail-content">
+                    <p>Your Project, which hopefully serves your broader goals, will be due for review in early May during which we can discuss the challenges you faced, how you overcame those challenges, what you have learned over the course of the year and what your plans are moving forward.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Week 17: Review and Next Steps</summary>
+                <div class="detail-content">
+                    <h4>Review</h4>
+                    <ul>
+                        <li>Different boxes, different skills: how different tools use and respond to our words differently</li>
+                        <li>3 Parts of a Prompt: Context, Format, Tone</li>
+                        <li>Prompts and Queries across different tools</li>
+                    </ul>
+
+                    <h4>Plan for March</h4>
+                    <ul>
+                        <li><strong>Week 1:</strong> Principles of AI Literacy</li>
+                        <li><strong>Week 2:</strong> Check-In and Editing</li>
+                        <li><strong>Week 3:</strong> St Patrick's Day (Feedback via email/teams)</li>
+                        <li><strong>Week 4:</strong> Presentation of Work (15 Minutes each)</li>
+                        <li><strong>First Monday of April:</strong> Reflection</li>
+                    </ul>
+                </div>
+            </details>
+
+            <h2>Assessment</h2>
+            <p>Assessment in this course is continuous and project-based. You will be evaluated on:</p>
+            <ul>
+                <li>Participation in weekly activities and discussions</li>
+                <li>Development and maintenance of your Individualized Learning Plan</li>
+                <li>Quality of prompts and AI tool usage</li>
+                <li>LinkedIn profile development</li>
+                <li>Final project demonstrating application of AI tools to solve a real problem</li>
+                <li>Reflection on learning and growth throughout the course</li>
+            </ul>
+        </div>
+    </main>
+</body>
+</html>
