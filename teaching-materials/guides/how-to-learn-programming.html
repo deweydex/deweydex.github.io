@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Learn Programming - Joshua S Aaron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+            color: white;
+            padding: 48px 32px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        .content h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .content h3 {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .content p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .content ul, .content ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        .content li {
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .content strong {
+            color: var(--text-primary);
+        }
+
+        .highlight-box {
+            background: var(--surface);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 24px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 24px;
+            }
+
+            .page-header {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../short-form-guides.html" class="back-link">← Back to Short-form Guides</a>
+
+        <div class="page-header">
+            <h1><i class="fas fa-code"></i> How to Learn Programming</h1>
+            <p>A practical guide to learning programming in the mid-2020s</p>
+        </div>
+
+        <div class="content">
+            <h2>Introduction</h2>
+            <p>This guide will hopefully be a little bit different from most guides out there on how to learn programming in the mid 2020s. I will indeed give some concrete advice about what one can use and steps to get started, but the Resources and Recommendations Page contains more context specific suggestions for specific subjects and use cases.</p>
+
+            <h2>What Do You Mean By Programming?</h2>
+            <p>In my experience there are at least five types of programming: they are certainly all related, but the task of "learning programming" usually involves starting to learn one of these broader types:</p>
+
+            <ol>
+                <li><strong>Programming Contests or Puzzles</strong></li>
+                <li><strong>Scientific or Financial Programming</strong></li>
+                <li><strong>Programming Applications</strong> (Back-end, mid-layer, native)</li>
+                <li><strong>Graphics, Front-End and Web Programming</strong></li>
+                <li><strong>Low-Level Programming</strong></li>
+            </ol>
+
+            <p>Note that some areas require practices and ideas and languages from more than one of these broad types. In particular, learning how to create computer games likely involves learning several ways of thinking about programming, especially graphics heavy games or games involving complex mechanics.</p>
+
+            <div class="highlight-box">
+                <h4>My Philosophy</h4>
+                <p>There are many philosophies and opinions around what one ought to learn first. I don't really ascribe to a prescriptive sense of "should" here: <strong>learn whatever gets you excited and interested so that you can continue!</strong></p>
+            </div>
+
+            <p><strong>Aside:</strong> if you are learning how to program in order to accomplish something specific, like create a game or an app, diving into one of the other areas of programming might be a nice smooth introduction. In my courses we focus on learning how to learn programming and the connected subjects like math and computer science.</p>
+
+            <h2>A Coding Process for Bigger Challenges</h2>
+            <p>When confronted with a programming challenge, especially one which appears to be pretty big and where you aren't sure where to begin, there are a few basic rules of thumb which can do wonders for your confidence and get you on a path toward both understanding the scope of the problems you need to solve and what order you might best approach those problems.</p>
+
+            <h3>Planning Phase</h3>
+            <ol>
+                <li>
+                    <strong>Write the introduction or assignment brief in your own words:</strong> This will help you to highlight the parts you find important and also give you a chance to figure out what you don't understand. If the brief is very vague or big like "build a website for yourself" or "create a map for a game and the functions behind it," start by writing out (in words) the smallest simplest thing you can think of that might get the job done.
+                </li>
+                <li>
+                    <strong>Think through variables and data types:</strong> As you think through a problem, note down what variables you might need and what type of variables they might be. If you are not sure of what datatype to use, think through what you need the variables to do, what they need to store, how they will be manipulated, and then have a look at some documentation about various data structures that might solve that problem. To start, pick the simplest, even if it doesn't meet all of your needs—better to start with something than nothing!
+                </li>
+                <li>
+                    <strong>List the behaviors:</strong> Write out a list of the behaviours you would like your program to accomplish. See if you can break down each bigger behaviour like "tell the user where they are located" into as many substeps as you can. For example: provide a prompt to the user, receive user input, process that input amongst a few options (including "where am I?"), and provide an answer to the user based on a variable that we have stored earlier (if you haven't stored a variable, might want to put that at the top of your list of steps).
+                </li>
+                <li>
+                    <strong>Think through conditions and functions:</strong> Think through the conditions (if/else statements) you need to check—what variables do you need to check and for what property or amount? If you are able to see how those behaviours might map to functions, think through what you need each function to take as input (what types are those variables, if any?) and what type you need them to output. Feel free to have these if-then statements and function definitions kind of hanging loose in your editor with "TODO" comments showing what needs to happen before and after.
+                </li>
+            </ol>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Note</h4>
+                <p>All of the above can be done in any text document, or on paper! If you would like to try just jumping into code that's fine—some folks are planners, and others write lots of comments in their code that go over these things.</p>
+            </div>
+
+            <p>When you get to the actual coding, don't be afraid to use the simplest text editor you can! Especially in the beginning, a fully fledged IDE can seem a bit overwhelming. For my courses I recommend using online "lite" IDEs first, whether Jupyter Notebooks, online C# interpreters, Replit, and more.</p>
+
+            <h3>Coding Phase</h3>
+            <ol>
+                <li>
+                    <strong>Start defining variables and functions with names that make sense to you.</strong> A good variable name is one that is descriptive and often might be longer than we would like. The worst thing is an abbreviated name that you can't recognize later!
+                </li>
+                <li>
+                    <strong>Comments are your friends!</strong> Even multi-line comments. Describe your thoughts and intentions as you code—this will help you solve problems before they happen and figure out changes you might need to make later on.
+                </li>
+                <li>
+                    <strong>Print statements are also your friends!</strong> If you need to check the state of a variable before an if statement or during a loop, go ahead and print it out with a little string that says where that print-out happened! Digital ink is free—don't be afraid to have lots of little statements saying what is happening throughout your code.
+                </li>
+                <li>
+                    <strong>Not knowing what is next is normal.</strong> Not knowing where to begin is normal. <strong>Starting is more important than being correct.</strong> Writing a plan will help you find your footing but also allow you to ask for help more effectively. "I don't get it" is not a valid sentence if you are asking for help, but "I am stuck on this part of the plan because I don't understand how to do X" shows the person you are asking that you are trying to point them in the right direction.
+                </li>
+                <li>
+                    <strong>Everyone uses documentation.</strong> Learning how documentation works is part of learning how to code and how to solve coding challenges. Not remembering something is to be expected; not knowing how to find something just isn't necessary anymore. Using documentation to figure out what methods and functions exist and how to use them is what the beginning, middle, and end of learning to code looks like—just the documentation and the challenges you try to solve get more involved and complex.
+                </li>
+                <li>
+                    <strong>Complete the minimum required first.</strong> If there is a brief, complete the minimum required for the brief first, then start expanding and creating more elaborate stuff. It can be too easy to get lost in the part of the project you enjoy and forget the rest of an assignment. In the case of coding, the minimum requirements are usually enough—all that is above that is to be encouraged, but is then about your learning, not fulfilling an assignment.
+                </li>
+            </ol>
+
+            <h2>Learning Python</h2>
+            <p>The following are a list of tutorials (contained in Jupyter Notebooks) that I created for learning python that have a focus on Machine Learning, an area that often has a lot of built-in "mysticism" these days. On the one hand, these are just a way of learning the basics of python. On the other hand, they are a bit different from other tutorials you might see online.</p>
+
+            <p>For example, you will notice that there is an invitation to complete these tutorials in any order: while it is true that some of the content is cumulative (builds upon previous lessons), in my experience, <strong>a good problem is a better motivator than "the next thing."</strong></p>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-star"></i> Recommendation</h4>
+                <p>Spend a few minutes scanning all of the tutorials. If you find an example interesting in a latter tutorial, start with that one and see if you can fill in the necessary material on the fly—you would be surprised how much faster you learn when you go from interesting problem to interesting problem!</p>
+            </div>
+
+            <h3>Programming Tutorials</h3>
+            <ul>
+                <li>Python From Scratch</li>
+                <li>All Tutorials - All Levels</li>
+            </ul>
+
+            <p style="margin-top: 32px; font-style: italic; color: var(--text-secondary);">I am sure there will be more of these as the semester goes on, thanks for helping me learn to be better able to help you all learn! :) — JSA</p>
+        </div>
+    </div>
+</body>
+</html>
