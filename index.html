@@ -86,93 +86,116 @@
 
         /* Main Content */
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        .page-content {
+        .hero-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .quick-link-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-link-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .quick-link-card p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .course-section {
             background: white;
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
         }
 
-        .page-content h1 {
-            font-size: 2.5rem;
+        .course-section h2 {
+            font-size: 2rem;
             margin-bottom: 20px;
             color: var(--text-primary);
             border-bottom: 2px solid var(--border);
             padding-bottom: 12px;
         }
 
-        .page-content h2 {
-            font-size: 1.75rem;
-            margin-top: 32px;
-            margin-bottom: 16px;
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .course-card {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .course-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
             color: var(--text-primary);
         }
 
-        .page-content h3 {
-            font-size: 1.25rem;
-            margin-top: 24px;
-            margin-bottom: 12px;
+        .course-card p {
             color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
         }
 
-        .page-content p {
-            margin-bottom: 16px;
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-        }
-
-        .page-content ul,
-        .page-content ol {
-            margin-bottom: 16px;
-            padding-left: 32px;
-        }
-
-        .page-content li {
-            margin-bottom: 8px;
-            color: var(--text-secondary);
-        }
-
-        .page-content a {
+        .course-card a {
             color: var(--primary-color);
             text-decoration: none;
+            font-weight: 500;
         }
 
-        .page-content a:hover {
+        .course-card a:hover {
             text-decoration: underline;
-        }
-
-        .page-content strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .page-content code {
-            background: var(--surface);
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Monaco', 'Menlo', monospace;
-            font-size: 0.9em;
-        }
-
-        .page-content pre {
-            background: var(--surface);
-            padding: 16px;
-            border-radius: 6px;
-            overflow-x: auto;
-            margin-bottom: 16px;
-        }
-
-        .page-content blockquote {
-            border-left: 4px solid var(--primary-color);
-            padding-left: 16px;
-            margin: 16px 0;
-            font-style: italic;
-            color: var(--text-secondary);
         }
 
         /* Footer */
@@ -256,12 +279,20 @@
                 display: block;
             }
 
-            .page-content {
-                padding: 24px;
+            .hero-section {
+                padding: 40px 24px;
             }
 
-            .page-content h1 {
+            .hero-section h1 {
                 font-size: 2rem;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
             }
 
             .admin-link {
@@ -283,11 +314,11 @@
             </button>
             <nav>
                 <ul class="site-nav" id="siteNav">
-                    <li><a href="#about" class="active">About</a></li>
-                    <li><a href="#teaching">Teaching</a></li>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
                     <li><a href="teaching-materials.html">Teaching Materials</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="guides.html">Guides</a></li>
+                    <li><a href="resources.html">Resources</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -296,148 +327,124 @@
 
     <!-- Main Content -->
     <main class="container">
-        <div class="page-content" id="pageContent">
-            <!-- About Section -->
-            <section id="about">
-                <h1>Joshua S Aaron</h1>
+        <!-- Hero Section -->
+        <div class="hero-section" id="home">
+            <h1>Welcome to Joshua Aaron's Teaching Portal</h1>
+            <p>I am currently finishing a masters degree in Computer Science and Mathematics Education at the Free University. My teaching and content styles are informed by progressive education movements in both a European and American context, influenced heavily by the praxis-oriented methods of Paulo Freire.</p>
+        </div>
 
-                <h2>Background</h2>
-                <p>I am currently finishing a masters degree in Computer Science and Mathematics Education at the Free University. I have a background in the Tech and Startup world, have taught in Los Angeles as part of City Year, at the Nelson Mandela school as part of my Masters, and for the last few years have helped to run Archetyp Cafe, an experiment in social business.</p>
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <a href="#about" class="quick-link-card">
+                <h3><i class="fas fa-user"></i> About Me</h3>
+                <p>Learn about my background, teaching philosophy, and areas of interest</p>
+            </a>
+            <a href="teaching-materials.html" class="quick-link-card">
+                <h3><i class="fas fa-book"></i> Teaching Materials</h3>
+                <p>Access classroom materials, worksheets, and teaching resources</p>
+            </a>
+            <a href="#courses" class="quick-link-card">
+                <h3><i class="fas fa-graduation-cap"></i> Current Courses</h3>
+                <p>View my current teaching schedule and course materials</p>
+            </a>
+            <a href="resources.html" class="quick-link-card">
+                <h3><i class="fas fa-link"></i> Resources</h3>
+                <p>Recommended books, channels, and learning resources</p>
+            </a>
+        </div>
 
-                <h2>Teaching Philosophy</h2>
-                <p>My teaching and content styles are informed by progressive education movements in both a European and American context, though are also influenced heavily by the praxis-oriented methods of Paulo Freire.</p>
+        <!-- About Section -->
+        <div class="course-section" id="about">
+            <h2>About Me</h2>
+            <p>I love learning! This remains the strongest thread connecting the various endeavors and happenings of the past decade and a half. Those years have led me to various cities and jobs where I have had the good fortune of learning from fantastic teachers and students over the years.</p>
 
-                <h3>Core Principles</h3>
-                <ul>
-                    <li><strong>Student-centered learning</strong>: Empowering students to take ownership of their learning journey</li>
-                    <li><strong>Real-world application</strong>: Connecting theoretical concepts to practical, meaningful projects</li>
-                    <li><strong>Critical thinking</strong>: Encouraging students to question, analyze, and construct knowledge</li>
-                    <li><strong>Collaborative learning</strong>: Building communities of practice where students learn from each other</li>
-                </ul>
+            <p>My original academic background is in Computer Science and Mathematics from McGill University in Montreal, but the most interesting and exciting stuff always seems to happen when one mixes the technical fields with the humanistic. My more recent academic focus lies in Machine Learning, Intelligent Systems (and their societal implications) while at the Technical University of Berlin. I am currently working towards a Masters in Human Centered Artificial Intelligence at Technical University of Dublin (Expected 2026).</p>
 
-                <h2>Areas of Interest</h2>
-                <ul>
-                    <li>Computer Science Education</li>
-                    <li>Mathematics Education</li>
-                    <li>Progressive Education</li>
-                    <li>Educational Technology</li>
-                    <li>Social Entrepreneurship</li>
-                </ul>
-            </section>
+            <h3>Teaching Experience</h3>
+            <ul style="margin-left: 32px; margin-top: 10px;">
+                <li style="margin-bottom: 8px;">Nelson Mandela School - Teaching Mathematics and Computer Science as part of my Masters program</li>
+                <li style="margin-bottom: 8px;">City Year, Los Angeles - Working with students in underserved communities</li>
+                <li style="margin-bottom: 8px;">Archetyp Cafe - Educational workshops and community learning initiatives</li>
+                <li style="margin-bottom: 8px;">DCFE & BFEI - Current teaching position in Dublin</li>
+            </ul>
 
-            <!-- Teaching Section -->
-            <section id="teaching" style="margin-top: 60px;">
-                <h1>Current Teaching</h1>
+            <h3>Teaching Philosophy</h3>
+            <p>My teaching and content styles are informed by progressive education movements in both a European and American context, though are also influenced heavily by the praxis-oriented methods of Paulo Freire.</p>
 
-                <h2>Philosophy on Adult Learning</h2>
-                <p>In adult learning contexts, what habits and expectations an adult learner brings with them from their schooling is often more important than access to quality teachers or content.</p>
+            <h4 style="margin-top: 20px;">Core Principles</h4>
+            <ul style="margin-left: 32px; margin-top: 10px;">
+                <li style="margin-bottom: 8px;"><strong>Student-centered learning</strong>: Empowering students to take ownership of their learning journey</li>
+                <li style="margin-bottom: 8px;"><strong>Real-world application</strong>: Connecting theoretical concepts to practical, meaningful projects</li>
+                <li style="margin-bottom: 8px;"><strong>Critical thinking</strong>: Encouraging students to question, analyze, and construct knowledge</li>
+                <li style="margin-bottom: 8px;"><strong>Collaborative learning</strong>: Building communities of practice where students learn from each other</li>
+            </ul>
+        </div>
 
-                <h2>Teaching Materials</h2>
-                <p>While the vast majority of work produced for organizations such as Nelson and Paper remains their property, there are a few exercises, learning materials, and workshops available with context surrounding their creation or delivery.</p>
+        <!-- Courses Section -->
+        <div class="course-section" id="courses">
+            <h2>Current Courses</h2>
+            <p>Below are the courses I'm currently teaching. Click on any course to view detailed materials, weekly lessons, and resources.</p>
 
-                <h2>Approach</h2>
-                <p>My teaching and content styles are informed by:</p>
-                <ul>
-                    <li>Progressive education movements in both European and American contexts</li>
-                    <li>Praxis-oriented methods of Paulo Freire</li>
-                    <li>Focus on what learners bring to the classroom</li>
-                    <li>Emphasis on transformative learning experiences</li>
-                </ul>
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Foundations of AI for Business</h3>
+                    <p>Exploring AI/ML concepts, tools, and best practices for business applications. Covers LLM tools, prompts, and LinkedIn Learning integration.</p>
+                    <a href="courses/ai-for-business.html">View Course →</a>
+                </div>
 
-                <h2>Teaching Experience</h2>
+                <div class="course-card">
+                    <h3>Maths for IT</h3>
+                    <p>Comprehensive mathematics course covering algorithms, probability, statistics, calculus, and trigonometry with Python integration.</p>
+                    <a href="courses/maths-for-it.html">View Course →</a>
+                </div>
 
-                <h3>Nelson Mandela School</h3>
-                <p>Teaching Mathematics and Computer Science as part of my Masters program</p>
+                <div class="course-card">
+                    <h3>Web Authoring & Databases</h3>
+                    <p>Learn HTML, CSS, JavaScript, and SQL. Build projects using GitHub Pages, Jupyter notebooks, and modern web frameworks.</p>
+                    <a href="courses/web-authoring.html">View Course →</a>
+                </div>
 
-                <h3>City Year - Los Angeles</h3>
-                <p>Working with students in underserved communities</p>
+                <div class="course-card">
+                    <h3>Programming Design Principles</h3>
+                    <p>Python programming fundamentals with focus on practice problems, skills demonstrations, and project-based learning.</p>
+                    <a href="courses/programming-design-principles.html">View Course →</a>
+                </div>
 
-                <h3>Archetyp Cafe</h3>
-                <p>Educational workshops and community learning initiatives</p>
+                <div class="course-card">
+                    <h3>Foundations of OOP (FOOP)</h3>
+                    <p>Object-oriented programming in C# and Python. Includes mock exams, practice problems, and interactive notebooks.</p>
+                    <a href="courses/foop.html">View Course →</a>
+                </div>
 
-                <h2>Course Materials</h2>
-                <p>I've developed comprehensive teaching materials for Computer Science, Mathematics, and Communications courses. These include:</p>
-                <ul>
-                    <li><strong>The Banana Project</strong>: A series of critical thinking assignments teaching students to analyze framing, persuasion, and perspective in media</li>
-                    <li><strong>Programming Practice</strong>: Python and C# exercises with Jupyter notebooks</li>
-                    <li><strong>Web Development</strong>: Hands-on web authoring exercises and projects</li>
-                    <li><strong>Database Methods</strong>: SQL tutorials and database design materials</li>
-                </ul>
-                <p><a href="teaching-materials.html" style="color: var(--primary-color); font-weight: 600;">View All Teaching Materials →</a></p>
-            </section>
+                <div class="course-card">
+                    <h3>Communications</h3>
+                    <p>Professional communication skills including client interactions, grants research, and tone/register understanding.</p>
+                    <a href="courses/communications.html">View Course →</a>
+                </div>
 
-            <!-- Resources Section -->
-            <section id="resources" style="margin-top: 60px;">
-                <h1>Recommended Resources</h1>
-                <p>This section is currently under construction. Based on feedback that a long list of books and channels might not be helpful, I'm curating a more focused selection.</p>
+                <div class="course-card">
+                    <h3>Research & Study Skills</h3>
+                    <p>Learn how to evaluate sources, conduct research, and understand media literacy. Includes the "Humble Banana" framing project.</p>
+                    <a href="courses/research-study-skills.html">View Course →</a>
+                </div>
 
-                <h2>Modern Progressive Education</h2>
-                <ul>
-                    <li>Dennis Littky</li>
-                    <li>Eliot Washor</li>
-                    <li>Robert P Moses</li>
-                    <li>Margaret Rasfeld</li>
-                </ul>
+                <div class="course-card">
+                    <h3>Personal & Professional Development</h3>
+                    <p>CV building, interview skills, developer profiles, and career planning for technical roles.</p>
+                    <a href="courses/ppd.html">View Course →</a>
+                </div>
+            </div>
+        </div>
 
-                <h2>Theory-Oriented Books</h2>
+        <!-- Contact Section -->
+        <div class="course-section" id="contact">
+            <h2>Contact</h2>
+            <p>For inquiries relating to content, curriculum design, or other opportunities, I would greatly appreciate some indication of your timeline and budget in addition to whatever project description you feel comfortable sharing.</p>
 
-                <h3>Education and Democracy</h3>
-                <p>By John Dewey - A foundational text on democratic education</p>
+            <p style="margin-top: 20px;"><strong>Current Institution:</strong> DCFE (Dundrum College of Further Education)<br>
+            <strong>Email:</strong> joshuaaaron@dcfe.ie</p>
 
-                <h3>Pedagogy of the Oppressed</h3>
-                <p>By Paulo Freire - Critical pedagogy and liberatory education</p>
-
-                <h2>Resources for Math Teaching</h2>
-
-                <h3>Art of Problem Solving Books</h3>
-                <p>Excellent resources for developing mathematical thinking</p>
-
-                <h2>More Coming Soon</h2>
-                <p>This list will be updated with more carefully selected resources that have proven most valuable in my teaching practice.</p>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects" style="margin-top: 60px;">
-                <h1>Projects</h1>
-
-                <h2>Archetyp Cafe</h2>
-                <p>An experiment in social business that I've helped run for the past few years. Archetyp Cafe explores how business can serve as a vehicle for community building and social impact.</p>
-
-                <h3>Goals</h3>
-                <ul>
-                    <li>Create inclusive community spaces</li>
-                    <li>Support local initiatives</li>
-                    <li>Explore sustainable business models</li>
-                    <li>Foster meaningful connections</li>
-                </ul>
-
-                <h2>Research Projects</h2>
-
-                <h3>Computer Science Education Research</h3>
-                <p>Exploring effective methods for teaching computational thinking and programming</p>
-
-                <h3>Mathematics Pedagogy Studies</h3>
-                <p>Investigating how students construct mathematical understanding</p>
-
-                <h3>Educational Technology Development</h3>
-                <p>Creating tools and platforms that support progressive education</p>
-
-                <h2>Community Initiatives</h2>
-                <ul>
-                    <li>Local teaching workshops</li>
-                    <li>Mentorship programs</li>
-                    <li>Educational resource development</li>
-                    <li>Curriculum design projects</li>
-                </ul>
-
-                <p><em>More projects and detailed information coming soon...</em></p>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact" style="margin-top: 60px;">
-                <h1>Contact</h1>
-                <p>Feel free to reach out for collaboration, consultation, or just to discuss education and technology!</p>
-            </section>
+            <p style="margin-top: 20px;">For professional inquiries, please visit the consultancy I am associated with, or reach out directly using the contact information above.</p>
         </div>
     </main>
 
@@ -446,17 +453,18 @@
         <div class="footer-content">
             <p>&copy; 2024 Joshua S Aaron. All rights reserved.</p>
             <div class="footer-links">
+                <a href="#home">Home</a>
                 <a href="#about">About</a>
-                <a href="#teaching">Teaching</a>
+                <a href="#courses">Courses</a>
                 <a href="teaching-materials.html">Teaching Materials</a>
-                <a href="#resources">Resources</a>
-                <a href="#projects">Projects</a>
+                <a href="guides.html">Guides</a>
+                <a href="resources.html">Resources</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
     </footer>
 
-    <!-- Admin Link (only visible to site owner) -->
+    <!-- Admin Link -->
     <a href="cms.html" class="admin-link" title="Edit Site">
         <i class="fas fa-edit"></i>
         <span>Edit Site</span>
@@ -491,7 +499,7 @@
         });
 
         // Update active nav on scroll
-        const sections = document.querySelectorAll('section[id]');
+        const sections = document.querySelectorAll('section[id], .course-section[id], .hero-section[id]');
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
