@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua S Aaron - Knowledge Base</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Marked.js for markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>📚 Knowledge Base</h1>
+                <button class="btn-icon" id="toggleSidebar" title="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-actions">
+                <button class="btn-primary" id="newPageBtn">
+                    <i class="fas fa-plus"></i> New Page
+                </button>
+                <button class="btn-secondary" id="newSubPageBtn" disabled>
+                    <i class="fas fa-level-down-alt"></i> New Subpage
+                </button>
+            </div>
+
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search pages...">
+            </div>
+
+            <nav class="page-tree" id="pageTree">
+                <!-- Page tree will be populated by JavaScript -->
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="editor-header">
+                <input type="text" id="pageTitle" class="page-title-input" placeholder="Untitled Page">
+                <div class="editor-actions">
+                    <button class="btn-icon" id="toggleEditMode" title="Toggle Edit/Preview">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="btn-icon" id="uploadFileBtn" title="Upload File">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <button class="btn-icon" id="deletePageBtn" title="Delete Page">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="btn-icon" id="exportPageBtn" title="Export as Markdown">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <!-- Edit Mode -->
+                <div class="editor-pane" id="editorPane">
+                    <textarea id="markdownEditor" placeholder="Start writing in Markdown...
+
+# Heading 1
+## Heading 2
+### Heading 3
+
+**Bold text**
+*Italic text*
+- List item
+1. Numbered item
+
+[Link text](url)
+![Image alt](image-url)
+
+```code block```
+"></textarea>
+                </div>
+
+                <!-- Preview Mode -->
+                <div class="preview-pane" id="previewPane">
+                    <div id="markdownPreview" class="markdown-content">
+                        <div class="welcome-message">
+                            <h1>Welcome to Your Knowledge Base</h1>
+                            <p>Create a new page or select an existing one from the sidebar to get started.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Attachments Section -->
+            <div class="attachments-section" id="attachmentsSection">
+                <h3><i class="fas fa-paperclip"></i> Attachments</h3>
+                <div class="attachments-list" id="attachmentsList">
+                    <!-- Attachments will be listed here -->
+                </div>
+            </div>
+
+            <!-- Hidden file input -->
+            <input type="file" id="fileInput" style="display: none;" multiple>
+        </main>
+    </div>
+
+    <!-- Modal for page creation -->
+    <div class="modal" id="newPageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Page</h2>
+                <button class="btn-icon" id="closeModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="newPageTitle">Page Title:</label>
+                <input type="text" id="newPageTitle" placeholder="Enter page title" autofocus>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelNewPage">Cancel</button>
+                <button class="btn-primary" id="confirmNewPage">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import/Export Modal -->
+    <div class="modal" id="importExportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Import/Export Data</h2>
+                <button class="btn-icon" id="closeImportExportModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <button class="btn-primary" id="exportAllBtn">
+                    <i class="fas fa-download"></i> Export All Data (JSON)
+                </button>
+                <button class="btn-secondary" id="importBtn">
+                    <i class="fas fa-upload"></i> Import Data (JSON)
+                </button>
+                <input type="file" id="importFileInput" accept=".json" style="display: none;">
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
