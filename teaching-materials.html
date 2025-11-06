@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Materials - Joshua S Aaron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary: #94a3b8;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .site-header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .material-category {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .material-category:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .material-category h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .material-category h2 i {
+            font-size: 1.75rem;
+        }
+
+        .material-category p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .material-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .material-item {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: var(--surface);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+        }
+
+        .material-item:hover {
+            background: var(--border);
+        }
+
+        .material-item i {
+            color: var(--text-tertiary);
+            font-size: 1.1rem;
+        }
+
+        .material-item a {
+            color: var(--text-primary);
+            text-decoration: none;
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .material-item a:hover {
+            color: var(--primary-color);
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge.pdf {
+            background: var(--danger);
+            color: white;
+        }
+
+        .badge.notebook {
+            background: var(--warning);
+            color: white;
+        }
+
+        .badge.code {
+            background: var(--success);
+            color: white;
+        }
+
+        .badge.markdown {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .featured-section {
+            background: linear-gradient(135deg, var(--primary-color), #1d4ed8);
+            color: white;
+            padding: 48px;
+            border-radius: 16px;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .featured-section h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .featured-section p {
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .assignment-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .assignment-card {
+            background: white;
+            color: var(--text-primary);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .assignment-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .assignment-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .assignment-card a {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .assignment-card a:hover {
+            text-decoration: underline;
+        }
+
+        .site-footer {
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .materials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .featured-section {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="site-title">Joshua S Aaron</a>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-graduation-cap"></i> Teaching Materials</h1>
+            <p>Course materials, assignments, and resources for Computer Science, Mathematics Education, and Communications courses.</p>
+        </div>
+
+        <!-- Featured: Critical Thinking Assignments -->
+        <div class="featured-section">
+            <h2>🍌 The Banana Project: Critical Media Literacy</h2>
+            <p>A series of assignments teaching students to analyze persuasion, framing, and perspective through creative writing exercises.</p>
+            <div class="assignment-cards">
+                <div class="assignment-card">
+                    <h3>BIG BANANA</h3>
+                    <p>Corporate marketing perspective - Learn to identify selective truth-telling and corporate framing techniques.</p>
+                    <a href="materials/Assignment_1_Big_Banana.md" download>
+                        <i class="fas fa-download"></i> Download Assignment
+                    </a>
+                </div>
+                <div class="assignment-card">
+                    <h3>BANANAS FOR ALL</h3>
+                    <p>Social justice perspective - Explore food justice framing and grassroots advocacy language.</p>
+                    <a href="materials/Assignment_2_Bananas_For_All.md" download>
+                        <i class="fas fa-download"></i> Download Assignment
+                    </a>
+                </div>
+                <div class="assignment-card">
+                    <h3>BADNANA</h3>
+                    <p>Historical/human rights perspective - Use historical memory and moral authority in communication.</p>
+                    <a href="materials/Assignment_3_Badnana.md" download>
+                        <i class="fas fa-download"></i> Download Assignment
+                    </a>
+                </div>
+                <div class="assignment-card">
+                    <h3>BAN-BANANAS</h3>
+                    <p>Scientific perspective - Practice scientific communication and evidence-based argumentation.</p>
+                    <a href="materials/Assignment_4_BAN_Bananas.md" download>
+                        <i class="fas fa-download"></i> Download Assignment
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Materials Grid -->
+        <div class="materials-grid">
+            <!-- Programming Materials -->
+            <div class="material-category">
+                <h2><i class="fas fa-code"></i> Programming</h2>
+                <p>Python and C# practice problems, tutorials, and exercises</p>
+                <ul class="material-list">
+                    <li class="material-item">
+                        <i class="fab fa-python"></i>
+                        <a href="materials/Tutorial_0_Getting_Started_in_Python.ipynb" download>Getting Started in Python</a>
+                        <span class="badge notebook">Notebook</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-code"></i>
+                        <a href="materials/practice-problems-1.py" download>Practice Problems Set 1</a>
+                        <span class="badge code">Python</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-code"></i>
+                        <a href="materials/practice-problems-1.cs" download>Practice Problems Set 1 (C#)</a>
+                        <span class="badge code">C#</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-archive"></i>
+                        <a href="materials/CSharp and Python Practice Problems.zip" download>All Practice Problems (ZIP)</a>
+                        <span class="badge code">ZIP</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fab fa-python"></i>
+                        <a href="materials/sqlite_tutorial.ipynb" download>SQLite Tutorial</a>
+                        <span class="badge notebook">Notebook</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Object-Oriented Programming -->
+            <div class="material-category">
+                <h2><i class="fas fa-object-group"></i> Object-Oriented Programming</h2>
+                <p>OOP concepts, exercises, and Jupyter notebooks</p>
+                <ul class="material-list">
+                    <li class="material-item">
+                        <i class="fab fa-python"></i>
+                        <a href="materials/hitchhikers-oop-notebook.ipynb" download>Hitchhiker's Guide to OOP</a>
+                        <span class="badge notebook">Notebook</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fab fa-python"></i>
+                        <a href="materials/jupyter-notebook-oop.ipynb" download>OOP Jupyter Notebook</a>
+                        <span class="badge notebook">Notebook</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fab fa-python"></i>
+                        <a href="materials/fantasy-notebook.ipynb" download>Fantasy OOP Examples</a>
+                        <span class="badge notebook">Notebook</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fab fa-python"></i>
+                        <a href="materials/FOOP Skills Demo 1 Brief Csharp.ipynb" download>FOOP Skills Demo</a>
+                        <span class="badge notebook">Notebook</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fab fa-python"></i>
+                        <a href="materials/Foop Mock Exam Csharp With Answers.ipynb" download>Mock Exam with Answers</a>
+                        <span class="badge notebook">Notebook</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Web Development -->
+            <div class="material-category">
+                <h2><i class="fas fa-globe"></i> Web Development</h2>
+                <p>Web authoring assignments and exercises</p>
+                <ul class="material-list">
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/WebAuthoring5N1910 v2 2013.pdf" download>Web Authoring Course (5N1910)</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/WAAssignment1 2024.pdf" download>Web Authoring Assignment 1</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-archive"></i>
+                        <a href="materials/Break and Make a Website.zip" download>Break and Make a Website</a>
+                        <span class="badge code">ZIP</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-archive"></i>
+                        <a href="materials/tax_simulation_real-2.html.zip" download>Tax Simulation Exercise</a>
+                        <span class="badge code">ZIP</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Communications -->
+            <div class="material-category">
+                <h2><i class="fas fa-comments"></i> Communications</h2>
+                <p>Course materials for communications and media literacy</p>
+                <ul class="material-list">
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/6N1950 Communications v2.1 (rev) Aug 2025.pdf" download>Communications Course (6N1950)</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/Communications_L6.pdf" download>Communications Level 6</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-markdown"></i>
+                        <a href="materials/Assignment_1_Big_Banana.md" download>Assignment: Big Banana</a>
+                        <span class="badge markdown">MD</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-markdown"></i>
+                        <a href="materials/Assignment_2_Bananas_For_All.md" download>Assignment: Bananas for All</a>
+                        <span class="badge markdown">MD</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Database Methods -->
+            <div class="material-category">
+                <h2><i class="fas fa-database"></i> Database Methods</h2>
+                <p>Database design and SQL tutorials</p>
+                <ul class="material-list">
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/DatabaseMethods5N0783 v2 Oct 2014.pdf" download>Database Methods Course</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fab fa-python"></i>
+                        <a href="materials/sqlite_tutorial.ipynb" download>SQLite Tutorial Notebook</a>
+                        <span class="badge notebook">Notebook</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Research & Study Skills -->
+            <div class="material-category">
+                <h2><i class="fas fa-book-reader"></i> Research & Study Skills</h2>
+                <p>Academic research and source evaluation</p>
+                <ul class="material-list">
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/ResearchAndStudySkills5N3113 v2 May 2014.pdf" download>Research & Study Skills Course</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-word"></i>
+                        <a href="materials/Source_Evaluation_Guide.docx" download>Source Evaluation Guide</a>
+                        <span class="badge">DOCX</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/Exploratory_Worksheets.pdf" download>Exploratory Worksheets</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Mathematics -->
+            <div class="material-category">
+                <h2><i class="fas fa-square-root-alt"></i> Mathematics</h2>
+                <p>Mathematics exercises and practice problems</p>
+                <ul class="material-list">
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/polynomial_practice.pdf" download>Polynomial Practice</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/transformations_on_linear_and_quadratic_equations.pdf" download>Transformations on Equations</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fab fa-python"></i>
+                        <a href="materials/jupyter-map-notebook.ipynb" download>Interactive Map Notebook</a>
+                        <span class="badge notebook">Notebook</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Professional Development -->
+            <div class="material-category">
+                <h2><i class="fas fa-briefcase"></i> Professional Development</h2>
+                <p>Personal and professional development resources</p>
+                <ul class="material-list">
+                    <li class="material-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <a href="materials/PersonalProfessionalDevelopment6N1949.pdf" download>Personal & Professional Development</a>
+                        <span class="badge pdf">PDF</span>
+                    </li>
+                    <li class="material-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <a href="materials/Joshua Aaron Timetable.png" download>Course Timetable</a>
+                        <span class="badge">PNG</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Joshua S Aaron. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="index.html" style="color: var(--text-secondary); text-decoration: none;">Back to Home</a> |
+            <a href="cms.html" style="color: var(--text-secondary); text-decoration: none;">Edit Site</a>
+        </p>
+    </footer>
+</body>
+</html>
