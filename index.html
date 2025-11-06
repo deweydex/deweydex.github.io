@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua S Aaron - Knowledge Base</title>
+    <title>Joshua S Aaron - Content Manager</title>
     <link rel="stylesheet" href="style.css">
     <!-- Marked.js for markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -11,11 +11,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- GitHub Connection Banner -->
+    <div class="github-banner" id="githubBanner">
+        <div class="banner-content">
+            <i class="fab fa-github"></i>
+            <span id="bannerText">Not connected to GitHub</span>
+            <button class="btn-banner" id="connectGithubBtn">Connect to GitHub</button>
+        </div>
+    </div>
+
     <div class="app-container">
         <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <h1>📚 Knowledge Base</h1>
+                <h1>📝 Content Manager</h1>
                 <button class="btn-icon" id="toggleSidebar" title="Toggle Sidebar">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -28,6 +37,14 @@
                 <button class="btn-secondary" id="newSubPageBtn" disabled>
                     <i class="fas fa-level-down-alt"></i> New Subpage
                 </button>
+                <button class="btn-publish" id="publishBtn" disabled>
+                    <i class="fas fa-cloud-upload-alt"></i> Publish to GitHub
+                </button>
+            </div>
+
+            <div class="sync-status" id="syncStatus">
+                <i class="fas fa-circle"></i>
+                <span>Changes saved locally</span>
             </div>
 
             <div class="search-box">
@@ -38,6 +55,15 @@
             <nav class="page-tree" id="pageTree">
                 <!-- Page tree will be populated by JavaScript -->
             </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-icon" id="settingsBtn" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button class="btn-icon" id="importExportBtn" title="Import/Export">
+                    <i class="fas fa-file-export"></i>
+                </button>
+            </div>
         </aside>
 
         <!-- Main Content Area -->
@@ -47,6 +73,9 @@
                 <div class="editor-actions">
                     <button class="btn-icon" id="toggleEditMode" title="Toggle Edit/Preview">
                         <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="btn-icon" id="insertLinkBtn" title="Insert Link">
+                        <i class="fas fa-link"></i>
                     </button>
                     <button class="btn-icon" id="uploadFileBtn" title="Upload File">
                         <i class="fas fa-paperclip"></i>
@@ -85,8 +114,8 @@
                 <div class="preview-pane" id="previewPane">
                     <div id="markdownPreview" class="markdown-content">
                         <div class="welcome-message">
-                            <h1>Welcome to Your Knowledge Base</h1>
-                            <p>Create a new page or select an existing one from the sidebar to get started.</p>
+                            <h1>Welcome to Your Content Manager</h1>
+                            <p>Connect to GitHub to sync your content, or start creating pages locally.</p>
                         </div>
                     </div>
                 </div>
@@ -125,6 +154,64 @@
         </div>
     </div>
 
+    <!-- GitHub Settings Modal -->
+    <div class="modal" id="githubSettingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>GitHub Connection Settings</h2>
+                <button class="btn-icon" id="closeGithubModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="githubToken">GitHub Personal Access Token:</label>
+                    <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxx">
+                    <small>Need a token? <a href="https://github.com/settings/tokens/new?scopes=repo&description=Content%20Manager" target="_blank">Create one here</a></small>
+                </div>
+                <div class="form-group">
+                    <label for="githubRepo">Repository (username/repo):</label>
+                    <input type="text" id="githubRepo" placeholder="username/repo-name">
+                </div>
+                <div class="form-group">
+                    <label for="githubBranch">Branch:</label>
+                    <input type="text" id="githubBranch" placeholder="main" value="main">
+                </div>
+                <div class="connection-status" id="connectionStatus"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="disconnectGithub">Disconnect</button>
+                <button class="btn-primary" id="saveGithubSettings">Connect</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Insert Link Modal -->
+    <div class="modal" id="insertLinkModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Insert Link</h2>
+                <button class="btn-icon" id="closeLinkModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="linkText">Link Text:</label>
+                    <input type="text" id="linkText" placeholder="Click here">
+                </div>
+                <div class="form-group">
+                    <label for="linkUrl">URL:</label>
+                    <input type="text" id="linkUrl" placeholder="https://example.com">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelLink">Cancel</button>
+                <button class="btn-primary" id="confirmLink">Insert</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Import/Export Modal -->
     <div class="modal" id="importExportModal">
         <div class="modal-content">
@@ -135,15 +222,24 @@
                 </button>
             </div>
             <div class="modal-body">
+                <h3>Export</h3>
                 <button class="btn-primary" id="exportAllBtn">
-                    <i class="fas fa-download"></i> Export All Data (JSON)
+                    <i class="fas fa-download"></i> Export All Pages (JSON)
                 </button>
+                <hr style="margin: 20px 0;">
+                <h3>Import</h3>
                 <button class="btn-secondary" id="importBtn">
-                    <i class="fas fa-upload"></i> Import Data (JSON)
+                    <i class="fas fa-upload"></i> Import Pages (JSON)
                 </button>
                 <input type="file" id="importFileInput" accept=".json" style="display: none;">
             </div>
         </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <p id="loadingText">Loading...</p>
     </div>
 
     <script src="app.js"></script>
