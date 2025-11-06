@@ -124,7 +124,7 @@ class ContentManager {
 
         const url = `https://api.github.com/repos/${this.githubConfig.repo}/${endpoint}`;
         const headers = {
-            'Authorization': `Bearer ${this.githubConfig.token}`,
+            'Authorization': `token ${this.githubConfig.token}`,
             'Accept': 'application/vnd.github.v3+json',
             'Content-Type': 'application/json'
         };
@@ -153,7 +153,7 @@ class ContentManager {
             const url = `https://api.github.com/repos/${config.repo}`;
             const response = await fetch(url, {
                 headers: {
-                    'Authorization': `Bearer ${config.token}`,
+                    'Authorization': `token ${config.token}`,
                     'Accept': 'application/vnd.github.v3+json'
                 }
             });
@@ -1128,9 +1128,27 @@ Information about podcast episodes and discussions.
         });
 
         // Sidebar toggle
-        document.getElementById('toggleSidebar').onclick = () => {
-            document.getElementById('sidebar').classList.toggle('collapsed');
+        const toggleSidebarFn = () => {
+            const sidebar = document.getElementById('sidebar');
+            const floatingToggle = document.getElementById('floatingSidebarToggle');
+
+            sidebar.classList.toggle('collapsed');
+
+            // Show floating toggle when sidebar is collapsed, hide when expanded
+            if (sidebar.classList.contains('collapsed')) {
+                floatingToggle.style.display = 'flex';
+            } else {
+                floatingToggle.style.display = 'none';
+            }
         };
+
+        document.getElementById('toggleSidebar').onclick = toggleSidebarFn;
+
+        // Floating sidebar toggle button
+        const floatingToggle = document.getElementById('floatingSidebarToggle');
+        if (floatingToggle) {
+            floatingToggle.onclick = toggleSidebarFn;
+        }
 
         // Drag and drop for file upload
         const editorContainer = document.querySelector('.editor-container');
