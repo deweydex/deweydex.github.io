@@ -18,9 +18,11 @@
     --text-tertiary: #94a3b8;
     --sidebar-width: 280px;
     --header-height: 60px;
+    --banner-height: 48px;
     --danger: #ef4444;
     --danger-hover: #dc2626;
     --success: #10b981;
+    --warning: #f59e0b;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -34,10 +36,52 @@ body {
     overflow: hidden;
 }
 
+/* GitHub Banner */
+.github-banner {
+    background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);
+    color: white;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-sm);
+}
+
+.github-banner.connected {
+    background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.875rem;
+}
+
+.banner-content i {
+    font-size: 1.25rem;
+}
+
+.btn-banner {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-banner:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
 /* App Container */
 .app-container {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - var(--banner-height));
     overflow: hidden;
 }
 
@@ -74,6 +118,38 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+.sync-status {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    border-bottom: 1px solid var(--border);
+}
+
+.sync-status i {
+    font-size: 0.5rem;
+    color: var(--success);
+}
+
+.sync-status.syncing i {
+    color: var(--warning);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.sync-status.error i {
+    color: var(--danger);
+}
+
+.sidebar-footer {
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 8px;
+    justify-content: center;
 }
 
 .search-box {
@@ -425,6 +501,7 @@ body {
 /* Buttons */
 .btn-primary,
 .btn-secondary,
+.btn-publish,
 .btn-icon {
     border: none;
     border-radius: 6px;
@@ -457,6 +534,16 @@ body {
 
 .btn-secondary:hover:not(:disabled) {
     background: var(--border);
+}
+
+.btn-publish {
+    background: var(--success);
+    color: white;
+    padding: 10px 16px;
+}
+
+.btn-publish:hover:not(:disabled) {
+    background: #059669;
 }
 
 .btn-icon {
@@ -522,7 +609,22 @@ button:disabled {
     padding: 24px;
 }
 
-.modal-body label {
+.modal-body h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+.modal-body hr {
+    border: none;
+    border-top: 1px solid var(--border);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
@@ -530,7 +632,8 @@ button:disabled {
     font-size: 0.875rem;
 }
 
-.modal-body input[type="text"] {
+.form-group input[type="text"],
+.form-group input[type="password"] {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid var(--border);
@@ -540,9 +643,45 @@ button:disabled {
     transition: all 0.2s;
 }
 
-.modal-body input[type="text"]:focus {
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+.form-group small a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.form-group small a:hover {
+    text-decoration: underline;
+}
+
+.connection-status {
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    margin-top: 16px;
+}
+
+.connection-status.success {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border: 1px solid var(--success);
+}
+
+.connection-status.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border: 1px solid var(--danger);
 }
 
 .modal-footer {
@@ -551,6 +690,40 @@ button:disabled {
     display: flex;
     justify-content: flex-end;
     gap: 12px;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loading-overlay.active {
+    display: flex;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--border);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-overlay p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
 }
 
 /* Scrollbar Styles */
@@ -577,7 +750,7 @@ button:disabled {
     .sidebar {
         position: fixed;
         left: 0;
-        top: 0;
+        top: var(--banner-height);
         bottom: 0;
         z-index: 100;
         box-shadow: var(--shadow-lg);
@@ -598,7 +771,7 @@ button:disabled {
     }
 }
 
-/* Animation */
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -607,6 +780,21 @@ button:disabled {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
     }
 }
 
@@ -619,7 +807,8 @@ button:disabled {
 @media print {
     .sidebar,
     .editor-header,
-    .attachments-section {
+    .attachments-section,
+    .github-banner {
         display: none;
     }
 

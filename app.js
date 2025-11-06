@@ -1,23 +1,27 @@
-// Knowledge Base Application
-// A Notion/Coda-like markdown editor with page management
+// Content Manager Application with GitHub Integration
+// A CMS for managing markdown pages and deploying to GitHub Pages
 
-class KnowledgeBase {
+class ContentManager {
     constructor() {
         this.pages = [];
         this.currentPage = null;
         this.editMode = true;
         this.isCreatingSubpage = false;
+        this.githubConfig = null;
+        this.hasUnsyncedChanges = false;
 
         this.init();
     }
 
     init() {
         this.loadFromStorage();
+        this.loadGithubConfig();
         this.setupEventListeners();
         this.renderPageTree();
         this.setupMarkdownEditor();
+        this.updateGithubBanner();
 
-        // If no pages exist, create a welcome page
+        // If no pages exist, create initial content
         if (this.pages.length === 0) {
             this.createInitialContent();
         } else {
@@ -32,7 +36,7 @@ class KnowledgeBase {
 
     loadFromStorage() {
         try {
-            const stored = localStorage.getItem('knowledgeBase');
+            const stored = localStorage.getItem('contentManager');
             if (stored) {
                 const data = JSON.parse(stored);
                 this.pages = data.pages || [];
@@ -49,11 +53,265 @@ class KnowledgeBase {
                 pages: this.pages,
                 version: '1.0'
             };
-            localStorage.setItem('knowledgeBase', JSON.stringify(data));
+            localStorage.setItem('contentManager', JSON.stringify(data));
+            this.hasUnsyncedChanges = true;
+            this.updateSyncStatus();
         } catch (e) {
             console.error('Error saving to storage:', e);
             alert('Failed to save data. Storage might be full.');
         }
+    }
+
+    updateSyncStatus() {
+        const status = document.getElementById('syncStatus');
+        if (!status) return;
+
+        if (this.hasUnsyncedChanges) {
+            status.innerHTML = '<i class="fas fa-circle"></i><span>Changes saved locally (not published)</span>';
+            status.classList.remove('syncing', 'error');
+        } else {
+            status.innerHTML = '<i class="fas fa-circle"></i><span>All changes published</span>';
+        }
+    }
+
+    // ===== GITHUB CONFIGURATION =====
+
+    loadGithubConfig() {
+        try {
+            const stored = localStorage.getItem('githubConfig');
+            if (stored) {
+                this.githubConfig = JSON.parse(stored);
+            }
+        } catch (e) {
+            console.error('Error loading GitHub config:', e);
+        }
+    }
+
+    saveGithubConfig(config) {
+        this.githubConfig = config;
+        localStorage.setItem('githubConfig', JSON.stringify(config));
+        this.updateGithubBanner();
+    }
+
+    clearGithubConfig() {
+        this.githubConfig = null;
+        localStorage.removeItem('githubConfig');
+        this.updateGithubBanner();
+    }
+
+    updateGithubBanner() {
+        const banner = document.getElementById('githubBanner');
+        const bannerText = document.getElementById('bannerText');
+        const publishBtn = document.getElementById('publishBtn');
+
+        if (this.githubConfig) {
+            banner.classList.add('connected');
+            bannerText.textContent = `Connected to ${this.githubConfig.repo}`;
+            if (publishBtn) publishBtn.disabled = false;
+        } else {
+            banner.classList.remove('connected');
+            bannerText.textContent = 'Not connected to GitHub';
+            if (publishBtn) publishBtn.disabled = true;
+        }
+    }
+
+    // ===== GITHUB API =====
+
+    async githubRequest(endpoint, method = 'GET', body = null) {
+        if (!this.githubConfig) {
+            throw new Error('GitHub not configured');
+        }
+
+        const url = `https://api.github.com/repos/${this.githubConfig.repo}/${endpoint}`;
+        const headers = {
+            'Authorization': `Bearer ${this.githubConfig.token}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+        };
+
+        const options = {
+            method,
+            headers
+        };
+
+        if (body) {
+            options.body = JSON.stringify(body);
+        }
+
+        const response = await fetch(url, options);
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message || 'GitHub API request failed');
+        }
+
+        return response.json();
+    }
+
+    async testGithubConnection(config) {
+        try {
+            const url = `https://api.github.com/repos/${config.repo}`;
+            const response = await fetch(url, {
+                headers: {
+                    'Authorization': `Bearer ${config.token}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to connect to repository');
+            }
+
+            return { success: true };
+        } catch (error) {
+            return { success: false, error: error.message };
+        }
+    }
+
+    async publishToGithub() {
+        if (!this.githubConfig) {
+            alert('Please connect to GitHub first');
+            return;
+        }
+
+        this.showLoading('Publishing to GitHub...');
+
+        try {
+            const branch = this.githubConfig.branch || 'main';
+
+            // Get the latest commit SHA
+            const refData = await this.githubRequest(`git/refs/heads/${branch}`);
+            const latestCommitSha = refData.object.sha;
+
+            // Get the tree SHA from the latest commit
+            const commitData = await this.githubRequest(`git/commits/${latestCommitSha}`);
+            const baseTreeSha = commitData.tree.sha;
+
+            // Create blobs for each page
+            const tree = [];
+
+            for (const page of this.pages) {
+                const content = this.generateMarkdownForPage(page);
+                const filename = this.generateFilename(page);
+
+                // Create blob
+                const blobData = await this.githubRequest('git/blobs', 'POST', {
+                    content: content,
+                    encoding: 'utf-8'
+                });
+
+                tree.push({
+                    path: `pages/${filename}`,
+                    mode: '100644',
+                    type: 'blob',
+                    sha: blobData.sha
+                });
+            }
+
+            // Generate index.html redirect or main page
+            const indexContent = this.generateIndexHtml();
+            const indexBlob = await this.githubRequest('git/blobs', 'POST', {
+                content: indexContent,
+                encoding: 'utf-8'
+            });
+
+            tree.push({
+                path: 'index.html',
+                mode: '100644',
+                type: 'blob',
+                sha: indexBlob.sha
+            });
+
+            // Create new tree
+            const newTree = await this.githubRequest('git/trees', 'POST', {
+                base_tree: baseTreeSha,
+                tree: tree
+            });
+
+            // Create commit
+            const newCommit = await this.githubRequest('git/commits', 'POST', {
+                message: `Update content - ${new Date().toLocaleString()}`,
+                tree: newTree.sha,
+                parents: [latestCommitSha]
+            });
+
+            // Update reference
+            await this.githubRequest(`git/refs/heads/${branch}`, 'PATCH', {
+                sha: newCommit.sha,
+                force: false
+            });
+
+            this.hasUnsyncedChanges = false;
+            this.updateSyncStatus();
+
+            this.hideLoading();
+            alert('Successfully published to GitHub!');
+
+        } catch (error) {
+            this.hideLoading();
+            console.error('Publish error:', error);
+            alert(`Failed to publish: ${error.message}`);
+        }
+    }
+
+    generateMarkdownForPage(page) {
+        let content = `# ${page.title}\n\n${page.content}`;
+
+        if (page.attachments && page.attachments.length > 0) {
+            content += '\n\n## Attachments\n\n';
+            page.attachments.forEach(att => {
+                content += `- [${att.name}](${att.data})\n`;
+            });
+        }
+
+        return content;
+    }
+
+    generateFilename(page) {
+        return page.title.toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/(^-|-$)/g, '') + '.md';
+    }
+
+    generateIndexHtml() {
+        // Generate a simple index page that links to all pages
+        let html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua S Aaron</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 { color: #2563eb; }
+        ul { list-style: none; padding: 0; }
+        li { margin: 10px 0; }
+        a { color: #2563eb; text-decoration: none; padding: 8px 12px; display: inline-block; }
+        a:hover { background: #f0f0f0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>Joshua S Aaron</h1>
+    <h2>Pages</h2>
+    <ul>\n`;
+
+        this.pages.filter(p => !p.parentId).forEach(page => {
+            const filename = this.generateFilename(page);
+            html += `        <li><a href="pages/${filename}">${page.title}</a></li>\n`;
+        });
+
+        html += `    </ul>
+</body>
+</html>`;
+
+        return html;
     }
 
     // ===== PAGE MANAGEMENT =====
@@ -152,7 +410,7 @@ class KnowledgeBase {
         this.renderAttachments();
         this.updateActivePageInTree();
 
-        // Enable/disable delete button
+        // Enable/disable buttons
         document.getElementById('deletePageBtn').disabled = false;
         document.getElementById('newSubPageBtn').disabled = false;
     }
@@ -257,8 +515,8 @@ class KnowledgeBase {
         document.getElementById('markdownEditor').value = '';
         document.getElementById('markdownPreview').innerHTML = `
             <div class="welcome-message">
-                <h1>Welcome to Your Knowledge Base</h1>
-                <p>Create a new page or select an existing one from the sidebar to get started.</p>
+                <h1>Welcome to Your Content Manager</h1>
+                <p>Connect to GitHub to sync your content, or start creating pages locally.</p>
             </div>
         `;
         document.getElementById('deletePageBtn').disabled = true;
@@ -315,6 +573,59 @@ class KnowledgeBase {
         }
     }
 
+    // ===== LINK INSERTION =====
+
+    showInsertLinkModal() {
+        if (!this.currentPage) {
+            alert('Please select or create a page first.');
+            return;
+        }
+
+        const modal = document.getElementById('insertLinkModal');
+        modal.classList.add('active');
+
+        setTimeout(() => {
+            document.getElementById('linkText').focus();
+        }, 100);
+    }
+
+    insertLink() {
+        const text = document.getElementById('linkText').value.trim();
+        const url = document.getElementById('linkUrl').value.trim();
+
+        if (!text || !url) {
+            alert('Please enter both link text and URL.');
+            return;
+        }
+
+        const editor = document.getElementById('markdownEditor');
+        const markdown = `[${text}](${url})`;
+
+        // Insert at cursor position
+        const start = editor.selectionStart;
+        const end = editor.selectionEnd;
+        const currentValue = editor.value;
+
+        editor.value = currentValue.substring(0, start) + markdown + currentValue.substring(end);
+        editor.focus();
+
+        // Update the page content
+        if (this.currentPage) {
+            this.currentPage.content = editor.value;
+            this.updatePreview();
+            this.saveToStorage();
+        }
+
+        this.hideInsertLinkModal();
+    }
+
+    hideInsertLinkModal() {
+        const modal = document.getElementById('insertLinkModal');
+        modal.classList.remove('active');
+        document.getElementById('linkText').value = '';
+        document.getElementById('linkUrl').value = '';
+    }
+
     // ===== FILE ATTACHMENTS =====
 
     handleFileUpload(files) {
@@ -332,7 +643,7 @@ class KnowledgeBase {
                     name: file.name,
                     type: file.type,
                     size: file.size,
-                    data: e.target.result, // Base64 data
+                    data: e.target.result,
                     uploadedAt: new Date().toISOString()
                 };
 
@@ -341,7 +652,6 @@ class KnowledgeBase {
                 this.renderAttachments();
             };
 
-            // Read file as base64
             reader.readAsDataURL(file);
         });
     }
@@ -394,7 +704,6 @@ class KnowledgeBase {
             };
             item.appendChild(removeBtn);
 
-            // Make attachment clickable to download
             item.style.cursor = 'pointer';
             item.onclick = () => this.downloadAttachment(attachment);
 
@@ -479,7 +788,7 @@ class KnowledgeBase {
 
         const link = document.createElement('a');
         link.href = url;
-        link.download = `knowledge-base-export-${Date.now()}.json`;
+        link.download = `content-export-${Date.now()}.json`;
         link.click();
 
         URL.revokeObjectURL(url);
@@ -518,12 +827,26 @@ class KnowledgeBase {
         reader.readAsText(file);
     }
 
+    // ===== LOADING OVERLAY =====
+
+    showLoading(message = 'Loading...') {
+        const overlay = document.getElementById('loadingOverlay');
+        const text = document.getElementById('loadingText');
+        text.textContent = message;
+        overlay.classList.add('active');
+    }
+
+    hideLoading() {
+        const overlay = document.getElementById('loadingOverlay');
+        overlay.classList.remove('active');
+    }
+
     // ===== INITIAL CONTENT =====
 
     createInitialContent() {
-        // Create welcome/home page
-        const homePage = this.createPage('About');
-        homePage.content = `# Joshua S Aaron
+        // Create About/Home page
+        const aboutPage = this.createPage('About');
+        aboutPage.content = `# Joshua S Aaron
 
 ## Background
 
@@ -553,40 +876,67 @@ My teaching and content styles are informed by progressive education movements i
 Feel free to reach out for collaboration, consultation, or just to discuss education and technology!
 `;
 
-        // Create Teaching page
-        const teachingPage = this.createPage('Teaching');
-        teachingPage.content = `# Teaching & Curriculum
+        // Create Current Teaching page
+        const teachingPage = this.createPage('Current Teaching');
+        teachingPage.content = `# Current Teaching
 
-## Current Work
+## Philosophy on Adult Learning
 
-I am involved in developing innovative curricula that blend computer science and mathematics education with progressive pedagogical approaches.
+In adult learning contexts, what habits and expectations an adult learner brings with them from their schooling is often more important than access to quality teachers or content.
 
-## Educational Resources
+## Teaching Materials
 
-### Workshops
-- Computational Thinking for Educators
-- Mathematics Through Code
-- Project-Based Learning in STEM
+While the vast majority of work produced for organizations such as Nelson and Paper remains their property, there are a few exercises, learning materials, and workshops available with context surrounding their creation or delivery.
 
-### Curriculum Design
-- Integrated CS/Math curriculum
-- Progressive education methods
-- Assessment and evaluation strategies
+## Approach
 
-## Past Experience
+My teaching and content styles are informed by:
+- Progressive education movements in both European and American contexts
+- Praxis-oriented methods of Paulo Freire
+- Focus on what learners bring to the classroom
+- Emphasis on transformative learning experiences
 
-### City Year - Los Angeles
-Teaching and mentoring in underserved communities
+## Teaching Experience
 
 ### Nelson Mandela School
-Mathematics and Computer Science instruction as part of my Masters program
+Teaching Mathematics and Computer Science as part of my Masters program
 
-## Educational Philosophy
+### City Year - Los Angeles
+Working with students in underserved communities
 
-My approach is heavily influenced by:
-- Paulo Freire's critical pedagogy
-- Constructivist learning theory
-- Project-based and experiential learning
+### Archetyp Cafe
+Educational workshops and community learning initiatives
+`;
+
+        // Create Resources page
+        const resourcesPage = this.createPage('Recommended Resources');
+        resourcesPage.content = `# Recommended Resources
+
+This section is currently under construction. Based on feedback that a long list of books and channels might not be helpful, I'm curating a more focused selection.
+
+## Modern Progressive Education
+
+- Dennis Littky
+- Eliot Washor
+- Robert P Moses
+- Margaret Rasfeld
+
+## Theory-Oriented Books
+
+### Education and Democracy
+By John Dewey - A foundational text on democratic education
+
+### Pedagogy of the Oppressed
+By Paulo Freire - Critical pedagogy and liberatory education
+
+## Resources for Math Teaching
+
+### Art of Problem Solving Books
+Excellent resources for developing mathematical thinking
+
+## More Coming Soon
+
+This list will be updated with more carefully selected resources that have proven most valuable in my teaching practice.
 `;
 
         // Create Projects page
@@ -603,44 +953,54 @@ An experiment in social business that I've helped run for the past few years. Ar
 - Explore sustainable business models
 - Foster meaningful connections
 
-## Other Projects
+## Research Projects
 
-More projects and initiatives coming soon...
+### Computer Science Education Research
+Exploring effective methods for teaching computational thinking and programming
 
-### Research Projects
-- Computer Science education research
-- Mathematics pedagogy studies
-- Educational technology development
+### Mathematics Pedagogy Studies
+Investigating how students construct mathematical understanding
 
-### Community Initiatives
+### Educational Technology Development
+Creating tools and platforms that support progressive education
+
+## Community Initiatives
+
 - Local teaching workshops
 - Mentorship programs
 - Educational resource development
+- Curriculum design projects
+
+More projects and detailed information coming soon...
 `;
 
-        // Create a Podcast placeholder page
+        // Create Podcast placeholder page
         const podcastPage = this.createPage('Podcast');
         podcastPage.content = `# Podcast
 
-Information about podcast episodes and discussions coming soon...
+Information about podcast episodes and discussions.
 
 ## Topics
 - Education and pedagogy
 - Technology in learning
 - Social entrepreneurship
 - Progressive education
+- Mathematics and Computer Science education
 
-*More content will be added here soon.*
+*Content will be added here soon.*
 `;
 
         this.saveToStorage();
         this.renderPageTree();
-        this.loadPage(homePage.id);
+        this.loadPage(aboutPage.id);
     }
 
     // ===== EVENT LISTENERS =====
 
     setupEventListeners() {
+        // GitHub connect button
+        document.getElementById('connectGithubBtn').onclick = () => this.showGithubModal();
+
         // New page button
         document.getElementById('newPageBtn').onclick = () => this.showNewPageModal(false);
 
@@ -651,10 +1011,32 @@ Information about podcast episodes and discussions coming soon...
             }
         };
 
-        // Modal controls
+        // Publish button
+        document.getElementById('publishBtn').onclick = () => this.publishToGithub();
+
+        // Settings button
+        document.getElementById('settingsBtn').onclick = () => this.showGithubModal();
+
+        // Import/Export button
+        document.getElementById('importExportBtn').onclick = () => this.showImportExportModal();
+
+        // Modal controls - New Page
         document.getElementById('closeModal').onclick = () => this.hideNewPageModal();
         document.getElementById('cancelNewPage').onclick = () => this.hideNewPageModal();
         document.getElementById('confirmNewPage').onclick = () => this.confirmNewPage();
+
+        // Modal controls - GitHub
+        document.getElementById('closeGithubModal').onclick = () => this.hideGithubModal();
+        document.getElementById('saveGithubSettings').onclick = () => this.saveGithubSettings();
+        document.getElementById('disconnectGithub').onclick = () => this.disconnectGithub();
+
+        // Modal controls - Link
+        document.getElementById('closeLinkModal').onclick = () => this.hideInsertLinkModal();
+        document.getElementById('cancelLink').onclick = () => this.hideInsertLinkModal();
+        document.getElementById('confirmLink').onclick = () => this.insertLink();
+
+        // Modal controls - Import/Export
+        document.getElementById('closeImportExportModal').onclick = () => this.hideImportExportModal();
 
         // Page title input
         document.getElementById('pageTitle').addEventListener('input', (e) => {
@@ -668,6 +1050,9 @@ Information about podcast episodes and discussions coming soon...
 
         // Toggle edit/preview mode
         document.getElementById('toggleEditMode').onclick = () => this.toggleEditMode();
+
+        // Insert link
+        document.getElementById('insertLinkBtn').onclick = () => this.showInsertLinkModal();
 
         // Delete page
         document.getElementById('deletePageBtn').onclick = () => {
@@ -686,7 +1071,7 @@ Information about podcast episodes and discussions coming soon...
 
         document.getElementById('fileInput').onchange = (e) => {
             this.handleFileUpload(e.target.files);
-            e.target.value = ''; // Reset input
+            e.target.value = '';
         };
 
         // Search
@@ -694,32 +1079,51 @@ Information about podcast episodes and discussions coming soon...
             this.searchPages(e.target.value);
         });
 
+        // Import/Export actions
+        document.getElementById('exportAllBtn').onclick = () => this.exportAll();
+        document.getElementById('importBtn').onclick = () => {
+            document.getElementById('importFileInput').click();
+        };
+        document.getElementById('importFileInput').onchange = (e) => {
+            if (e.target.files.length > 0) {
+                this.importData(e.target.files[0]);
+            }
+            e.target.value = '';
+        };
+
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
-            // Cmd/Ctrl + S to save (already auto-saved, but give feedback)
             if ((e.metaKey || e.ctrlKey) && e.key === 's') {
                 e.preventDefault();
                 this.saveToStorage();
-                console.log('Saved!');
             }
 
-            // Cmd/Ctrl + N for new page
             if ((e.metaKey || e.ctrlKey) && e.key === 'n') {
                 e.preventDefault();
                 this.showNewPageModal(false);
             }
 
-            // Cmd/Ctrl + E to toggle edit mode
             if ((e.metaKey || e.ctrlKey) && e.key === 'e') {
                 e.preventDefault();
                 this.toggleEditMode();
             }
+
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                this.showInsertLinkModal();
+            }
         });
 
-        // Modal - Enter key to confirm
+        // Enter key shortcuts in modals
         document.getElementById('newPageTitle').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 this.confirmNewPage();
+            }
+        });
+
+        document.getElementById('linkUrl').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                this.insertLink();
             }
         });
 
@@ -736,7 +1140,7 @@ Information about podcast episodes and discussions coming soon...
             editorContainer.style.background = 'var(--surface)';
         });
 
-        editorContainer.addEventListener('dragleave', (e) => {
+        editorContainer.addEventListener('dragleave', () => {
             editorContainer.style.background = '';
         });
 
@@ -750,6 +1154,8 @@ Information about podcast episodes and discussions coming soon...
         });
     }
 
+    // ===== MODAL MANAGEMENT =====
+
     showNewPageModal(isSubpage) {
         this.isCreatingSubpage = isSubpage;
         const modal = document.getElementById('newPageModal');
@@ -758,7 +1164,6 @@ Information about podcast episodes and discussions coming soon...
         modalTitle.textContent = isSubpage ? 'Create New Subpage' : 'Create New Page';
         modal.classList.add('active');
 
-        // Focus the input
         setTimeout(() => {
             document.getElementById('newPageTitle').focus();
         }, 100);
@@ -783,9 +1188,73 @@ Information about podcast episodes and discussions coming soon...
 
         this.hideNewPageModal();
     }
+
+    showGithubModal() {
+        const modal = document.getElementById('githubSettingsModal');
+        modal.classList.add('active');
+
+        if (this.githubConfig) {
+            document.getElementById('githubToken').value = this.githubConfig.token;
+            document.getElementById('githubRepo').value = this.githubConfig.repo;
+            document.getElementById('githubBranch').value = this.githubConfig.branch || 'main';
+        }
+    }
+
+    hideGithubModal() {
+        const modal = document.getElementById('githubSettingsModal');
+        modal.classList.remove('active');
+        document.getElementById('connectionStatus').innerHTML = '';
+    }
+
+    async saveGithubSettings() {
+        const token = document.getElementById('githubToken').value.trim();
+        const repo = document.getElementById('githubRepo').value.trim();
+        const branch = document.getElementById('githubBranch').value.trim() || 'main';
+
+        if (!token || !repo) {
+            alert('Please enter both token and repository.');
+            return;
+        }
+
+        const statusDiv = document.getElementById('connectionStatus');
+        statusDiv.innerHTML = 'Testing connection...';
+        statusDiv.className = 'connection-status';
+
+        const result = await this.testGithubConnection({ token, repo, branch });
+
+        if (result.success) {
+            this.saveGithubConfig({ token, repo, branch });
+            statusDiv.innerHTML = '✓ Successfully connected to GitHub!';
+            statusDiv.className = 'connection-status success';
+
+            setTimeout(() => {
+                this.hideGithubModal();
+            }, 1500);
+        } else {
+            statusDiv.innerHTML = `✗ Connection failed: ${result.error}`;
+            statusDiv.className = 'connection-status error';
+        }
+    }
+
+    disconnectGithub() {
+        if (confirm('Disconnect from GitHub? Your local content will be preserved.')) {
+            this.clearGithubConfig();
+            this.hideGithubModal();
+        }
+    }
+
+    showImportExportModal() {
+        const modal = document.getElementById('importExportModal');
+        modal.classList.add('active');
+    }
+
+    hideImportExportModal() {
+        const modal = document.getElementById('importExportModal');
+        modal.classList.remove('active');
+    }
 }
 
 // Initialize the application when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    window.kb = new KnowledgeBase();
+    window.cm = new ContentManager();
 });
