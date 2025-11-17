@@ -26,11 +26,23 @@
             --danger: #ef4444;
         }
 
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --primary-hover: #60a5fa;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b0b0b0;
+            --text-tertiary: #808080;
+            --background: #1a1a1a;
+            --surface: #2a2a2a;
+            --border: #3a3a3a;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
             background: var(--background);
             color: var(--text-primary);
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .site-header {
@@ -277,6 +289,36 @@
             .featured-section {
                 padding: 32px 20px;
             }
+        }
+    
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-hover);
+            transform: scale(1.1);
+        }
+
+        .theme-toggle:active {
+            transform: scale(0.95);
         }
     </style>
 </head>
@@ -607,6 +649,12 @@
         </div>
     </main>
 
+    
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <footer class="site-footer">
         <p>&copy; 2024 Joshua S Aaron. All rights reserved.</p>
         <p style="margin-top: 8px;">
@@ -614,5 +662,37 @@
             <a href="cms.html" style="color: var(--text-secondary); text-decoration: none;">Edit Site</a>
         </p>
     </footer>
+    <script>
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+    </script>
 </body>
 </html>
