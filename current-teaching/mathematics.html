@@ -5,34 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maths for IT - Joshua S Aaron</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        .math-notation {
-            font-family: 'Courier New', monospace;
-            background: #f8fafc;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.95em;
-        }
-
-        .jupyter-note {
-            background: #eff6ff;
-            border-left: 4px solid #3b82f6;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-
-        .jupyter-note strong {
-            color: #1e40af;
-        }
-    </style>
+    <link rel="stylesheet" href="../course-page-styles.css">
 </head>
 <body>
     <header class="site-header">
         <div class="header-container">
-            <a href="../index_new.html" class="site-title">Joshua S Aaron</a>
-            <a href="../index_new.html" class="back-link">
+            <a href="../index.html" class="site-title">Joshua S Aaron</a>
+            <a href="../index.html" class="back-link">
                 <i class="fas fa-arrow-left"></i>
                 Back to Home
             </a>
@@ -309,5 +288,41 @@
             </div>
         </div>
     </main>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+    </script>
 </body>
 </html>
