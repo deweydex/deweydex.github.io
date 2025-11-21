@@ -1294,17 +1294,111 @@ class EditorApp {
         return Date.now().toString(36) + Math.random().toString(36).substr(2);
     }
 
-    loadPageFromURL() {
+    async loadPageFromURL() {
         const params = new URLSearchParams(window.location.search);
-        const pageId = params.get('page');
+        const pageParam = params.get('page');
 
-        if (pageId && this.pages.find(p => p.id === pageId)) {
-            this.loadPage(pageId);
-        } else if (this.pages.length > 0) {
+        if (pageParam) {
+            // Check if it's a page ID
+            let page = this.pages.find(p => p.id === pageParam);
+
+            // If not found by ID, try to find by path
+            if (!page) {
+                page = this.pages.find(p => p.path === pageParam || p.slug === pageParam);
+            }
+
+            // If still not found, try to load from GitHub
+            if (!page && this.githubConfig) {
+                console.log('[/edit] Page not found in storage, attempting to load from GitHub:', pageParam);
+                try {
+                    await this.loadPageFromGithub(pageParam);
+                    return; // loadPageFromGithub will handle loading the page
+                } catch (error) {
+                    console.warn('[/edit] Could not load page from GitHub:', error.message);
+                }
+            }
+
+            if (page) {
+                this.loadPage(page.id);
+                return;
+            }
+        }
+
+        // Default behavior: load first page or create new one
+        if (this.pages.length > 0) {
             this.loadPage(this.pages[0].id);
         } else {
-            // Create first page
             this.createNewPage();
+        }
+    }
+
+    async loadPageFromGithub(pagePath) {
+        if (!this.githubConfig) {
+            throw new Error('GitHub not configured');
+        }
+
+        try {
+            const branch = this.githubConfig.branch || 'main';
+
+            // Fetch the HTML file from GitHub
+            const response = await this.githubRequest(`contents/${pagePath}?ref=${branch}`);
+
+            if (!response || !response.content) {
+                throw new Error('File not found on GitHub');
+            }
+
+            // Decode the base64 content
+            const htmlContent = atob(response.content);
+
+            // Parse the HTML to extract title and convert to EditorJS blocks
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlContent, 'text/html');
+
+            // Extract title
+            const titleElement = doc.querySelector('h1') || doc.querySelector('title');
+            const title = titleElement ? titleElement.textContent : pagePath.split('/').pop().replace('.html', '');
+
+            // Extract main content (try to find article, main, or body)
+            const contentElement = doc.querySelector('article') || doc.querySelector('main') || doc.body;
+
+            // Convert HTML to markdown-like text (simplified)
+            let contentText = '';
+            if (contentElement) {
+                // Extract text preserving structure
+                const children = Array.from(contentElement.children);
+                for (const child of children) {
+                    if (child.tagName === 'H1') continue; // Skip title
+                    if (child.tagName === 'HEADER') continue; // Skip header
+                    if (child.tagName === 'NAV') continue; // Skip nav
+
+                    const text = child.textContent.trim();
+                    if (text) {
+                        contentText += text + '\n\n';
+                    }
+                }
+            }
+
+            // Create a new page in storage
+            const newPage = this.storage.createPage({
+                title: title,
+                markdown: contentText,
+                editorjs: { blocks: [] },
+                createdWith: 'edit'
+            });
+
+            // Update the path to match the GitHub file
+            this.storage.updatePage(newPage.id, {
+                path: pagePath
+            });
+
+            // Load the page
+            this.loadPage(newPage.id);
+            this.updatePageDropdown();
+
+            console.log('[/edit] Successfully loaded page from GitHub:', pagePath);
+        } catch (error) {
+            console.error('[/edit] Error loading page from GitHub:', error);
+            throw error;
         }
     }
 }
