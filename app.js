@@ -191,7 +191,7 @@ class ContentManager {
             const tree = [];
 
             for (const page of this.pages) {
-                const content = this.generateMarkdownForPage(page);
+                const content = this.generateHTMLForPage(page);
                 const filename = this.generateFilename(page);
 
                 // Create blob
@@ -201,7 +201,7 @@ class ContentManager {
                 });
 
                 tree.push({
-                    path: `pages/${filename}`,
+                    path: filename,
                     mode: '100644',
                     type: 'blob',
                     sha: blobData.sha
@@ -254,23 +254,99 @@ class ContentManager {
         }
     }
 
-    generateMarkdownForPage(page) {
-        let content = `# ${page.title}\n\n${page.content}`;
+    generateHTMLForPage(page) {
+        // Convert markdown to HTML
+        let markdownContent = page.content || '';
 
         if (page.attachments && page.attachments.length > 0) {
-            content += '\n\n## Attachments\n\n';
+            markdownContent += '\n\n## Attachments\n\n';
             page.attachments.forEach(att => {
-                content += `- [${att.name}](${att.data})\n`;
+                markdownContent += `- [${att.name}](${att.data})\n`;
             });
         }
 
-        return content;
+        const htmlContent = marked.parse(markdownContent);
+
+        // Wrap in full HTML template with styling
+        return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${this.escapeHtml(page.title)} - Joshua S Aaron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="site-title">Joshua S Aaron</a>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="course-header">
+            <h1>${this.escapeHtml(page.title)}</h1>
+        </div>
+
+        <div class="course-content">
+            ${htmlContent}
+        </div>
+    </main>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+    </script>
+</body>
+</html>`;
+    }
+
+    escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
 
     generateFilename(page) {
         return page.title.toLowerCase()
             .replace(/[^a-z0-9]+/g, '-')
-            .replace(/(^-|-$)/g, '') + '.md';
+            .replace(/(^-|-$)/g, '') + '.html';
     }
 
     generateIndexHtml() {
@@ -304,7 +380,7 @@ class ContentManager {
 
         this.pages.filter(p => !p.parentId).forEach(page => {
             const filename = this.generateFilename(page);
-            html += `        <li><a href="pages/${filename}">${page.title}</a></li>\n`;
+            html += `        <li><a href="${filename}">${this.escapeHtml(page.title)}</a></li>\n`;
         });
 
         html += `    </ul>

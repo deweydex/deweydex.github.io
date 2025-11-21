@@ -244,11 +244,18 @@
             color: var(--primary-color);
         }
 
-        /* Admin Link */
-        .admin-link {
+        /* Admin Links */
+        .admin-links {
             position: fixed;
             bottom: 20px;
             right: 90px;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .admin-link {
             background: var(--primary-color);
             color: white;
             padding: 12px 20px;
@@ -260,12 +267,26 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
         }
 
         .admin-link:hover {
             background: var(--primary-hover);
             box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
             transform: translateY(-2px);
+        }
+
+        .admin-link.secondary {
+            background: var(--surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-link.secondary:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
         }
 
         /* Theme Toggle */
@@ -499,11 +520,17 @@
         <i class="fas fa-moon"></i>
     </button>
 
-    <!-- Admin Link -->
-    <a href="cms.html" class="admin-link" title="Edit Site">
-        <i class="fas fa-edit"></i>
-        <span>Edit Site</span>
-    </a>
+    <!-- Admin Links -->
+    <div class="admin-links">
+        <a href="edit/" class="admin-link" title="Rich Text Editor">
+            <i class="fas fa-pencil-alt"></i>
+            <span>Rich Editor</span>
+        </a>
+        <a href="cms.html" class="admin-link secondary" title="Markdown Editor">
+            <i class="fas fa-code"></i>
+            <span>Markdown</span>
+        </a>
+    </div>
 
     <script>
         // Theme toggle functionality
