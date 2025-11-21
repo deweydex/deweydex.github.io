@@ -208,19 +208,8 @@ class ContentManager {
                 });
             }
 
-            // Generate index.html redirect or main page
-            const indexContent = this.generateIndexHtml();
-            const indexBlob = await this.githubRequest('git/blobs', 'POST', {
-                content: indexContent,
-                encoding: 'utf-8'
-            });
-
-            tree.push({
-                path: 'index.html',
-                mode: '100644',
-                type: 'blob',
-                sha: indexBlob.sha
-            });
+            // Note: We don't overwrite index.html - it's managed separately
+            // Individual content pages are published as separate HTML files
 
             // Create new tree
             const newTree = await this.githubRequest('git/trees', 'POST', {
