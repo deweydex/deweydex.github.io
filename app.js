@@ -3,31 +3,46 @@
 
 class ContentManager {
     constructor() {
-        this.pages = [];
+        // Use unified storage instead of local arrays
+        this.storage = window.SharedPageStorage;
         this.currentPage = null;
         this.editMode = true;
         this.isCreatingSubpage = false;
-        this.githubConfig = null;
         this.hasUnsyncedChanges = false;
 
         this.init();
     }
 
-    init() {
+    async init() {
+        // Load from unified storage
         this.loadFromStorage();
         this.loadGithubConfig();
+
+        // Sync from GitHub if configured
+        if (this.storage.githubConfig) {
+            try {
+                await this.storage.syncFromGithub();
+                console.log('Synced pages from GitHub');
+            } catch (e) {
+                console.warn('Could not sync from GitHub:', e.message);
+            }
+        }
+
         this.setupEventListeners();
         this.renderPageTree();
         this.setupMarkdownEditor();
         this.updateGithubBanner();
 
+        // Get pages from unified storage
+        const pages = this.storage.getAllPages();
+
         // If no pages exist, create initial content
-        if (this.pages.length === 0) {
+        if (pages.length === 0) {
             this.createInitialContent();
         } else {
             // Load the first page by default
-            if (this.pages[0]) {
-                this.loadPage(this.pages[0].id);
+            if (pages[0]) {
+                this.loadPage(pages[0].id);
             }
         }
     }
@@ -35,31 +50,50 @@ class ContentManager {
     // ===== DATA MANAGEMENT =====
 
     loadFromStorage() {
+        // Migrate old CMS data to unified storage if exists
         try {
-            const stored = localStorage.getItem('contentManager');
-            if (stored) {
-                const data = JSON.parse(stored);
-                this.pages = data.pages || [];
+            const oldData = localStorage.getItem('contentManager');
+            if (oldData) {
+                const parsed = JSON.parse(oldData);
+                const oldPages = parsed.pages || [];
+
+                // Migrate to unified storage
+                if (oldPages.length > 0 && this.storage.getAllPages().length === 0) {
+                    console.log('Migrating', oldPages.length, 'pages to unified storage');
+                    oldPages.forEach(oldPage => {
+                        this.storage.createPage({
+                            title: oldPage.title,
+                            markdown: oldPage.content || '',
+                            editorjs: { blocks: [] },
+                            createdWith: 'cms',
+                            parentId: oldPage.parentId
+                        });
+                    });
+                    // Remove old storage after migration
+                    localStorage.removeItem('contentManager');
+                }
             }
         } catch (e) {
-            console.error('Error loading from storage:', e);
-            this.pages = [];
+            console.error('Error during migration:', e);
         }
+
+        // Load pages from unified storage
+        this.storage.loadPages();
     }
 
     saveToStorage() {
-        try {
-            const data = {
-                pages: this.pages,
-                version: '1.0'
-            };
-            localStorage.setItem('contentManager', JSON.stringify(data));
-            this.hasUnsyncedChanges = true;
-            this.updateSyncStatus();
-        } catch (e) {
-            console.error('Error saving to storage:', e);
-            alert('Failed to save data. Storage might be full.');
-        }
+        // Save is handled by SharedPageStorage automatically
+        this.hasUnsyncedChanges = true;
+        this.updateSyncStatus();
+    }
+
+    // Helper properties for backward compatibility
+    get pages() {
+        return this.storage.getAllPages();
+    }
+
+    get githubConfig() {
+        return this.storage.githubConfig;
     }
 
     updateSyncStatus() {
@@ -77,25 +111,30 @@ class ContentManager {
     // ===== GITHUB CONFIGURATION =====
 
     loadGithubConfig() {
+        // Migrate old GitHub config if exists
         try {
-            const stored = localStorage.getItem('githubConfig');
-            if (stored) {
-                this.githubConfig = JSON.parse(stored);
+            const oldConfig = localStorage.getItem('githubConfig');
+            if (oldConfig && !this.storage.githubConfig) {
+                const parsed = JSON.parse(oldConfig);
+                this.storage.saveGithubConfig(parsed);
+                localStorage.removeItem('githubConfig');
+                console.log('Migrated GitHub config to unified storage');
             }
         } catch (e) {
-            console.error('Error loading GitHub config:', e);
+            console.error('Error during GitHub config migration:', e);
         }
+
+        // Load from unified storage
+        this.storage.loadGithubConfig();
     }
 
     saveGithubConfig(config) {
-        this.githubConfig = config;
-        localStorage.setItem('githubConfig', JSON.stringify(config));
+        this.storage.saveGithubConfig(config);
         this.updateGithubBanner();
     }
 
     clearGithubConfig() {
-        this.githubConfig = null;
-        localStorage.removeItem('githubConfig');
+        this.storage.clearGithubConfig();
         this.updateGithubBanner();
     }
 
@@ -104,9 +143,9 @@ class ContentManager {
         const bannerText = document.getElementById('bannerText');
         const publishBtn = document.getElementById('publishBtn');
 
-        if (this.githubConfig) {
+        if (this.storage.githubConfig) {
             banner.classList.add('connected');
-            bannerText.textContent = `Connected to ${this.githubConfig.repo}`;
+            bannerText.textContent = `Connected to ${this.storage.githubConfig.repo}`;
             if (publishBtn) publishBtn.disabled = false;
         } else {
             banner.classList.remove('connected');
@@ -118,13 +157,13 @@ class ContentManager {
     // ===== GITHUB API =====
 
     async githubRequest(endpoint, method = 'GET', body = null) {
-        if (!this.githubConfig) {
+        if (!this.storage.githubConfig) {
             throw new Error('GitHub not configured');
         }
 
-        const url = `https://api.github.com/repos/${this.githubConfig.repo}/${endpoint}`;
+        const url = `https://api.github.com/repos/${this.storage.githubConfig.repo}/${endpoint}`;
         const headers = {
-            'Authorization': `token ${this.githubConfig.token}`,
+            'Authorization': `token ${this.storage.githubConfig.token}`,
             'Accept': 'application/vnd.github.v3+json',
             'Content-Type': 'application/json'
         };
@@ -244,8 +283,8 @@ class ContentManager {
     }
 
     generateHTMLForPage(page) {
-        // Convert markdown to HTML
-        let markdownContent = page.content || '';
+        // Convert markdown to HTML - use unified storage format
+        let markdownContent = page.content.markdown || '';
 
         if (page.attachments && page.attachments.length > 0) {
             markdownContent += '\n\n## Attachments\n\n';
@@ -382,26 +421,14 @@ class ContentManager {
     // ===== PAGE MANAGEMENT =====
 
     createPage(title, parentId = null) {
-        const page = {
-            id: this.generateId(),
+        // Use unified storage
+        const page = this.storage.createPage({
             title: title || 'Untitled Page',
-            content: '',
-            parentId: parentId,
-            children: [],
-            attachments: [],
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-        };
-
-        this.pages.push(page);
-
-        // If this is a child page, add it to parent's children array
-        if (parentId) {
-            const parent = this.findPage(parentId);
-            if (parent) {
-                parent.children.push(page.id);
-            }
-        }
+            markdown: '',
+            editorjs: { blocks: [] },
+            createdWith: 'cms',
+            parentId: parentId
+        });
 
         this.saveToStorage();
         this.renderPageTree();
@@ -415,34 +442,17 @@ class ContentManager {
             return;
         }
 
-        const page = this.findPage(pageId);
-        if (!page) return;
-
-        // Remove from parent's children array
-        if (page.parentId) {
-            const parent = this.findPage(page.parentId);
-            if (parent) {
-                parent.children = parent.children.filter(id => id !== pageId);
-            }
-        }
-
-        // Delete all child pages recursively
-        const deleteRecursive = (id) => {
-            const p = this.findPage(id);
-            if (p && p.children) {
-                p.children.forEach(childId => deleteRecursive(childId));
-            }
-            this.pages = this.pages.filter(pg => pg.id !== id);
-        };
-
-        deleteRecursive(pageId);
+        // Use unified storage
+        const success = this.storage.deletePage(pageId);
+        if (!success) return;
 
         this.saveToStorage();
         this.renderPageTree();
 
         // Load another page or show welcome
-        if (this.pages.length > 0) {
-            this.loadPage(this.pages[0].id);
+        const pages = this.storage.getAllPages();
+        if (pages.length > 0) {
+            this.loadPage(pages[0].id);
         } else {
             this.currentPage = null;
             this.showWelcome();
@@ -450,16 +460,21 @@ class ContentManager {
     }
 
     findPage(pageId) {
-        return this.pages.find(p => p.id === pageId);
+        return this.storage.getPage(pageId);
     }
 
     updatePage(pageId, updates) {
-        const page = this.findPage(pageId);
-        if (page) {
-            Object.assign(page, updates);
-            page.updatedAt = new Date().toISOString();
-            this.saveToStorage();
+        // Convert old-style updates to new format
+        const updateData = {};
+        if (updates.title !== undefined) {
+            updateData.title = updates.title;
         }
+        if (updates.content !== undefined) {
+            updateData.markdown = updates.content;
+        }
+
+        this.storage.updatePage(pageId, updateData);
+        this.saveToStorage();
     }
 
     loadPage(pageId) {
@@ -468,9 +483,9 @@ class ContentManager {
 
         this.currentPage = page;
 
-        // Update UI
+        // Update UI - use markdown content from unified storage
         document.getElementById('pageTitle').value = page.title;
-        document.getElementById('markdownEditor').value = page.content;
+        document.getElementById('markdownEditor').value = page.content.markdown;
         this.updatePreview();
         this.renderAttachments();
         this.updateActivePageInTree();
@@ -596,7 +611,10 @@ class ContentManager {
 
         editor.addEventListener('input', () => {
             if (this.currentPage) {
-                this.currentPage.content = editor.value;
+                // Update through unified storage
+                this.storage.updatePage(this.currentPage.id, {
+                    markdown: editor.value
+                });
                 this.updatePreview();
                 this.saveToStorage();
             }
@@ -674,9 +692,11 @@ class ContentManager {
         editor.value = currentValue.substring(0, start) + markdown + currentValue.substring(end);
         editor.focus();
 
-        // Update the page content
+        // Update the page content through unified storage
         if (this.currentPage) {
-            this.currentPage.content = editor.value;
+            this.storage.updatePage(this.currentPage.id, {
+                markdown: editor.value
+            });
             this.updatePreview();
             this.saveToStorage();
         }
@@ -829,7 +849,7 @@ class ContentManager {
     exportPage() {
         if (!this.currentPage) return;
 
-        const content = `# ${this.currentPage.title}\n\n${this.currentPage.content}`;
+        const content = `# ${this.currentPage.title}\n\n${this.currentPage.content.markdown}`;
         const blob = new Blob([content], { type: 'text/markdown' });
         const url = URL.createObjectURL(blob);
 
@@ -911,7 +931,8 @@ class ContentManager {
     createInitialContent() {
         // Create About/Home page
         const aboutPage = this.createPage('About');
-        aboutPage.content = `# Joshua S Aaron
+        this.storage.updatePage(aboutPage.id, {
+            markdown: `# Joshua S Aaron
 
 ## Background
 
@@ -939,11 +960,13 @@ My teaching and content styles are informed by progressive education movements i
 ## Contact
 
 Feel free to reach out for collaboration, consultation, or just to discuss education and technology!
-`;
+`
+        });
 
         // Create Current Teaching page
         const teachingPage = this.createPage('Current Teaching');
-        teachingPage.content = `# Current Teaching
+        this.storage.updatePage(teachingPage.id, {
+            markdown: `# Current Teaching
 
 ## Philosophy on Adult Learning
 
@@ -971,11 +994,13 @@ Working with students in underserved communities
 
 ### Archetyp Cafe
 Educational workshops and community learning initiatives
-`;
+`
+        });
 
         // Create Resources page
         const resourcesPage = this.createPage('Recommended Resources');
-        resourcesPage.content = `# Recommended Resources
+        this.storage.updatePage(resourcesPage.id, {
+            markdown: `# Recommended Resources
 
 This section is currently under construction. Based on feedback that a long list of books and channels might not be helpful, I'm curating a more focused selection.
 
@@ -1002,11 +1027,13 @@ Excellent resources for developing mathematical thinking
 ## More Coming Soon
 
 This list will be updated with more carefully selected resources that have proven most valuable in my teaching practice.
-`;
+`
+        });
 
         // Create Projects page
         const projectsPage = this.createPage('Projects');
-        projectsPage.content = `# Projects
+        this.storage.updatePage(projectsPage.id, {
+            markdown: `# Projects
 
 ## Archetyp Cafe
 
@@ -1037,11 +1064,13 @@ Creating tools and platforms that support progressive education
 - Curriculum design projects
 
 More projects and detailed information coming soon...
-`;
+`
+        });
 
         // Create Podcast placeholder page
         const podcastPage = this.createPage('Podcast');
-        podcastPage.content = `# Podcast
+        this.storage.updatePage(podcastPage.id, {
+            markdown: `# Podcast
 
 Information about podcast episodes and discussions.
 
