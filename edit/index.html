@@ -546,6 +546,9 @@
                 <i class="fas fa-circle"></i>
                 <span id="saveText">Not connected</span>
             </div>
+            <button class="icon-button" id="importMarkdownBtn" title="Import Markdown">
+                <i class="fas fa-file-import"></i>
+            </button>
             <button class="icon-button" id="settingsBtn" title="Settings">
                 <i class="fas fa-cog"></i>
             </button>
@@ -598,6 +601,32 @@
 
             <div class="button-group" style="margin-top: 16px;" id="disconnectGroup" style="display: none;">
                 <button class="btn btn-secondary" id="disconnectGithub" style="color: #dc3545;">Disconnect</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Import Markdown Modal -->
+    <div class="modal-overlay" id="importMarkdownModal">
+        <div class="modal">
+            <h2><i class="fas fa-file-import"></i> Import Markdown</h2>
+            <p>Paste your markdown content below to convert it to rich text blocks.</p>
+
+            <div class="form-group">
+                <textarea id="markdownInput" placeholder="Paste markdown here..." style="
+                    width: 100%;
+                    min-height: 300px;
+                    padding: 12px;
+                    border: 1px solid var(--border-color);
+                    border-radius: 6px;
+                    font-family: 'Consolas', 'Monaco', monospace;
+                    font-size: 14px;
+                    resize: vertical;
+                "></textarea>
+            </div>
+
+            <div class="button-group" style="margin-top: 16px;">
+                <button class="btn btn-secondary" id="cancelImportMarkdown">Cancel</button>
+                <button class="btn btn-primary" id="confirmImportMarkdown">Import</button>
             </div>
         </div>
     </div>

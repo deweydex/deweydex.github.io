@@ -438,7 +438,7 @@ class EditorApp {
             contentHTML += this.blockToHTML(block);
         }
 
-        // Create full HTML page
+        // Create full HTML page with improved styling
         return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -446,11 +446,243 @@ class EditorApp {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${this.escapeHtml(title)}</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Lora', 'Georgia', 'Times New Roman', serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        article {
+            background: white;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            line-height: 1.3;
+            margin: 40px 0 20px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin: 30px 0 15px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            margin: 25px 0 12px;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        ul, ol {
+            margin: 20px 0 20px 32px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        code {
+            background: var(--surface);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin: 25px 0;
+        }
+
+        figure {
+            margin: 30px 0;
+        }
+
+        figcaption {
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: var(--surface);
+            font-weight: 600;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .warning strong {
+            color: #92400e;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: start;
+            gap: 10px;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid var(--border);
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            article {
+                padding: 40px 24px;
+            }
+
+            main {
+                padding: 0 20px;
+                margin: 40px auto;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="/">Home</a>
+            <a href="/">← Back to Home</a>
         </nav>
     </header>
     <main>
@@ -750,6 +982,25 @@ class EditorApp {
             }
         });
 
+        // Markdown import
+        document.getElementById('importMarkdownBtn').addEventListener('click', () => {
+            this.openMarkdownImport();
+        });
+
+        document.getElementById('cancelImportMarkdown').addEventListener('click', () => {
+            this.closeMarkdownImport();
+        });
+
+        document.getElementById('confirmImportMarkdown').addEventListener('click', async () => {
+            await this.importMarkdown();
+        });
+
+        document.getElementById('importMarkdownModal').addEventListener('click', (e) => {
+            if (e.target.id === 'importMarkdownModal') {
+                this.closeMarkdownImport();
+            }
+        });
+
         // Page search
         document.getElementById('pageSearch').addEventListener('input', (e) => {
             this.filterPages(e.target.value);
@@ -835,6 +1086,181 @@ class EditorApp {
         } catch (error) {
             alert('Failed to connect to GitHub: ' + error.message);
         }
+    }
+
+    // ========================================
+    // MARKDOWN IMPORT
+    // ========================================
+
+    openMarkdownImport() {
+        document.getElementById('markdownInput').value = '';
+        document.getElementById('importMarkdownModal').classList.add('active');
+    }
+
+    closeMarkdownImport() {
+        document.getElementById('importMarkdownModal').classList.remove('active');
+    }
+
+    async importMarkdown() {
+        const markdownText = document.getElementById('markdownInput').value.trim();
+
+        if (!markdownText) {
+            alert('Please paste some markdown content first');
+            return;
+        }
+
+        try {
+            // Parse markdown and convert to EditorJS blocks
+            const blocks = this.parseMarkdownToBlocks(markdownText);
+
+            // Clear current editor and load the new blocks
+            await this.editor.blocks.clear();
+            await this.editor.render({ blocks });
+
+            // Trigger auto-save
+            this.scheduleAutoSave();
+
+            // Close modal
+            this.closeMarkdownImport();
+
+            console.log('Markdown imported successfully');
+        } catch (error) {
+            console.error('Error importing markdown:', error);
+            alert('Failed to import markdown: ' + error.message);
+        }
+    }
+
+    parseMarkdownToBlocks(markdown) {
+        const blocks = [];
+        const lines = markdown.split('\n');
+        let i = 0;
+
+        while (i < lines.length) {
+            const line = lines[i];
+
+            // Skip empty lines at the start of a block
+            if (!line.trim()) {
+                i++;
+                continue;
+            }
+
+            // Headers (# ## ###)
+            const headerMatch = line.match(/^(#{1,4})\s+(.+)$/);
+            if (headerMatch) {
+                blocks.push({
+                    type: 'header',
+                    data: {
+                        text: headerMatch[2].trim(),
+                        level: headerMatch[1].length
+                    }
+                });
+                i++;
+                continue;
+            }
+
+            // Unordered lists (- or *)
+            if (line.match(/^[-*]\s+/)) {
+                const items = [];
+                while (i < lines.length && lines[i].match(/^[-*]\s+/)) {
+                    items.push(lines[i].replace(/^[-*]\s+/, '').trim());
+                    i++;
+                }
+                blocks.push({
+                    type: 'list',
+                    data: {
+                        style: 'unordered',
+                        items: items
+                    }
+                });
+                continue;
+            }
+
+            // Ordered lists (1. 2. etc)
+            if (line.match(/^\d+\.\s+/)) {
+                const items = [];
+                while (i < lines.length && lines[i].match(/^\d+\.\s+/)) {
+                    items.push(lines[i].replace(/^\d+\.\s+/, '').trim());
+                    i++;
+                }
+                blocks.push({
+                    type: 'list',
+                    data: {
+                        style: 'ordered',
+                        items: items
+                    }
+                });
+                continue;
+            }
+
+            // Blockquotes (>)
+            if (line.match(/^>\s+/)) {
+                const quoteLines = [];
+                while (i < lines.length && lines[i].match(/^>\s+/)) {
+                    quoteLines.push(lines[i].replace(/^>\s+/, '').trim());
+                    i++;
+                }
+                blocks.push({
+                    type: 'quote',
+                    data: {
+                        text: quoteLines.join(' '),
+                        caption: ''
+                    }
+                });
+                continue;
+            }
+
+            // Code blocks (```)
+            if (line.match(/^```/)) {
+                const codeLines = [];
+                i++; // Skip opening ```
+                while (i < lines.length && !lines[i].match(/^```/)) {
+                    codeLines.push(lines[i]);
+                    i++;
+                }
+                i++; // Skip closing ```
+                blocks.push({
+                    type: 'code',
+                    data: {
+                        code: codeLines.join('\n')
+                    }
+                });
+                continue;
+            }
+
+            // Horizontal rule (---)
+            if (line.match(/^---+$/)) {
+                blocks.push({
+                    type: 'delimiter',
+                    data: {}
+                });
+                i++;
+                continue;
+            }
+
+            // Regular paragraph
+            const paragraphLines = [];
+            while (i < lines.length && lines[i].trim() &&
+                   !lines[i].match(/^#{1,4}\s+/) &&
+                   !lines[i].match(/^[-*]\s+/) &&
+                   !lines[i].match(/^\d+\.\s+/) &&
+                   !lines[i].match(/^>\s+/) &&
+                   !lines[i].match(/^```/) &&
+                   !lines[i].match(/^---+$/)) {
+                paragraphLines.push(lines[i].trim());
+                i++;
+            }
+
+            if (paragraphLines.length > 0) {
+                blocks.push({
+                    type: 'paragraph',
+                    data: {
+                        text: paragraphLines.join(' ')
+                    }
+                });
+            }
+        }
+
+        return blocks;
     }
 
     // ========================================
