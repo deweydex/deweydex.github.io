@@ -7,9 +7,8 @@
 class EditorApp {
     constructor() {
         this.editor = null;
-        this.githubConfig = null;
+        this.storage = window.SharedPageStorage; // Use unified storage
         this.currentPage = null;
-        this.pages = [];
         this.saveTimeout = null;
         this.autoSaveDelay = 5000; // 5 seconds
         this.isSaving = false;
@@ -18,9 +17,20 @@ class EditorApp {
     }
 
     async init() {
-        // Load configuration
+        // Load configuration and migrate old data if needed
+        this.migrateOldData();
         this.loadGithubConfig();
         await this.loadPages();
+
+        // Sync from GitHub if configured
+        if (this.storage.githubConfig) {
+            try {
+                await this.storage.syncFromGithub();
+                console.log('[/edit] Synced pages from GitHub');
+            } catch (e) {
+                console.warn('[/edit] Could not sync from GitHub:', e.message);
+            }
+        }
 
         // Initialize EditorJS
         await this.initEditor();
@@ -36,6 +46,15 @@ class EditorApp {
 
         // Check if there's a page in the URL
         this.loadPageFromURL();
+    }
+
+    // Helper properties for backward compatibility
+    get pages() {
+        return this.storage.getAllPages();
+    }
+
+    get githubConfig() {
+        return this.storage.githubConfig;
     }
 
     // ========================================
@@ -161,29 +180,56 @@ class EditorApp {
     }
 
     // ========================================
+    // DATA MIGRATION
+    // ========================================
+
+    migrateOldData() {
+        // Migrate old /edit data to unified storage
+        try {
+            const oldPages = localStorage.getItem('editor_pages');
+            const oldConfig = localStorage.getItem('github_config_edit');
+
+            if (oldPages && this.storage.getAllPages().length === 0) {
+                const parsed = JSON.parse(oldPages);
+                console.log('[/edit] Migrating', parsed.length, 'pages to unified storage');
+                parsed.forEach(oldPage => {
+                    this.storage.createPage({
+                        title: oldPage.title || oldPage.name,
+                        markdown: '',
+                        editorjs: oldPage.content || { blocks: [] },
+                        createdWith: 'edit'
+                    });
+                });
+                localStorage.removeItem('editor_pages');
+            }
+
+            if (oldConfig && !this.storage.githubConfig) {
+                const parsed = JSON.parse(oldConfig);
+                this.storage.saveGithubConfig(parsed);
+                localStorage.removeItem('github_config_edit');
+                console.log('[/edit] Migrated GitHub config to unified storage');
+            }
+        } catch (e) {
+            console.error('[/edit] Error during migration:', e);
+        }
+    }
+
+    // ========================================
     // GITHUB INTEGRATION
     // ========================================
 
     loadGithubConfig() {
-        try {
-            const stored = localStorage.getItem('github_config_edit');
-            if (stored) {
-                this.githubConfig = JSON.parse(stored);
-            }
-        } catch (e) {
-            console.error('Error loading GitHub config:', e);
-        }
+        // Load from unified storage
+        this.storage.loadGithubConfig();
     }
 
     saveGithubConfig(config) {
-        this.githubConfig = config;
-        localStorage.setItem('github_config_edit', JSON.stringify(config));
+        this.storage.saveGithubConfig(config);
         this.updateSaveIndicator('saved');
     }
 
     clearGithubConfig() {
-        this.githubConfig = null;
-        localStorage.removeItem('github_config_edit');
+        this.storage.clearGithubConfig();
         this.updateSaveIndicator('disconnected');
     }
 
@@ -243,67 +289,27 @@ class EditorApp {
     // ========================================
 
     async loadPages() {
-        try {
-            const stored = localStorage.getItem('editor_pages');
-            if (stored) {
-                this.pages = JSON.parse(stored);
-            }
-
-            // Try to sync with GitHub if connected
-            if (this.githubConfig) {
-                await this.syncPagesFromGithub();
-            }
-        } catch (e) {
-            console.error('Error loading pages:', e);
-            this.pages = [];
-        }
+        // Load from unified storage (already done in SharedPageStorage)
+        this.storage.loadPages();
     }
 
     savePages() {
-        localStorage.setItem('editor_pages', JSON.stringify(this.pages));
-    }
-
-    async syncPagesFromGithub() {
-        try {
-            // List all HTML files in the repo
-            const contents = await this.githubRequest('contents');
-            const htmlFiles = contents.filter(file =>
-                file.name.endsWith('.html') &&
-                file.name !== 'index.html' &&
-                file.name !== 'cms.html' &&
-                !file.name.includes('mockup')
-            );
-
-            // Add any files that aren't in our local list
-            for (const file of htmlFiles) {
-                if (!this.pages.find(p => p.path === file.name)) {
-                    this.pages.push({
-                        id: this.generateId(),
-                        name: file.name.replace('.html', ''),
-                        path: file.name,
-                        lastModified: new Date().toISOString()
-                    });
-                }
-            }
-
-            this.savePages();
-        } catch (error) {
-            console.error('Error syncing pages from GitHub:', error);
-        }
+        // Save is handled by SharedPageStorage
+        this.storage.savePages();
     }
 
     async loadPage(pageId) {
-        const page = this.pages.find(p => p.id === pageId);
+        const page = this.storage.getPage(pageId);
         if (!page) return;
 
         this.currentPage = page;
 
         // Update title
-        document.getElementById('pageTitle').value = page.title || page.name;
+        document.getElementById('pageTitle').value = page.title;
 
-        // Load content into editor
-        if (page.content) {
-            await this.editor.render(page.content);
+        // Load content into editor from EditorJS format
+        if (page.content.editorjs && page.content.editorjs.blocks) {
+            await this.editor.render(page.content.editorjs);
         } else {
             await this.editor.blocks.clear();
         }
@@ -317,17 +323,14 @@ class EditorApp {
     }
 
     createNewPage() {
-        const newPage = {
-            id: this.generateId(),
-            name: 'Untitled',
+        // Use unified storage
+        const newPage = this.storage.createPage({
             title: 'Untitled',
-            path: `untitled-${Date.now()}.html`,
-            content: { blocks: [] },
-            lastModified: new Date().toISOString()
-        };
+            markdown: '',
+            editorjs: { blocks: [] },
+            createdWith: 'edit'
+        });
 
-        this.pages.push(newPage);
-        this.savePages();
         this.loadPage(newPage.id);
         this.updatePageDropdown();
 
@@ -341,16 +344,11 @@ class EditorApp {
         const title = document.getElementById('pageTitle').value || 'Untitled';
         const content = await this.editor.save();
 
-        this.currentPage.title = title;
-        this.currentPage.content = content;
-        this.currentPage.lastModified = new Date().toISOString();
-
-        // Update path based on title if it's still untitled
-        if (this.currentPage.name === 'Untitled') {
-            const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-            this.currentPage.name = title;
-            this.currentPage.path = `${slug}.html`;
-        }
+        // Update through unified storage
+        this.storage.updatePage(this.currentPage.id, {
+            title: title,
+            editorjs: content
+        });
 
         this.savePages();
         this.updateUI();
@@ -824,7 +822,7 @@ class EditorApp {
             this.saveGithubConfig(config);
 
             // Sync pages
-            await this.syncPagesFromGithub();
+            await this.storage.syncFromGithub();
 
             // Update UI
             this.updateUI();
