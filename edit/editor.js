@@ -45,108 +45,119 @@ class EditorApp {
     async initEditor() {
         const self = this;
 
-        this.editor = new EditorJS({
-            holder: 'editorjs',
-            placeholder: 'Type / for commands or start writing...',
-            autofocus: true,
+        // Wait for all scripts to load
+        await new Promise(resolve => {
+            if (window.EditorJS) resolve();
+            else window.addEventListener('load', resolve);
+        });
 
-            tools: {
-                header: {
-                    class: Header,
-                    inlineToolbar: true,
-                    config: {
-                        placeholder: 'Enter a header',
-                        levels: [1, 2, 3, 4],
-                        defaultLevel: 2
+        try {
+            this.editor = new EditorJS({
+                holder: 'editorjs',
+                placeholder: 'Type / for commands or start writing...',
+                autofocus: true,
+
+                tools: {
+                    header: {
+                        class: window.Header,
+                        inlineToolbar: true,
+                        config: {
+                            placeholder: 'Enter a header',
+                            levels: [1, 2, 3, 4],
+                            defaultLevel: 2
+                        },
+                        shortcut: 'CMD+SHIFT+H'
                     },
-                    shortcut: 'CMD+SHIFT+H'
-                },
-                list: {
-                    class: List,
-                    inlineToolbar: true,
-                    shortcut: 'CMD+SHIFT+L'
-                },
-                checklist: {
-                    class: Checklist,
-                    inlineToolbar: true
-                },
-                quote: {
-                    class: Quote,
-                    inlineToolbar: true,
-                    shortcut: 'CMD+SHIFT+O',
-                    config: {
-                        quotePlaceholder: 'Enter a quote',
-                        captionPlaceholder: 'Quote author',
-                    }
-                },
-                warning: {
-                    class: Warning,
-                    inlineToolbar: true,
-                    shortcut: 'CMD+SHIFT+W',
-                    config: {
-                        titlePlaceholder: 'Title',
-                        messagePlaceholder: 'Message',
-                    }
-                },
-                delimiter: {
-                    class: Delimiter
-                },
-                code: {
-                    class: CodeTool,
-                    shortcut: 'CMD+SHIFT+C'
-                },
-                inlineCode: {
-                    class: InlineCode,
-                    shortcut: 'CMD+SHIFT+M',
-                },
-                table: {
-                    class: Table,
-                    inlineToolbar: true,
-                    config: {
-                        rows: 2,
-                        cols: 3,
-                    }
-                },
-                image: {
-                    class: ImageTool,
-                    config: {
-                        uploader: {
-                            uploadByFile: async (file) => {
-                                return await self.uploadImage(file);
-                            },
-                            uploadByUrl: async (url) => {
-                                return {
-                                    success: 1,
-                                    file: {
-                                        url: url
-                                    }
-                                };
+                    list: {
+                        class: window.List,
+                        inlineToolbar: true,
+                        shortcut: 'CMD+SHIFT+L'
+                    },
+                    checklist: {
+                        class: window.Checklist,
+                        inlineToolbar: true
+                    },
+                    quote: {
+                        class: window.Quote,
+                        inlineToolbar: true,
+                        shortcut: 'CMD+SHIFT+O',
+                        config: {
+                            quotePlaceholder: 'Enter a quote',
+                            captionPlaceholder: 'Quote author',
+                        }
+                    },
+                    warning: {
+                        class: window.Warning,
+                        inlineToolbar: true,
+                        shortcut: 'CMD+SHIFT+W',
+                        config: {
+                            titlePlaceholder: 'Title',
+                            messagePlaceholder: 'Message',
+                        }
+                    },
+                    delimiter: {
+                        class: window.Delimiter
+                    },
+                    code: {
+                        class: window.CodeTool,
+                        shortcut: 'CMD+SHIFT+C'
+                    },
+                    inlineCode: {
+                        class: window.InlineCode,
+                        shortcut: 'CMD+SHIFT+M',
+                    },
+                    table: {
+                        class: window.Table,
+                        inlineToolbar: true,
+                        config: {
+                            rows: 2,
+                            cols: 3,
+                        }
+                    },
+                    image: {
+                        class: window.ImageTool,
+                        config: {
+                            uploader: {
+                                uploadByFile: async (file) => {
+                                    return await self.uploadImage(file);
+                                },
+                                uploadByUrl: async (url) => {
+                                    return {
+                                        success: 1,
+                                        file: {
+                                            url: url
+                                        }
+                                    };
+                                }
+                            }
+                        }
+                    },
+                    embed: {
+                        class: window.Embed,
+                        config: {
+                            services: {
+                                youtube: true,
+                                vimeo: true,
+                                twitter: true,
+                                codepen: true,
+                                github: true
                             }
                         }
                     }
                 },
-                embed: {
-                    class: Embed,
-                    config: {
-                        services: {
-                            youtube: true,
-                            vimeo: true,
-                            twitter: true,
-                            codepen: true,
-                            github: true
-                        }
-                    }
+
+                onChange: (api, event) => {
+                    this.scheduleAutoSave();
+                },
+
+                onReady: () => {
+                    console.log('Editor.js is ready!');
                 }
-            },
-
-            onChange: (api, event) => {
-                this.scheduleAutoSave();
-            },
-
-            onReady: () => {
-                console.log('Editor.js is ready!');
-            }
-        });
+            });
+        } catch (error) {
+            console.error('Failed to initialize editor:', error);
+            alert('Failed to load editor. Please refresh the page.');
+        }
     }
 
     // ========================================
