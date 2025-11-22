@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Joshua S Aaron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .faq-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #f8f9fa;
+        }
+
+        .faq-question i {
+            color: #667eea;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 24px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 24px 20px 24px;
+        }
+
+        .faq-answer p {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 12px;
+        }
+
+        .faq-answer ul, .faq-answer ol {
+            margin-left: 24px;
+            margin-bottom: 12px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--primary-color, #667eea);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+
+        <div class="page-header">
+            <h1><i class="fas fa-question-circle"></i> Frequently Asked Questions</h1>
+            <p>Common questions about courses, grading, and expectations</p>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Am I allowed to use ChatGPT and other LLM/AI tools?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Yes! AI tools like ChatGPT are allowed and even encouraged in my courses. However, it's important to understand how to use them effectively:</p>
+                <ul>
+                    <li><strong>Learning tool, not replacement:</strong> AI tools should help you understand concepts, not replace your thinking. Use them to explain difficult topics, generate examples, or debug code.</li>
+                    <li><strong>Demonstrate understanding:</strong> In your submissions, you need to show that you understand what you're submitting. Simply copying AI output without understanding it won't help you learn.</li>
+                    <li><strong>Cite when appropriate:</strong> If AI significantly contributed to your work, mention it in your reflection or documentation.</li>
+                    <li><strong>Remember the goal:</strong> Learning happens in your head. AI is a tool to facilitate that learning, like a textbook or tutorial.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How will I be graded?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Grading in my courses focuses on demonstrating mastery and progress rather than one-time performance:</p>
+                <ul>
+                    <li><strong>Project-based and competency-based:</strong> Most assessments are either online resources or project-based, allowing you to demonstrate specific competencies.</li>
+                    <li><strong>Multiple opportunities:</strong> You won't receive a terminal grade after one attempt. You'll have opportunities to improve based on feedback.</li>
+                    <li><strong>Evidence of learning:</strong> Your grade reflects the effort and engagement you demonstrate through participation, submissions, and reflections.</li>
+                    <li><strong>Individual progress:</strong> Success takes into account where you started and how far you've progressed.</li>
+                </ul>
+                <p>Check your specific course page for the exact breakdown (typically 50% skills demonstrations and 50% collection of work).</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How can I improve my grade?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>There are several ways to improve your grade throughout the course:</p>
+                <ul>
+                    <li><strong>Engage with feedback:</strong> Read and apply the feedback you receive on assignments and projects.</li>
+                    <li><strong>Revise and resubmit:</strong> Most assignments can be revised and improved. Show that you've learned from feedback.</li>
+                    <li><strong>Submit reflections:</strong> Reflections help me understand your learning process and where you might need support.</li>
+                    <li><strong>Communicate:</strong> If you're struggling, reach out. The more I understand your situation, the better I can help.</li>
+                    <li><strong>Demonstrate effort:</strong> Consistent engagement with course materials and regular submissions show your commitment to learning.</li>
+                    <li><strong>Complete optional work:</strong> Going beyond minimum requirements demonstrates deeper understanding.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Do I have to do reflections?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Reflections are an important part of the learning process:</p>
+                <ul>
+                    <li><strong>Required component:</strong> Yes, reflections are part of your assessment and help demonstrate your learning journey.</li>
+                    <li><strong>Purpose:</strong> They help you think about what you've learned, what was challenging, and how you've grown.</li>
+                    <li><strong>Communication tool:</strong> Reflections help me understand where you might need extra support or resources.</li>
+                    <li><strong>Format:</strong> Usually brief - focus on quality over quantity. What did you learn? What was difficult? What changed?</li>
+                    <li><strong>Frequency:</strong> Typically at the end of each class (intention setting at the start, reflection at the end).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Why are there no due dates on assignments?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>The flexible approach to deadlines is intentional:</p>
+                <ul>
+                    <li><strong>Self-paced learning:</strong> Everyone learns at different speeds. You can work at a pace that suits your understanding.</li>
+                    <li><strong>Real-world skills:</strong> Managing your own time and priorities is a valuable professional skill.</li>
+                    <li><strong>Quality over speed:</strong> Focus on truly understanding the material rather than rushing to meet arbitrary deadlines.</li>
+                    <li><strong>Communication is key:</strong> While there aren't strict due dates, you should communicate your progress regularly through check-ins and project updates.</li>
+                    <li><strong>Course completion:</strong> Keep in mind there are still overall course timelines and semester end dates to work within.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>What does a Check-In entail?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Check-ins are informal progress conversations:</p>
+                <ul>
+                    <li><strong>Purpose:</strong> To discuss your progress, challenges, and next steps.</li>
+                    <li><strong>Format:</strong> Usually a brief 1-on-1 conversation during class time or office hours.</li>
+                    <li><strong>What to prepare:</strong> Be ready to discuss what you've been working on, what's going well, and where you're stuck.</li>
+                    <li><strong>Feedback opportunity:</strong> A chance to get personalized guidance and clarify any confusion.</li>
+                    <li><strong>Not an evaluation:</strong> It's a supportive conversation, not a formal assessment.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How much do I have to write for a project update?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Project updates should be concise but informative:</p>
+                <ul>
+                    <li><strong>Quality over quantity:</strong> A few well-thought-out sentences are better than pages of filler.</li>
+                    <li><strong>Key information:</strong> What have you done? What are you working on next? Any blockers or challenges?</li>
+                    <li><strong>Typical length:</strong> Usually a paragraph or two (3-5 sentences) is sufficient.</li>
+                    <li><strong>Be specific:</strong> Instead of "working on the assignment," say "implemented the user login function and started on database integration."</li>
+                    <li><strong>Regular updates:</strong> Brief regular updates are more valuable than occasional long ones.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>How do I know when a project is done?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>A project is complete when it meets the learning objectives:</p>
+                <ul>
+                    <li><strong>Check the brief:</strong> Does your work address all the requirements in the assignment brief?</li>
+                    <li><strong>Demonstrate competencies:</strong> Have you shown mastery of the specific skills the project is meant to assess?</li>
+                    <li><strong>Minimum viable product first:</strong> Get the core requirements working before adding extras.</li>
+                    <li><strong>Reflection component:</strong> Most projects include a reflection on what you learned.</li>
+                    <li><strong>When in doubt, ask:</strong> Submit what you have and ask for feedback if you're unsure.</li>
+                    <li><strong>Iterative improvement:</strong> Remember, you can improve and resubmit based on feedback.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Will there be any quizzes or tests?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>The assessment approach varies by course:</p>
+                <ul>
+                    <li><strong>Project-focused:</strong> Most courses emphasize project-based assessments over traditional tests.</li>
+                    <li><strong>Skills demonstrations:</strong> Some courses include in-class skills demonstrations (typically 50% of grade).</li>
+                    <li><strong>Online assessments:</strong> Some courses may use online resources for competency checks.</li>
+                    <li><strong>No surprise tests:</strong> You'll always know assessment format well in advance.</li>
+                    <li><strong>Course-specific:</strong> Check your individual course page for the specific assessment breakdown.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Do I have to use the online resources you recommend?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Recommended resources are suggestions, not requirements:</p>
+                <ul>
+                    <li><strong>Multiple paths to learning:</strong> There are many ways to learn the material. My recommendations are starting points.</li>
+                    <li><strong>Find what works for you:</strong> If you find resources that work better for your learning style, use them!</li>
+                    <li><strong>Share discoveries:</strong> If you find great resources, share them with the class.</li>
+                    <li><strong>Goal is understanding:</strong> What matters is that you learn the material, not how you learned it.</li>
+                    <li><strong>Ask for alternatives:</strong> If recommended resources don't work for you, let me know and I can suggest alternatives.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="edit-button.js"></script>
+    <script>
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Open first FAQ by default
+        document.querySelector('.faq-item').classList.add('active');
+    </script>
+</body>
+</html>

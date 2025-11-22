@@ -73,27 +73,43 @@
             margin-bottom: 24px;
         }
 
-        .under-construction {
-            background: var(--surface);
-            border-left: 4px solid #f59e0b;
-            padding: 24px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .under-construction i {
-            font-size: 3rem;
-            color: #f59e0b;
-            margin-bottom: 16px;
-        }
-
-        .under-construction h2 {
+        h2 {
             color: var(--text-primary);
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--text-primary);
+            margin-top: 24px;
             margin-bottom: 12px;
         }
 
-        .under-construction p {
+        h4 {
+            color: var(--text-primary);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 16px;
             color: var(--text-secondary);
+        }
+
+        ul, ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text-primary);
         }
 
         @media (max-width: 768px) {
@@ -121,12 +137,100 @@
         </div>
 
         <div class="content">
-            <div class="under-construction">
-                <i class="fas fa-tools"></i>
-                <h2>Under Construction</h2>
-                <p>This guide is currently being developed. Check back soon for comprehensive strategies on learning mathematics!</p>
-            </div>
+            <h2>What We Learn in School</h2>
+            <p>In high school, mathematics is often presented as a series of algorithms to memorize and procedures to follow. While this approach can help with standardized tests, it rarely builds deep understanding or appreciation for mathematical thinking.</p>
+
+            <h2>A Different Approach</h2>
+            <p>In my courses, we focus on:</p>
+            <ul>
+                <li><strong>Understanding concepts</strong> rather than memorizing procedures</li>
+                <li><strong>Seeing patterns</strong> and connections between different areas of mathematics</li>
+                <li><strong>Using programming</strong> to make abstract concepts concrete</li>
+                <li><strong>Building intuition</strong> through visualization and experimentation</li>
+                <li><strong>Asking "why"</strong> instead of just "how"</li>
+            </ul>
+
+            <h2>Key Principles</h2>
+
+            <h3>1. Objects and Functions</h3>
+            <p>Think of mathematics as a way of describing objects (numbers, shapes, data) and functions (operations we can perform on those objects). This perspective makes mathematics more like a language for describing patterns.</p>
+
+            <h3>2. Multiple Representations</h3>
+            <p>Any mathematical concept can usually be represented in multiple ways:</p>
+            <ul>
+                <li><strong>Numerically</strong> (with numbers and calculations)</li>
+                <li><strong>Graphically</strong> (with pictures and diagrams)</li>
+                <li><strong>Algebraically</strong> (with symbols and equations)</li>
+                <li><strong>In code</strong> (with programs and algorithms)</li>
+            </ul>
+            <p>When you're struggling with a concept in one representation, try looking at it through a different lens. Sometimes seeing a graph makes an equation click, or writing code helps you understand an algorithm.</p>
+
+            <h3>3. Practice and Exploration</h3>
+            <p>Mathematics is learned through practice, but not mindless repetition. Instead:</p>
+            <ul>
+                <li>Start with problems that interest you</li>
+                <li>Experiment and make mistakes</li>
+                <li>Look for patterns in your solutions</li>
+                <li>Create your own practice problems</li>
+                <li>Explain concepts to others</li>
+            </ul>
+
+            <h2>Practical Tips</h2>
+
+            <h3>When You're Stuck</h3>
+            <ul>
+                <li><strong>Change representations:</strong> If algebra isn't working, try drawing a picture</li>
+                <li><strong>Work backwards:</strong> Start from the answer and see how you got there</li>
+                <li><strong>Simplify:</strong> Try a simpler version of the problem first</li>
+                <li><strong>Ask "why":</strong> Why does this formula work? Why do we use this method?</li>
+                <li><strong>Take a break:</strong> Sometimes stepping away helps your brain process</li>
+            </ul>
+
+            <h3>Building Intuition</h3>
+            <ul>
+                <li><strong>Play with examples:</strong> Try lots of different numbers, see what happens</li>
+                <li><strong>Look for patterns:</strong> What stays the same? What changes?</li>
+                <li><strong>Connect to what you know:</strong> How is this like something you've seen before?</li>
+                <li><strong>Visualize:</strong> Can you draw this? Graph it? Model it?</li>
+                <li><strong>Use technology:</strong> Graphing calculators, Desmos, Python—use tools to explore</li>
+            </ul>
+
+            <h3>The Role of Programming</h3>
+            <p>Programming is an excellent companion to mathematics because:</p>
+            <ul>
+                <li>It forces precision—you have to understand exactly what you're doing</li>
+                <li>It provides immediate feedback—you can see if your understanding is correct</li>
+                <li>It makes abstract concepts concrete—you can see patterns emerge</li>
+                <li>It encourages experimentation—changing one number and seeing what happens</li>
+            </ul>
+
+            <h2>Common Misconceptions</h2>
+
+            <h3>"I'm Just Not a Math Person"</h3>
+            <p>This is false. Mathematical ability is not innate—it's developed through practice and the right approach. If you've struggled with math, it's likely because:</p>
+            <ul>
+                <li>You were taught procedures without understanding</li>
+                <li>You didn't get enough time to explore and make mistakes</li>
+                <li>The teaching style didn't match your learning style</li>
+                <li>You had a bad experience that made you anxious about math</li>
+            </ul>
+            <p>With the right approach and patience, anyone can learn mathematics.</p>
+
+            <h3>"I Need to Be Fast at Mental Math"</h3>
+            <p>While mental math can be useful, it's not what mathematics is about. Mathematics is about understanding patterns, solving problems creatively, and reasoning logically. Calculators exist for a reason—use them!</p>
+
+            <h2>Resources</h2>
+            <ul>
+                <li><strong>Visual tools:</strong> Desmos, GeoGebra</li>
+                <li><strong>Programming:</strong> Python, Jupyter notebooks</li>
+                <li><strong>Videos:</strong> 3Blue1Brown (highly recommended!), Khan Academy</li>
+                <li><strong>Books:</strong> Look for books that explain "why" not just "how"</li>
+            </ul>
+
+            <p style="margin-top: 32px; font-style: italic; color: var(--text-secondary);">Remember: Mathematics is a way of thinking, not a collection of formulas to memorize. Focus on understanding, and the techniques will follow.</p>
         </div>
     </div>
+
+    <script src="../../edit-button.js"></script>
 </body>
 </html>
