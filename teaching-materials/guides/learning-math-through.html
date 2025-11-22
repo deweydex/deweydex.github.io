@@ -73,27 +73,53 @@
             margin-bottom: 24px;
         }
 
-        .under-construction {
-            background: var(--surface);
-            border-left: 4px solid #f59e0b;
-            padding: 24px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .under-construction i {
-            font-size: 3rem;
-            color: #f59e0b;
-            margin-bottom: 16px;
-        }
-
-        .under-construction h2 {
+        h2 {
             color: var(--text-primary);
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--text-primary);
+            margin-top: 24px;
             margin-bottom: 12px;
         }
 
-        .under-construction p {
+        p {
+            margin-bottom: 16px;
             color: var(--text-secondary);
+        }
+
+        ul, ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .example-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 6px;
         }
 
         @media (max-width: 768px) {
@@ -121,12 +147,233 @@
         </div>
 
         <div class="content">
-            <div class="under-construction">
-                <i class="fas fa-tools"></i>
-                <h2>Under Construction</h2>
-                <p>This guide is currently being developed with strategies for using programming (especially Python and Jupyter notebooks) as a tool for learning and visualizing mathematical concepts.</p>
+            <h2>Why Programming Helps with Math</h2>
+            <p>Programming is an incredibly powerful tool for learning mathematics because it:</p>
+            <ul>
+                <li><strong>Makes abstract concepts concrete:</strong> You can see and manipulate mathematical objects</li>
+                <li><strong>Provides immediate feedback:</strong> Run code, see if it works, adjust understanding</li>
+                <li><strong>Encourages experimentation:</strong> Easy to try different values and see patterns emerge</li>
+                <li><strong>Forces precision:</strong> Computers don't accept vague understanding—you have to be exact</li>
+                <li><strong>Enables visualization:</strong> Graph, plot, and animate mathematical concepts</li>
+                <li><strong>Handles tedious calculations:</strong> Focus on understanding, not arithmetic</li>
+            </ul>
+
+            <h2>Getting Started</h2>
+
+            <h3>Tools You'll Need</h3>
+            <p>The easiest way to combine math and programming is with:</p>
+            <ul>
+                <li><strong>Python:</strong> Simple syntax, powerful math libraries</li>
+                <li><strong>Jupyter Notebooks:</strong> Mix code, text, and visualizations</li>
+                <li><strong>Key libraries:</strong> numpy (arrays/calculations), matplotlib (plotting), sympy (symbolic math)</li>
+            </ul>
+
+            <div class="example-box">
+                <p><strong>Quick setup:</strong> Install Anaconda (includes Python, Jupyter, and all the libraries you need) or use Google Colab (runs in your browser, no installation needed).</p>
             </div>
+
+            <h2>Learning Math Concepts Through Code</h2>
+
+            <h3>1. Exploring Functions</h3>
+            <p>Instead of just looking at <code>f(x) = x²</code>, you can:</p>
+            <ul>
+                <li>Define the function in code</li>
+                <li>Try different input values and see outputs</li>
+                <li>Plot the function to visualize it</li>
+                <li>Modify it and see how changes affect the graph</li>
+            </ul>
+
+            <div class="example-box">
+                <p><strong>Example exploration:</strong></p>
+                <p>- What happens when you change from <code>x²</code> to <code>x³</code>?</p>
+                <p>- How does adding a constant affect the graph?</p>
+                <p>- What about multiplying by a coefficient?</p>
+            </div>
+
+            <h3>2. Understanding Sequences and Series</h3>
+            <p>Programming makes sequences tangible:</p>
+            <ul>
+                <li>Generate Fibonacci numbers and visualize the pattern</li>
+                <li>Calculate sums and see convergence</li>
+                <li>Explore geometric series by plotting partial sums</li>
+                <li>Discover patterns in prime numbers</li>
+            </ul>
+
+            <h3>3. Linear Algebra</h3>
+            <p>Matrices and vectors make sense when you can:</p>
+            <ul>
+                <li>Create matrices and perform operations</li>
+                <li>Visualize transformations (rotation, scaling, shearing)</li>
+                <li>See eigenvectors graphically</li>
+                <li>Solve systems of equations and verify solutions</li>
+            </ul>
+
+            <h3>4. Calculus</h3>
+            <p>Understand calculus by:</p>
+            <ul>
+                <li>Approximating derivatives numerically</li>
+                <li>Visualizing limits as you zoom in on graphs</li>
+                <li>Computing integrals as sums of rectangles (Riemann sums)</li>
+                <li>Animating how approximations improve</li>
+            </ul>
+
+            <h3>5. Statistics and Probability</h3>
+            <p>Programming excels at:</p>
+            <ul>
+                <li>Running simulations (Monte Carlo methods)</li>
+                <li>Generating random distributions</li>
+                <li>Visualizing probability distributions</li>
+                <li>Understanding the law of large numbers through experimentation</li>
+            </ul>
+
+            <h2>Practical Strategies</h2>
+
+            <h3>Start with Concrete Examples</h3>
+            <p>Don't start with the general formula—start with specific cases:</p>
+            <ol>
+                <li>Try a simple example by hand</li>
+                <li>Write code to do the same thing</li>
+                <li>Try more examples with different values</li>
+                <li>Look for patterns in the results</li>
+                <li>Generalize to the formula</li>
+            </ol>
+
+            <h3>Visualize Everything</h3>
+            <p>A picture is worth a thousand equations:</p>
+            <ul>
+                <li>Plot functions to understand their behavior</li>
+                <li>Use color to show additional dimensions</li>
+                <li>Create animations to show how things change</li>
+                <li>Graph data before analyzing it</li>
+            </ul>
+
+            <h3>Experiment Fearlessly</h3>
+            <p>Programming makes experimentation safe and easy:</p>
+            <ul>
+                <li>"What if I change this parameter?"</li>
+                <li>"What happens at extreme values?"</li>
+                <li>"Can I find a counterexample?"</li>
+                <li>"Does this pattern always hold?"</li>
+            </ul>
+
+            <h3>Build Intuition Through Iteration</h3>
+            <p>Write loops to:</p>
+            <ul>
+                <li>See how iterative processes converge</li>
+                <li>Understand recursive definitions</li>
+                <li>Observe patterns emerging from repetition</li>
+                <li>Approximate solutions through iteration</li>
+            </ul>
+
+            <h2>Example Applications</h2>
+
+            <h3>Exploring the Fibonacci Sequence</h3>
+            <p>Instead of just knowing the formula, you can:</p>
+            <ul>
+                <li>Generate the sequence and look at ratios between consecutive terms</li>
+                <li>Discover the golden ratio emerging</li>
+                <li>Plot the sequence and see growth patterns</li>
+                <li>Explore Fibonacci in nature (spirals, proportions)</li>
+            </ul>
+
+            <h3>Understanding Derivatives</h3>
+            <p>Make calculus visual:</p>
+            <ul>
+                <li>Calculate slope between two points</li>
+                <li>Make the points closer and closer (approaching the limit)</li>
+                <li>Visualize tangent lines on a curve</li>
+                <li>See how derivative relates to rate of change</li>
+            </ul>
+
+            <h3>Simulating Probability</h3>
+            <p>Instead of calculating theoretically:</p>
+            <ul>
+                <li>Simulate rolling dice thousands of times</li>
+                <li>Verify that frequencies match theoretical probabilities</li>
+                <li>Explore paradoxes (Monty Hall problem) through simulation</li>
+                <li>Understand randomness by seeing it in action</li>
+            </ul>
+
+            <h2>Common Pitfalls</h2>
+
+            <h3>Don't Skip the Math</h3>
+            <p>Programming is a tool to <em>understand</em> math, not replace it. You still need to:</p>
+            <ul>
+                <li>Understand the mathematical concepts</li>
+                <li>Know when to use which methods</li>
+                <li>Verify that code is implementing math correctly</li>
+                <li>Think mathematically about problems</li>
+            </ul>
+
+            <h3>Numerical ≠ Exact</h3>
+            <p>Computers work with approximations:</p>
+            <ul>
+                <li>Floating-point arithmetic has rounding errors</li>
+                <li>Symbolic math (sympy) can give exact answers</li>
+                <li>Understand when precision matters</li>
+                <li>Be aware of numerical instability</li>
+            </ul>
+
+            <h3>Code Can Be Wrong</h3>
+            <p>Just because code runs doesn't mean it's correct:</p>
+            <ul>
+                <li>Test with examples where you know the answer</li>
+                <li>Check edge cases and special values</li>
+                <li>Verify results make mathematical sense</li>
+                <li>Compare numerical and analytical solutions when possible</li>
+            </ul>
+
+            <h2>Project Ideas</h2>
+
+            <p>Learn by building:</p>
+            <ul>
+                <li><strong>Function Explorer:</strong> Interactive tool to plot and transform functions</li>
+                <li><strong>Fractal Generator:</strong> Create Mandelbrot sets, Julia sets, and other fractals</li>
+                <li><strong>Prime Number Patterns:</strong> Visualize prime distribution, Sieve of Eratosthenes</li>
+                <li><strong>Polynomial Curve Fitting:</strong> Fit curves to data, understand regression</li>
+                <li><strong>Chaos Theory:</strong> Explore the logistic map and sensitive dependence</li>
+                <li><strong>3D Plotting:</strong> Visualize surfaces, vector fields, parametric curves</li>
+                <li><strong>Numerical Methods:</strong> Implement Newton's method, Euler's method, etc.</li>
+            </ul>
+
+            <h2>Resources</h2>
+
+            <h3>Getting Started</h3>
+            <ul>
+                <li><strong>Anaconda:</strong> All-in-one Python distribution for math/science</li>
+                <li><strong>Google Colab:</strong> Free Jupyter notebooks in the cloud</li>
+                <li><strong>Jupyter Notebook:</strong> Interactive coding environment</li>
+            </ul>
+
+            <h3>Python Libraries</h3>
+            <ul>
+                <li><strong>numpy:</strong> Arrays and numerical computing</li>
+                <li><strong>matplotlib:</strong> Plotting and visualization</li>
+                <li><strong>sympy:</strong> Symbolic mathematics</li>
+                <li><strong>scipy:</strong> Scientific computing (optimization, integration, etc.)</li>
+            </ul>
+
+            <h3>Learning Resources</h3>
+            <ul>
+                <li><strong>3Blue1Brown:</strong> Excellent math visualizations (YouTube)</li>
+                <li><strong>Project Euler:</strong> Math problems requiring programming</li>
+                <li><strong>Real Python:</strong> Tutorials on using Python for math</li>
+                <li><strong>Python for Data Analysis:</strong> Book by Wes McKinney</li>
+            </ul>
+
+            <h2>Final Thoughts</h2>
+
+            <p>The synergy between math and programming is powerful:</p>
+            <ul>
+                <li>Programming helps you understand math by making it interactive and visual</li>
+                <li>Math helps you write better programs by understanding algorithms and efficiency</li>
+                <li>Together, they develop problem-solving skills and computational thinking</li>
+            </ul>
+
+            <p style="margin-top: 32px; font-style: italic; color: var(--text-secondary);">Start small, experiment often, and visualize everything. The goal isn't to replace mathematical thinking with programming—it's to use programming as a tool to deepen your mathematical understanding.</p>
         </div>
     </div>
+
+    <script src="../../edit-button.js"></script>
 </body>
 </html>
