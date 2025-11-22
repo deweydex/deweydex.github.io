@@ -73,27 +73,45 @@
             margin-bottom: 24px;
         }
 
-        .under-construction {
-            background: var(--surface);
-            border-left: 4px solid #f59e0b;
-            padding: 24px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .under-construction i {
-            font-size: 3rem;
-            color: #f59e0b;
-            margin-bottom: 16px;
-        }
-
-        .under-construction h2 {
+        h2 {
             color: var(--text-primary);
+            margin-top: 32px;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--text-primary);
+            margin-top: 24px;
             margin-bottom: 12px;
         }
 
-        .under-construction p {
+        p {
+            margin-bottom: 16px;
             color: var(--text-secondary);
+        }
+
+        ul, ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        .highlight-box {
+            background: var(--surface);
+            border-left: 4px solid #06b6d4;
+            padding: 20px;
+            margin: 24px 0;
+            border-radius: 4px;
         }
 
         @media (max-width: 768px) {
@@ -121,12 +139,189 @@
         </div>
 
         <div class="content">
-            <div class="under-construction">
-                <i class="fas fa-tools"></i>
-                <h2>Under Construction</h2>
-                <p>This guide is currently being developed with strategies for understanding computer science fundamentals, algorithms, data structures, and computational thinking.</p>
+            <h2>Computer Science ≠ Programming</h2>
+            <p>The first thing to understand: Computer Science is not the same as programming. Programming is a tool, but Computer Science is about understanding:</p>
+            <ul>
+                <li>How to solve problems systematically</li>
+                <li>How to think about computation and algorithms</li>
+                <li>How computers actually work (from hardware to high-level abstractions)</li>
+                <li>How to analyze efficiency and make trade-offs</li>
+                <li>How to design systems that scale and maintain</li>
+            </ul>
+
+            <p>You can be a great programmer without understanding CS, and you can understand CS without being a great programmer—but the combination is powerful.</p>
+
+            <h2>Computational Thinking</h2>
+
+            <h3>What is Computational Thinking?</h3>
+            <p>Computational thinking is a problem-solving approach that involves:</p>
+            <ul>
+                <li><strong>Decomposition:</strong> Breaking complex problems into smaller, manageable parts</li>
+                <li><strong>Pattern recognition:</strong> Finding similarities and patterns in problems</li>
+                <li><strong>Abstraction:</strong> Focusing on important information, ignoring irrelevant details</li>
+                <li><strong>Algorithm design:</strong> Creating step-by-step solutions that can be repeated</li>
+            </ul>
+
+            <h3>Developing Computational Thinking</h3>
+            <p>Practice by asking yourself:</p>
+            <ul>
+                <li>Can I break this problem into smaller problems?</li>
+                <li>Have I seen something similar before?</li>
+                <li>What's the essence of this problem? What details can I ignore for now?</li>
+                <li>Can I write out the steps to solve this?</li>
+                <li>Will this approach work for different inputs? Edge cases?</li>
+            </ul>
+
+            <h2>Understanding Algorithms</h2>
+
+            <h3>What Makes a Good Algorithm?</h3>
+            <p>A good algorithm is:</p>
+            <ul>
+                <li><strong>Correct:</strong> Produces the right output for all valid inputs</li>
+                <li><strong>Efficient:</strong> Uses reasonable time and space</li>
+                <li><strong>Clear:</strong> Easy to understand and explain</li>
+                <li><strong>Robust:</strong> Handles edge cases and unexpected inputs gracefully</li>
+            </ul>
+
+            <h3>How to Study Algorithms</h3>
+            <ol>
+                <li><strong>Understand the problem first:</strong> What are inputs? Outputs? Constraints?</li>
+                <li><strong>Try examples by hand:</strong> Work through small examples manually</li>
+                <li><strong>Find the pattern:</strong> What steps did you follow? Can you generalize?</li>
+                <li><strong>Consider alternatives:</strong> Are there different approaches? Trade-offs?</li>
+                <li><strong>Analyze efficiency:</strong> How does performance scale with input size?</li>
+                <li><strong>Implement and test:</strong> Write code, test edge cases</li>
+            </ol>
+
+            <div class="highlight-box">
+                <p><strong>Pro tip:</strong> Don't just memorize algorithms. Understand <em>why</em> they work, <em>when</em> to use them, and <em>how</em> to modify them for different problems.</p>
             </div>
+
+            <h2>Data Structures</h2>
+
+            <h3>Why Data Structures Matter</h3>
+            <p>The way you organize data dramatically affects what you can do efficiently. Choosing the right data structure is often the key to solving a problem elegantly.</p>
+
+            <h3>Learning Data Structures</h3>
+            <p>For each data structure, understand:</p>
+            <ul>
+                <li><strong>What it is:</strong> The core idea and how it works</li>
+                <li><strong>When to use it:</strong> What problems it solves well</li>
+                <li><strong>Operations:</strong> What you can do and how fast (time complexity)</li>
+                <li><strong>Trade-offs:</strong> Advantages and disadvantages</li>
+                <li><strong>Implementation:</strong> How to build it from scratch</li>
+            </ul>
+
+            <p><strong>Key insight:</strong> Data structures and algorithms go together. Often, the right data structure makes an algorithm trivial.</p>
+
+            <h2>Practical Learning Strategies</h2>
+
+            <h3>Build Things</h3>
+            <p>Theory is important, but implementation solidifies understanding:</p>
+            <ul>
+                <li>Implement data structures from scratch (not just using built-in ones)</li>
+                <li>Solve coding challenges on platforms like LeetCode, HackerRank, or Codewars</li>
+                <li>Build projects that use different algorithms and data structures</li>
+                <li>Contribute to open source to see real-world CS applications</li>
+            </ul>
+
+            <h3>Visualize</h3>
+            <p>CS concepts become clearer when you can see them:</p>
+            <ul>
+                <li>Draw diagrams of data structures as you work with them</li>
+                <li>Use visualization tools (VisuAlgo, Algorithm Visualizer)</li>
+                <li>Trace through algorithms step-by-step with example data</li>
+                <li>Animate how operations change data structures</li>
+            </ul>
+
+            <h3>Analyze Complexity</h3>
+            <p>Get comfortable with Big O notation:</p>
+            <ul>
+                <li>Practice analyzing simple code for time/space complexity</li>
+                <li>Compare different approaches to the same problem</li>
+                <li>Understand common complexity classes (O(1), O(log n), O(n), O(n log n), O(n²))</li>
+                <li>Recognize patterns in recursive algorithms</li>
+            </ul>
+
+            <h3>Connect to Theory</h3>
+            <p>Understanding the theoretical foundations deepens your practical skills:</p>
+            <ul>
+                <li>Learn about computability (what can and can't be computed)</li>
+                <li>Understand P vs NP (even if just conceptually)</li>
+                <li>Study how computers actually work (gates → circuits → processors)</li>
+                <li>Explore different programming paradigms (functional, object-oriented, logic)</li>
+            </ul>
+
+            <h2>Common Challenges</h2>
+
+            <h3>"It's Too Abstract"</h3>
+            <p>CS can feel abstract because you're not just writing code—you're thinking about computation itself. Make it concrete by:</p>
+            <ul>
+                <li>Implementing concepts in code</li>
+                <li>Using real-world analogies</li>
+                <li>Working with tangible examples</li>
+                <li>Building projects that use the concepts</li>
+            </ul>
+
+            <h3>"I Can't Solve Algorithm Problems"</h3>
+            <p>This is normal! Algorithm problem-solving is a skill that develops with practice:</p>
+            <ul>
+                <li>Start with easier problems and gradually increase difficulty</li>
+                <li>Don't just read solutions—implement them yourself</li>
+                <li>Study solutions to understand different approaches</li>
+                <li>Practice regularly (consistency beats intensity)</li>
+                <li>Join study groups or pair program</li>
+            </ul>
+
+            <h3>"Math is Scary"</h3>
+            <p>CS does involve math, but you don't need to be a mathematician:</p>
+            <ul>
+                <li>Focus on discrete math (logic, sets, graphs, counting)</li>
+                <li>Learn math in context (when you need it for an algorithm)</li>
+                <li>Use programming to understand mathematical concepts</li>
+                <li>Remember: proofs and formal notation are less important than understanding</li>
+            </ul>
+
+            <h2>Resources</h2>
+
+            <h3>Online Platforms</h3>
+            <ul>
+                <li><strong>Practice:</strong> LeetCode, HackerRank, Codewars, Project Euler</li>
+                <li><strong>Visualization:</strong> VisuAlgo, Algorithm Visualizer</li>
+                <li><strong>Courses:</strong> MIT OCW, CS50 (Harvard), Coursera, edX</li>
+            </ul>
+
+            <h3>Books</h3>
+            <ul>
+                <li><strong>Beginner-friendly:</strong> "Grokking Algorithms" by Aditya Bhargava</li>
+                <li><strong>Comprehensive:</strong> "Introduction to Algorithms" (CLRS)</li>
+                <li><strong>Problem-solving:</strong> "Cracking the Coding Interview"</li>
+            </ul>
+
+            <h3>Communities</h3>
+            <ul>
+                <li>Stack Overflow for specific questions</li>
+                <li>Reddit (r/computerscience, r/algorithms)</li>
+                <li>Discord servers for specific languages/topics</li>
+                <li>Local meetups and study groups</li>
+            </ul>
+
+            <h2>The Big Picture</h2>
+
+            <p>Computer Science is ultimately about problem-solving and thinking systematically. The specific algorithms and data structures are tools, but the real skill is learning to think like a computer scientist:</p>
+
+            <ul>
+                <li>Breaking problems down systematically</li>
+                <li>Recognizing patterns and reusing solutions</li>
+                <li>Analyzing trade-offs and making informed decisions</li>
+                <li>Understanding abstraction and building on top of abstractions</li>
+                <li>Thinking about scalability and efficiency</li>
+            </ul>
+
+            <p style="margin-top: 32px; font-style: italic; color: var(--text-secondary);">Remember: CS is a vast field. You don't need to know everything. Focus on fundamentals, practice regularly, and build things. Understanding will come with time and experience.</p>
         </div>
     </div>
+
+    <script src="../../edit-button.js"></script>
 </body>
 </html>
