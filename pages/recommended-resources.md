@@ -23,6 +23,29 @@ By Paulo Freire - Critical pedagogy and liberatory education
 
 ### Art of Problem Solving Books
 Excellent resources for developing mathematical thinking
+- Website: https://artofproblemsolving.com/store/list/all-products
+
+## Resources for Computer Science
+
+### Online Learning Platforms
+- **Codecademy**: Interactive coding tutorials
+- **Brilliant**: Math and science through problem-solving
+- **Khan Academy**: Comprehensive educational content
+
+## Resources for Literacy and Art
+
+### Recommended Content
+- **The Art Assignment**: YouTube channel exploring art and creativity
+- **Crash Course Literature**: Video series on literary works
+- **How to Read** by Terry Eagleton: Critical reading guide
+
+## YouTube Channels
+
+(Coming soon - curated list of educational channels)
+
+## Podcasts
+
+(Coming soon - recommended podcasts for educators and learners)
 
 ## More Coming Soon
 

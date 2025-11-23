@@ -2,6 +2,8 @@
 
 This document describes the organizational hierarchy of the pages directory, based on the content structure from Coda.
 
+**For detailed information about tone, style, external file references, and content attributes, see [CONTENT_HIERARCHY_AND_STYLE_GUIDE.md](CONTENT_HIERARCHY_AND_STYLE_GUIDE.md)**
+
 ## Hierarchy Overview
 
 ```
@@ -22,8 +24,8 @@ pages/
 │   ├── mathematics-course.md             # Mathematics
 │   └── web-authoring-databases.md        # Web Authoring & Databases
 │
-├── resources/                            # Resources & Recommendations
-│   └── resources-contact.md
+├── resources/                            # Resources & Contact
+│   └── contact.md                        # Contact information
 │
 └── teaching-materials/                   # Teaching Materials Section
     ├── teaching-materials-norms.md       # Norms & Expectations
@@ -68,9 +70,13 @@ pages/
 
 ### Top Level
 - **Home Page**: Main landing page for Joshua Aaron's website
+- **About**: Background and teaching philosophy
+- **Podcast**: Podcast information and episodes
+- **Projects**: Projects and initiatives
+- **Recommended Resources**: Curated list of books, tools, and resources
 - **Current Teaching**: Active courses and teaching calendar
 - **Teaching Materials**: All teaching resources, guides, and materials
-- **Resources**: Contact information and recommended resources
+- **Resources**: Contact information
 
 ### Current Teaching
 Contains all active course materials organized by subject:
