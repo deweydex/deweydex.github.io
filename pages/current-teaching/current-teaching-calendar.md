@@ -10,7 +10,7 @@ My Calendar
 
 Feel free to sit in on another class I happen to be teaching!
 
-Joshua Aaron Timetable.png
+../../materials/Joshua Aaron Timetable.png
 
 
 Programs to Install
