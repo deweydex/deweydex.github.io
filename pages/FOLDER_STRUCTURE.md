@@ -27,10 +27,24 @@ pages/
 │
 └── teaching-materials/                   # Teaching Materials Section
     ├── teaching-materials-norms.md       # Norms & Expectations
-    ├── end-year-reflections-questionnaire.md  # FAQs / End Year Reflections
+    ├── end-year-reflections-questionnaire.md  # End Year Reflections
     │
     ├── guides/                           # Guides
-    │   └── guides.md
+    │   ├── guides.md                     # Guides Overview/Index
+    │   ├── faqs.md                       # Frequently Asked Questions
+    │   │
+    │   ├── learning-guides/              # Learning Guides
+    │   │   ├── how-to-learn-programming.md
+    │   │   ├── learning-python.md
+    │   │   ├── how-to-learn-mathematics.md
+    │   │   ├── how-to-learn-computer-science.md
+    │   │   └── learning-math-through-programming.md
+    │   │
+    │   ├── meta-learning/                # Meta-Learning
+    │   │   └── how-to-learn-to-learn.md
+    │   │
+    │   └── teaching-philosophy/          # Teaching Philosophy
+    │       └── how-i-think-about-teaching.md
     │
     └── prior-teaching/                   # Prior Teaching
         │
@@ -69,8 +83,12 @@ Contains all active course materials organized by subject:
 
 ### Teaching Materials
 Organized into:
-- **General Materials**: Norms, expectations, and FAQs
+- **General Materials**: Norms, expectations, and end-year reflections
 - **Guides**: Teaching guides and learning resources
+  - **FAQs**: Frequently asked questions about coursework and expectations
+  - **Learning Guides**: Subject-specific learning guides (programming, Python, mathematics, computer science)
+  - **Meta-Learning**: Guides on how to learn effectively
+  - **Teaching Philosophy**: Educational philosophy and approach
 - **Prior Teaching**: Archive of previous teaching work
   - **DCFE**: Courses from Dundrum College of Further Education
   - **BFEI**: Courses from Blackrock Further Education Institute
