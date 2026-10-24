@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>How to Learn Programming (archive)</title><style>
+body{margin:0;background:#fbfaf7;color:#1B2A4A;font-family:Georgia,serif;line-height:1.6}
+main{max-width:44rem;margin:0 auto;padding:1.5rem 1rem 4rem}a{color:#D4692A}
+.banner{background:#1B2A4A;color:#fff;padding:.6rem 1rem;font-size:.9rem}.banner a{color:#fff}
+nav ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1rem}
+table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:.3rem .6rem}img{max-width:100%}pre{overflow:auto;background:#fff;padding:.7rem;border:1px solid #e5e2da}
+</style></head><body><div class="banner">Archive of the previous site. It is no longer updated. <a href="/">Go to the current site</a></div>
+<main><nav><ul><li><a href="/old/">Archive home</a></li><li><a href="/old/Consulting-and-Collaboration/">For Colleagues</a></li><li><a href="/old/Teaching/">Teaching</a></li><li><a href="/old/Writings/">Writings</a></li><li><a href="/old/contact/">Contact</a></li><li><a href="/old/current-teaching/">Current Teaching</a></li></ul></nav><h1>How to Learn Programming</h1><h1 id="how-to-learn-programming">How to Learn Programming</h1>
+<p>This guide is a little different from most guides on learning to program in the mid-2020s. You'll find some concrete advice and steps to get started, but the emphasis is on how to think about the process rather than what specific tools to use. See <a href="./learning-python">Learning Python</a> for more context-specific suggestions.</p>
+<hr />
+<h2 id="what-do-you-mean-by-programming">What Do You Mean By Programming?</h2>
+<p>In my experience there are at least five types of programming. They are certainly related, but "learning programming" usually means starting with one of them:</p>
+<ol>
+<li><strong>Programming contests or puzzles</strong> — Competitive programming, algorithmic challenges (LeetCode, Advent of Code)</li>
+<li><strong>Scientific or financial programming</strong> — Data analysis, modelling, simulation; heavy on mathematics</li>
+<li><strong>Programming applications</strong> — Back-end, mid-layer, native apps; the classic software engineering path</li>
+<li><strong>Graphics, front-end, and web programming</strong> — What things look like and how they behave in a browser</li>
+<li><strong>Low-level programming</strong> — Systems programming, embedded systems, hardware interfaces</li>
+</ol>
+<p>Some areas require thinking from more than one of these. Games are a particularly good example — graphics-heavy games draw on both front-end thinking and performance-critical low-level thinking.</p>
+<p>There are many opinions about what to learn first. I don't really have a strong "should" here: learn whatever gets you excited and interested so that you can continue. If you have a specific goal, diving directly into the area that serves that goal is often the smoothest path in.</p>
+<hr />
+<h2 id="a-coding-process-for-bigger-challenges">A Coding Process for Bigger Challenges</h2>
+<p>When confronted with a programming challenge that appears large and unclear, there are a few rules of thumb that can do wonders for your confidence:</p>
+<p><strong>1. Write the problem in your own words.</strong></p>
+<p>Rewrite the assignment brief or problem description as if you were explaining it to someone else. This forces you to identify what you don't understand. If the brief is vague — "build a website for yourself," "create a map for a game" — start by writing out the smallest, simplest thing you can think of that might get the job done.</p>
+<p><strong>2. Think through what variables you'll need.</strong></p>
+<p>As you work through the problem, note what variables you'll need and what type they might be. If you're not sure of the data type, think through what you need the variable to do — what it needs to store, how it'll be manipulated. Then look at documentation about data structures that might solve that problem. Pick the simplest option to start with, even if it doesn't meet all your needs perfectly.</p>
+<p><strong>3. List the behaviours you want the program to produce.</strong></p>
+<p>Break each larger behaviour into as many substeps as you can. For example, "tell the user where they are located" might break down into: provide a prompt and a chance for them to ask; receive their input; process it; provide an answer based on a stored variable. If you haven't stored the variable yet, that goes at the top of your list.</p>
+<p><strong>4. Think through conditions and function signatures.</strong></p>
+<p>What if/else checks do you need? What does each function need as input, and what type should it return? It's fine to have if-statements and function definitions sitting in your editor with "TODO" comments marking what needs to happen before and after.</p>
+<blockquote>
+<p>All of the above can be done in any text document, or on paper. Some people plan; others write a lot of comments in their code that cover the same ground. Either approach works.</p>
+</blockquote>
+<hr />
+<h2 id="when-you-get-to-the-actual-coding">When You Get to the Actual Coding</h2>
+<p><strong>Start with the simplest editor you can.</strong> Especially at the beginning, a fully-fledged IDE can feel overwhelming. For my courses I recommend starting with online "lite" environments — Jupyter Notebooks, online C# interpreters, Replit. With that in mind:</p>
+<ol>
+<li>
+<p><strong>Name things clearly.</strong> A good variable name is descriptive, even if it ends up longer than you'd like. Abbreviated names you can't recognise later are the worst kind.</p>
+</li>
+<li>
+<p><strong>Comment as you go.</strong> Describe your intentions for each section of code. This helps you solve problems before they happen and makes changes easier later.</p>
+</li>
+<li>
+<p><strong>Print statements are your friends.</strong> If you need to check the state of a variable before an if-statement or during a loop, print it with a short label. Digital ink is free.</p>
+</li>
+<li>
+<p><strong>Not knowing where to begin is normal.</strong> Starting is more important than being correct. Writing a plan (see above) helps you find your footing, and also makes it easier to ask for help effectively.</p>
+</li>
+</ol>
+<p>"I don't get it" is not a productive way to ask for help. "I am stuck on this part of the plan because I don't understand how to do X" points someone directly to where the gap is. This applies to teachers, colleagues, and documentation alike.</p>
+<ol>
+<li>
+<p><strong>Everyone uses documentation.</strong> Not remembering how something works is expected. Not knowing how to find it isn't necessary. Learning to read documentation — understanding what methods and functions exist and how to use them — is what programming looks like at the beginning, middle, and end. The documentation and problems just get more complex over time.</p>
+</li>
+<li>
+<p><strong>Do the minimum required first, then expand.</strong> It's easy to get absorbed in the part of a project you find interesting and forget the rest. In coding, the minimum requirements are usually genuinely enough to demonstrate what you've learned. Anything beyond that is for your own learning, not for the assignment.</p>
+</li>
+</ol>
+<hr />
+<h2 id="a-note-on-getting-stuck">A Note on Getting Stuck</h2>
+<p>Getting stuck is not a sign that you can't do this. It is the normal state of writing software.</p>
+<p>The useful question to ask when you're stuck is not "why can't I do this?" but "what specifically don't I understand right now?" Often this leads directly to what you need to look up, or what you need to ask.</p>
+<p>If you've been stuck for a while and your usual approaches aren't working: step away, come back, and try to re-read your own code as if it were someone else's. The problem is usually closer to the top of the file than you think.</p>
+<hr />
+<p><em>See also: <a href="./learning-python">Learning Python</a> | <a href="/guides/learning-math-through-programming">Learning Mathematics Through Programming</a></em></p></main></body></html>

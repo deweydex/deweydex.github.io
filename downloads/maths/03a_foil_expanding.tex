@@ -1,0 +1,481 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 3A: Quadratics --- FOIL and Expanding},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 3A: Quadratics --- FOIL and Expanding}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{part-a-the-foil-method-basic-mechanics-12-problems}{%
+\subsection{Part A: The FOIL Method --- Basic Mechanics (12
+problems)}\label{part-a-the-foil-method-basic-mechanics-12-problems}}
+
+\textbf{FOIL} stands for \textbf{F}irst, \textbf{O}uter, \textbf{I}nner,
+\textbf{L}ast --- a method for multiplying two binomials.
+
+\textbf{Example:} \((x + 3)(x + 2)\)
+
+\begin{verbatim}
+First:  x · x = x²
+Outer:  x · 2 = 2x
+Inner:  3 · x = 3x
+Last:   3 · 2 = 6
+
+Combine: x² + 2x + 3x + 6 = x² + 5x + 6
+\end{verbatim}
+
+\textbf{Expand each expression completely. Show your F-O-I-L steps for
+the first few.}
+
+\textbf{1.} \((t + 2)(t + 5)\)
+
+\textbf{2.} \((p + 6)(p + 3)\)
+
+\textbf{3.} \((m + 4)(m + 7)\)
+
+\textbf{4.} \((r + 1)(r + 9)\)
+
+\textbf{5.} \((k + 8)(k + 2)\)
+
+\textbf{6.} \((n + 5)(n + 5)\) --- \emph{What do you notice about this
+one?}
+
+\textbf{7.} \((w + 3)(w + 3)\)
+
+\textbf{8.} \((s + 10)(s + 1)\)
+
+\textbf{9.} \((h + 6)(h + 6)\)
+
+\textbf{10.} \((u + 4)(u + 4)\)
+
+\textbf{11.} What pattern do you see when both binomials are identical,
+like \((x + a)(x + a)\)?
+
+\textbf{12.} Complete this rule: \((x + a)^2 = x^2 + \_\_\_\_\_ + a^2\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-wait-exponents-dont-distribute-over-addition-8-problems}{%
+\subsection{Part B: WAIT --- Exponents Don't Distribute Over Addition!
+(8
+problems)}\label{part-b-wait-exponents-dont-distribute-over-addition-8-problems}}
+
+\begin{quote}
+\textbf{Common Mistake Alert!}
+
+Many students think \((a + b)^2 = a^2 + b^2\).
+
+\textbf{This is WRONG.}
+
+\((a + b)^2\) means \((a + b)(a + b)\), which you must FOIL out.
+\end{quote}
+
+\textbf{Let's prove this with actual numbers.}
+
+\textbf{13.} Let \(a = 3\) and \(b = 4\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Calculate \((a + b)^2 = (3 + 4)^2 = 7^2 ={}\) \_\_\_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calculate \(a^2 + b^2 = 3^2 + 4^2 = 9 + 16 ={}\) \_\_\_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Are they equal? \_\_\_\_\_
+  \end{enumerate}
+\end{itemize}
+
+\textbf{14.} Now let \(a = 2\) and \(b = 5\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    \((a + b)^2 ={}\) \_\_\_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    \(a^2 + b^2 ={}\) \_\_\_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What's the difference between the two answers? \_\_\_\_\_
+  \end{enumerate}
+\end{itemize}
+
+\textbf{15.} Expand \((a + b)^2\) using FOIL:
+
+\((a + b)^2 = (a + b)(a + b) ={}\) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\textbf{16.} The correct expansion is \(a^2 + 2ab + b^2\). What's the
+``missing piece'' when people incorrectly write \(a^2 + b^2\)?
+
+\textbf{17.} Using \(a = 3\) and \(b = 4\) again: - (a) Calculate
+\(2ab = 2(3)(4) ={}\) \_\_\_\_\_ - (b) Verify:
+\(a^2 + 2ab + b^2 = 9 + 24 + 16 ={}\) \_\_\_\_\_ - (c) Does this match
+\((a + b)^2 = 49\)? \_\_\_\_\_
+
+\textbf{18.} Does the same mistake happen with subtraction? Test
+\((a - b)^2\) vs \(a^2 - b^2\) with \(a = 5\), \(b = 2\): - (a)
+\((a - b)^2 = (5 - 2)^2 ={}\) \_\_\_\_\_ - (b)
+\(a^2 - b^2 = 25 - 4 ={}\) \_\_\_\_\_ - (c) Are they equal? \_\_\_\_\_ -
+(d) What is the correct expansion of \((a - b)^2\)? \_\_\_\_\_
+
+\textbf{19.} Here's another trap. Is \((a + b)^3 = a^3 + b^3\)? Test
+with \(a = 2\), \(b = 1\): - (a) \((a + b)^3 = (2 + 1)^3 = 3^3 ={}\)
+\_\_\_\_\_ - (b) \(a^3 + b^3 = 8 + 1 ={}\) \_\_\_\_\_ - (c) Are they
+equal? \_\_\_\_\_
+
+\textbf{20.} Complete the rule: \textbf{Exponents distribute over
+\_\_\_\_\_\_\_\_\_\_\_\_\_ but NOT over \_\_\_\_\_\_\_\_\_\_\_\_\_.}
+
+\emph{(Hint: \((ab)^2 = a^2b^2\) works, but
+\((a + b)^2 \neq a^2 + b^2\))}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-foil-with-negative-numbers-12-problems}{%
+\subsection{Part C: FOIL with Negative Numbers (12
+problems)}\label{part-c-foil-with-negative-numbers-12-problems}}
+
+When negatives appear, keep careful track of signs.
+
+\textbf{Example:} \((x - 4)(x + 3)\)
+
+\begin{verbatim}
+First:  x · x = x²
+Outer:  x · 3 = 3x
+Inner:  -4 · x = -4x
+Last:   -4 · 3 = -12
+
+Combine: x² + 3x - 4x - 12 = x² - x - 12
+\end{verbatim}
+
+\textbf{Expand completely:}
+
+\textbf{21.} \((t - 3)(t + 5)\)
+
+\textbf{22.} \((p + 4)(p - 2)\)
+
+\textbf{23.} \((m - 6)(m + 1)\)
+
+\textbf{24.} \((r - 2)(r - 5)\)
+
+\textbf{25.} \((k - 7)(k - 3)\)
+
+\textbf{26.} \((n - 4)(n - 4)\) --- \emph{Squaring a binomial with
+subtraction}
+
+\textbf{27.} \((w - 8)(w - 8)\)
+
+\textbf{28.} \((s + 5)(s - 5)\) --- \emph{What happens to the middle
+term?}
+
+\textbf{29.} \((h + 9)(h - 9)\)
+
+\textbf{30.} \((u + 7)(u - 7)\)
+
+\textbf{31.} What pattern do you see when the binomials are
+\((x + a)(x - a)\)?
+
+\textbf{32.} Complete this rule: \((x + a)(x - a) = \_\_\_\_\_\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-foil-with-coefficients-10-problems}{%
+\subsection{Part D: FOIL with Coefficients (10
+problems)}\label{part-d-foil-with-coefficients-10-problems}}
+
+When the variable has a coefficient, apply FOIL the same way.
+
+\textbf{Example:} \((2x + 3)(x + 4)\)
+
+\begin{verbatim}
+First:  2x · x = 2x²
+Outer:  2x · 4 = 8x
+Inner:  3 · x = 3x
+Last:   3 · 4 = 12
+
+Combine: 2x² + 8x + 3x + 12 = 2x² + 11x + 12
+\end{verbatim}
+
+\textbf{Expand completely:}
+
+\textbf{33.} \((2t + 1)(t + 3)\)
+
+\textbf{34.} \((3p + 2)(p + 4)\)
+
+\textbf{35.} \((2m - 3)(m + 5)\)
+
+\textbf{36.} \((4r + 1)(r - 2)\)
+
+\textbf{37.} \((3k - 2)(2k + 1)\)
+
+\textbf{38.} \((5n + 2)(2n - 3)\)
+
+\textbf{39.} \((2w + 3)(2w + 3)\) --- \emph{Squaring with coefficients}
+
+\textbf{40.} \((3s - 1)(3s - 1)\)
+
+\textbf{41.} \((4h + 5)(4h - 5)\) --- \emph{Difference of squares with
+coefficients}
+
+\textbf{42.} \((2u - 7)(2u + 7)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-e-patterns-worth-memorizing-8-problems}{%
+\subsection{Part E: Patterns Worth Memorizing (8
+problems)}\label{part-e-patterns-worth-memorizing-8-problems}}
+
+These patterns appear so often that recognizing them instantly saves
+time.
+
+\hypertarget{pattern-1-perfect-square-trinomials}{%
+\subsubsection{Pattern 1: Perfect Square
+Trinomials}\label{pattern-1-perfect-square-trinomials}}
+
+\[\boxed{(a + b)^2 = a^2 + 2ab + b^2}\]
+
+\[\boxed{(a - b)^2 = a^2 - 2ab + b^2}\]
+
+\emph{The middle term is always \textbf{twice} the product of the two
+terms.}
+
+\hypertarget{pattern-2-difference-of-squares}{%
+\subsubsection{Pattern 2: Difference of
+Squares}\label{pattern-2-difference-of-squares}}
+
+\[\boxed{(a + b)(a - b) = a^2 - b^2}\]
+
+\emph{The middle terms cancel out, leaving only the difference of
+squares.}
+
+\textbf{Use the patterns to expand quickly:}
+
+\textbf{43.} \((t + 8)^2\)
+
+\textbf{44.} \((p - 5)^2\)
+
+\textbf{45.} \((m + 11)(m - 11)\)
+
+\textbf{46.} \((3r + 4)^2\)
+
+\textbf{47.} \((5k - 2)^2\)
+
+\textbf{48.} \((6n + 1)(6n - 1)\)
+
+\textbf{49.} \((2w + 9)^2\)
+
+\textbf{50.} \((4s - 3)(4s + 3)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-f-discovering-pascals-triangle-12-problems}{%
+\subsection{Part F: Discovering Pascal's Triangle (12
+problems)}\label{part-f-discovering-pascals-triangle-12-problems}}
+
+Let's expand powers of \((a + b)\) and look for patterns in the
+coefficients.
+
+\textbf{51.} \((a + b)^0 = 1\)
+
+Coefficients: \textbf{1}
+
+\textbf{52.} \((a + b)^1 = a + b\)
+
+Coefficients: \textbf{1, 1}
+
+\textbf{53.} Expand \((a + b)^2\) using FOIL.
+
+\((a + b)^2 ={}\) \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Coefficients of \(a^2\), \(ab\), and \(b^2\): \textbf{\_\_\_, \_\_\_,
+\_\_\_}
+
+\textbf{54.} Expand \((a + b)^3\) by computing
+\((a + b) \cdot (a + b)^2\).
+
+\emph{Use your answer from problem 53 and distribute \((a + b)\) through
+it.}
+
+\((a + b)^3 ={}\) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Coefficients: \textbf{\_\_\_, \_\_\_, \_\_\_, \_\_\_}
+
+\textbf{55.} Expand \((a + b)^4\) by computing
+\((a + b) \cdot (a + b)^3\).
+
+\((a + b)^4 ={}\) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Coefficients: \textbf{\_\_\_, \_\_\_, \_\_\_, \_\_\_, \_\_\_}
+
+\textbf{56.} Arrange your coefficients in a triangle:
+
+\begin{verbatim}
+                1                   (a + b)⁰
+              1   1                 (a + b)¹
+            1   2   1               (a + b)²
+          1   3   3   1             (a + b)³
+        1   ?   ?   ?   1           (a + b)⁴
+\end{verbatim}
+
+Fill in the missing numbers for row 4.
+
+\textbf{57.} Look at how each number relates to the two numbers above
+it. Describe the pattern:
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\textbf{58.} Using the pattern, predict row 5 (the coefficients for
+\((a + b)^5\)):
+
+\textbf{\_\_\_, \_\_\_, \_\_\_, \_\_\_, \_\_\_, \_\_\_}
+
+\textbf{59.} This triangle is called \textbf{\_\_\_\_\_\_\_\_\_\_'s
+Triangle}.
+
+\emph{(Named after a 17th-century French mathematician, though
+mathematicians in Persia, China, and India discovered it centuries
+earlier.)}
+
+\textbf{60.} Expand \((a + b)^5\) using your predicted coefficients:
+
+\((a + b)^5 ={}\)
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\textbf{61.} \textbf{Bonus connection:} The number in row \(n\),
+position \(k\) tells you ``how many ways can you choose \(k\) items from
+\(n\) items?''
+
+Row 4, position 2 has the number \textbf{6}.
+
+Verify: List all ways to choose 2 letters from \{A, B, C, D\}:
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\emph{(There should be exactly 6 ways!)}
+
+\textbf{62.} Using the triangle, how many ways can you choose 3 items
+from 5 items?
+
+\emph{(Look at row 5, position 3)}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-g-beyond-two-terms-8-problems}{%
+\subsection{Part G: Beyond Two Terms (8
+problems)}\label{part-g-beyond-two-terms-8-problems}}
+
+For multiplying larger expressions, we distribute systematically.
+
+\textbf{Example:} \((x + 2)(x^2 + 3x + 1)\)
+
+\begin{verbatim}
+Distribute x:   x·x² + x·3x + x·1    = x³ + 3x² + x
+Distribute 2:   2·x² + 2·3x + 2·1    = 2x² + 6x + 2
+Combine:        x³ + 3x² + 2x² + x + 6x + 2 = x³ + 5x² + 7x + 2
+\end{verbatim}
+
+\textbf{Expand completely:}
+
+\textbf{63.} \((t + 3)(t^2 + 2t + 4)\)
+
+\textbf{64.} \((p - 2)(p^2 + 4p + 1)\)
+
+\textbf{65.} \((m + 1)(m^2 - m + 1)\) --- \emph{Something interesting
+happens here!}
+
+\textbf{66.} \((r - 1)(r^2 + r + 1)\) --- \emph{And here!}
+
+\textbf{67.} \((2k + 1)(k^2 - 3k + 2)\)
+
+\textbf{68.} \((n + 2)(n + 3)(n + 1)\) --- \emph{Do two at a time}
+
+\textbf{69.} Expand \((w - 1)^3\) by first finding \((w - 1)^2\), then
+multiplying by \((w - 1)\).
+
+\textbf{70.} Expand \((2t + 1)^3\) using the same method.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}

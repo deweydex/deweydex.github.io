@@ -1,0 +1,642 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name='robots' content='noindex'><title>05e_laws_sines_cosines.tex | Joshua Aaron</title><meta name="description" content=""><style>
+:root{--ink:#1B2A4A;--accent:#C25A1E;--paper:#fbfaf7;--muted:#5f6b7a;--line:#e5e2da;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--ink:#e8ebf2;--accent:#f08a4b;--paper:#12182a;--muted:#a3adbd;--line:#2a3452;--card:#1a2238}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1rem}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:baseline;padding:.7rem 1rem}
+.brand{font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem}
+nav a{color:var(--ink);text-decoration:none;font-size:.95rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+section{scroll-margin-top:5.5rem;padding-top:1rem}section+section{border-top:1px solid var(--line);margin-top:2.5rem}
+h1{font-weight:normal;font-size:2.2rem;line-height:1.2;margin:2.2rem 0 .4rem}
+h2{font-weight:normal;font-size:1.7rem;margin:1.2rem 0 .6rem}h3{font-weight:normal;font-size:1.35rem;margin:2rem 0 .3rem;color:var(--accent)}
+h4{font-size:1.1rem;margin:1.6rem 0 .1rem}h4+p em{color:var(--muted)}
+.lede{color:var(--muted);font-size:1.15rem;margin-top:0}
+a.card{display:grid;gap:.1rem;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:.7rem 1rem;margin:.8rem 0;color:var(--ink);text-decoration:none}
+a.card .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}a.card .n{color:var(--muted);font-size:.95rem}
+.callout{border-left:4px solid var(--accent);background:var(--card);padding:.7rem 1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.callout::before{content:"Note";display:block;font:600 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.callout.tip{border-left-color:#2f7d4f}.callout.tip::before{content:"Tip";color:#2f7d4f}
+.callout.info{border-left-color:#2b6cb0}.callout.info::before{content:"Information";color:#2b6cb0}
+.callout.warning{border-left-color:#b7791f}.callout.warning::before{content:"Warning";color:#b7791f}
+.callout>p:last-child{margin-bottom:0}
+a.dl-btn{background:var(--accent);color:var(--paper);min-height:2.75rem;padding:0 1.3rem}a.dl-btn::after{content:" 97"}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.1rem 1rem;margin:1rem 0}summary{cursor:pointer;min-height:2.4rem;display:flex;align-items:center;font-weight:600}
+.pdf iframe{width:100%;height:32rem;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:.4rem .7rem;text-align:left}
+pre{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem;overflow:auto;font-size:.88rem}img{max-width:100%;height:auto}
+.sheet{border-top:1px solid var(--line);padding:.2rem 0 .6rem}.sheet h4{margin:1rem 0 .2rem}.sheet p{margin:.2rem 0}.crumb{margin:1.4rem 0 0;font-size:.95rem}
+.file{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0}
+.file.compact{padding:.45rem .7rem;margin:.35rem 0}
+.file .ext{grid-row:1;min-width:3.6rem;text-align:center;font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;padding:.45rem .3rem}
+.file .meta{display:grid;min-width:0}.file .meta strong{font-weight:600}.file .n{color:var(--muted);font-size:.9rem}
+.file .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}
+.file.compact .acts{grid-column:3;grid-row:1}.file.compact{grid-template-columns:auto 1fr auto}
+a.act,button.act{display:inline-flex;align-items:center;min-height:2.4rem;padding:0 .9rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;font:600 .88rem system-ui,sans-serif}
+a.act.dl{background:var(--accent);color:var(--paper)}a.act.dl::before{content:"↓ "}a.act.out::after{content:" ↗"}
+a.act:hover,a.act:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media(min-width:34rem){.file .acts{grid-column:3;grid-row:1}.file{grid-template-columns:auto 1fr auto}}
+.src{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem;overflow:auto;font:.85rem/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;tab-size:4}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}button.act{background:none;cursor:pointer;color:var(--accent)}
+.katex-display{overflow-x:auto;overflow-y:hidden}
+footer{border-top:1px solid var(--line);margin-top:4rem;padding:1.5rem 0;color:var(--muted);font-size:.9rem}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="brand" href="../../../#top">Joshua Aaron</a><nav><a href='../../../#projects'>Current Stuff</a><a href='../../../#about'>About</a><a href='../../../#contact'>Contact</a><a href='https://docs.superhuman.com/d/_dXwmZI3vjrc/_suQ2icZa' rel='noopener'>Current classes and workshops &#8599;</a></nav></div></header>
+<main class="wrap"><section id='top'><p class='crumb'><a href='javascript:history.back()'>&larr; Back</a></p><h1>05e_laws_sines_cosines.tex</h1><div class='bar'><a class='act dl' href='../../../downloads/maths/05e_laws_sines_cosines.tex' download>Download</a><button class='act' type='button' onclick="navigator.clipboard.writeText(document.getElementById('src').textContent).then(()=>{this.textContent='Copied'})">Copy text</button></div><pre class='src' id='src'>% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 5E: Laws of Sines and Cosines},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 5E: Laws of Sines and Cosines}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+Right triangle trigonometry only works for\ldots{} right triangles. But
+most triangles in the real world aren&#x27;t right triangles!
+
+The Law of Sines and Law of Cosines extend trigonometry to ALL
+triangles. These tools are essential for surveying, navigation,
+astronomy, and engineering.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-the-law-of-sines-22-problems}{%
+\subsection{Part A: The Law of Sines (22
+problems)}\label{part-a-the-law-of-sines-22-problems}}
+
+\hypertarget{the-formula}{%
+\subsubsection{The Formula}\label{the-formula}}
+
+For ANY triangle with sides \(a\), \(b\), \(c\) opposite angles \(A\),
+\(B\), \(C\):
+
+\[\boxed{\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}}\]
+
+Equivalently: \(\frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c}\)
+
+\textbf{When to use:} When you know an angle and its opposite side, plus
+one other piece.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the missing parts (round to 1 decimal place):}
+
+\textbf{1.} Triangle with \(A = 40°\), \(B = 60°\), \(a = 10\) cm. Find
+\(b\) and \(c\).
+
+\emph{Hint: First find \(C = 180° - A - B\)}
+
+\textbf{2.} Triangle with \(A = 35°\), \(C = 75°\), \(c = 15\) m. Find
+\(a\) and \(b\).
+
+\textbf{3.} Triangle with \(B = 52°\), \(C = 48°\), \(b = 8\) cm. Find
+\(a\) and \(c\).
+
+\textbf{4.} Triangle with \(A = 100°\), \(B = 35°\), \(a = 20\) m. Find
+\(b\) and \(c\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{the-ambiguous-case-ssa}{%
+\subsubsection{The Ambiguous Case (SSA)}\label{the-ambiguous-case-ssa}}
+
+When given two sides and an angle NOT between them (SSA), there may be:
+- \textbf{No solution} (triangle impossible) - \textbf{One solution}
+(unique triangle) - \textbf{Two solutions} (two different triangles
+work!)
+
+This happens because \(\sin\theta = \sin(180° - \theta)\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{5.} Triangle with \(A = 30°\), \(a = 5\), \(b = 8\).
+
+Find angle \(B\): \(\frac{\sin B}{8} = \frac{\sin 30°}{5}\)
+
+\(\sin B = \frac{8 \cdot 0.5}{5} = 0.8\)
+
+\(B = \sin^{-1}(0.8) = ?\) or \(B = 180° - ?\)
+
+Are both solutions valid? (Check if \(A + B &lt; 180°\))
+
+\textbf{6.} Triangle with \(A = 40°\), \(a = 12\), \(b = 18\). How many
+solutions?
+
+\textbf{7.} Triangle with \(A = 60°\), \(a = 10\), \(b = 8\). How many
+solutions?
+
+\textbf{8.} Triangle with \(A = 45°\), \(a = 6\), \(b = 10\). How many
+solutions?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Astronomy: Stellar Triangulation**
+
+\textbf{9.} The parallax method for measuring star distances creates a
+triangle with: - Earth at two positions 6 months apart (baseline = 2 AU
+≈ 300 million km) - The star at the third vertex - The parallax angle
+\(p\) at the star
+
+For Sirius, if the angle at one Earth position is 89.999623° and at the
+other is 89.999631°: - (a) What is the angle at Sirius (the parallax
+angle)? - (b) Using Law of Sines with baseline 300 million km, estimate
+the distance to Sirius.
+
+\emph{Note: Actual parallax measurements are much more precise than this
+simplified example!}
+
+\textbf{10.} Alpha Centauri has a parallax of about 0.76 arcseconds
+(convert to degrees: 1° = 3600 arcseconds).
+
+Set up the Law of Sines equation to find its distance from the Sun.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Microscopy: Electron Beam Triangulation**
+
+\textbf{11.} In some electron microscope techniques, the beam hits a
+sample at an angle and the scattered electrons are detected.
+
+If the beam hits at 15° from vertical, travels to the sample, and
+electrons scatter to a detector at 25° from vertical (on the opposite
+side), with the sample-to-detector distance being 50 mm:
+
+Set up a triangle and use Law of Sines to find the beam path length from
+source to sample.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Surveying: Triangulation**
+
+\textbf{12.} Surveyors measure the distance between two points A and B
+as 500 m. From A, the angle to a distant point C is 72°. From B, the
+angle to C is 63°.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is angle C in the triangle ABC?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Find the distances AC and BC.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{13.} From two observation points 2 km apart, a mountain peak is
+sighted. The angles of elevation aren&#x27;t needed --- just the horizontal
+angles: from point A, the bearing to the peak is N 35° E, and from point
+B (due east of A), the bearing is N 52° W.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Sketch the triangle and find all three angles.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    How far is the peak from point A?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-the-law-of-cosines-22-problems}{%
+\subsection{Part B: The Law of Cosines (22
+problems)}\label{part-b-the-law-of-cosines-22-problems}}
+
+\hypertarget{the-formula-1}{%
+\subsubsection{The Formula}\label{the-formula-1}}
+
+For ANY triangle with sides \(a\), \(b\), \(c\) opposite angles \(A\),
+\(B\), \(C\):
+
+\[\boxed{c^2 = a^2 + b^2 - 2ab\cos C}\]
+
+Or equivalently for any side: - \(a^2 = b^2 + c^2 - 2bc\cos A\) -
+\(b^2 = a^2 + c^2 - 2ac\cos B\)
+
+\textbf{When to use:} - SAS: Two sides and the included angle - SSS: All
+three sides (to find angles)
+
+\textbf{Note:} When \(C = 90°\), this becomes Pythagoras! (since
+\(\cos 90° = 0\))
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the missing side:}
+
+\textbf{14.} \(a = 7\), \(b = 10\), \(C = 50°\). Find \(c\).
+
+\textbf{15.} \(b = 12\), \(c = 8\), \(A = 110°\). Find \(a\).
+
+\textbf{16.} \(a = 5\), \(c = 9\), \(B = 72°\). Find \(b\).
+
+\textbf{17.} \(a = 15\), \(b = 20\), \(C = 35°\). Find \(c\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the missing angle:}
+
+\textbf{18.} \(a = 5\), \(b = 7\), \(c = 9\). Find angle \(C\).
+
+\textbf{19.} \(a = 8\), \(b = 8\), \(c = 10\). Find angle \(C\).
+
+\textbf{20.} \(a = 6\), \(b = 10\), \(c = 12\). Find angle \(A\).
+
+\textbf{21.} \(a = 13\), \(b = 14\), \(c = 15\). Find all three angles.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Astronomy: Planetary Distances**
+
+\textbf{22.} At a certain moment: - Earth is 1 AU from the Sun - Mars is
+1.5 AU from the Sun\\
+- The angle at the Sun between Earth and Mars is 60°
+
+Find the distance from Earth to Mars at this moment.
+
+\textbf{23.} Venus is 0.72 AU from the Sun. When Venus is at ``greatest
+elongation&#x27;&#x27; (maximum angular distance from the Sun as seen from Earth),
+the Earth-Venus-Sun angle is 90°.
+
+Using the Law of Cosines with Earth at 1 AU and the Sun-Earth-Venus
+angle at greatest elongation: - (a) If the Sun-Earth-Venus angle is 46°,
+find the Earth-Venus distance.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Crystallography: Interatomic Distances**
+
+\textbf{24.} In a crystal, three atoms form a triangle. Atom A is bonded
+to atom B (distance 0.154 nm) and to atom C (distance 0.143 nm). The
+bond angle at A is 109.5° (tetrahedral angle).
+
+Find the distance from B to C.
+
+\textbf{25.} A water molecule has two O-H bonds of length 0.096 nm each,
+with a bond angle of 104.5°.
+
+Find the distance between the two hydrogen atoms.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Microscopy: Stage Geometry**
+
+\textbf{26.} A microscope sample stage can translate and rotate. A
+feature on the sample is at position A. After translating 5 mm and
+rotating 30°, it appears at position B relative to the objective.
+
+If the rotation is about a point 10 mm from the original feature
+position: - Model this as a triangle with the rotation center, original
+position, and final position. - Find how far the feature has actually
+moved (distance from A to B).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Space Navigation**
+
+\textbf{27.} A spacecraft needs to travel from point A to point B, but
+must avoid a debris field. It goes from A to waypoint C (distance 500
+km), then from C to B (distance 700 km). The angle at C is 140°.
+
+What is the direct distance from A to B that the spacecraft is avoiding?
+
+\textbf{28.} A satellite in orbit has position vectors at two times: -
+Time 1: 7000 km from Earth center, at angle 0° - Time 2: 7500 km from
+Earth center, at angle 25° (angular separation)
+
+Find the distance traveled along the orbit (straight-line distance, not
+arc length).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-area-of-triangles-14-problems}{%
+\subsection{Part C: Area of Triangles (14
+problems)}\label{part-c-area-of-triangles-14-problems}}
+
+\hypertarget{multiple-formulas}{%
+\subsubsection{Multiple Formulas}\label{multiple-formulas}}
+
+\textbf{Base and Height:} \[A = \frac{1}{2}bh\]
+
+\textbf{Two Sides and Included Angle:}
+\[\boxed{A = \frac{1}{2}ab\sin C}\]
+
+\textbf{Heron&#x27;s Formula (three sides):} \[A = \sqrt{s(s-a)(s-b)(s-c)}\]
+where \(s = \frac{a+b+c}{2}\) (semi-perimeter)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the area:}
+
+\textbf{29.} Triangle with \(a = 8\), \(b = 12\), \(C = 40°\).
+
+\textbf{30.} Triangle with \(b = 15\), \(c = 20\), \(A = 70°\).
+
+\textbf{31.} Triangle with sides 5, 12, 13.
+
+\textbf{32.} Triangle with sides 7, 8, 9.
+
+\textbf{33.} Triangle with \(A = 50°\), \(B = 60°\), \(c = 10\).
+
+\emph{Hint: Use Law of Sines to find other sides first.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Cross Products**
+
+\textbf{34.} In physics, the cross product of two vectors \(\vec{u}\)
+and \(\vec{v}\) has magnitude:
+\[|\vec{u} \times \vec{v}| = |\vec{u}||\vec{v}|\sin\theta\]
+
+This equals twice the area of the triangle formed by the vectors!
+
+If \(|\vec{u}| = 5\), \(|\vec{v}| = 8\), and \(\theta = 30°\), find: -
+(a) The magnitude of the cross product - (b) The area of the triangle
+formed by the vectors
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Astronomy: Orbital Sectors**
+
+\textbf{35.} Kepler&#x27;s Second Law says a planet sweeps out equal areas in
+equal times.
+
+If Earth moves through 1° of its orbit in about 1 day (simplification),
+and Earth&#x27;s distance from the Sun varies from 147 million km
+(perihelion) to 152 million km (aphelion):
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Calculate the area swept in one day at perihelion.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calculate the area swept in one day at aphelion.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    If the areas are equal (Kepler&#x27;s law), what does this tell you about
+    Earth&#x27;s speed at perihelion vs.~aphelion?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Lithography: Pattern Area**
+
+\textbf{36.} A triangular pattern is being etched onto a chip. The
+triangle has vertices determined by: - Side 1: 500 nm - Side 2: 400 nm\\
+- Angle between them: 60°
+
+Find the area of this triangular feature in nm².
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-applications-and-problem-solving-16-problems}{%
+\subsection{Part D: Applications and Problem Solving (16
+problems)}\label{part-d-applications-and-problem-solving-16-problems}}
+
+** Astronomy: Lunar Distance**
+
+\textbf{37.} Ancient astronomers estimated the Moon&#x27;s distance using a
+lunar eclipse. When the Moon passes through Earth&#x27;s shadow, the geometry
+creates triangles.
+
+If the shadow at the Moon&#x27;s distance has apparent angular size 1.4° (as
+seen from Earth&#x27;s center), and this shadow is created by the Sun
+(angular size 0.53° from Earth), and the Sun is 150 million km away:
+
+This is a complex problem! Start by drawing the geometry and identifying
+the triangles involved.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** X-ray Crystallography**
+
+\textbf{38.} In analyzing a protein crystal, X-ray diffraction reveals
+that three atoms form a triangle with: - Side AB: determined to be 0.28
+nm - Angle at A: 108° - Angle at B: 34°
+
+Find: - (a) Angle at C - (b) Side AC - (c) Side BC - (d) The area of the
+triangle
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Architecture: Geodesic Dome**
+
+\textbf{39.} A geodesic dome is made of triangular panels. One panel
+has: - Side lengths: 2.1 m, 2.1 m, 1.8 m (isosceles triangle)
+
+Find: - (a) All three angles - (b) The area of one panel - (c) If the
+dome has 320 such panels, what is the total surface area?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Electron Diffraction**
+
+\textbf{40.} When electrons pass through a crystal, they diffract
+according to the crystal structure. The diffraction pattern reveals
+interatomic distances.
+
+A triangle of atoms in graphene has: - All sides equal to 0.142 nm
+(equilateral)
+
+Find: - (a) All angles (you already know this!) - (b) The area of this
+triangular cell - (c) The height of the triangle
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** GPS Trilateration**
+
+\textbf{41.} GPS uses trilateration (circles) rather than triangulation
+(angles), but the math involves similar geometry.
+
+Three satellites report distances to a receiver: - Satellite A: 22,000
+km - Satellite B: 23,000 km - Satellite C: 21,500 km
+
+The satellites&#x27; positions form a triangle in space. If the angle at the
+receiver between satellites A and B is 35°:
+
+Use the Law of Cosines to find the distance from satellite A to
+satellite B.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Atomic Force Microscopy**
+
+\textbf{42.} An AFM tip is positioned using piezoelectric actuators that
+move in x, y, and z. When scanning at an angle to avoid obstacles:
+
+The tip moves 2 μm in one direction, rotates, then moves 3 μm in a
+direction 75° from the first.
+
+Find: - (a) The straight-line displacement from start to finish - (b)
+The angle this displacement makes with the first direction
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Binary Star Systems**
+
+\textbf{43.} A binary star system has two stars orbiting their common
+center of mass. At one instant: - Star A is 5 AU from the center of mass
+- Star B is 3 AU from the center of mass - The angle at the center of
+mass between the stars is 180° (opposite sides)
+
+What is the distance between the two stars? (Easy!)
+
+At another instant, the angle is 120°. Now what is the distance?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Scanning Electron Microscope Geometry**
+
+\textbf{44.} In an SEM, the electron beam, sample surface, and detector
+form a triangle. - Beam to sample: 10 mm (working distance) - Sample to
+detector: 30 mm - Beam angle from vertical: 0° (straight down) -
+Detector angle from sample surface: 35°
+
+Find the beam-to-detector distance.
+
+\emph{Hint: You need to figure out the angle at the sample first.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Orbital Rendezvous**
+
+\textbf{45.} Two spacecraft are in different orbits. At a certain time:
+- Spacecraft A is 400 km above Earth (Earth radius ≈ 6371 km) -
+Spacecraft B is 800 km above Earth - The angle at Earth&#x27;s center between
+them is 10°
+
+Find the distance between the spacecraft.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Final Challenge: The Earth-Moon-Sun Triangle}
+
+\textbf{46.} During a first-quarter Moon: - Earth-Sun distance: 150
+million km - Earth-Moon distance: 384,400 km - The Moon appears 90° from
+the Sun (as seen from Earth)
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the Sun-Moon distance at this moment?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the angle at the Moon in this triangle?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is the angle at the Sun?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}
+</pre></section></main>
+<footer><div class="wrap"><p>Joshua Aaron, Dublin. Teaching material is shared under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a> unless a page says otherwise.</p></div></footer><script></script></body></html>

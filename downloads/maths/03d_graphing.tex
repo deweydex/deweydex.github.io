@@ -1,0 +1,804 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 3D: Graphing Quadratics},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 3D: Graphing Quadratics}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{About This Worksheet}
+
+This worksheet connects the algebra you've learned to visual
+understanding. You'll see how changing numbers in an equation changes
+the shape and position of a parabola.
+
+\textbf{GeoGebra Links:} Throughout this worksheet, you'll find links to
+interactive GeoGebra applets. Open these in a browser to explore the
+concepts hands-on.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-the-basic-parabola-8-problems}{%
+\subsection{Part A: The Basic Parabola (8
+problems)}\label{part-a-the-basic-parabola-8-problems}}
+
+The simplest quadratic function is:
+
+\[f(x) = x^2\]
+
+** Explore:** \href{https://www.geogebra.org/calculator}{Basic Parabola}
+\emph{Type \texttt{y\ =\ x\^{}2} into GeoGebra to see it.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{1.} Complete this table for \(f(x) = x^2\):
+
+\begin{longtable}[]{@{}llllllll@{}}
+\toprule\noalign{}
+\(x\) & -3 & -2 & -1 & 0 & 1 & 2 & 3 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(f(x)\) & & & & & & & \\
+\end{longtable}
+
+\textbf{2.} Plot these points on graph paper and connect them smoothly.
+
+\textbf{3.} Answer these questions about \(f(x) = x^2\): - (a) What is
+the lowest point on the graph? (This is called the \textbf{vertex}) -
+(b) Is the parabola symmetric? Around what line? - (c) Does the parabola
+open upward or downward? - (d) What is \(f(0)\)? This is the
+\textbf{y-intercept}.
+
+\textbf{4.} The graph of \(f(x) = x^2\) never goes below the x-axis.
+What does this tell you about: - (a) The solutions to \(x^2 = 0\)? - (b)
+The solutions to \(x^2 = -1\)?
+
+\textbf{5.} Now consider \(g(x) = -x^2\). Complete the table:
+
+\begin{longtable}[]{@{}llllllll@{}}
+\toprule\noalign{}
+\(x\) & -3 & -2 & -1 & 0 & 1 & 2 & 3 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(g(x)\) & & & & & & & \\
+\end{longtable}
+
+\textbf{6.} How does \(g(x) = -x^2\) compare to \(f(x) = x^2\)?
+
+\textbf{7.} For \(g(x) = -x^2\): - (a) What is the vertex? - (b) Does it
+open upward or downward? - (c) What is the maximum or minimum value?
+
+\textbf{8.} \textbf{Rule:} If the coefficient of \(x^2\) is positive,
+the parabola opens \_\_\_\_\_\_\_\_. If negative, it opens
+\_\_\_\_\_\_\_\_.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-vertical-stretch-and-compression-8-problems}{%
+\subsection{Part B: Vertical Stretch and Compression (8
+problems)}\label{part-b-vertical-stretch-and-compression-8-problems}}
+
+** Explore:** Open GeoGebra and graph these together: - \(y = x^2\)
+(red) - \(y = 2x^2\) (blue)\\
+- \(y = 0.5x^2\) (green) - \(y = 3x^2\) (orange)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{9.} Complete the table comparing \(f(x) = x^2\) and
+\(g(x) = 2x^2\):
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+\(x\) & -2 & -1 & 0 & 1 & 2 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(f(x) = x^2\) & & & & & \\
+\(g(x) = 2x^2\) & & & & & \\
+\end{longtable}
+
+\textbf{10.} How does multiplying by 2 affect the y-values?
+
+\textbf{11.} Compare \(f(x) = x^2\) and \(h(x) = 0.5x^2\):
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+\(x\) & -2 & -1 & 0 & 1 & 2 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(f(x) = x^2\) & & & & & \\
+\(h(x) = 0.5x^2\) & & & & & \\
+\end{longtable}
+
+\textbf{12.} How does multiplying by 0.5 affect the y-values?
+
+\textbf{13.} Which parabola is ``narrower'' (steeper): \(y = x^2\) or
+\(y = 3x^2\)?
+
+\textbf{14.} Which parabola is ``wider'' (flatter): \(y = x^2\) or
+\(y = 0.25x^2\)?
+
+\textbf{15.} Match each equation to its description:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Equation & Description \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(y = 5x^2\) & A. Same as \(y = x^2\) but flipped \\
+\(y = 0.1x^2\) & B. Very narrow, opens up \\
+\(y = -x^2\) & C. Very wide, opens up \\
+\(y = -3x^2\) & D. Narrow, opens down \\
+\end{longtable}
+
+\textbf{16.} \textbf{Rule:} The coefficient \(a\) in \(y = ax^2\)
+affects: - \textbf{Sign of \(a\):} Determines if parabola opens
+\_\_\_\_\_ or \_\_\_\_\_ - \textbf{Size of \(|a|\):} Larger means
+\_\_\_\_\_\_\_\_, smaller means \_\_\_\_\_\_\_\_
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-vertical-shifts-8-problems}{%
+\subsection{Part C: Vertical Shifts (8
+problems)}\label{part-c-vertical-shifts-8-problems}}
+
+** Explore:** Graph these in GeoGebra: - \(y = x^2\) (red) -
+\(y = x^2 + 3\) (blue) - \(y = x^2 - 2\) (green)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{17.} Complete the table:
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+\(x\) & -2 & -1 & 0 & 1 & 2 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(f(x) = x^2\) & & & & & \\
+\(g(x) = x^2 + 3\) & & & & & \\
+\(h(x) = x^2 - 2\) & & & & & \\
+\end{longtable}
+
+\textbf{18.} How does \(y = x^2 + 3\) compare to \(y = x^2\)?
+
+\textbf{19.} How does \(y = x^2 - 2\) compare to \(y = x^2\)?
+
+\textbf{20.} For each function, state the vertex: - (a) \(y = x^2\) →
+Vertex: (\_\_, \_\_) - (b) \(y = x^2 + 5\) → Vertex: (\_\_, \_\_) - (c)
+\(y = x^2 - 4\) → Vertex: (\_\_, \_\_) - (d) \(y = x^2 + 100\) → Vertex:
+(\_\_, \_\_)
+
+\textbf{21.} The equation \(y = x^2 + k\) shifts the parabola: - Up by
+\(k\) units if \(k\) is \_\_\_\_\_\_\_\_ - Down by \(|k|\) units if
+\(k\) is \_\_\_\_\_\_\_\_
+
+\textbf{22.} Write the equation of a parabola that: - (a) Has the same
+shape as \(y = x^2\) but vertex at \((0, 7)\) - (b) Has the same shape
+as \(y = x^2\) but vertex at \((0, -3)\)
+
+\textbf{23.} How many x-intercepts (roots) does each have? - (a)
+\(y = x^2 + 1\) - (b) \(y = x^2\) - (c) \(y = x^2 - 4\)
+
+\textbf{24.} Connect to algebra: Solve \(x^2 - 4 = 0\). How do the
+solutions relate to the graph of \(y = x^2 - 4\)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-horizontal-shifts-8-problems}{%
+\subsection{Part D: Horizontal Shifts (8
+problems)}\label{part-d-horizontal-shifts-8-problems}}
+
+** Explore:** Graph these in GeoGebra: - \(y = x^2\) (red) -
+\(y = (x - 2)^2\) (blue) - \(y = (x + 3)^2\) (green)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{25.} Complete the table for \(f(x) = (x - 2)^2\):
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+\(x\) & 0 & 1 & 2 & 3 & 4 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\((x-2)\) & & & & & \\
+\(f(x) = (x-2)^2\) & & & & & \\
+\end{longtable}
+
+\textbf{26.} What is the vertex of \(y = (x - 2)^2\)?
+
+\textbf{27.} Complete the table for \(g(x) = (x + 3)^2\):
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+\(x\) & -5 & -4 & -3 & -2 & -1 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\((x+3)\) & & & & & \\
+\(g(x) = (x+3)^2\) & & & & & \\
+\end{longtable}
+
+\textbf{28.} What is the vertex of \(y = (x + 3)^2\)?
+
+\textbf{29.} \textbf{The Tricky Part:} - \(y = (x - 2)^2\) shifts the
+parabola \_\_\_\_\_\_ (left/right) by 2 units - \(y = (x + 3)^2\) shifts
+the parabola \_\_\_\_\_\_ (left/right) by 3 units
+
+\emph{The shift is OPPOSITE to the sign inside the parentheses!}
+
+\textbf{30.} State the vertex of each: - (a) \(y = (x - 5)^2\) → Vertex:
+(\_\_, \_\_) - (b) \(y = (x + 1)^2\) → Vertex: (\_\_, \_\_) - (c)
+\(y = (x - 10)^2\) → Vertex: (\_\_, \_\_) - (d) \(y = (x + 7)^2\) →
+Vertex: (\_\_, \_\_)
+
+\textbf{31.} Write the equation of a parabola with: - (a) Vertex at
+\((4, 0)\), same shape as \(y = x^2\) - (b) Vertex at \((-2, 0)\), same
+shape as \(y = x^2\)
+
+\textbf{32.} The equation \(y = (x - h)^2\) has vertex at \((h, 0)\).
+
+If \(h = 3\), the vertex is at \_\_\_\_\_\_\_\_. If \(h = -4\), the
+vertex is at \_\_\_\_\_\_\_\_.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-e-vertex-form-putting-it-all-together-10-problems}{%
+\subsection{Part E: Vertex Form --- Putting It All Together (10
+problems)}\label{part-e-vertex-form-putting-it-all-together-10-problems}}
+
+The \textbf{vertex form} of a quadratic is:
+
+\[y = a(x - h)^2 + k\]
+
+Where: - \((h, k)\) is the \textbf{vertex} - \(a\) determines
+\textbf{direction} (up/down) and \textbf{width}
+
+** Explore:** \href{https://www.geogebra.org/m/BUD9HAPR}{Vertex Form
+Explorer} \emph{Use sliders to change \(a\), \(h\), and \(k\) and watch
+the parabola move!}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{33.} For \(y = 2(x - 1)^2 + 3\): - (a) What is \(a\)? \_\_\_ -
+(b) What is \(h\)? \_\_\_ - (c) What is \(k\)? \_\_\_ - (d) What is the
+vertex? (\_\_, \_\_) - (e) Does it open up or down? \_\_\_\_\_\_\_\_ -
+(f) Is it narrower or wider than \(y = x^2\)? \_\_\_\_\_\_\_\_
+
+\textbf{34.} For \(y = -0.5(x + 2)^2 - 1\): - (a) What is \(a\)? \_\_\_
+- (b) What is \(h\)? \_\_\_ \emph{(Careful with the sign!)} - (c) What
+is \(k\)? \_\_\_ - (d) What is the vertex? (\_\_, \_\_) - (e) Does it
+open up or down? \_\_\_\_\_\_\_\_ - (f) Is it narrower or wider than
+\(y = x^2\)? \_\_\_\_\_\_\_\_
+
+\textbf{35.} Write the equation in vertex form for a parabola with: -
+(a) Vertex \((3, 2)\), opens up, same width as \(y = x^2\) - (b) Vertex
+\((-1, 4)\), opens down, same width as \(y = x^2\) - (c) Vertex
+\((0, -5)\), opens up, twice as narrow as \(y = x^2\) - (d) Vertex
+\((2, -3)\), opens down, half as steep as \(y = x^2\)
+
+\textbf{36.} Match each equation to its vertex:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Equation & Vertex \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(y = (x - 4)^2 + 1\) & A. \((4, 1)\) \\
+\(y = (x + 4)^2 - 1\) & B. \((-4, -1)\) \\
+\(y = (x - 4)^2 - 1\) & C. \((4, -1)\) \\
+\(y = (x + 4)^2 + 1\) & D. \((-4, 1)\) \\
+\end{longtable}
+
+\textbf{37.} Sketch (without GeoGebra) the graph of
+\(y = (x - 2)^2 - 4\): - (a) Vertex: \_\_\_\_\_\_\_\_ - (b) Opens:
+\_\_\_\_\_\_\_\_ - (c) y-intercept (plug in \(x = 0\)): \_\_\_\_\_\_\_\_
+- (d) x-intercepts (set \(y = 0\) and solve): \_\_\_\_\_\_\_\_
+
+\textbf{38.} Sketch \(y = -(x + 1)^2 + 9\): - (a) Vertex:
+\_\_\_\_\_\_\_\_ - (b) Opens: \_\_\_\_\_\_\_\_ - (c) y-intercept:
+\_\_\_\_\_\_\_\_ - (d) x-intercepts: \_\_\_\_\_\_\_\_
+
+\textbf{39.} A parabola has vertex \((2, 5)\) and passes through
+\((0, 1)\). Find its equation.
+
+\emph{Hint: Start with \(y = a(x - 2)^2 + 5\) and use the point to find
+\(a\).}
+
+\textbf{40.} A parabola has vertex \((-1, -4)\) and passes through
+\((1, 0)\). Find its equation.
+
+\textbf{41.} \textbf{Maximum/Minimum Values:}
+
+For \(y = a(x - h)^2 + k\): - If \(a > 0\), the parabola has a
+\_\_\_\_\_\_\_\_ value of \_\_\_ at \(x ={}\) \_\_\_ - If \(a < 0\), the
+parabola has a \_\_\_\_\_\_\_\_ value of \_\_\_ at \(x ={}\) \_\_\_
+
+\textbf{42.} A ball's height is \(h(t) = -5(t - 3)^2 + 50\). - (a) What
+is the maximum height? - (b) When is the maximum height reached? - (c)
+What was the initial height (\(t = 0\))?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-f-standard-form-and-converting-10-problems}{%
+\subsection{Part F: Standard Form and Converting (10
+problems)}\label{part-f-standard-form-and-converting-10-problems}}
+
+The \textbf{standard form} is:
+
+\[y = ax^2 + bx + c\]
+
+To find the vertex from standard form:
+
+\[x_{\text{vertex}} = \frac{-b}{2a}\]
+
+Then plug this \(x\) back in to find \(y_{\text{vertex}}\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{43.} For \(y = x^2 - 6x + 5\): - (a) Identify \(a\), \(b\),
+\(c\): \_\_\_, \_\_\_, \_\_\_ - (b) Find
+\(x_{\text{vertex}} = \frac{-b}{2a}\): \_\_\_ - (c) Find
+\(y_{\text{vertex}}\) by plugging in: \_\_\_ - (d) Vertex: (\_\_, \_\_)
+
+\textbf{44.} For \(y = x^2 + 4x + 3\): - (a) Find the vertex. - (b) Find
+the y-intercept. - (c) Find the x-intercepts by factoring.
+
+\textbf{45.} For \(y = -x^2 + 2x + 8\): - (a) Find the vertex. - (b)
+Does this parabola have a maximum or minimum? - (c) Find the
+x-intercepts.
+
+\textbf{46.} For \(y = 2x^2 + 8x + 6\): - (a) Find the vertex. - (b)
+Factor to find x-intercepts.
+
+\textbf{47.} \textbf{Converting Standard to Vertex Form}
+
+To convert \(y = x^2 - 4x + 7\) to vertex form, complete the square:
+
+\(y = x^2 - 4x + 7\) \(y = (x^2 - 4x + 4) + 7 - 4\) ← Add and subtract
+\((4/2)^2 = 4\) \(y = (x - 2)^2 + 3\)
+
+Convert to vertex form: - (a) \(y = x^2 + 6x + 10\) - (b)
+\(y = x^2 - 2x - 3\)
+
+\textbf{48.} Convert to vertex form: - (a) \(y = x^2 + 8x + 20\) - (b)
+\(y = x^2 - 10x + 21\)
+
+\textbf{49.} \textbf{Converting Vertex to Standard Form}
+
+Expand \(y = 2(x - 3)^2 + 1\):
+
+\(y = 2(x^2 - 6x + 9) + 1 = 2x^2 - 12x + 18 + 1 = 2x^2 - 12x + 19\)
+
+Convert to standard form: - (a) \(y = (x + 2)^2 - 5\) - (b)
+\(y = 3(x - 1)^2 + 4\)
+
+\textbf{50.} Convert to standard form: - (a) \(y = -(x - 4)^2 + 10\) -
+(b) \(y = 2(x + 3)^2 - 7\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-g-roots-and-the-discriminant-graphical-view-10-problems}{%
+\subsection{Part G: Roots and the Discriminant --- Graphical View (10
+problems)}\label{part-g-roots-and-the-discriminant-graphical-view-10-problems}}
+
+The \textbf{x-intercepts} (roots) of a parabola are where \(y = 0\).
+
+The \textbf{discriminant} \(b^2 - 4ac\) tells us how many roots to
+expect:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Discriminant
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Roots
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Graph
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(b^2 - 4ac > 0\) & Two distinct real roots & Crosses x-axis twice \\
+\(b^2 - 4ac = 0\) & One repeated root & Touches x-axis once (vertex on
+x-axis) \\
+\(b^2 - 4ac < 0\) & No real roots & Never crosses x-axis \\
+\end{longtable}
+
+** Explore:** \href{https://www.geogebra.org/m/mchqmhst}{Discriminant
+Visualizer}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{51.} For each equation, calculate the discriminant and predict
+the number of x-intercepts:
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    \(y = x^2 - 4x + 3\) → Discriminant: \_\_\_, x-intercepts: \_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    \(y = x^2 - 4x + 4\) → Discriminant: \_\_\_, x-intercepts: \_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    \(y = x^2 - 4x + 5\) → Discriminant: \_\_\_, x-intercepts: \_\_\_
+  \end{enumerate}
+\end{itemize}
+
+\textbf{52.} Verify your predictions from problem 51 by: - (a) Factoring
+or using quadratic formula for each - (b) Sketching each parabola (they
+all have the same vertex x-coordinate!)
+
+\textbf{53.} A parabola has equation \(y = x^2 + bx + 9\). For what
+values of \(b\) does it: - (a) Cross the x-axis twice? - (b) Touch the
+x-axis exactly once? - (c) Never touch the x-axis?
+
+\textbf{54.} The graph of \(y = x^2 - 6x + k\) will touch the x-axis
+exactly once when \(k ={}\) \_\_\_.
+
+\textbf{55.} For \(y = ax^2 + 4x + 1\): - (a) If \(a = 1\), how many
+x-intercepts? - (b) If \(a = 4\), how many x-intercepts? - (c) If
+\(a = 5\), how many x-intercepts?
+
+\textbf{56.} \textbf{Connecting Algebra and Geometry:}
+
+The equation \(x^2 + 2x + 5 = 0\) has no real solutions.
+
+Graphically, this means the parabola \(y = x^2 + 2x + 5\)
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_.
+
+Find the vertex to confirm it's entirely above the x-axis.
+
+\textbf{57.} Sketch a parabola that: - (a) Opens upward and has two
+x-intercepts - (b) Opens downward and has two x-intercepts - (c) Opens
+upward and has no x-intercepts - (d) Opens downward and has no
+x-intercepts
+
+\textbf{58.} A parabola has vertex \((3, -4)\) and \(a = 1\). - (a)
+Write its equation. - (b) Will it cross the x-axis? Why? - (c) Find the
+x-intercepts.
+
+\textbf{59.} A parabola has vertex \((2, 5)\) and \(a = 1\). - (a) Write
+its equation. - (b) Will it cross the x-axis? Why?
+
+\textbf{60.} A parabola has vertex \((-1, 3)\) and \(a = -2\). - (a)
+Write its equation. - (b) Will it cross the x-axis? Why? - (c) Find the
+x-intercepts.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-h-real-world-graphing-applications-6-problems}{%
+\subsection{Part H: Real-World Graphing Applications (6
+problems)}\label{part-h-real-world-graphing-applications-6-problems}}
+
+\textbf{61.} A ball is thrown with height \(h(t) = -5t^2 + 20t + 1\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Write in vertex form.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the maximum height?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    When is maximum height reached?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Sketch the graph for \(t \geq 0\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{4}
+  \tightlist
+  \item
+    When does the ball hit the ground?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{62.} A company's profit (in thousands) is modeled by
+\(P(x) = -2x^2 + 24x - 54\) where \(x\) is units sold (in hundreds).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Find the vertex. What does it represent?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What sales level maximizes profit?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is the maximum profit?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    At what sales levels does the company break even (\(P = 0\))?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{63.} A farmer has 200m of fencing for a rectangular enclosure
+against a barn (one side needs no fence). The area is:
+
+\[A(w) = w(200 - 2w) = -2w^2 + 200w\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What width maximizes the area?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the maximum area?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Sketch \(A(w)\) for sensible values of \(w\).
+  \end{enumerate}
+\end{itemize}
+
+\textbf{64.} The demand for a product is \(D(p) = 1000 - 25p\) where
+\(p\) is price in euros.
+
+Revenue is price × quantity:
+\(R(p) = p \cdot D(p) = p(1000 - 25p) = -25p^2 + 1000p\)
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What price maximizes revenue?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the maximum revenue?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    At what prices is revenue zero? Interpret these.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{65.} A suspension bridge cable forms a parabola. With the origin
+at the lowest point, the cable follows \(y = 0.01x^2\) where \(x\) and
+\(y\) are in meters.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    How high is the cable at \(x = 50\)m from center?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    If the towers are 100m apart, how high are they above the lowest
+    point?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Sketch the cable.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{66.} Water from a fountain follows \(y = -0.5x^2 + 2x\) where
+\(x\) is horizontal distance and \(y\) is height (meters).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the maximum height of the water?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    How far horizontally does the water travel?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Sketch the water's path.
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{geogebra-quick-reference}{%
+\subsection{GeoGebra Quick Reference}\label{geogebra-quick-reference}}
+
+\textbf{To graph in GeoGebra (geogebra.org/calculator):}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Type equation directly: \texttt{y\ =\ x\^{}2} or
+  \texttt{y\ =\ 2(x-3)\^{}2\ +\ 1}
+\item
+  Use \texttt{\^{}} for exponents: \texttt{x\^{}2} means \(x^2\)
+\item
+  Use \texttt{*} for multiplication: \texttt{2*x\^{}2} or just
+  \texttt{2x\^{}2}
+\item
+  Add sliders: Type \texttt{a\ =\ 1} then use \(a\) in equations
+\end{enumerate}
+
+\textbf{Useful explorations:} - Type \texttt{y\ =\ a*x\^{}2} and create
+slider for \(a\) - Type \texttt{y\ =\ (x\ -\ h)\^{}2\ +\ k} and create
+sliders for \(h\) and \(k\) - Type \texttt{y\ =\ a*(x\ -\ h)\^{}2\ +\ k}
+for full control
+
+\end{document}

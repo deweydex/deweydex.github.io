@@ -1,0 +1,635 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name='robots' content='noindex'><title>03b_factoring_solving.tex | Joshua Aaron</title><meta name="description" content=""><style>
+:root{--ink:#1B2A4A;--accent:#C25A1E;--paper:#fbfaf7;--muted:#5f6b7a;--line:#e5e2da;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--ink:#e8ebf2;--accent:#f08a4b;--paper:#12182a;--muted:#a3adbd;--line:#2a3452;--card:#1a2238}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1rem}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:baseline;padding:.7rem 1rem}
+.brand{font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem}
+nav a{color:var(--ink);text-decoration:none;font-size:.95rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+section{scroll-margin-top:5.5rem;padding-top:1rem}section+section{border-top:1px solid var(--line);margin-top:2.5rem}
+h1{font-weight:normal;font-size:2.2rem;line-height:1.2;margin:2.2rem 0 .4rem}
+h2{font-weight:normal;font-size:1.7rem;margin:1.2rem 0 .6rem}h3{font-weight:normal;font-size:1.35rem;margin:2rem 0 .3rem;color:var(--accent)}
+h4{font-size:1.1rem;margin:1.6rem 0 .1rem}h4+p em{color:var(--muted)}
+.lede{color:var(--muted);font-size:1.15rem;margin-top:0}
+a.card{display:grid;gap:.1rem;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:.7rem 1rem;margin:.8rem 0;color:var(--ink);text-decoration:none}
+a.card .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}a.card .n{color:var(--muted);font-size:.95rem}
+.callout{border-left:4px solid var(--accent);background:var(--card);padding:.7rem 1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.callout::before{content:"Note";display:block;font:600 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.callout.tip{border-left-color:#2f7d4f}.callout.tip::before{content:"Tip";color:#2f7d4f}
+.callout.info{border-left-color:#2b6cb0}.callout.info::before{content:"Information";color:#2b6cb0}
+.callout.warning{border-left-color:#b7791f}.callout.warning::before{content:"Warning";color:#b7791f}
+.callout>p:last-child{margin-bottom:0}
+a.dl-btn{background:var(--accent);color:var(--paper);min-height:2.75rem;padding:0 1.3rem}a.dl-btn::after{content:" 97"}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.1rem 1rem;margin:1rem 0}summary{cursor:pointer;min-height:2.4rem;display:flex;align-items:center;font-weight:600}
+.pdf iframe{width:100%;height:32rem;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:.4rem .7rem;text-align:left}
+pre{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem;overflow:auto;font-size:.88rem}img{max-width:100%;height:auto}
+.sheet{border-top:1px solid var(--line);padding:.2rem 0 .6rem}.sheet h4{margin:1rem 0 .2rem}.sheet p{margin:.2rem 0}.crumb{margin:1.4rem 0 0;font-size:.95rem}
+.file{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0}
+.file.compact{padding:.45rem .7rem;margin:.35rem 0}
+.file .ext{grid-row:1;min-width:3.6rem;text-align:center;font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;padding:.45rem .3rem}
+.file .meta{display:grid;min-width:0}.file .meta strong{font-weight:600}.file .n{color:var(--muted);font-size:.9rem}
+.file .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}
+.file.compact .acts{grid-column:3;grid-row:1}.file.compact{grid-template-columns:auto 1fr auto}
+a.act,button.act{display:inline-flex;align-items:center;min-height:2.4rem;padding:0 .9rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;font:600 .88rem system-ui,sans-serif}
+a.act.dl{background:var(--accent);color:var(--paper)}a.act.dl::before{content:"↓ "}a.act.out::after{content:" ↗"}
+a.act:hover,a.act:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media(min-width:34rem){.file .acts{grid-column:3;grid-row:1}.file{grid-template-columns:auto 1fr auto}}
+.src{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem;overflow:auto;font:.85rem/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;tab-size:4}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}button.act{background:none;cursor:pointer;color:var(--accent)}
+.katex-display{overflow-x:auto;overflow-y:hidden}
+footer{border-top:1px solid var(--line);margin-top:4rem;padding:1.5rem 0;color:var(--muted);font-size:.9rem}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="brand" href="../../../#top">Joshua Aaron</a><nav><a href='../../../#projects'>Current Stuff</a><a href='../../../#about'>About</a><a href='../../../#contact'>Contact</a><a href='https://docs.superhuman.com/d/_dXwmZI3vjrc/_suQ2icZa' rel='noopener'>Current classes and workshops &#8599;</a></nav></div></header>
+<main class="wrap"><section id='top'><p class='crumb'><a href='javascript:history.back()'>&larr; Back</a></p><h1>03b_factoring_solving.tex</h1><div class='bar'><a class='act dl' href='../../../downloads/maths/03b_factoring_solving.tex' download>Download</a><button class='act' type='button' onclick="navigator.clipboard.writeText(document.getElementById('src').textContent).then(()=>{this.textContent='Copied'})">Copy text</button></div><pre class='src' id='src'>% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 3B: Quadratics --- Factoring and Solving},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 3B: Quadratics --- Factoring and Solving}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{part-a-factoring-the-reverse-of-foil-warm-up}{%
+\subsection{Part A: Factoring --- The Reverse of FOIL
+(Warm-up)}\label{part-a-factoring-the-reverse-of-foil-warm-up}}
+
+In Worksheet 3A, you expanded \((t + 3)(t + 4)\) to get
+\(t^2 + 7t + 12\).
+
+Now we go backwards: given \(t^2 + 7t + 12\), find the two binomials.
+
+\textbf{The Key Insight:}
+
+To factor \(x^2 + bx + c\), find two numbers that: - \textbf{Multiply}
+to give \(c\) (the constant term) - \textbf{Add} to give \(b\) (the
+coefficient of \(x\))
+
+\textbf{Example:} Factor \(x^2 + 7x + 12\)
+
+\begin{itemize}
+\tightlist
+\item
+  Need two numbers that multiply to 12 and add to 7
+\item
+  Factors of 12: (1,12), (2,6), (3,4)
+\item
+  Which pair adds to 7? → 3 and 4
+\item
+  Answer: \((x + 3)(x + 4)\)
+\end{itemize}
+
+\textbf{Factor each expression. Check your answer by FOILing!}
+
+\textbf{1.} \(t^2 + 5t + 6\)
+
+\begin{itemize}
+\tightlist
+\item
+  Multiply to \_\_\_, add to \_\_\_
+\item
+  Numbers: \_\_\_ and \_\_\_
+\item
+  Factored: (\_\_\_)(\_\_\_)
+\end{itemize}
+
+\textbf{2.} \(p^2 + 8p + 15\)
+
+\textbf{3.} \(m^2 + 9m + 20\)
+
+\textbf{4.} \(r^2 + 11r + 24\)
+
+\textbf{5.} \(k^2 + 7k + 10\)
+
+\textbf{6.} \(n^2 + 12n + 35\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-factoring-with-negative-middle-terms-8-problems}{%
+\subsection{Part B: Factoring with Negative Middle Terms (8
+problems)}\label{part-b-factoring-with-negative-middle-terms-8-problems}}
+
+When the middle term is negative but the constant is positive, both
+numbers are negative.
+
+\textbf{Example:} Factor \(x^2 - 7x + 12\)
+
+\begin{itemize}
+\tightlist
+\item
+  Need two numbers that multiply to +12 and add to -7
+\item
+  Both must be negative (negative × negative = positive)
+\item
+  Numbers: -3 and -4
+\item
+  Answer: \((x - 3)(x - 4)\)
+\end{itemize}
+
+\textbf{Factor completely:}
+
+\textbf{7.} \(t^2 - 5t + 6\)
+
+\textbf{8.} \(p^2 - 9p + 14\)
+
+\textbf{9.} \(m^2 - 8m + 15\)
+
+\textbf{10.} \(r^2 - 10r + 21\)
+
+\textbf{11.} \(k^2 - 11k + 28\)
+
+\textbf{12.} \(n^2 - 13n + 36\)
+
+\textbf{13.} \(w^2 - 6w + 9\) --- \emph{What&#x27;s special about this one?}
+
+\textbf{14.} \(s^2 - 14s + 49\) --- \emph{Another special one!}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-factoring-with-negative-constants-10-problems}{%
+\subsection{Part C: Factoring with Negative Constants (10
+problems)}\label{part-c-factoring-with-negative-constants-10-problems}}
+
+When the constant term is negative, one number is positive and one is
+negative.
+
+\textbf{Example:} Factor \(x^2 + 2x - 15\)
+
+\begin{itemize}
+\tightlist
+\item
+  Need two numbers that multiply to -15 and add to +2
+\item
+  One positive, one negative
+\item
+  Factors of 15: (1,15), (3,5)
+\item
+  Which pair gives +2 when combined? → +5 and -3
+\item
+  Answer: \((x + 5)(x - 3)\)
+\end{itemize}
+
+\textbf{Factor completely:}
+
+\textbf{15.} \(t^2 + 3t - 10\)
+
+\textbf{16.} \(p^2 + 2p - 8\)
+
+\textbf{17.} \(m^2 - 2m - 15\)
+
+\textbf{18.} \(r^2 - 3r - 18\)
+
+\textbf{19.} \(k^2 + 4k - 21\)
+
+\textbf{20.} \(n^2 - 5n - 24\)
+
+\textbf{21.} \(w^2 + w - 30\)
+
+\textbf{22.} \(s^2 - 6s - 27\)
+
+\textbf{23.} \(h^2 + 7h - 44\)
+
+\textbf{24.} \(u^2 - u - 56\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-special-factoring-patterns-10-problems}{%
+\subsection{Part D: Special Factoring Patterns (10
+problems)}\label{part-d-special-factoring-patterns-10-problems}}
+
+\hypertarget{pattern-1-difference-of-squares}{%
+\subsubsection{Pattern 1: Difference of
+Squares}\label{pattern-1-difference-of-squares}}
+
+\[a^2 - b^2 = (a + b)(a - b)\]
+
+\emph{Look for two perfect squares separated by subtraction.}
+
+\textbf{Factor:}
+
+\textbf{25.} \(t^2 - 25\)
+
+\textbf{26.} \(p^2 - 81\)
+
+\textbf{27.} \(m^2 - 100\)
+
+\textbf{28.} \(4r^2 - 9\)
+
+\textbf{29.} \(16k^2 - 49\)
+
+\textbf{30.} \(25n^2 - 1\)
+
+\hypertarget{pattern-2-perfect-square-trinomials}{%
+\subsubsection{Pattern 2: Perfect Square
+Trinomials}\label{pattern-2-perfect-square-trinomials}}
+
+\[a^2 + 2ab + b^2 = (a + b)^2\] \[a^2 - 2ab + b^2 = (a - b)^2\]
+
+\emph{Check: Is the middle term exactly twice the product of the square
+roots of the first and last terms?}
+
+\textbf{Factor:}
+
+\textbf{31.} \(w^2 + 10w + 25\)
+
+\textbf{32.} \(s^2 - 12s + 36\)
+
+\textbf{33.} \(h^2 + 16h + 64\)
+
+\textbf{34.} \(4u^2 + 12u + 9\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-e-factoring-when-the-leading-coefficient-1-12-problems}{%
+\subsection{Part E: Factoring When the Leading Coefficient ≠ 1 (12
+problems)}\label{part-e-factoring-when-the-leading-coefficient-1-12-problems}}
+
+When you have \(ax^2 + bx + c\) with \(a \neq 1\), factoring is
+trickier.
+
+\textbf{Method: AC Method (Factor by Grouping)}
+
+\textbf{Example:} Factor \(2x^2 + 7x + 3\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Multiply \(a \cdot c\): \(2 \cdot 3 = 6\)
+\item
+  Find two numbers that multiply to 6 and add to 7: → 6 and 1
+\item
+  Rewrite the middle term: \(2x^2 + 6x + 1x + 3\)
+\item
+  Group and factor: \(2x(x + 3) + 1(x + 3)\)
+\item
+  Factor out common binomial: \((2x + 1)(x + 3)\)
+\end{enumerate}
+
+\textbf{Factor completely using the AC method:}
+
+\textbf{35.} \(2t^2 + 5t + 3\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(a \cdot c ={}\) \_\_\_
+\item
+  Numbers that multiply to \_\_\_ and add to 5: \_\_\_ and \_\_\_
+\item
+  Rewrite: \(2t^2 + \_\_\_t + \_\_\_t + 3\)
+\item
+  Factor: (\_\_\_)(\_\_\_)
+\end{itemize}
+
+\textbf{36.} \(3p^2 + 10p + 8\)
+
+\textbf{37.} \(2m^2 + 9m + 4\)
+
+\textbf{38.} \(5r^2 + 13r + 6\)
+
+\textbf{39.} \(3k^2 - 7k + 2\)
+
+\textbf{40.} \(2n^2 - 11n + 5\)
+
+\textbf{41.} \(4w^2 + 4w - 3\)
+
+\textbf{42.} \(6s^2 - 7s - 3\)
+
+\textbf{43.} \(3h^2 - 10h - 8\)
+
+\textbf{44.} \(4u^2 - 25\) --- \emph{Difference of squares!}
+
+\textbf{45.} \(9v^2 + 12v + 4\) --- \emph{Perfect square trinomial!}
+
+\textbf{46.} \(2q^2 - 18\) --- \emph{Factor out GCF first!}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-f-always-look-for-gcf-first-6-problems}{%
+\subsection{Part F: Always Look for GCF First! (6
+problems)}\label{part-f-always-look-for-gcf-first-6-problems}}
+
+Before using any other technique, always check for a \textbf{Greatest
+Common Factor}.
+
+\textbf{Example:} Factor \(3x^2 + 12x + 9\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  GCF of 3, 12, 9 is 3
+\item
+  Factor out 3: \(3(x^2 + 4x + 3)\)
+\item
+  Factor the trinomial: \(3(x + 1)(x + 3)\)
+\end{enumerate}
+
+\textbf{Factor completely (GCF first, then continue):}
+
+\textbf{47.} \(2t^2 + 10t + 12\)
+
+\textbf{48.} \(5p^2 - 20p + 15\)
+
+\textbf{49.} \(3m^2 - 27\)
+
+\textbf{50.} \(4r^3 + 8r^2 - 12r\)
+
+\textbf{51.} \(6k^2 - 24k + 24\)
+
+\textbf{52.} \(2n^3 - 8n^2 - 10n\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-g-solving-by-factoring-zero-product-property-12-problems}{%
+\subsection{Part G: Solving by Factoring --- Zero Product Property (12
+problems)}\label{part-g-solving-by-factoring-zero-product-property-12-problems}}
+
+\textbf{The Zero Product Property:}
+
+If \(A \cdot B = 0\), then \(A = 0\) or \(B = 0\) (or both).
+
+This lets us solve factored equations!
+
+\textbf{Example:} Solve \(x^2 - 5x + 6 = 0\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Factor: \((x - 2)(x - 3) = 0\)
+\item
+  Apply Zero Product Property: \(x - 2 = 0\) or \(x - 3 = 0\)
+\item
+  Solve each: \(x = 2\) or \(x = 3\)
+\end{enumerate}
+
+\textbf{Solve by factoring:}
+
+\textbf{53.} \(t^2 + 7t + 12 = 0\)
+
+\textbf{54.} \(p^2 - 6p + 8 = 0\)
+
+\textbf{55.} \(m^2 + 2m - 15 = 0\)
+
+\textbf{56.} \(r^2 - 9 = 0\)
+
+\textbf{57.} \(k^2 - 10k + 25 = 0\) --- \emph{How many solutions?}
+
+\textbf{58.} \(2n^2 + 5n - 3 = 0\)
+
+\textbf{59.} \(3w^2 - 7w + 2 = 0\)
+
+\textbf{60.} \(s^2 + 8s = 0\) --- \emph{Don&#x27;t forget: s is a common
+factor!}
+
+\textbf{61.} \(h^2 = 16\) --- \emph{Rearrange first!}
+
+\textbf{62.} \(u^2 - 3u = 10\) --- \emph{Rearrange to standard form
+first!}
+
+\textbf{63.} \(2v^2 + 6v = -4\) --- \emph{Rearrange, then factor out
+GCF}
+
+\textbf{64.} \(t(t - 4) = 12\) --- \emph{Expand first, then rearrange}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-h-completing-the-square-10-problems}{%
+\subsection{Part H: Completing the Square (10
+problems)}\label{part-h-completing-the-square-10-problems}}
+
+Sometimes factoring doesn&#x27;t work nicely. \textbf{Completing the square}
+always works.
+
+\textbf{The Idea:} Turn \(x^2 + bx\) into a perfect square by adding
+\(\left(\frac{b}{2}\right)^2\)
+
+\textbf{Example:} Solve \(x^2 + 6x = 7\)
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Take half of 6, square it: \(\left(\frac{6}{2}\right)^2 = 9\)
+\item
+  Add 9 to both sides: \(x^2 + 6x + 9 = 7 + 9\)
+\item
+  Factor left side: \((x + 3)^2 = 16\)
+\item
+  Take square root: \(x + 3 = \pm 4\)
+\item
+  Solve: \(x = -3 + 4 = 1\) or \(x = -3 - 4 = -7\)
+\end{enumerate}
+
+\textbf{Solve by completing the square:}
+
+\textbf{65.} \(t^2 + 4t = 5\)
+
+\begin{itemize}
+\tightlist
+\item
+  Half of 4, squared: \_\_\_
+\item
+  Add to both sides: \(t^2 + 4t + \_\_\_ = 5 + \_\_\_\)
+\item
+  Factor: \((t + \_\_\_)^2 = \_\_\_\)
+\item
+  Solutions: \(t ={}\) \_\_\_
+\end{itemize}
+
+\textbf{66.} \(p^2 - 8p = 9\)
+
+\textbf{67.} \(m^2 + 10m = -21\)
+
+\textbf{68.} \(r^2 - 2r = 15\)
+
+\textbf{69.} \(k^2 + 6k + 5 = 0\) --- \emph{Move 5 to the right first}
+
+\textbf{70.} \(n^2 - 4n - 12 = 0\)
+
+\textbf{71.} \(w^2 + 3w = 4\) --- \emph{Yes, you can complete the square
+with odd numbers!}
+
+\textbf{72.} \(s^2 - 5s = 6\)
+
+\textbf{73.} \(h^2 + 8h + 20 = 0\) --- \emph{What happens here?}
+
+\textbf{74.} \(u^2 - 6u + 10 = 0\) --- \emph{And here?}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-i-the-quadratic-formula-10-problems}{%
+\subsection{Part I: The Quadratic Formula (10
+problems)}\label{part-i-the-quadratic-formula-10-problems}}
+
+For any quadratic \(ax^2 + bx + c = 0\):
+
+\[\boxed{x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}}\]
+
+\textbf{Example:} Solve \(2x^2 + 5x - 3 = 0\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(a = 2\), \(b = 5\), \(c = -3\)
+\item
+  \(x = \frac{-5 \pm \sqrt{25 - 4(2)(-3)}}{2(2)} = \frac{-5 \pm \sqrt{25 + 24}}{4} = \frac{-5 \pm \sqrt{49}}{4} = \frac{-5 \pm 7}{4}\)
+\item
+  \(x = \frac{-5 + 7}{4} = \frac{1}{2}\) or
+  \(x = \frac{-5 - 7}{4} = -3\)
+\end{itemize}
+
+\textbf{Solve using the quadratic formula:}
+
+\textbf{75.} \(t^2 - 5t + 6 = 0\) --- \emph{Verify by factoring too!}
+
+\textbf{76.} \(p^2 + 3p - 10 = 0\)
+
+\textbf{77.} \(2m^2 + 7m + 3 = 0\)
+
+\textbf{78.} \(3r^2 - 2r - 1 = 0\)
+
+\textbf{79.} \(k^2 - 4k + 1 = 0\) --- \emph{Answer won&#x27;t be a nice
+integer}
+
+\textbf{80.} \(n^2 + 2n - 2 = 0\)
+
+\textbf{81.} \(w^2 + 4w + 5 = 0\) --- \emph{What happens under the
+square root?}
+
+\textbf{82.} \(2s^2 - 3s + 5 = 0\) --- \emph{Same question!}
+
+\textbf{83.} \(h^2 - 6h + 9 = 0\) --- \emph{What&#x27;s special about this
+one?}
+
+\textbf{84.} \(4u^2 + 4u + 1 = 0\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-j-the-discriminant-predicting-solutions-8-problems}{%
+\subsection{Part J: The Discriminant --- Predicting Solutions (8
+problems)}\label{part-j-the-discriminant-predicting-solutions-8-problems}}
+
+The expression under the square root, \(b^2 - 4ac\), is called the
+\textbf{discriminant}.
+
+It tells you what kind of solutions to expect:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Discriminant &amp; Number of Real Solutions \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(b^2 - 4ac &gt; 0\) &amp; Two different real solutions \\
+\(b^2 - 4ac = 0\) &amp; One real solution (repeated) \\
+\(b^2 - 4ac &lt; 0\) &amp; No real solutions (complex numbers) \\
+\end{longtable}
+
+\textbf{Without solving, calculate the discriminant and predict the
+number of real solutions:}
+
+\textbf{85.} \(t^2 + 5t + 6 = 0\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(b^2 - 4ac = 25 - 24 = 1\)
+\item
+  Discriminant is \_\_\_\_\_\_\_\_ (positive/zero/negative)
+\item
+  Number of real solutions: \_\_\_
+\end{itemize}
+
+\textbf{86.} \(p^2 - 8p + 16 = 0\)
+
+\textbf{87.} \(m^2 + 2m + 5 = 0\)
+
+\textbf{88.} \(r^2 - 3r - 10 = 0\)
+
+\textbf{89.} \(k^2 + k + 1 = 0\)
+
+\textbf{90.} \(3n^2 - 2n - 1 = 0\)
+
+\textbf{91.} \(4w^2 - 12w + 9 = 0\)
+
+\textbf{92.} \(2s^2 + s + 1 = 0\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}
+</pre></section></main>
+<footer><div class="wrap"><p>Joshua Aaron, Dublin. Teaching material is shared under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a> unless a page says otherwise.</p></div></footer><script></script></body></html>

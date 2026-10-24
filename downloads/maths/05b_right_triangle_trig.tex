@@ -1,0 +1,485 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 5B: Right Triangle Trigonometry},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 5B: Right Triangle Trigonometry}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+Before the unit circle, trigonometry was about triangles. The ratios of
+sides in a right triangle give us the original definitions of sine,
+cosine, and tangent.
+
+These ratios are the foundation for surveying, navigation, astronomy,
+and engineering --- anywhere we need to find distances we can't directly
+measure.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-soh-cah-toa-the-three-ratios-20-problems}{%
+\subsection{Part A: SOH-CAH-TOA --- The Three Ratios (20
+problems)}\label{part-a-soh-cah-toa-the-three-ratios-20-problems}}
+
+\hypertarget{the-definitions}{%
+\subsubsection{The Definitions}\label{the-definitions}}
+
+For a right triangle with an acute angle \(\theta\):
+
+\[\sin\theta = \frac{\text{Opposite}}{\text{Hypotenuse}} \quad \cos\theta = \frac{\text{Adjacent}}{\text{Hypotenuse}} \quad \tan\theta = \frac{\text{Opposite}}{\text{Adjacent}}\]
+
+\textbf{Memory aid:} \textbf{SOH-CAH-TOA} - \textbf{S}ine =
+\textbf{O}pposite / \textbf{H}ypotenuse - \textbf{C}osine =
+\textbf{A}djacent / \textbf{H}ypotenuse - \textbf{T}angent =
+\textbf{O}pposite / \textbf{A}djacent
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{For each triangle, identify the sides relative to angle
+\(\theta\), then find the three ratios:}
+
+\textbf{1.} Right triangle with legs 3 and 4, hypotenuse 5. Angle
+\(\theta\) is opposite the side of length 3.
+
+\begin{itemize}
+\tightlist
+\item
+  Opposite = \_\_\_\_\_, Adjacent = \_\_\_\_\_, Hypotenuse = \_\_\_\_\_
+\item
+  \(\sin\theta ={}\) \_\_\_\_\_, \(\cos\theta ={}\) \_\_\_\_\_,
+  \(\tan\theta ={}\) \_\_\_\_\_
+\end{itemize}
+
+\textbf{2.} Right triangle with legs 5 and 12, hypotenuse 13. Angle
+\(\theta\) is opposite the side of length 5.
+
+\textbf{3.} Right triangle with legs 8 and 15, hypotenuse 17. Angle
+\(\theta\) is opposite the side of length 8.
+
+\textbf{4.} Right triangle with legs 7 and 24, hypotenuse 25. Angle
+\(\theta\) is opposite the side of length 24.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Special Triangles:}
+
+\textbf{5.} The 45-45-90 triangle has legs of equal length. If each leg
+is 1: - (a) Find the hypotenuse using Pythagoras. - (b) Find
+\(\sin(45°)\), \(\cos(45°)\), \(\tan(45°)\).
+
+\textbf{6.} The 30-60-90 triangle has sides in ratio
+\(1 : \sqrt{3} : 2\). - (a) If the shortest side is 1 (opposite 30°),
+find the other sides. - (b) Find \(\sin(30°)\), \(\cos(30°)\),
+\(\tan(30°)\). - (c) Find \(\sin(60°)\), \(\cos(60°)\), \(\tan(60°)\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Using a Calculator:}
+
+\textbf{7.} Find (round to 4 decimal places): - (a) \(\sin(25°)\) - (b)
+\(\cos(72°)\) - (c) \(\tan(53°)\)
+
+\textbf{8.} Find the angle (in degrees) if: - (a) \(\sin\theta = 0.6\) -
+(b) \(\cos\theta = 0.8\) - (c) \(\tan\theta = 2.5\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Relationships:}
+
+\textbf{9.} In any right triangle, the two acute angles are
+\textbf{complementary} (they add to 90°).
+
+If one angle is \(\theta\), the other is \(90° - \theta\).
+
+Show that: \(\sin\theta = \cos(90° - \theta)\)
+
+\emph{This is why cosine is called ``co-sine'' --- it's the sine of the
+complementary angle!}
+
+\textbf{10.} Verify for \(\theta = 30°\): \(\sin(30°) = \cos(60°)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-finding-missing-sides-16-problems}{%
+\subsection{Part B: Finding Missing Sides (16
+problems)}\label{part-b-finding-missing-sides-16-problems}}
+
+\hypertarget{strategy}{%
+\subsubsection{Strategy}\label{strategy}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Label the sides relative to your angle (Opp, Adj, Hyp)
+\item
+  Identify what you know and what you need
+\item
+  Choose the ratio that uses those two sides
+\item
+  Set up the equation and solve
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the missing side (round to 2 decimal places):}
+
+\textbf{11.} Right triangle with angle 35°, hypotenuse 10 cm. Find the
+opposite side.
+
+\textbf{12.} Right triangle with angle 48°, adjacent side 7 m. Find the
+hypotenuse.
+
+\textbf{13.} Right triangle with angle 62°, opposite side 15 m. Find the
+adjacent side.
+
+\textbf{14.} Right triangle with angle 28°, hypotenuse 20 cm. Find the
+adjacent side.
+
+\textbf{15.} Right triangle with angle 55°, adjacent side 12 m. Find the
+opposite side.
+
+\textbf{16.} Right triangle with angle 71°, opposite side 8.5 m. Find
+the hypotenuse.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Astronomy: Measuring with Angles**
+
+\textbf{17.} A telescope is aimed at an angle of 42° above the
+horizontal to observe a star. If the telescope is 15 m from a building,
+how high up the building does the line of sight hit?
+
+\textbf{18.} The Hubble Space Telescope orbits at 547 km above Earth's
+surface. From a ground station, the angle of elevation to Hubble is 28°.
+- (a) Draw a diagram. - (b) What is the horizontal distance from the
+station to the point directly below Hubble?
+
+\emph{Note: This is simplified --- actual calculations account for
+Earth's curvature.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Microscopy: Stage Tilting**
+
+\textbf{19.} In some electron microscopes, the sample stage can be
+tilted to get different views of a specimen.
+
+If a stage holding a sample 2 mm thick is tilted at 15°, what is the
+apparent thickness when viewed from directly above?
+
+\emph{Hint: The apparent thickness is the original thickness times
+\(\cos(\theta)\).}
+
+\textbf{20.} A scanning electron microscope (SEM) detector is positioned
+at 35° from the sample surface normal (perpendicular). If the detector
+is 50 mm from the sample along the angled path, what is the vertical
+height of the detector above the sample?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Engineering: Ramps and Inclines**
+
+\textbf{21.} A wheelchair ramp must have a slope no steeper than 1:12
+(for every 12 units horizontal, it rises 1 unit). - (a) What angle does
+this make with the horizontal? - (b) If a doorway is 0.6 m above ground
+level, what is the minimum ramp length?
+
+\textbf{22.} A road sign indicates a 6\% grade (the road rises 6 m for
+every 100 m horizontal). - (a) What is the angle of incline? - (b) If a
+truck travels 500 m along this road, how much altitude does it gain?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Communications: Satellite Dishes**
+
+\textbf{23.} A satellite dish must be aimed at a geostationary
+satellite. In Dublin (latitude 53.3°N), the dish must be tilted at
+approximately 26° from vertical (toward the south). - (a) What angle
+does the dish make with the horizontal ground? - (b) If the dish is 1.2
+m in diameter and circular, what is the vertical height of the top edge
+above the bottom edge?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-finding-missing-angles-12-problems}{%
+\subsection{Part C: Finding Missing Angles (12
+problems)}\label{part-c-finding-missing-angles-12-problems}}
+
+\hypertarget{strategy-1}{%
+\subsubsection{Strategy}\label{strategy-1}}
+
+When you know sides but need the angle, use inverse trig functions: -
+\(\theta = \sin^{-1}\left(\frac{\text{Opp}}{\text{Hyp}}\right)\) or
+\(\theta = \arcsin\left(\frac{\text{Opp}}{\text{Hyp}}\right)\) -
+\(\theta = \cos^{-1}\left(\frac{\text{Adj}}{\text{Hyp}}\right)\) or
+\(\theta = \arccos\left(\frac{\text{Adj}}{\text{Hyp}}\right)\) -
+\(\theta = \tan^{-1}\left(\frac{\text{Opp}}{\text{Adj}}\right)\) or
+\(\theta = \arctan\left(\frac{\text{Opp}}{\text{Adj}}\right)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the angle \(\theta\) (round to 1 decimal place):}
+
+\textbf{24.} Opposite = 5, Hypotenuse = 13
+
+\textbf{25.} Adjacent = 8, Hypotenuse = 17
+
+\textbf{26.} Opposite = 7, Adjacent = 10
+
+\textbf{27.} Opposite = 12, Hypotenuse = 15
+
+\textbf{28.} Adjacent = 6, Opposite = 11
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Astronomy: Parallax**
+
+\textbf{Parallax} is the apparent shift in position of a nearby star
+against distant background stars, as Earth moves from one side of its
+orbit to the other.
+
+The parallax angle \(p\) (in arcseconds) is related to the star's
+distance \(d\) (in parsecs) by:
+
+\[d = \frac{1}{p}\]
+
+\textbf{29.} Proxima Centauri, the nearest star to our Sun, has a
+parallax of 0.7687 arcseconds. - (a) Calculate its distance in parsecs.
+- (b) Convert to light-years (1 parsec ≈ 3.26 light-years).
+
+\textbf{30.} A star has a parallax of 0.01 arcseconds. - (a) What is its
+distance in parsecs? - (b) Why are parallax measurements difficult for
+distant stars?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Optics: Snell's Law and Critical Angle**
+
+When light passes from one medium to another, it bends according to
+Snell's Law:
+
+\[n_1 \sin\theta_1 = n_2 \sin\theta_2\]
+
+When light goes from a denser to a less dense medium (like glass to
+air), there's a \textbf{critical angle} beyond which light is totally
+internally reflected.
+
+\textbf{31.} Light passes from glass (\(n_1 = 1.5\)) to air
+(\(n_2 = 1.0\)). - (a) If the angle in glass is 30°, find the angle in
+air. - (b) The critical angle is when \(\theta_2 = 90°\). Find the
+critical angle for glass-to-air.
+
+\textbf{32.} In fiber optics, light is trapped in a glass fiber by total
+internal reflection. If the glass has \(n = 1.62\): - (a) Find the
+critical angle for light hitting the glass-air boundary. - (b) What does
+this tell us about how the fiber must be designed?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Crystallography: Bragg's Law**
+
+X-ray diffraction is used to determine crystal structures. When X-rays
+hit crystal planes, they reflect at angles given by Bragg's Law:
+
+\[n\lambda = 2d\sin\theta\]
+
+where \(\lambda\) is the X-ray wavelength, \(d\) is the spacing between
+crystal planes, and \(\theta\) is the angle of incidence.
+
+\textbf{33.} X-rays with wavelength \(\lambda = 0.154\) nm hit a crystal
+with plane spacing \(d = 0.282\) nm. - (a) For first-order diffraction
+(\(n = 1\)), at what angle \(\theta\) will you see a bright spot? - (b)
+At what angle will you see second-order diffraction (\(n = 2\))?
+
+\textbf{34.} In a protein crystal, you observe first-order diffraction
+at \(\theta = 12.5°\) using X-rays with \(\lambda = 0.154\) nm. What is
+the spacing between crystal planes?
+
+\textbf{35.} Why can't you have \(n = 3\) diffraction if
+\(\frac{\lambda}{2d} > \frac{1}{3}\)?
+
+\emph{Hint: What's the maximum value of \(\sin\theta\)?}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-angles-of-elevation-and-depression-14-problems}{%
+\subsection{Part D: Angles of Elevation and Depression (14
+problems)}\label{part-d-angles-of-elevation-and-depression-14-problems}}
+
+\hypertarget{definitions}{%
+\subsubsection{Definitions}\label{definitions}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Angle of elevation:} The angle UP from horizontal to an object
+  above you
+\item
+  \textbf{Angle of depression:} The angle DOWN from horizontal to an
+  object below you
+\end{itemize}
+
+\textbf{Key insight:} The angle of elevation from point A to point B
+equals the angle of depression from point B to point A (alternate
+interior angles with a horizontal line).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{36.} From a point 50 m from the base of a building, the angle of
+elevation to the top is 65°. How tall is the building?
+
+\textbf{37.} A 30 m tall lighthouse sits on a cliff. From a boat, the
+angle of elevation to the top of the lighthouse is 12° and to the bottom
+(top of cliff) is 9°. - (a) How far is the boat from the base of the
+cliff? - (b) How tall is the cliff?
+
+\textbf{38.} From the top of a 100 m cliff, the angle of depression to a
+boat is 18°. How far is the boat from the base of the cliff?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Astronomy: Measuring the Solar System**
+
+\textbf{39.} In 1672, astronomers measured the parallax of Mars to
+determine the distance to the Sun. Giovanni Cassini in Paris and Jean
+Richer in Cayenne, French Guiana (6,700 km apart) observed Mars
+simultaneously and found it shifted by 25.5 arcseconds against the
+background stars.
+
+If Mars was directly between Earth and the distant stars: - (a) Convert
+25.5 arcseconds to degrees (1° = 3600 arcseconds). - (b) Using the
+baseline of 6,700 km and this angle, estimate the distance to Mars at
+that moment.
+
+\emph{Hint: For small angles, \(\tan\theta \approx \theta\) (in
+radians), so distance ≈ baseline / angle}
+
+\textbf{40.} The Moon's orbit is inclined about 5° to Earth's orbital
+plane around the Sun. This is why we don't have solar and lunar eclipses
+every month.
+
+If the Moon is 384,400 km from Earth, how far above or below Earth's
+orbital plane can the Moon be at maximum?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Microscopy: Working Distance**
+
+The \textbf{working distance} of a microscope objective is the distance
+from the front lens to the sample when in focus.
+
+\textbf{41.} A microscope objective has a working distance of 2.1 mm and
+a half-angle acceptance cone of 72°. - (a) What is the radius of the
+area on the sample from which light can enter the objective? - (b) This
+defines the practical ``field of view'' at the focal plane.
+
+\textbf{42.} An electron microscope gun emits electrons in a cone with
+half-angle 0.5°. If the electron source is 10 cm from the first lens: -
+(a) What is the radius of the electron beam when it reaches the lens? -
+(b) Why is this small angle important for electron beam quality?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Lithography: Depth of Focus**
+
+In lithography, the \textbf{depth of focus} (DOF) determines how much
+vertical tolerance there is in placing the wafer:
+
+\[DOF = k_2 \cdot \frac{\lambda}{NA^2}\]
+
+This is related to trigonometry because \(NA = n\sin\theta\).
+
+\textbf{43.} For EUV lithography with \(\lambda = 13.5\) nm and
+\(NA = 0.33\), with \(k_2 = 0.5\): - (a) Calculate the depth of focus. -
+(b) Why is this a challenge for manufacturing?
+
+\textbf{44.} A hypothetical ``high-NA'' EUV system with \(NA = 0.55\): -
+(a) Calculate the new depth of focus. - (b) By what factor has the DOF
+decreased compared to \(NA = 0.33\)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Surveying: Theodolite Measurements**
+
+\textbf{45.} A surveyor uses a theodolite (precision angle-measuring
+instrument) to measure the height of a mountain. From point A, the angle
+of elevation to the peak is 32°. She walks 500 m closer to the mountain
+to point B, where the angle of elevation is 47°. - (a) Set up equations
+using \(\tan\) for both triangles. - (b) Solve for the height of the
+mountain. - (c) How far is point B from the base of the mountain?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Navigation: Great Circle Routes**
+
+\textbf{46.} Aircraft fly ``great circle'' routes --- the shortest path
+on a sphere. The angle between two great circles at their intersection
+is related to the distance and direction of travel.
+
+Dublin (53.3°N, 6.3°W) and New York (40.7°N, 74.0°W) are connected by a
+great circle route. At Dublin, the initial heading is about 252°
+(roughly WSW). - (a) Why isn't the heading simply ``due west'' (270°)? -
+(b) The great circle distance is about 5,120 km. Using Earth's radius
+(6,371 km), what central angle does this distance subtend?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}

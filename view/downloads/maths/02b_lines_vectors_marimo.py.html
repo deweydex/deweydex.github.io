@@ -1,0 +1,792 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name='robots' content='noindex'><title>02b_lines_vectors_marimo.py | Joshua Aaron</title><meta name="description" content=""><style>
+:root{--ink:#1B2A4A;--accent:#C25A1E;--paper:#fbfaf7;--muted:#5f6b7a;--line:#e5e2da;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--ink:#e8ebf2;--accent:#f08a4b;--paper:#12182a;--muted:#a3adbd;--line:#2a3452;--card:#1a2238}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1rem}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:baseline;padding:.7rem 1rem}
+.brand{font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem}
+nav a{color:var(--ink);text-decoration:none;font-size:.95rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+section{scroll-margin-top:5.5rem;padding-top:1rem}section+section{border-top:1px solid var(--line);margin-top:2.5rem}
+h1{font-weight:normal;font-size:2.2rem;line-height:1.2;margin:2.2rem 0 .4rem}
+h2{font-weight:normal;font-size:1.7rem;margin:1.2rem 0 .6rem}h3{font-weight:normal;font-size:1.35rem;margin:2rem 0 .3rem;color:var(--accent)}
+h4{font-size:1.1rem;margin:1.6rem 0 .1rem}h4+p em{color:var(--muted)}
+.lede{color:var(--muted);font-size:1.15rem;margin-top:0}
+a.card{display:grid;gap:.1rem;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:.7rem 1rem;margin:.8rem 0;color:var(--ink);text-decoration:none}
+a.card .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}a.card .n{color:var(--muted);font-size:.95rem}
+.callout{border-left:4px solid var(--accent);background:var(--card);padding:.7rem 1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.callout::before{content:"Note";display:block;font:600 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.callout.tip{border-left-color:#2f7d4f}.callout.tip::before{content:"Tip";color:#2f7d4f}
+.callout.info{border-left-color:#2b6cb0}.callout.info::before{content:"Information";color:#2b6cb0}
+.callout.warning{border-left-color:#b7791f}.callout.warning::before{content:"Warning";color:#b7791f}
+.callout>p:last-child{margin-bottom:0}
+a.dl-btn{background:var(--accent);color:var(--paper);min-height:2.75rem;padding:0 1.3rem}a.dl-btn::after{content:" 97"}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.1rem 1rem;margin:1rem 0}summary{cursor:pointer;min-height:2.4rem;display:flex;align-items:center;font-weight:600}
+.pdf iframe{width:100%;height:32rem;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:.4rem .7rem;text-align:left}
+pre{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem;overflow:auto;font-size:.88rem}img{max-width:100%;height:auto}
+.sheet{border-top:1px solid var(--line);padding:.2rem 0 .6rem}.sheet h4{margin:1rem 0 .2rem}.sheet p{margin:.2rem 0}.crumb{margin:1.4rem 0 0;font-size:.95rem}
+.file{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0}
+.file.compact{padding:.45rem .7rem;margin:.35rem 0}
+.file .ext{grid-row:1;min-width:3.6rem;text-align:center;font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;padding:.45rem .3rem}
+.file .meta{display:grid;min-width:0}.file .meta strong{font-weight:600}.file .n{color:var(--muted);font-size:.9rem}
+.file .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}
+.file.compact .acts{grid-column:3;grid-row:1}.file.compact{grid-template-columns:auto 1fr auto}
+a.act,button.act{display:inline-flex;align-items:center;min-height:2.4rem;padding:0 .9rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;font:600 .88rem system-ui,sans-serif}
+a.act.dl{background:var(--accent);color:var(--paper)}a.act.dl::before{content:"↓ "}a.act.out::after{content:" ↗"}
+a.act:hover,a.act:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media(min-width:34rem){.file .acts{grid-column:3;grid-row:1}.file{grid-template-columns:auto 1fr auto}}
+.src{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem;overflow:auto;font:.85rem/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;tab-size:4}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}button.act{background:none;cursor:pointer;color:var(--accent)}
+.katex-display{overflow-x:auto;overflow-y:hidden}
+footer{border-top:1px solid var(--line);margin-top:4rem;padding:1.5rem 0;color:var(--muted);font-size:.9rem}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="brand" href="../../../#top">Joshua Aaron</a><nav><a href='../../../#projects'>Current Stuff</a><a href='../../../#about'>About</a><a href='../../../#contact'>Contact</a><a href='https://docs.superhuman.com/d/_dXwmZI3vjrc/_suQ2icZa' rel='noopener'>Current classes and workshops &#8599;</a></nav></div></header>
+<main class="wrap"><section id='top'><p class='crumb'><a href='javascript:history.back()'>&larr; Back</a></p><h1>02b_lines_vectors_marimo.py</h1><div class='bar'><a class='act dl' href='../../../downloads/maths/02b_lines_vectors_marimo.py' download>Download</a><button class='act' type='button' onclick="navigator.clipboard.writeText(document.getElementById('src').textContent).then(()=>{this.textContent='Copied'})">Copy text</button></div><pre class='src' id='src'>import marimo
+
+__generated_with = &quot;0.10.0&quot;
+app = marimo.App(width=&quot;medium&quot;)
+
+
+@app.cell
+def _():
+    import marimo as mo
+    import numpy as np
+    import matplotlib.pyplot as plt
+    return mo, np, plt
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        # Worksheet 2B: Linear Thinking — Data &amp; Curves
+
+        ---
+
+        &gt; **What This Worksheet Is About**
+        &gt; 
+        &gt; In the real world, data is messy. Lines don&#x27;t pass through every point perfectly. But we can still ask: &quot;Does this data have a linear trend?&quot; and &quot;What&#x27;s the slope telling us?&quot;
+        &gt; 
+        &gt; We&#x27;ll also look at curves and ask: &quot;At this particular spot, what would a line look like?&quot; This is the beginning of calculus thinking — but don&#x27;t worry, no calculus required yet.
+
+        ---
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ## Part A: Which Dataset Is Most Linear?
+
+        Below are three datasets showing the relationship between &quot;Hours Studied&quot; and &quot;Exam Score&quot;. 
+        Use the interactive controls to explore each dataset and decide which is best represented by a linear model.
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo, np, plt):
+    # Dataset A - Linear
+    hours = np.array([1, 2, 3, 4, 5, 6, 7, 8])
+    scores_a = np.array([45, 52, 58, 61, 67, 73, 78, 84])
+    scores_b = np.array([50, 55, 70, 60, 85, 65, 90, 75])  # Scattered
+    scores_c = np.array([40, 45, 55, 70, 82, 88, 92, 94])  # Curved (diminishing returns)
+
+    fig1, axes1 = plt.subplots(1, 3, figsize=(14, 4))
+
+    axes1[0].scatter(hours, scores_a, c=&#x27;steelblue&#x27;, s=80)
+    axes1[0].set_xlabel(&#x27;Hours Studied&#x27;)
+    axes1[0].set_ylabel(&#x27;Exam Score&#x27;)
+    axes1[0].set_title(&#x27;Dataset A&#x27;)
+    axes1[0].set_xlim(0, 9)
+    axes1[0].set_ylim(30, 100)
+    axes1[0].grid(True, alpha=0.3)
+
+    axes1[1].scatter(hours, scores_b, c=&#x27;coral&#x27;, s=80)
+    axes1[1].set_xlabel(&#x27;Hours Studied&#x27;)
+    axes1[1].set_ylabel(&#x27;Exam Score&#x27;)
+    axes1[1].set_title(&#x27;Dataset B&#x27;)
+    axes1[1].set_xlim(0, 9)
+    axes1[1].set_ylim(30, 100)
+    axes1[1].grid(True, alpha=0.3)
+
+    axes1[2].scatter(hours, scores_c, c=&#x27;seagreen&#x27;, s=80)
+    axes1[2].set_xlabel(&#x27;Hours Studied&#x27;)
+    axes1[2].set_ylabel(&#x27;Exam Score&#x27;)
+    axes1[2].set_title(&#x27;Dataset C&#x27;)
+    axes1[2].set_xlim(0, 9)
+    axes1[2].set_ylim(30, 100)
+    axes1[2].grid(True, alpha=0.3)
+
+    plt.tight_layout()
+    plt.gca()
+    return axes1, fig1, hours, scores_a, scores_b, scores_c
+
+
+@app.cell
+def _(mo):
+    dataset_choice = mo.ui.dropdown(
+        options=[&quot;Dataset A&quot;, &quot;Dataset B&quot;, &quot;Dataset C&quot;],
+        value=&quot;Dataset A&quot;,
+        label=&quot;Which dataset is most linear?&quot;
+    )
+    dataset_choice
+    return (dataset_choice,)
+
+
+@app.cell
+def _(dataset_choice, mo):
+    _feedback = {
+        &quot;Dataset A&quot;: &quot;✅ **Correct!** Dataset A shows a consistent linear pattern — each additional hour of studying adds roughly the same number of points.&quot;,
+        &quot;Dataset B&quot;: &quot;❌ Dataset B is scattered with no clear pattern. The points jump around randomly.&quot;,
+        &quot;Dataset C&quot;: &quot;❌ Dataset C shows a curve — notice how the gains flatten out at higher hours (diminishing returns).&quot;
+    }
+    mo.md(_feedback[dataset_choice.value])
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ### Try Fitting a Line to Dataset A
+
+        Use the sliders below to adjust the slope and intercept of a line. Try to make it fit Dataset A as closely as possible.
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    slope_a = mo.ui.slider(start=0, stop=10, step=0.5, value=5, label=&quot;Slope (m)&quot;)
+    intercept_a = mo.ui.slider(start=30, stop=60, step=1, value=40, label=&quot;Y-intercept (b)&quot;)
+    mo.hstack([slope_a, intercept_a])
+    return intercept_a, slope_a
+
+
+@app.cell
+def _(hours, intercept_a, np, plt, scores_a, slope_a):
+    fig2, ax2 = plt.subplots(figsize=(8, 5))
+    ax2.scatter(hours, scores_a, c=&#x27;steelblue&#x27;, s=80, label=&#x27;Data&#x27;, zorder=5)
+
+    x_line = np.linspace(0, 9, 100)
+    y_line = slope_a.value * x_line + intercept_a.value
+    ax2.plot(x_line, y_line, &#x27;r-&#x27;, linewidth=2, label=f&#x27;y = {slope_a.value}x + {intercept_a.value}&#x27;)
+
+    # Calculate residuals
+    predicted = slope_a.value * hours + intercept_a.value
+    residuals = scores_a - predicted
+    sse = np.sum(residuals**2)
+
+    ax2.set_xlabel(&#x27;Hours Studied&#x27;)
+    ax2.set_ylabel(&#x27;Exam Score&#x27;)
+    ax2.set_title(f&#x27;Dataset A with Your Line (Sum of Squared Errors: {sse:.1f})&#x27;)
+    ax2.set_xlim(0, 9)
+    ax2.set_ylim(30, 100)
+    ax2.legend()
+    ax2.grid(True, alpha=0.3)
+    plt.gca()
+    return ax2, fig2, predicted, residuals, sse, x_line, y_line
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        **Question 1:** What slope and intercept give you the smallest Sum of Squared Errors?
+
+        **Question 2:** What does the slope mean in this context? (Points gained per hour of study)
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ---
+
+        ## Part B: Positive, Negative, or Zero Slope?
+
+        Adjust the slope slider and observe how the line changes. Then answer the questions below.
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    slope_demo = mo.ui.slider(start=-3, stop=3, step=0.25, value=1, label=&quot;Slope&quot;)
+    slope_demo
+    return (slope_demo,)
+
+
+@app.cell
+def _(np, plt, slope_demo):
+    fig3, ax3 = plt.subplots(figsize=(8, 5))
+
+    x_demo = np.linspace(-5, 5, 100)
+    y_demo = slope_demo.value * x_demo
+
+    ax3.plot(x_demo, y_demo, &#x27;b-&#x27;, linewidth=2)
+    ax3.axhline(y=0, color=&#x27;k&#x27;, linewidth=0.5)
+    ax3.axvline(x=0, color=&#x27;k&#x27;, linewidth=0.5)
+    ax3.set_xlim(-5, 5)
+    ax3.set_ylim(-8, 8)
+    ax3.set_xlabel(&#x27;x&#x27;)
+    ax3.set_ylabel(&#x27;y&#x27;)
+
+    if slope_demo.value &gt; 0:
+        desc = &quot;POSITIVE slope — line goes UP from left to right ↗&quot;
+    elif slope_demo.value &lt; 0:
+        desc = &quot;NEGATIVE slope — line goes DOWN from left to right ↘&quot;
+    else:
+        desc = &quot;ZERO slope — line is HORIZONTAL →&quot;
+
+    ax3.set_title(f&#x27;Slope = {slope_demo.value}: {desc}&#x27;)
+    ax3.grid(True, alpha=0.3)
+    plt.gca()
+    return ax3, desc, fig3, x_demo, y_demo
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        **Match each scenario to expected slope type:**
+
+        | Scenario | Positive / Negative / Zero? |
+        |----------|----------------------------|
+        | Price ↑ vs Quantity Demanded | |
+        | Experience ↑ vs Salary | |
+        | Distance Driven ↑ vs Fuel Remaining | |
+        | Shoe Size vs Intelligence | |
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ---
+
+        ## Part C: Eyeballing the Line of Best Fit
+
+        Here&#x27;s a scatter plot. Use the sliders to find the line of best fit by minimizing the residuals (shown as vertical lines from each point to your line).
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    fit_slope = mo.ui.slider(start=0, stop=2, step=0.05, value=1, label=&quot;Slope&quot;)
+    fit_intercept = mo.ui.slider(start=0, stop=3, step=0.1, value=1, label=&quot;Intercept&quot;)
+    show_residuals = mo.ui.checkbox(value=True, label=&quot;Show residuals&quot;)
+    mo.hstack([fit_slope, fit_intercept, show_residuals])
+    return fit_intercept, fit_slope, show_residuals
+
+
+@app.cell
+def _(fit_intercept, fit_slope, np, plt, show_residuals):
+    # Sample data
+    x_data = np.array([1, 2, 3, 4, 5, 6, 7])
+    y_data = np.array([2, 3, 5, 4, 6, 7, 8])
+
+    fig4, ax4 = plt.subplots(figsize=(8, 6))
+
+    # Plot line
+    x_fit = np.linspace(0, 8, 100)
+    y_fit = fit_slope.value * x_fit + fit_intercept.value
+    ax4.plot(x_fit, y_fit, &#x27;r-&#x27;, linewidth=2, label=f&#x27;y = {fit_slope.value:.2f}x + {fit_intercept.value:.1f}&#x27;)
+
+    # Calculate residuals
+    predicted_fit = fit_slope.value * x_data + fit_intercept.value
+    residuals_fit = y_data - predicted_fit
+
+    # Draw residuals
+    if show_residuals.value:
+        for i in range(len(x_data)):
+            ax4.plot([x_data[i], x_data[i]], [y_data[i], predicted_fit[i]], 
+                    &#x27;g-&#x27;, linewidth=1.5, alpha=0.7)
+
+    # Plot points on top
+    ax4.scatter(x_data, y_data, c=&#x27;steelblue&#x27;, s=100, zorder=5, label=&#x27;Data&#x27;)
+
+    sse_fit = np.sum(residuals_fit**2)
+    ax4.set_xlabel(&#x27;x&#x27;)
+    ax4.set_ylabel(&#x27;y&#x27;)
+    ax4.set_title(f&#x27;Sum of Squared Residuals: {sse_fit:.2f}&#x27;)
+    ax4.set_xlim(0, 8)
+    ax4.set_ylim(0, 10)
+    ax4.legend()
+    ax4.grid(True, alpha=0.3)
+    plt.gca()
+    return ax4, fig4, i, predicted_fit, residuals_fit, sse_fit, x_data, x_fit, y_data, y_fit
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        **Questions:**
+
+        1. What slope and intercept minimize the sum of squared residuals?
+        2. Why do we square the residuals instead of just adding them? (Hint: what if residuals are +2 and -2?)
+        3. What is the approximate equation of the best-fit line?
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ---
+
+        ## Part D: Slope on Curves — Tangent Line Intuition
+
+        &gt; **Key Idea:** On a straight line, the slope is the same everywhere. On a curve, the slope *changes* as you move along it. At any point on a curve, we can draw a line that &quot;just touches&quot; the curve — this is called the **tangent line**, and its slope tells us how steep the curve is at that exact point.
+
+        Use the slider to move the point along the parabola and watch how the tangent line changes.
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    x_point = mo.ui.slider(start=-3, stop=3, step=0.1, value=1, label=&quot;Point x-coordinate&quot;)
+    x_point
+    return (x_point,)
+
+
+@app.cell
+def _(np, plt, x_point):
+    fig5, ax5 = plt.subplots(figsize=(9, 6))
+
+    # Parabola y = x²
+    x_curve = np.linspace(-3.5, 3.5, 200)
+    y_curve = x_curve ** 2
+
+    ax5.plot(x_curve, y_curve, &#x27;b-&#x27;, linewidth=2, label=&#x27;y = x²&#x27;)
+
+    # Point on curve
+    px = x_point.value
+    py = px ** 2
+
+    # Tangent line: derivative of x² is 2x
+    slope_tangent = 2 * px
+    tangent_x = np.linspace(px - 2, px + 2, 100)
+    tangent_y = slope_tangent * (tangent_x - px) + py
+
+    ax5.plot(tangent_x, tangent_y, &#x27;r-&#x27;, linewidth=2, label=f&#x27;Tangent (slope = {slope_tangent:.2f})&#x27;)
+    ax5.scatter([px], [py], c=&#x27;red&#x27;, s=120, zorder=5)
+
+    ax5.axhline(y=0, color=&#x27;k&#x27;, linewidth=0.5)
+    ax5.axvline(x=0, color=&#x27;k&#x27;, linewidth=0.5)
+    ax5.set_xlim(-4, 4)
+    ax5.set_ylim(-2, 12)
+    ax5.set_xlabel(&#x27;x&#x27;)
+    ax5.set_ylabel(&#x27;y&#x27;)
+
+    if slope_tangent &gt; 0.1:
+        desc_para = &quot;Positive slope — curve going UP ↗&quot;
+    elif slope_tangent &lt; -0.1:
+        desc_para = &quot;Negative slope — curve going DOWN ↘&quot;
+    else:
+        desc_para = &quot;Zero slope — curve is FLAT here →&quot;
+
+    ax5.set_title(f&#x27;Parabola y = x² | At x = {px:.1f}: {desc_para}&#x27;)
+    ax5.legend()
+    ax5.grid(True, alpha=0.3)
+    plt.gca()
+    return ax5, desc_para, fig5, px, py, slope_tangent, tangent_x, tangent_y, x_curve, y_curve
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        **Questions:**
+
+        1. At what x-value is the slope of the tangent line equal to zero?
+        2. For x &gt; 0, is the slope positive or negative?
+        3. For x &lt; 0, is the slope positive or negative?
+        4. Where is the slope steepest (largest magnitude)?
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ---
+
+        ### Exponential Growth Curve
+
+        Now let&#x27;s look at an exponential: **y = 2ˣ**
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    x_exp = mo.ui.slider(start=-2, stop=3, step=0.1, value=1, label=&quot;Point x-coordinate&quot;)
+    x_exp
+    return (x_exp,)
+
+
+@app.cell
+def _(np, plt, x_exp):
+    fig6, ax6 = plt.subplots(figsize=(9, 6))
+
+    # Exponential y = 2^x
+    x_exp_curve = np.linspace(-2.5, 3.5, 200)
+    y_exp_curve = 2 ** x_exp_curve
+
+    ax6.plot(x_exp_curve, y_exp_curve, &#x27;b-&#x27;, linewidth=2, label=&#x27;y = 2ˣ&#x27;)
+
+    # Point on curve
+    px_exp = x_exp.value
+    py_exp = 2 ** px_exp
+
+    # Tangent line: derivative of 2^x is 2^x * ln(2)
+    slope_exp = py_exp * np.log(2)
+    tangent_exp_x = np.linspace(px_exp - 1.5, px_exp + 1.5, 100)
+    tangent_exp_y = slope_exp * (tangent_exp_x - px_exp) + py_exp
+
+    ax6.plot(tangent_exp_x, tangent_exp_y, &#x27;r-&#x27;, linewidth=2, label=f&#x27;Tangent (slope = {slope_exp:.2f})&#x27;)
+    ax6.scatter([px_exp], [py_exp], c=&#x27;red&#x27;, s=120, zorder=5)
+
+    ax6.axhline(y=0, color=&#x27;k&#x27;, linewidth=0.5)
+    ax6.axvline(x=0, color=&#x27;k&#x27;, linewidth=0.5)
+    ax6.set_xlim(-3, 4)
+    ax6.set_ylim(-1, 12)
+    ax6.set_xlabel(&#x27;x&#x27;)
+    ax6.set_ylabel(&#x27;y&#x27;)
+    ax6.set_title(f&#x27;Exponential y = 2ˣ | At x = {px_exp:.1f}, slope = {slope_exp:.2f}&#x27;)
+    ax6.legend()
+    ax6.grid(True, alpha=0.3)
+    plt.gca()
+    return (
+        ax6,
+        fig6,
+        px_exp,
+        py_exp,
+        slope_exp,
+        tangent_exp_x,
+        tangent_exp_y,
+        x_exp_curve,
+        y_exp_curve,
+    )
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        **Questions:**
+
+        1. Is the slope ever negative on this curve?
+        2. Is the slope ever zero on this curve?
+        3. As x increases, does the slope get steeper or flatter?
+        4. What&#x27;s special about exponential growth compared to the parabola?
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ---
+
+        ### Sine Wave
+
+        Finally, let&#x27;s explore **y = sin(x)** — a curve where the slope oscillates between positive, zero, and negative.
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    x_sin = mo.ui.slider(start=0, stop=6.28, step=0.1, value=0, label=&quot;Point x-coordinate&quot;)
+    x_sin
+    return (x_sin,)
+
+
+@app.cell
+def _(np, plt, x_sin):
+    fig7, ax7 = plt.subplots(figsize=(10, 5))
+
+    # Sine curve
+    x_sin_curve = np.linspace(-0.5, 7, 300)
+    y_sin_curve = np.sin(x_sin_curve)
+
+    ax7.plot(x_sin_curve, y_sin_curve, &#x27;b-&#x27;, linewidth=2, label=&#x27;y = sin(x)&#x27;)
+
+    # Point on curve
+    px_sin = x_sin.value
+    py_sin = np.sin(px_sin)
+
+    # Tangent line: derivative of sin(x) is cos(x)
+    slope_sin = np.cos(px_sin)
+    tangent_sin_x = np.linspace(px_sin - 1, px_sin + 1, 100)
+    tangent_sin_y = slope_sin * (tangent_sin_x - px_sin) + py_sin
+
+    ax7.plot(tangent_sin_x, tangent_sin_y, &#x27;r-&#x27;, linewidth=2, label=f&#x27;Tangent (slope = {slope_sin:.2f})&#x27;)
+    ax7.scatter([px_sin], [py_sin], c=&#x27;red&#x27;, s=120, zorder=5)
+
+    # Mark key points
+    ax7.axhline(y=0, color=&#x27;k&#x27;, linewidth=0.5)
+    ax7.axvline(x=0, color=&#x27;k&#x27;, linewidth=0.5)
+
+    # Add pi markers
+    ax7.set_xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi])
+    ax7.set_xticklabels([&#x27;0&#x27;, &#x27;π/2&#x27;, &#x27;π&#x27;, &#x27;3π/2&#x27;, &#x27;2π&#x27;])
+
+    ax7.set_xlim(-0.5, 7)
+    ax7.set_ylim(-2, 2)
+    ax7.set_xlabel(&#x27;x&#x27;)
+    ax7.set_ylabel(&#x27;y&#x27;)
+
+    if slope_sin &gt; 0.1:
+        desc_sin = &quot;going UP ↗&quot;
+    elif slope_sin &lt; -0.1:
+        desc_sin = &quot;going DOWN ↘&quot;
+    else:
+        desc_sin = &quot;FLAT (peak or trough)&quot;
+
+    ax7.set_title(f&#x27;Sine Wave | At x = {px_sin:.2f}, slope = {slope_sin:.2f} — {desc_sin}&#x27;)
+    ax7.legend()
+    ax7.grid(True, alpha=0.3)
+    plt.gca()
+    return (
+        ax7,
+        desc_sin,
+        fig7,
+        px_sin,
+        py_sin,
+        slope_sin,
+        tangent_sin_x,
+        tangent_sin_y,
+        x_sin_curve,
+        y_sin_curve,
+    )
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        **Questions:**
+
+        1. At x = 0, is the tangent line going up, down, or flat?
+        2. At x = π/2 (the peak), what is the slope?
+        3. At x = π, is the slope positive, negative, or zero?
+        4. At x = 3π/2 (the trough), what is the slope?
+        5. Where is the slope most positive? Most negative?
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ---
+
+        ## Part E: Real-World Application — Model Training
+
+        This simulates a machine learning model&#x27;s accuracy over training epochs. Notice the diminishing returns!
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    learning_rate = mo.ui.slider(start=0.1, stop=2.0, step=0.1, value=0.5, label=&quot;Learning Rate&quot;)
+    learning_rate
+    return (learning_rate,)
+
+
+@app.cell
+def _(learning_rate, np, plt):
+    fig8, ax8 = plt.subplots(figsize=(9, 5))
+
+    epochs = np.arange(0, 101)
+    # Simulated accuracy curve: approaches 1 asymptotically
+    k_rate = learning_rate.value
+    accuracy = 1 - np.exp(-k_rate * epochs / 20)
+
+    ax8.plot(epochs, accuracy, &#x27;b-&#x27;, linewidth=2)
+    ax8.scatter(epochs[::10], accuracy[::10], c=&#x27;steelblue&#x27;, s=60, zorder=5)
+
+    ax8.axhline(y=1.0, color=&#x27;gray&#x27;, linestyle=&#x27;--&#x27;, alpha=0.5, label=&#x27;Maximum accuracy (1.0)&#x27;)
+
+    ax8.set_xlabel(&#x27;Training Epochs&#x27;)
+    ax8.set_ylabel(&#x27;Model Accuracy&#x27;)
+    ax8.set_title(f&#x27;Model Training Progress (Learning Rate = {learning_rate.value})&#x27;)
+    ax8.set_xlim(0, 100)
+    ax8.set_ylim(0, 1.1)
+    ax8.legend()
+    ax8.grid(True, alpha=0.3)
+    plt.gca()
+    return accuracy, ax8, epochs, fig8, k_rate
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        **Questions:**
+
+        1. Where on this curve is the slope steepest (fastest improvement)?
+        2. Where does the slope approach zero (diminishing returns)?
+        3. What happens with a higher learning rate? Lower learning rate?
+        4. Will the accuracy ever actually reach 1.0?
+        5. Between which epochs would a linear approximation be most reasonable?
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ---
+
+        ## Part F: Correlation Explorer
+
+        Explore how the correlation coefficient (r) relates to the visual pattern of data.
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    correlation = mo.ui.slider(start=-1, stop=1, step=0.05, value=0.8, label=&quot;Target Correlation (r)&quot;)
+    noise_level = mo.ui.slider(start=0, stop=2, step=0.1, value=0.5, label=&quot;Noise Level&quot;)
+    mo.hstack([correlation, noise_level])
+    return correlation, noise_level
+
+
+@app.cell
+def _(correlation, noise_level, np, plt):
+    np.random.seed(42)
+
+    n_points = 50
+    x_corr = np.linspace(0, 10, n_points)
+
+    # Generate y with target correlation
+    r_target = correlation.value
+    noise_val = noise_level.value
+
+    if abs(r_target) &gt; 0.01:
+        y_base = r_target * x_corr
+        y_noise = np.random.normal(0, noise_val * 2, n_points)
+        y_corr = y_base + y_noise
+    else:
+        y_corr = np.random.normal(5, noise_val * 2, n_points)
+
+    # Calculate actual correlation
+    actual_r = np.corrcoef(x_corr, y_corr)[0, 1]
+
+    fig9, ax9 = plt.subplots(figsize=(8, 6))
+    ax9.scatter(x_corr, y_corr, c=&#x27;steelblue&#x27;, s=60, alpha=0.7)
+
+    # Best fit line
+    slope_corr, intercept_corr = np.polyfit(x_corr, y_corr, 1)
+    fit_line_corr = slope_corr * x_corr + intercept_corr
+    ax9.plot(x_corr, fit_line_corr, &#x27;r-&#x27;, linewidth=2, alpha=0.7, label=f&#x27;Best fit (slope={slope_corr:.2f})&#x27;)
+
+    ax9.set_xlabel(&#x27;x&#x27;)
+    ax9.set_ylabel(&#x27;y&#x27;)
+    ax9.set_title(f&#x27;Target r = {r_target:.2f} | Actual r = {actual_r:.2f}&#x27;)
+    ax9.legend()
+    ax9.grid(True, alpha=0.3)
+    plt.gca()
+    return (
+        actual_r,
+        ax9,
+        fig9,
+        fit_line_corr,
+        intercept_corr,
+        n_points,
+        noise_val,
+        r_target,
+        slope_corr,
+        x_corr,
+        y_base,
+        y_corr,
+        y_noise,
+    )
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        **Questions:**
+
+        1. What does r = 1 look like? r = -1? r = 0?
+        2. With r = 0.8, is the relationship strong or weak?
+        3. What does increasing noise do to the correlation?
+        4. Can you have a strong relationship that isn&#x27;t linear? (Correlation only measures *linear* relationship)
+        &quot;&quot;&quot;
+    )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(
+        r&quot;&quot;&quot;
+        ---
+
+        ## Summary
+
+        **Key Takeaways:**
+
+        1. **Linear data** shows a consistent pattern; curved or scattered data doesn&#x27;t fit a line well
+        2. **Slope** tells us the rate of change — positive (increasing), negative (decreasing), or zero (flat)
+        3. **Residuals** measure how far our predictions are from reality; we minimize squared residuals
+        4. **On curves**, the slope changes from point to point — the tangent line shows the instantaneous slope
+        5. **Correlation (r)** measures the strength of a linear relationship, from -1 to +1
+
+        These ideas connect directly to machine learning: linear regression finds the best-fit line, gradient descent follows the slope to minimize error, and understanding curves helps us choose appropriate models.
+        &quot;&quot;&quot;
+    )
+    return
+
+
+if __name__ == &quot;__main__&quot;:
+    app.run()
+</pre></section></main>
+<footer><div class="wrap"><p>Joshua Aaron, Dublin. Teaching material is shared under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a> unless a page says otherwise.</p></div></footer><script></script></body></html>

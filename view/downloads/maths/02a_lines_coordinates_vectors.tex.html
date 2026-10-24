@@ -1,0 +1,277 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name='robots' content='noindex'><title>02a_lines_coordinates_vectors.tex | Joshua Aaron</title><meta name="description" content=""><style>
+:root{--ink:#1B2A4A;--accent:#C25A1E;--paper:#fbfaf7;--muted:#5f6b7a;--line:#e5e2da;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--ink:#e8ebf2;--accent:#f08a4b;--paper:#12182a;--muted:#a3adbd;--line:#2a3452;--card:#1a2238}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1rem}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:baseline;padding:.7rem 1rem}
+.brand{font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem}
+nav a{color:var(--ink);text-decoration:none;font-size:.95rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+section{scroll-margin-top:5.5rem;padding-top:1rem}section+section{border-top:1px solid var(--line);margin-top:2.5rem}
+h1{font-weight:normal;font-size:2.2rem;line-height:1.2;margin:2.2rem 0 .4rem}
+h2{font-weight:normal;font-size:1.7rem;margin:1.2rem 0 .6rem}h3{font-weight:normal;font-size:1.35rem;margin:2rem 0 .3rem;color:var(--accent)}
+h4{font-size:1.1rem;margin:1.6rem 0 .1rem}h4+p em{color:var(--muted)}
+.lede{color:var(--muted);font-size:1.15rem;margin-top:0}
+a.card{display:grid;gap:.1rem;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:.7rem 1rem;margin:.8rem 0;color:var(--ink);text-decoration:none}
+a.card .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}a.card .n{color:var(--muted);font-size:.95rem}
+.callout{border-left:4px solid var(--accent);background:var(--card);padding:.7rem 1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.callout::before{content:"Note";display:block;font:600 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.callout.tip{border-left-color:#2f7d4f}.callout.tip::before{content:"Tip";color:#2f7d4f}
+.callout.info{border-left-color:#2b6cb0}.callout.info::before{content:"Information";color:#2b6cb0}
+.callout.warning{border-left-color:#b7791f}.callout.warning::before{content:"Warning";color:#b7791f}
+.callout>p:last-child{margin-bottom:0}
+a.dl-btn{background:var(--accent);color:var(--paper);min-height:2.75rem;padding:0 1.3rem}a.dl-btn::after{content:" 97"}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.1rem 1rem;margin:1rem 0}summary{cursor:pointer;min-height:2.4rem;display:flex;align-items:center;font-weight:600}
+.pdf iframe{width:100%;height:32rem;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:.4rem .7rem;text-align:left}
+pre{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem;overflow:auto;font-size:.88rem}img{max-width:100%;height:auto}
+.sheet{border-top:1px solid var(--line);padding:.2rem 0 .6rem}.sheet h4{margin:1rem 0 .2rem}.sheet p{margin:.2rem 0}.crumb{margin:1.4rem 0 0;font-size:.95rem}
+.file{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0}
+.file.compact{padding:.45rem .7rem;margin:.35rem 0}
+.file .ext{grid-row:1;min-width:3.6rem;text-align:center;font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;padding:.45rem .3rem}
+.file .meta{display:grid;min-width:0}.file .meta strong{font-weight:600}.file .n{color:var(--muted);font-size:.9rem}
+.file .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}
+.file.compact .acts{grid-column:3;grid-row:1}.file.compact{grid-template-columns:auto 1fr auto}
+a.act,button.act{display:inline-flex;align-items:center;min-height:2.4rem;padding:0 .9rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;font:600 .88rem system-ui,sans-serif}
+a.act.dl{background:var(--accent);color:var(--paper)}a.act.dl::before{content:"↓ "}a.act.out::after{content:" ↗"}
+a.act:hover,a.act:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media(min-width:34rem){.file .acts{grid-column:3;grid-row:1}.file{grid-template-columns:auto 1fr auto}}
+.src{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem;overflow:auto;font:.85rem/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;tab-size:4}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}button.act{background:none;cursor:pointer;color:var(--accent)}
+.katex-display{overflow-x:auto;overflow-y:hidden}
+footer{border-top:1px solid var(--line);margin-top:4rem;padding:1.5rem 0;color:var(--muted);font-size:.9rem}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="brand" href="../../../#top">Joshua Aaron</a><nav><a href='../../../#projects'>Current Stuff</a><a href='../../../#about'>About</a><a href='../../../#contact'>Contact</a><a href='https://docs.superhuman.com/d/_dXwmZI3vjrc/_suQ2icZa' rel='noopener'>Current classes and workshops &#8599;</a></nav></div></header>
+<main class="wrap"><section id='top'><p class='crumb'><a href='javascript:history.back()'>&larr; Back</a></p><h1>02a_lines_coordinates_vectors.tex</h1><div class='bar'><a class='act dl' href='../../../downloads/maths/02a_lines_coordinates_vectors.tex' download>Download</a><button class='act' type='button' onclick="navigator.clipboard.writeText(document.getElementById('src').textContent).then(()=>{this.textContent='Copied'})">Copy text</button></div><pre class='src' id='src'>% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 2A: Lines, Coordinates \&amp; Vectors},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 2A: Lines, Coordinates \&amp; Vectors}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{part-a-coordinate-basics-10-problems}{%
+\subsection{Part A: Coordinate Basics (10
+problems)}\label{part-a-coordinate-basics-10-problems}}
+
+\textbf{1.} Plot the following points on a coordinate plane and label
+each with its coordinates: - A = (3, 4) - B = (-2, 5) - C = (-4, -3) - D
+= (5, -2) - E = (0, 3) - F = (-3, 0)
+
+\textbf{2.} In which quadrant (I, II, III, IV) or on which axis does
+each point lie? - (a) (7, -2) - (b) (-3, -8) - (c) (0, 5) - (d) (-4, 6)
+- (e) (2, 0)
+
+\textbf{3.} Find the distance between each pair of points: - (a) (0, 0)
+and (3, 4) - (b) (1, 2) and (4, 6) - (c) (-2, 3) and (4, -1) - (d) (-5,
+-2) and (3, 4)
+
+\textbf{4.} Find the midpoint of the segment connecting: - (a) (2, 8)
+and (6, 2) - (b) (-3, 4) and (5, -2) - (c) (0, 7) and (-4, -1)
+
+\textbf{5.} A point starts at (2, 3) and moves 4 units right and 5 units
+down. What are its new coordinates?
+
+\textbf{6.} The midpoint of segment PQ is (3, 1). If P = (7, 4), what
+are the coordinates of Q?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-vectors-12-problems}{%
+\subsection{Part B: Vectors (12
+problems)}\label{part-b-vectors-12-problems}}
+
+Vectors are written in bold: \textbf{v}, \textbf{w}, \textbf{u}. They
+have both magnitude (length) and direction.
+
+\textbf{7.} Given \textbf{v} = (3, 4) and \textbf{w} = (1, -2),
+calculate: - (a) \textbf{v} + \textbf{w} - (b) \textbf{v} - \textbf{w} -
+(c) \textbf{w} - \textbf{v} - (d) 2\textbf{v} - (e) -3\textbf{w} - (f)
+2\textbf{v} + 3\textbf{w}
+
+\textbf{8.} Find the magnitude (length) of each vector. Recall:
+\textbar{}\textbf{v}\textbar{} = √(v₁² + v₂²) - (a) \textbf{v} = (3, 4)
+- (b) \textbf{w} = (5, 12) - (c) \textbf{u} = (-2, 2) - (d) \textbf{p} =
+(1, 1)
+
+\textbf{9.} A unit vector has magnitude 1. Find the unit vector in the
+same direction as: - (a) \textbf{v} = (3, 4) - (b) \textbf{w} = (0, 5)
+
+\emph{(Hint: divide each component by the magnitude)}
+
+\textbf{10.} Vector \textbf{a} = (4, 3) and vector \textbf{b} = (-3, 4).
+- (a) Calculate \textbf{a} + \textbf{b} - (b) Calculate
+\textbar{}\textbf{a}\textbar{} and \textbar{}\textbf{b}\textbar{} - (c)
+Calculate \textbar{}\textbf{a} + \textbf{b}\textbar{} - (d) Is
+\textbar{}\textbf{a} + \textbf{b}\textbar{} equal to
+\textbar{}\textbf{a}\textbar{} + \textbar{}\textbf{b}\textbar? Why or
+why not?
+
+\textbf{11.} A drone is at position (2, 5). It moves by vector
+\textbf{v} = (3, -2), then by vector \textbf{w} = (-1, 4). What is its
+final position?
+
+\textbf{12.} The zero vector is \textbf{0} = (0, 0). For any vector
+\textbf{v}: - (a) What is \textbf{v} + \textbf{0}? - (b) What is
+\textbf{v} + (-\textbf{v})? - (c) What vector \textbf{w} satisfies
+\textbf{v} + \textbf{w} = \textbf{0}?
+
+\textbf{13.} Given points P = (1, 2) and Q = (4, 6), find the vector
+\textbf{PQ} that goes from P to Q.
+
+\emph{(Hint: \textbf{PQ} = Q - P)}
+
+\textbf{14.} If \textbf{v} = (2, 5) and \textbf{w} = (k, 15) are
+parallel (same direction), what is k?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-slope-and-linear-equations-14-problems}{%
+\subsection{Part C: Slope and Linear Equations (14
+problems)}\label{part-c-slope-and-linear-equations-14-problems}}
+
+\textbf{15.} Calculate the slope between each pair of points: - (a) (0,
+0) and (4, 8) - (b) (1, 3) and (5, 11) - (c) (2, 7) and (6, 3) - (d)
+(-3, 2) and (4, 2) - (e) (5, 1) and (5, 9)
+
+\textbf{16.} Without calculating, identify the slope as positive,
+negative, zero, or undefined: - (a) A line going uphill from left to
+right - (b) A line going downhill from left to right - (c) A horizontal
+line - (d) A vertical line
+
+\textbf{17.} Convert to slope-intercept form (y = mx + b): - (a) 2x + y
+= 7 - (b) 3x - 2y = 12 - (c) x + 4y = 8 - (d) 5x - y + 3 = 0
+
+\textbf{18.} Find the equation of the line with: - (a) Slope 3 and
+y-intercept -2 - (b) Slope -½ and y-intercept 4 - (c) Slope 0 and
+y-intercept 5
+
+\textbf{19.} Find the equation of the line passing through: - (a) (0, 3)
+with slope 2 - (b) (2, 5) with slope -1 - (c) (4, -1) with slope ¾ - (d)
+(-2, 6) with slope 0
+
+\textbf{20.} Find the equation of the line passing through both points:
+- (a) (1, 2) and (3, 8) - (b) (0, 5) and (4, 1) - (c) (-2, -3) and (4,
+9)
+
+\textbf{21.} Find the x-intercept and y-intercept of each line: - (a) y
+= 2x - 6 - (b) 3x + 4y = 12 - (c) y = -½x + 3
+
+\textbf{22.} Line A has equation y = 3x + 1. Line B has equation y = 3x
+- 4. - (a) What are their slopes? - (b) Are they parallel,
+perpendicular, or neither? - (c) Will they ever intersect?
+
+\textbf{23.} Line A has slope 2. What is the slope of a line
+perpendicular to A?
+
+\textbf{24.} Find the equation of the line: - (a) Parallel to y = 2x + 1
+and passing through (3, 5) - (b) Perpendicular to y = 3x - 2 and passing
+through (6, 1)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-systems-of-linear-equations-12-problems}{%
+\subsection{Part D: Systems of Linear Equations (12
+problems)}\label{part-d-systems-of-linear-equations-12-problems}}
+
+\textbf{Solve each system by substitution or elimination. State if
+there&#x27;s no solution or infinitely many.}
+
+\textbf{25.} \[y = 2x + 1\] \[y = -x + 7\]
+
+\textbf{26.} \[x + y = 10\] \[x - y = 2\]
+
+\textbf{27.} \[2p + 3q = 13\] \[p - q = 1\]
+
+\textbf{28.} \[3m + 2n = 12\] \[6m + 4n = 24\]
+
+\textbf{29.} \[2r + 5s = 11\] \[4r + 10s = 15\]
+
+\textbf{30.} \[\frac{t}{2} + u = 5\] \[t - 2u = 4\]
+
+\textbf{31.} Three coffees and two teas cost €11. Two coffees and three
+teas cost €12. Find the price of each.
+
+\textbf{32.} A rectangle&#x27;s perimeter is 28 cm. Its length is 4 cm more
+than its width. Find the dimensions.
+
+\textbf{Graphical Interpretation:}
+
+\textbf{33.} Without solving algebraically, sketch these lines and
+estimate their intersection point: \[y = x + 1\] \[y = -2x + 7\]
+
+\textbf{34.} What does it mean graphically when a system has: - (a)
+Exactly one solution? - (b) No solution? - (c) Infinitely many
+solutions?
+
+\textbf{35.} The lines y = 2x + 3 and y = 2x - 1 form a system. Without
+graphing or substituting, explain why there&#x27;s no solution.
+
+\textbf{36.} Write a system of two equations that has: - (a) The
+solution (2, 5) - (b) No solution - (c) Infinitely many solutions
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}
+</pre></section></main>
+<footer><div class="wrap"><p>Joshua Aaron, Dublin. Teaching material is shared under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a> unless a page says otherwise.</p></div></footer><script></script></body></html>

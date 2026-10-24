@@ -1,0 +1,533 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name='robots' content='noindex'><title>03a_foil_expanding.tex | Joshua Aaron</title><meta name="description" content=""><style>
+:root{--ink:#1B2A4A;--accent:#C25A1E;--paper:#fbfaf7;--muted:#5f6b7a;--line:#e5e2da;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--ink:#e8ebf2;--accent:#f08a4b;--paper:#12182a;--muted:#a3adbd;--line:#2a3452;--card:#1a2238}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1rem}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:baseline;padding:.7rem 1rem}
+.brand{font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem}
+nav a{color:var(--ink);text-decoration:none;font-size:.95rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+section{scroll-margin-top:5.5rem;padding-top:1rem}section+section{border-top:1px solid var(--line);margin-top:2.5rem}
+h1{font-weight:normal;font-size:2.2rem;line-height:1.2;margin:2.2rem 0 .4rem}
+h2{font-weight:normal;font-size:1.7rem;margin:1.2rem 0 .6rem}h3{font-weight:normal;font-size:1.35rem;margin:2rem 0 .3rem;color:var(--accent)}
+h4{font-size:1.1rem;margin:1.6rem 0 .1rem}h4+p em{color:var(--muted)}
+.lede{color:var(--muted);font-size:1.15rem;margin-top:0}
+a.card{display:grid;gap:.1rem;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:.7rem 1rem;margin:.8rem 0;color:var(--ink);text-decoration:none}
+a.card .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}a.card .n{color:var(--muted);font-size:.95rem}
+.callout{border-left:4px solid var(--accent);background:var(--card);padding:.7rem 1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.callout::before{content:"Note";display:block;font:600 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.callout.tip{border-left-color:#2f7d4f}.callout.tip::before{content:"Tip";color:#2f7d4f}
+.callout.info{border-left-color:#2b6cb0}.callout.info::before{content:"Information";color:#2b6cb0}
+.callout.warning{border-left-color:#b7791f}.callout.warning::before{content:"Warning";color:#b7791f}
+.callout>p:last-child{margin-bottom:0}
+a.dl-btn{background:var(--accent);color:var(--paper);min-height:2.75rem;padding:0 1.3rem}a.dl-btn::after{content:" 97"}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.1rem 1rem;margin:1rem 0}summary{cursor:pointer;min-height:2.4rem;display:flex;align-items:center;font-weight:600}
+.pdf iframe{width:100%;height:32rem;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:.4rem .7rem;text-align:left}
+pre{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem;overflow:auto;font-size:.88rem}img{max-width:100%;height:auto}
+.sheet{border-top:1px solid var(--line);padding:.2rem 0 .6rem}.sheet h4{margin:1rem 0 .2rem}.sheet p{margin:.2rem 0}.crumb{margin:1.4rem 0 0;font-size:.95rem}
+.file{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0}
+.file.compact{padding:.45rem .7rem;margin:.35rem 0}
+.file .ext{grid-row:1;min-width:3.6rem;text-align:center;font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;padding:.45rem .3rem}
+.file .meta{display:grid;min-width:0}.file .meta strong{font-weight:600}.file .n{color:var(--muted);font-size:.9rem}
+.file .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}
+.file.compact .acts{grid-column:3;grid-row:1}.file.compact{grid-template-columns:auto 1fr auto}
+a.act,button.act{display:inline-flex;align-items:center;min-height:2.4rem;padding:0 .9rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;font:600 .88rem system-ui,sans-serif}
+a.act.dl{background:var(--accent);color:var(--paper)}a.act.dl::before{content:"↓ "}a.act.out::after{content:" ↗"}
+a.act:hover,a.act:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media(min-width:34rem){.file .acts{grid-column:3;grid-row:1}.file{grid-template-columns:auto 1fr auto}}
+.src{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem;overflow:auto;font:.85rem/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;tab-size:4}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}button.act{background:none;cursor:pointer;color:var(--accent)}
+.katex-display{overflow-x:auto;overflow-y:hidden}
+footer{border-top:1px solid var(--line);margin-top:4rem;padding:1.5rem 0;color:var(--muted);font-size:.9rem}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="brand" href="../../../#top">Joshua Aaron</a><nav><a href='../../../#projects'>Current Stuff</a><a href='../../../#about'>About</a><a href='../../../#contact'>Contact</a><a href='https://docs.superhuman.com/d/_dXwmZI3vjrc/_suQ2icZa' rel='noopener'>Current classes and workshops &#8599;</a></nav></div></header>
+<main class="wrap"><section id='top'><p class='crumb'><a href='javascript:history.back()'>&larr; Back</a></p><h1>03a_foil_expanding.tex</h1><div class='bar'><a class='act dl' href='../../../downloads/maths/03a_foil_expanding.tex' download>Download</a><button class='act' type='button' onclick="navigator.clipboard.writeText(document.getElementById('src').textContent).then(()=>{this.textContent='Copied'})">Copy text</button></div><pre class='src' id='src'>% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 3A: Quadratics --- FOIL and Expanding},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 3A: Quadratics --- FOIL and Expanding}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{part-a-the-foil-method-basic-mechanics-12-problems}{%
+\subsection{Part A: The FOIL Method --- Basic Mechanics (12
+problems)}\label{part-a-the-foil-method-basic-mechanics-12-problems}}
+
+\textbf{FOIL} stands for \textbf{F}irst, \textbf{O}uter, \textbf{I}nner,
+\textbf{L}ast --- a method for multiplying two binomials.
+
+\textbf{Example:} \((x + 3)(x + 2)\)
+
+\begin{verbatim}
+First:  x · x = x²
+Outer:  x · 2 = 2x
+Inner:  3 · x = 3x
+Last:   3 · 2 = 6
+
+Combine: x² + 2x + 3x + 6 = x² + 5x + 6
+\end{verbatim}
+
+\textbf{Expand each expression completely. Show your F-O-I-L steps for
+the first few.}
+
+\textbf{1.} \((t + 2)(t + 5)\)
+
+\textbf{2.} \((p + 6)(p + 3)\)
+
+\textbf{3.} \((m + 4)(m + 7)\)
+
+\textbf{4.} \((r + 1)(r + 9)\)
+
+\textbf{5.} \((k + 8)(k + 2)\)
+
+\textbf{6.} \((n + 5)(n + 5)\) --- \emph{What do you notice about this
+one?}
+
+\textbf{7.} \((w + 3)(w + 3)\)
+
+\textbf{8.} \((s + 10)(s + 1)\)
+
+\textbf{9.} \((h + 6)(h + 6)\)
+
+\textbf{10.} \((u + 4)(u + 4)\)
+
+\textbf{11.} What pattern do you see when both binomials are identical,
+like \((x + a)(x + a)\)?
+
+\textbf{12.} Complete this rule: \((x + a)^2 = x^2 + \_\_\_\_\_ + a^2\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-wait-exponents-dont-distribute-over-addition-8-problems}{%
+\subsection{Part B: WAIT --- Exponents Don&#x27;t Distribute Over Addition!
+(8
+problems)}\label{part-b-wait-exponents-dont-distribute-over-addition-8-problems}}
+
+\begin{quote}
+\textbf{Common Mistake Alert!}
+
+Many students think \((a + b)^2 = a^2 + b^2\).
+
+\textbf{This is WRONG.}
+
+\((a + b)^2\) means \((a + b)(a + b)\), which you must FOIL out.
+\end{quote}
+
+\textbf{Let&#x27;s prove this with actual numbers.}
+
+\textbf{13.} Let \(a = 3\) and \(b = 4\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Calculate \((a + b)^2 = (3 + 4)^2 = 7^2 ={}\) \_\_\_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calculate \(a^2 + b^2 = 3^2 + 4^2 = 9 + 16 ={}\) \_\_\_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Are they equal? \_\_\_\_\_
+  \end{enumerate}
+\end{itemize}
+
+\textbf{14.} Now let \(a = 2\) and \(b = 5\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    \((a + b)^2 ={}\) \_\_\_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    \(a^2 + b^2 ={}\) \_\_\_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What&#x27;s the difference between the two answers? \_\_\_\_\_
+  \end{enumerate}
+\end{itemize}
+
+\textbf{15.} Expand \((a + b)^2\) using FOIL:
+
+\((a + b)^2 = (a + b)(a + b) ={}\) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\textbf{16.} The correct expansion is \(a^2 + 2ab + b^2\). What&#x27;s the
+``missing piece&#x27;&#x27; when people incorrectly write \(a^2 + b^2\)?
+
+\textbf{17.} Using \(a = 3\) and \(b = 4\) again: - (a) Calculate
+\(2ab = 2(3)(4) ={}\) \_\_\_\_\_ - (b) Verify:
+\(a^2 + 2ab + b^2 = 9 + 24 + 16 ={}\) \_\_\_\_\_ - (c) Does this match
+\((a + b)^2 = 49\)? \_\_\_\_\_
+
+\textbf{18.} Does the same mistake happen with subtraction? Test
+\((a - b)^2\) vs \(a^2 - b^2\) with \(a = 5\), \(b = 2\): - (a)
+\((a - b)^2 = (5 - 2)^2 ={}\) \_\_\_\_\_ - (b)
+\(a^2 - b^2 = 25 - 4 ={}\) \_\_\_\_\_ - (c) Are they equal? \_\_\_\_\_ -
+(d) What is the correct expansion of \((a - b)^2\)? \_\_\_\_\_
+
+\textbf{19.} Here&#x27;s another trap. Is \((a + b)^3 = a^3 + b^3\)? Test
+with \(a = 2\), \(b = 1\): - (a) \((a + b)^3 = (2 + 1)^3 = 3^3 ={}\)
+\_\_\_\_\_ - (b) \(a^3 + b^3 = 8 + 1 ={}\) \_\_\_\_\_ - (c) Are they
+equal? \_\_\_\_\_
+
+\textbf{20.} Complete the rule: \textbf{Exponents distribute over
+\_\_\_\_\_\_\_\_\_\_\_\_\_ but NOT over \_\_\_\_\_\_\_\_\_\_\_\_\_.}
+
+\emph{(Hint: \((ab)^2 = a^2b^2\) works, but
+\((a + b)^2 \neq a^2 + b^2\))}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-foil-with-negative-numbers-12-problems}{%
+\subsection{Part C: FOIL with Negative Numbers (12
+problems)}\label{part-c-foil-with-negative-numbers-12-problems}}
+
+When negatives appear, keep careful track of signs.
+
+\textbf{Example:} \((x - 4)(x + 3)\)
+
+\begin{verbatim}
+First:  x · x = x²
+Outer:  x · 3 = 3x
+Inner:  -4 · x = -4x
+Last:   -4 · 3 = -12
+
+Combine: x² + 3x - 4x - 12 = x² - x - 12
+\end{verbatim}
+
+\textbf{Expand completely:}
+
+\textbf{21.} \((t - 3)(t + 5)\)
+
+\textbf{22.} \((p + 4)(p - 2)\)
+
+\textbf{23.} \((m - 6)(m + 1)\)
+
+\textbf{24.} \((r - 2)(r - 5)\)
+
+\textbf{25.} \((k - 7)(k - 3)\)
+
+\textbf{26.} \((n - 4)(n - 4)\) --- \emph{Squaring a binomial with
+subtraction}
+
+\textbf{27.} \((w - 8)(w - 8)\)
+
+\textbf{28.} \((s + 5)(s - 5)\) --- \emph{What happens to the middle
+term?}
+
+\textbf{29.} \((h + 9)(h - 9)\)
+
+\textbf{30.} \((u + 7)(u - 7)\)
+
+\textbf{31.} What pattern do you see when the binomials are
+\((x + a)(x - a)\)?
+
+\textbf{32.} Complete this rule: \((x + a)(x - a) = \_\_\_\_\_\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-foil-with-coefficients-10-problems}{%
+\subsection{Part D: FOIL with Coefficients (10
+problems)}\label{part-d-foil-with-coefficients-10-problems}}
+
+When the variable has a coefficient, apply FOIL the same way.
+
+\textbf{Example:} \((2x + 3)(x + 4)\)
+
+\begin{verbatim}
+First:  2x · x = 2x²
+Outer:  2x · 4 = 8x
+Inner:  3 · x = 3x
+Last:   3 · 4 = 12
+
+Combine: 2x² + 8x + 3x + 12 = 2x² + 11x + 12
+\end{verbatim}
+
+\textbf{Expand completely:}
+
+\textbf{33.} \((2t + 1)(t + 3)\)
+
+\textbf{34.} \((3p + 2)(p + 4)\)
+
+\textbf{35.} \((2m - 3)(m + 5)\)
+
+\textbf{36.} \((4r + 1)(r - 2)\)
+
+\textbf{37.} \((3k - 2)(2k + 1)\)
+
+\textbf{38.} \((5n + 2)(2n - 3)\)
+
+\textbf{39.} \((2w + 3)(2w + 3)\) --- \emph{Squaring with coefficients}
+
+\textbf{40.} \((3s - 1)(3s - 1)\)
+
+\textbf{41.} \((4h + 5)(4h - 5)\) --- \emph{Difference of squares with
+coefficients}
+
+\textbf{42.} \((2u - 7)(2u + 7)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-e-patterns-worth-memorizing-8-problems}{%
+\subsection{Part E: Patterns Worth Memorizing (8
+problems)}\label{part-e-patterns-worth-memorizing-8-problems}}
+
+These patterns appear so often that recognizing them instantly saves
+time.
+
+\hypertarget{pattern-1-perfect-square-trinomials}{%
+\subsubsection{Pattern 1: Perfect Square
+Trinomials}\label{pattern-1-perfect-square-trinomials}}
+
+\[\boxed{(a + b)^2 = a^2 + 2ab + b^2}\]
+
+\[\boxed{(a - b)^2 = a^2 - 2ab + b^2}\]
+
+\emph{The middle term is always \textbf{twice} the product of the two
+terms.}
+
+\hypertarget{pattern-2-difference-of-squares}{%
+\subsubsection{Pattern 2: Difference of
+Squares}\label{pattern-2-difference-of-squares}}
+
+\[\boxed{(a + b)(a - b) = a^2 - b^2}\]
+
+\emph{The middle terms cancel out, leaving only the difference of
+squares.}
+
+\textbf{Use the patterns to expand quickly:}
+
+\textbf{43.} \((t + 8)^2\)
+
+\textbf{44.} \((p - 5)^2\)
+
+\textbf{45.} \((m + 11)(m - 11)\)
+
+\textbf{46.} \((3r + 4)^2\)
+
+\textbf{47.} \((5k - 2)^2\)
+
+\textbf{48.} \((6n + 1)(6n - 1)\)
+
+\textbf{49.} \((2w + 9)^2\)
+
+\textbf{50.} \((4s - 3)(4s + 3)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-f-discovering-pascals-triangle-12-problems}{%
+\subsection{Part F: Discovering Pascal&#x27;s Triangle (12
+problems)}\label{part-f-discovering-pascals-triangle-12-problems}}
+
+Let&#x27;s expand powers of \((a + b)\) and look for patterns in the
+coefficients.
+
+\textbf{51.} \((a + b)^0 = 1\)
+
+Coefficients: \textbf{1}
+
+\textbf{52.} \((a + b)^1 = a + b\)
+
+Coefficients: \textbf{1, 1}
+
+\textbf{53.} Expand \((a + b)^2\) using FOIL.
+
+\((a + b)^2 ={}\) \_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Coefficients of \(a^2\), \(ab\), and \(b^2\): \textbf{\_\_\_, \_\_\_,
+\_\_\_}
+
+\textbf{54.} Expand \((a + b)^3\) by computing
+\((a + b) \cdot (a + b)^2\).
+
+\emph{Use your answer from problem 53 and distribute \((a + b)\) through
+it.}
+
+\((a + b)^3 ={}\) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Coefficients: \textbf{\_\_\_, \_\_\_, \_\_\_, \_\_\_}
+
+\textbf{55.} Expand \((a + b)^4\) by computing
+\((a + b) \cdot (a + b)^3\).
+
+\((a + b)^4 ={}\) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+Coefficients: \textbf{\_\_\_, \_\_\_, \_\_\_, \_\_\_, \_\_\_}
+
+\textbf{56.} Arrange your coefficients in a triangle:
+
+\begin{verbatim}
+                1                   (a + b)⁰
+              1   1                 (a + b)¹
+            1   2   1               (a + b)²
+          1   3   3   1             (a + b)³
+        1   ?   ?   ?   1           (a + b)⁴
+\end{verbatim}
+
+Fill in the missing numbers for row 4.
+
+\textbf{57.} Look at how each number relates to the two numbers above
+it. Describe the pattern:
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\textbf{58.} Using the pattern, predict row 5 (the coefficients for
+\((a + b)^5\)):
+
+\textbf{\_\_\_, \_\_\_, \_\_\_, \_\_\_, \_\_\_, \_\_\_}
+
+\textbf{59.} This triangle is called \textbf{\_\_\_\_\_\_\_\_\_\_&#x27;s
+Triangle}.
+
+\emph{(Named after a 17th-century French mathematician, though
+mathematicians in Persia, China, and India discovered it centuries
+earlier.)}
+
+\textbf{60.} Expand \((a + b)^5\) using your predicted coefficients:
+
+\((a + b)^5 ={}\)
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\textbf{61.} \textbf{Bonus connection:} The number in row \(n\),
+position \(k\) tells you ``how many ways can you choose \(k\) items from
+\(n\) items?&#x27;&#x27;
+
+Row 4, position 2 has the number \textbf{6}.
+
+Verify: List all ways to choose 2 letters from \{A, B, C, D\}:
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+\emph{(There should be exactly 6 ways!)}
+
+\textbf{62.} Using the triangle, how many ways can you choose 3 items
+from 5 items?
+
+\emph{(Look at row 5, position 3)}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-g-beyond-two-terms-8-problems}{%
+\subsection{Part G: Beyond Two Terms (8
+problems)}\label{part-g-beyond-two-terms-8-problems}}
+
+For multiplying larger expressions, we distribute systematically.
+
+\textbf{Example:} \((x + 2)(x^2 + 3x + 1)\)
+
+\begin{verbatim}
+Distribute x:   x·x² + x·3x + x·1    = x³ + 3x² + x
+Distribute 2:   2·x² + 2·3x + 2·1    = 2x² + 6x + 2
+Combine:        x³ + 3x² + 2x² + x + 6x + 2 = x³ + 5x² + 7x + 2
+\end{verbatim}
+
+\textbf{Expand completely:}
+
+\textbf{63.} \((t + 3)(t^2 + 2t + 4)\)
+
+\textbf{64.} \((p - 2)(p^2 + 4p + 1)\)
+
+\textbf{65.} \((m + 1)(m^2 - m + 1)\) --- \emph{Something interesting
+happens here!}
+
+\textbf{66.} \((r - 1)(r^2 + r + 1)\) --- \emph{And here!}
+
+\textbf{67.} \((2k + 1)(k^2 - 3k + 2)\)
+
+\textbf{68.} \((n + 2)(n + 3)(n + 1)\) --- \emph{Do two at a time}
+
+\textbf{69.} Expand \((w - 1)^3\) by first finding \((w - 1)^2\), then
+multiplying by \((w - 1)\).
+
+\textbf{70.} Expand \((2t + 1)^3\) using the same method.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}
+</pre></section></main>
+<footer><div class="wrap"><p>Joshua Aaron, Dublin. Teaching material is shared under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a> unless a page says otherwise.</p></div></footer><script></script></body></html>

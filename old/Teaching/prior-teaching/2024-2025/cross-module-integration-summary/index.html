@@ -1,0 +1,176 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>Cross-Module Integration Summary (archive)</title><style>
+body{margin:0;background:#fbfaf7;color:#1B2A4A;font-family:Georgia,serif;line-height:1.6}
+main{max-width:44rem;margin:0 auto;padding:1.5rem 1rem 4rem}a{color:#D4692A}
+.banner{background:#1B2A4A;color:#fff;padding:.6rem 1rem;font-size:.9rem}.banner a{color:#fff}
+nav ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1rem}
+table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:.3rem .6rem}img{max-width:100%}pre{overflow:auto;background:#fff;padding:.7rem;border:1px solid #e5e2da}
+</style></head><body><div class="banner">Archive of the previous site. It is no longer updated. <a href="/">Go to the current site</a></div>
+<main><nav><ul><li><a href="/old/">Archive home</a></li><li><a href="/old/Consulting-and-Collaboration/">For Colleagues</a></li><li><a href="/old/Teaching/">Teaching</a></li><li><a href="/old/Writings/">Writings</a></li><li><a href="/old/contact/">Contact</a></li><li><a href="/old/current-teaching/">Current Teaching</a></li></ul></nav><h1>Cross-Module Integration Summary</h1><h1 id="cross-module-integration-summary">Cross-Module Integration Summary</h1>
+<p><strong>AI and Machine Learning Foundations Programme</strong><br />
+QQI Level 5–6 | Blackrock Further Education Institute | 2024–2025</p>
+<hr />
+<h2 id="what-this-is">What This Is</h2>
+<p>Seven modules. Three deliberate integration points. Each integration lets a single project generate evidence for multiple modules, so students do less redundant work and produce more meaningful artefacts.</p>
+<p>This document maps how the integrations work so the teaching team can coordinate timing, briefs, and assessment.</p>
+<hr />
+<h2 id="the-modules">The Modules</h2>
+<p>The programme covered: Programming Design Principles (PDP), Foundations of Object Oriented Programming (FOOP), Mathematics for IT, Computational Methods, Database Methods, Web Authoring, and Software Architecture.</p>
+<hr />
+<h2 id="integration-1-mathematics-and-programming">Integration 1: Mathematics and Programming</h2>
+<p><strong>The idea:</strong> Four programming skills demos — two in PDP, two in FOOP — each incorporate mathematical content so that the maths modules' learning outcomes are covered progressively across the year. A fifth assessment (the group Eircode project) brings everything together and also generates Software Architecture evidence.</p>
+<p><strong>The four skills demos and their maths connections:</strong></p>
+<ul>
+<li>
+<p><strong>PDP SD1</strong> — Core programming challenges. Introduces fundamental programming with contexts that touch on basic arithmetic and algebraic thinking (Maths Sec 1)</p>
+</li>
+<li>
+<p><strong>PDP SD2</strong> — Text analysis using literature from Project Gutenberg. Students build statistical tools: mean, median, mode, distributions, visualisation (Maths Sec 5; Comp Methods LO 1, 2)</p>
+</li>
+<li>
+<p><strong>FOOP SD1</strong> — Language detector. Students apply probability to predict the language of a text sample based on character or word-length distributions (Maths Sec 5; Comp Methods LO 2, 6)</p>
+</li>
+<li>
+<p><strong>FOOP SD2</strong> — Digit recogniser. Students build a single-class neural network using MNIST, implementing forward propagation, matrix operations, and activation functions from scratch (Maths Sec 1, 3; Comp Methods LO 3, 4)</p>
+</li>
+</ul>
+<p><strong>The culminating project:</strong></p>
+<ul>
+<li><strong>FOOP SD3</strong> — Groups of three extend the digit recogniser into an Eircode recognition system for An Post using EMNIST. Two sprint cycles over the last three weeks of March. This generates evidence for FOOP (full OOP implementation), Computational Methods (mathematical modelling and validation), and Software Architecture (Agile methodology documentation)</li>
+</ul>
+<p><strong>How it all fits:</strong></p>
+<ul>
+<li>
+<p><strong>Mathematics worksheets</strong> run in parallel throughout the year, building the foundations that each skills demo then applies. The worksheets cover assignment-only LOs (Sections 1, 5, 6), while the exam covers Sections 2–5</p>
+</li>
+<li>
+<p><strong>Comp Methods</strong> LOs split cleanly: the exam covers LOs 1, 2, 5, 6, 9, 10, 13; the skills demos above cover LOs 3, 4, 7, 8, 11, 12</p>
+</li>
+<li>
+<p><strong>Software Architecture SD1</strong> assesses the Agile process documentation wrapped around the group project — sprint planning, backlog, retrospectives. Process, not product</p>
+</li>
+<li>
+<p><strong>PDP and FOOP share identical learning outcomes</strong> but at different levels. PDP's procedural approach gives students a reason to want OOP — they experience the limits of standalone functions before FOOP asks them to reorganise into classes. The language detector (FOOP SD1) is where students first work with objects to model a real-world problem</p>
+</li>
+</ul>
+<hr />
+<h2 id="integration-2-web-authoring-and-databases">Integration 2: Web Authoring and Databases</h2>
+<p><strong>The idea:</strong> Rather than teaching HTML/CSS and SQL in isolation, students build a full-stack web application where their database skills power a dynamic website through Flask.</p>
+<p><strong>How it connects:</strong></p>
+<ul>
+<li>
+<p><strong>Web Authoring</strong> and <strong>Database Methods</strong> run foundations in parallel — HTML structure and CSS alongside SQLite and CRUD operations</p>
+</li>
+<li>
+<p><strong>Themed SQL quizzes</strong> provide scaffolded database practice in several editions</p>
+</li>
+<li>
+<p><strong>Flask</strong> is introduced as the bridge — routes map to templates, form submissions trigger database operations, pandas DataFrames render as HTML</p>
+</li>
+<li>
+<p>A <strong>full-stack project</strong> in the final weeks generates evidence for both modules: Web Authoring assesses the front end, Database Methods assesses the back end</p>
+</li>
+</ul>
+<p><strong>What each module assesses:</strong></p>
+<ul>
+<li>
+<p><strong>Web Authoring:</strong> Static portfolio (Assignment 1), Flask application with responsive design (Project)</p>
+</li>
+<li>
+<p><strong>Database Methods:</strong> SQL quizzes, web-connected database with schema design and queries (Project)</p>
+</li>
+</ul>
+<hr />
+<h2 id="integration-3-web-authoring-as-documentation">Integration 3: Web Authoring as Documentation</h2>
+<p><strong>The idea:</strong> Students document their programming and maths work as a professional GitHub Pages portfolio, turning Web Authoring into a vehicle for presenting evidence from other modules.</p>
+<p><strong>How it connects:</strong></p>
+<ul>
+<li>
+<p>Students begin with an <strong>HTML/CSS tutorial</strong> (fork-and-edit exercises on an existing template) that teaches web fundamentals through direct manipulation</p>
+</li>
+<li>
+<p>They then <strong>populate the site</strong> with documentation of their programming projects as each is completed throughout the year</p>
+</li>
+<li>
+<p>The finished portfolio is a <strong>five-page ML documentation site</strong> covering their artificial neuron, language detector (FOOP SD1), Markov chain, and digit analyser (FOOP SD2) work, plus an overview page</p>
+</li>
+<li>
+<p>This picks up any <strong>maths or programming LOs</strong> that might not be fully captured by the skills demonstrations alone — the act of explaining the work in writing creates additional evidence</p>
+</li>
+</ul>
+<p><strong>What each module assesses:</strong></p>
+<ul>
+<li>
+<p><strong>Web Authoring:</strong> Tutorial (formative), landing page (Assignment 1), five-page site (Project)</p>
+</li>
+<li>
+<p><strong>PDP / FOOP:</strong> Portfolio supports evidence for documentation and deployment LOs (LO 8, 9, 11)</p>
+</li>
+<li>
+<p><strong>Maths / Comp Methods:</strong> Written explanations on the site support assignment evidence where needed</p>
+</li>
+</ul>
+<hr />
+<h2 id="learning-outcomes-reference">Learning Outcomes Reference</h2>
+<h3 id="pdp-5n2927-foop-5n1352">PDP (5N2927) / FOOP (5N1352)</h3>
+<p>Both modules share identical learning outcomes:</p>
+<ul>
+<li><strong>LO 1:</strong> Understanding of data types in OO programs</li>
+<li><strong>LO 2:</strong> Fundamental instructions; design and construct programs to solve problems</li>
+<li><strong>LO 3:</strong> Basic OOP constructs</li>
+<li><strong>LO 4:</strong> Design and construct modular reusable code blocks</li>
+<li><strong>LO 5:</strong> Familiarity with a modern IDE</li>
+<li><strong>LO 6:</strong> Construct larger programs from smaller programs</li>
+<li><strong>LO 7:</strong> Model real-world objects to build OO programs</li>
+<li><strong>LO 8:</strong> Explain ways to organise and structure data</li>
+<li><strong>LO 9:</strong> Properly document program code</li>
+<li><strong>LO 10:</strong> Debug and test programs</li>
+<li><strong>LO 11:</strong> Deploy programs to the end user via the front end</li>
+</ul>
+<h3 id="mathematics-for-it-5n18396">Mathematics for IT (5N18396)</h3>
+<p>Organised into six sections:</p>
+<ul>
+<li><strong>Sec 1 (1.1–1.7):</strong> Arithmetic, algebra, binary/hex — <em>assignment only</em></li>
+<li><strong>Sec 2 (2.1–2.5):</strong> Sets, Venn diagrams, Boolean logic — <em>exam + assignment</em> (2.4–2.5 assignment only)</li>
+<li><strong>Sec 3 (3.1–3.7):</strong> Functions, graphing, calculus — <em>exam only</em> (3.2–3.7)</li>
+<li><strong>Sec 4 (4.1–4.10):</strong> Geometry, trigonometry — <em>exam only</em></li>
+<li><strong>Sec 5 (5.1–5.13):</strong> Probability, statistics — <em>exam + assignment</em></li>
+<li><strong>Sec 6 (6.1–6.8):</strong> Algorithms, sorting — <em>assignment only</em></li>
+</ul>
+<h3 id="computational-methods-5n0554">Computational Methods (5N0554)</h3>
+<ul>
+<li><strong>Exam + SD:</strong> LO 1 (data structures, sorting, searching), LO 2 (probability, statistics), LO 6 (probability applications), LO 10 (pragmatic vs semantic solving), LO 13 (personal attributes)</li>
+<li><strong>Exam only:</strong> LO 5 (algorithm complexity), LO 9 (brute force, divide-and-conquer, heuristic)</li>
+<li><strong>Skills Demo only:</strong> LO 3 (numerical methods), LO 4 (linear algebra), LO 7 (modelling vs simulation), LO 8 (problem definition/design/testing), LO 11 (model creation/validation), LO 12 (personal attributes in prevention/resolution)</li>
+</ul>
+<h3 id="database-methods-5n0783">Database Methods (5N0783)</h3>
+<ul>
+<li><strong>LO 1:</strong> Create database structures with appropriate data types</li>
+<li><strong>LO 2:</strong> Insert, update, and delete data</li>
+<li><strong>LO 3:</strong> Write queries to retrieve and filter data</li>
+<li><strong>LO 4:</strong> Apply SQL data types appropriately</li>
+<li><strong>LO 5:</strong> Proficiency with CREATE, INSERT, SELECT, DELETE syntax</li>
+</ul>
+<h3 id="web-authoring-5n1910">Web Authoring (5N1910)</h3>
+<ul>
+<li><strong>LO 1:</strong> Create web pages with HTML structure and semantic markup</li>
+<li><strong>LO 2:</strong> Apply CSS for styling and layout</li>
+<li><strong>LO 3:</strong> Use HTML forms for input</li>
+<li><strong>LO 4:</strong> Responsive design</li>
+<li><strong>LO 5:</strong> Publish and maintain web content</li>
+<li><strong>LO 6:</strong> Plan and document the development process</li>
+<li><strong>LO 7:</strong> Evaluate for usability and accessibility</li>
+<li><strong>LO 8:</strong> Multi-page navigable websites</li>
+</ul>
+<h3 id="software-architecture-5n0541">Software Architecture (5N0541)</h3>
+<ul>
+<li><strong>LO 1:</strong> Role of modern methodologies in software development</li>
+<li><strong>LO 2:</strong> Apply design patterns</li>
+<li><strong>LO 3:</strong> Version control and collaborative tools</li>
+<li><strong>LO 4:</strong> Document architecture (UML)</li>
+<li><strong>LO 5:</strong> Agile/Scrum methodology</li>
+<li><strong>LO 6:</strong> Evaluate architectural decisions</li>
+<li><strong>LO 7:</strong> Document decisions and rationale</li>
+</ul>
+<hr />
+<p><em>For more on the philosophy behind this kind of integration, see <a href="/guides/learning-math-through-programming">Learning Mathematics Through Programming</a> or the <a href="/consulting">consulting page</a>.</em></p></main></body></html>

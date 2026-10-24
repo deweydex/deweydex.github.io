@@ -1,0 +1,770 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 4A: Derivatives and Integrals --- Inverse Operations},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 4A: Derivatives and Integrals --- Inverse Operations}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+Derivatives and integrals are \textbf{inverses} of each other, just like
+multiplication and division, or squaring and square roots.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Derivative:} Given a function, find its rate of change
+\item
+  \textbf{Integral:} Given a rate of change, find the original function
+\end{itemize}
+
+But there's a twist: When we ``undo'' a derivative, we don't get back
+exactly one function --- we get a whole \textbf{family} of functions!
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-the-power-rule-both-directions-20-problems}{%
+\subsection{Part A: The Power Rule --- Both Directions (20
+problems)}\label{part-a-the-power-rule-both-directions-20-problems}}
+
+\hypertarget{differentiation-bring-down-the-power-reduce-by-1}{%
+\subsubsection{Differentiation: Bring down the power, reduce by
+1}\label{differentiation-bring-down-the-power-reduce-by-1}}
+
+\[\frac{d}{dx}x^n = n \cdot x^{n-1}\]
+
+\hypertarget{integration-increase-the-power-by-1-divide-by-new-power}{%
+\subsubsection{Integration: Increase the power by 1, divide by new
+power}\label{integration-increase-the-power-by-1-divide-by-new-power}}
+
+\[\int x^n \, dx = \frac{x^{n+1}}{n+1} + C \quad \text{(for } n \neq -1\text{)}\]
+
+\textbf{Notice they're inverses!} - Derivative: exponent comes
+\textbf{down} and \textbf{decreases} - Integral: exponent goes
+\textbf{up} and we \textbf{divide} by it
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find both the derivative and the integral of each function:}
+
+\textbf{1.} \(f(x) = x^4\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(f'(x) ={}\) \_\_\_\_\_\_\_\_\_\_
+\item
+  \(\int x^4 \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\textbf{2.} \(g(t) = t^5\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(g'(t) ={}\) \_\_\_\_\_\_\_\_\_\_
+\item
+  \(\int t^5 \, dt ={}\) \_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\textbf{3.} \(h(p) = p^3\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(h'(p) ={}\) \_\_\_\_\_\_\_\_\_\_
+\item
+  \(\int p^3 \, dp ={}\) \_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\textbf{4.} \(y = x^7\)
+
+\textbf{5.} \(f(m) = m^2\)
+
+\textbf{6.} \(g(r) = r^{10}\)
+
+\textbf{7.} \(h(k) = k^1 = k\)
+
+\textbf{8.} \(y = x^{100}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Negative and Fractional Exponents:}
+
+\textbf{9.} \(f(x) = x^{-2}\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(f'(x) ={}\) \_\_\_\_\_\_\_\_\_\_
+\item
+  \(\int x^{-2} \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\textbf{10.} \(g(t) = t^{-3}\)
+
+\textbf{11.} \(h(x) = x^{1/2} = \sqrt{x}\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(h'(x) ={}\) \_\_\_\_\_\_\_\_\_\_
+\item
+  \(\int x^{1/2} \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\textbf{12.} \(y = x^{1/3}\)
+
+\textbf{13.} \(f(p) = p^{-1/2}\)
+
+\textbf{14.} \(g(n) = n^{3/2}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{The Special Case: What happens when \(n = -1\)?}
+
+\textbf{15.} Try to compute \(\int x^{-1} \, dx\) using the formula
+\(\frac{x^{n+1}}{n+1}\).
+
+What goes wrong?
+
+\textbf{16.} The integral of \(x^{-1} = \frac{1}{x}\) is actually
+\(\ln|x| + C\). We'll explore why in Worksheet 4D!
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Checking Your Work --- Derivatives and Integrals Undo Each
+Other:}
+
+\textbf{17.} If \(\int x^3 \, dx = \frac{x^4}{4} + C\), verify by
+differentiating: \(\frac{d}{dx}\left(\frac{x^4}{4} + C\right) ={}\)
+\_\_\_\_\_
+
+\textbf{18.} If \(\frac{d}{dx}(x^5) = 5x^4\), verify by integrating:
+\(\int 5x^4 \, dx ={}\) \_\_\_\_\_
+
+\textbf{19.} Differentiate, then integrate: Start with \(f(x) = x^6\) -
+\(f'(x) ={}\) \_\_\_\_\_ - \(\int f'(x) \, dx ={}\) \_\_\_\_\_ - Do you
+get back \(x^6\)? (Plus what?)
+
+\textbf{20.} Integrate, then differentiate: Start with \(g(x) = x^4\) -
+\(\int g(x) \, dx ={}\) \_\_\_\_\_ -
+\(\frac{d}{dx}\left[\int g(x) \, dx\right] ={}\) \_\_\_\_\_ - Do you get
+back \(x^4\)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-why-c-the-family-of-antiderivatives-14-problems}{%
+\subsection{Part B: Why ``+C''? --- The Family of Antiderivatives (14
+problems)}\label{part-b-why-c-the-family-of-antiderivatives-14-problems}}
+
+Consider these three functions: - \(f(x) = x^2\) - \(g(x) = x^2 + 5\) -
+\(h(x) = x^2 - 17\)
+
+\textbf{21.} Find the derivative of each: - \(f'(x) ={}\) \_\_\_\_\_ -
+\(g'(x) ={}\) \_\_\_\_\_ - \(h'(x) ={}\) \_\_\_\_\_
+
+\textbf{22.} What do you notice? Why does this happen?
+
+\textbf{23.} The functions \(x^2\), \(x^2 + 5\), and \(x^2 - 17\) are
+all different, but they have the \_\_\_\_\_\_\_\_\_\_ derivative.
+
+\textbf{24.} Graphically: Sketch \(y = x^2\), \(y = x^2 + 3\), and
+\(y = x^2 - 2\) on the same axes.
+
+\begin{itemize}
+\tightlist
+\item
+  How are these parabolas related?
+\item
+  At any given x-value, do they have the same slope?
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{The Key Insight:}
+
+\begin{quote}
+When we integrate \(2x\), we get \(x^2 + C\) where \(C\) is \textbf{any
+constant}.
+
+This represents a whole \textbf{family} of functions --- infinitely many
+parabolas, all with the same shape but shifted up or down.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{25.} Write three different functions whose derivative is
+\(3x^2\).
+
+\textbf{26.} Write three different functions whose derivative is
+\(5t^4\).
+
+\textbf{27.} Write the general antiderivative (with +C) of \(4p^3\).
+
+\textbf{28.} If \(F'(x) = 6x^5\), what is \(F(x)\)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Finding a Specific Function --- Initial Conditions:}
+
+If we know \(F'(x) = 2x\) AND \(F(0) = 7\), we can find the specific
+function:
+
+\(F(x) = x^2 + C\)
+
+\(F(0) = 0^2 + C = 7\), so \(C = 7\)
+
+Therefore \(F(x) = x^2 + 7\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{29.} Find \(F(x)\) if \(F'(x) = 3x^2\) and \(F(0) = 5\).
+
+\textbf{30.} Find \(G(t)\) if \(G'(t) = 4t^3\) and \(G(1) = 10\).
+
+\textbf{31.} Find \(H(p)\) if \(H'(p) = 2p + 1\) and \(H(2) = 0\).
+
+\textbf{32.} A ball's velocity is \(v(t) = 20 - 10t\) m/s. Its position
+is \(s(t) = \int v(t) \, dt\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Find \(s(t)\) with the constant \(C\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    If the ball starts at height \(s(0) = 5\) meters, find \(C\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Write the complete position function.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{33.} An object's acceleration is \(a(t) = 6\) m/s². Starting
+from rest (\(v(0) = 0\)):
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Find velocity: \(v(t) = \int a(t) \, dt\)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    If position \(s(0) = 10\), find \(s(t) = \int v(t) \, dt\).
+  \end{enumerate}
+\end{itemize}
+
+\textbf{34.} Explain in your own words why integration has ``+C'' but
+differentiation doesn't.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-constants-and-sums-both-directions-16-problems}{%
+\subsection{Part C: Constants and Sums --- Both Directions (16
+problems)}\label{part-c-constants-and-sums-both-directions-16-problems}}
+
+\hypertarget{derivative-rules}{%
+\subsubsection{Derivative Rules:}\label{derivative-rules}}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\frac{d}{dx}(c) = 0\) (constant rule)
+\item
+  \(\frac{d}{dx}[cf(x)] = c \cdot f'(x)\) (constant multiple)
+\item
+  \(\frac{d}{dx}[f(x) + g(x)] = f'(x) + g'(x)\) (sum rule)
+\end{itemize}
+
+\hypertarget{integral-rules-the-reverses}{%
+\subsubsection{Integral Rules (the
+reverses):}\label{integral-rules-the-reverses}}
+
+\begin{itemize}
+\tightlist
+\item
+  \(\int 0 \, dx = C\) (integrating zero gives a constant)
+\item
+  \(\int c \cdot f(x) \, dx = c \cdot \int f(x) \, dx\) (constant
+  multiple)
+\item
+  \(\int [f(x) + g(x)] \, dx = \int f(x) \, dx + \int g(x) \, dx\) (sum
+  rule)
+\end{itemize}
+
+\textbf{Also:} \(\int c \, dx = cx + C\) (integrating a constant)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find both the derivative and the integral:}
+
+\textbf{35.} \(f(x) = 5x^3\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(f'(x) ={}\) \_\_\_\_\_\_\_\_\_\_
+\item
+  \(\int 5x^3 \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\textbf{36.} \(g(t) = -2t^4\)
+
+\textbf{37.} \(h(p) = \frac{1}{2}p^6\)
+
+\textbf{38.} \(y = 7\) (a constant function)
+
+\begin{itemize}
+\tightlist
+\item
+  \(\frac{dy}{dx} ={}\) \_\_\_\_\_\_\_\_\_\_
+\item
+  \(\int 7 \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\textbf{39.} \(f(m) = -3\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Sums and Differences:}
+
+\textbf{40.} \(f(x) = x^3 + x^2\)
+
+\begin{itemize}
+\tightlist
+\item
+  \(f'(x) ={}\) \_\_\_\_\_\_\_\_\_\_
+\item
+  \(\int (x^3 + x^2) \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\textbf{41.} \(g(t) = t^4 - t^2\)
+
+\textbf{42.} \(h(r) = 3r^2 + 2r - 5\)
+
+\textbf{43.} \(y = 4x^3 - 6x^2 + 2x - 1\)
+
+\textbf{44.} \(f(k) = k^5 - 3k^3 + 2k\)
+
+\textbf{45.} \(g(n) = 2n^4 + n^3 - 5n^2 + 4n - 7\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Verify by reversing:}
+
+\textbf{46.} Check problem 40: Differentiate your integral. Do you get
+back \(x^3 + x^2\)?
+
+\textbf{47.} Check problem 43: Integrate your derivative. Do you get
+back \(4x^3 - 6x^2 + 2x - 1\) (plus C)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Rewriting Before Integrating:}
+
+\textbf{48.} Find \(\int \frac{3}{x^2} \, dx\)
+
+\emph{Hint: Rewrite as \(3x^{-2}\) first}
+
+\textbf{49.} Find \(\int \frac{5}{\sqrt{t}} \, dt\)
+
+\textbf{50.} Find \(\int \left(x + \frac{1}{x^2}\right) dx\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-polynomials-complete-practice-16-problems}{%
+\subsection{Part D: Polynomials --- Complete Practice (16
+problems)}\label{part-d-polynomials-complete-practice-16-problems}}
+
+\textbf{Find the derivative:}
+
+\textbf{51.} \(f(x) = 2x^5 - 3x^4 + x^3 - 7x + 2\)
+
+\textbf{52.} \(g(t) = \frac{t^4}{4} - \frac{t^3}{3} + \frac{t^2}{2}\)
+
+\textbf{53.} \(h(p) = (p + 2)(p - 3)\) \emph{(expand first)}
+
+\textbf{54.} \(y = (x - 1)^2\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the integral:}
+
+\textbf{55.} \(\int (3x^2 - 4x + 5) \, dx\)
+
+\textbf{56.} \(\int (t^4 - 2t^3 + t - 3) \, dt\)
+
+\textbf{57.} \(\int (6m^5 - 4m^3 + 2m) \, dm\)
+
+\textbf{58.} \(\int (u^2 + 1)^2 \, du\) \emph{(expand first!)}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Mixed --- Derivative or Integral as Specified:}
+
+\textbf{59.} \(\frac{d}{dx}(x^4 - 3x^2 + 2)\)
+
+\textbf{60.} \(\int (4r^3 - 6r) \, dr\)
+
+\textbf{61.} \(\frac{d}{dt}(t^6 + 2t^4 - t)\)
+
+\textbf{62.} \(\int (5k^4 - 3k^2 + 1) \, dk\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Round-Trip Problems:}
+
+\textbf{63.} Start with \(f(x) = x^5\). - (a) Differentiate:
+\(f'(x) ={}\) - (b) Integrate your answer: \(\int f'(x) \, dx ={}\) -
+(c) Is this \(f(x)\)? Explain.
+
+\textbf{64.} Start with \(g(t) = t^3 - 4t\). - (a) Integrate:
+\(\int g(t) \, dt ={}\) - (b) Differentiate your answer. - (c) Is this
+\(g(t)\)? Explain.
+
+\textbf{65.} Why does integrating then differentiating give you back
+exactly what you started with, but differentiating then integrating
+gives you the original plus a constant?
+
+\textbf{66.} Complete this analogy:
+
+Squaring and square roots are inverses: \((\sqrt{x})^2 = x\) and
+\(\sqrt{x^2} = |x|\) (almost x, but not quite for negatives)
+
+Similarly: \(\frac{d}{dx}\left[\int f(x) \, dx\right] ={}\) \_\_\_\_\_
+and \(\int \frac{d}{dx}[f(x)] \, dx ={}\) \_\_\_\_\_
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-e-building-intuition-whats-really-happening-10-problems}{%
+\subsection{Part E: Building Intuition --- What's Really Happening (10
+problems)}\label{part-e-building-intuition-whats-really-happening-10-problems}}
+
+\textbf{67.} The derivative of position is velocity. The integral of
+velocity is \_\_\_\_\_\_\_\_\_\_.
+
+\textbf{68.} The derivative of velocity is acceleration. The integral of
+acceleration is \_\_\_\_\_\_\_\_\_\_.
+
+\textbf{69.} If you know an object's acceleration at all times, can you
+determine its exact position? What additional information do you need?
+
+\textbf{70.} Match the physical quantities:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Function & Derivative & Integral \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Position & & \\
+Velocity & & \\
+Acceleration & & \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{71.} A car's velocity is \(v(t) = 3t^2\) m/s.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the acceleration \(a(t) = v'(t)\)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the position \(s(t) = \int v(t) \, dt\)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    If \(s(0) = 0\), what is the specific position function?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    How far has the car traveled from \(t = 0\) to \(t = 2\)?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{72.} An object's position is \(s(t) = t^3 - 6t^2 + 9t\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Find velocity \(v(t) = s'(t)\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Find acceleration \(a(t) = v'(t)\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    When is velocity zero?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    When is acceleration zero?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{73.} Revenue \(R(q)\) depends on quantity sold \(q\).
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Marginal revenue} is \(R'(q)\) --- the extra revenue from one
+  more unit.
+\item
+  If you know marginal revenue, \(\int R'(q) \, dq\) gives you
+  \_\_\_\_\_\_\_\_\_\_.
+\end{itemize}
+
+\textbf{74.} Cost \(C(q)\) depends on quantity produced.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Marginal cost} is \(C'(q)\).
+\item
+  If marginal cost is \(MC(q) = 6q + 10\), find the cost function
+  \(C(q)\).
+\item
+  If fixed costs are \(C(0) = 500\), find the specific cost function.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{75.} Population growth rate is \(P'(t) = 1000 + 50t\) people per
+year.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Find \(P(t)\), the population function.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    If the population at \(t = 0\) is 50,000, find the specific
+    function.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is the population after 10 years?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{76.} Water flows into a tank at rate \(r(t) = 100 - 2t\) liters
+per minute.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    The amount of water \(W(t) = \int r(t) \, dt\). Find it.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    If the tank starts empty, \(W(0) = 0\). Find the specific function.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    How much water is in the tank after 10 minutes?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    When does the tank stop filling (when \(r(t) = 0\))?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-f-the-fundamental-theorem-preview-6-problems}{%
+\subsection{Part F: The Fundamental Theorem Preview (6
+problems)}\label{part-f-the-fundamental-theorem-preview-6-problems}}
+
+The \textbf{Fundamental Theorem of Calculus} connects derivatives and
+integrals precisely:
+
+\[\int_a^b f(x) \, dx = F(b) - F(a)\]
+
+where \(F'(x) = f(x)\).
+
+This says: To find the integral from \(a\) to \(b\), find ANY
+antiderivative \(F\), then compute \(F(b) - F(a)\).
+
+(The \(+C\) cancels out!)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Evaluate these definite integrals:}
+
+\textbf{77.} \(\int_0^2 x^2 \, dx\)
+
+\begin{itemize}
+\tightlist
+\item
+  Antiderivative: \(F(x) = \frac{x^3}{3}\)
+\item
+  \(F(2) - F(0) = \frac{8}{3} - 0 ={}\) \_\_\_\_\_
+\end{itemize}
+
+\textbf{78.} \(\int_1^3 2x \, dx\)
+
+\textbf{79.} \(\int_0^4 (3t^2 - 2t) \, dt\)
+
+\textbf{80.} \(\int_{-1}^{1} x^3 \, dx\)
+
+\emph{Hint: What symmetry do you notice?}
+
+\textbf{81.} \(\int_1^4 \sqrt{x} \, dx\)
+
+\textbf{82.} \(\int_0^3 (x^2 + 1) \, dx\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}

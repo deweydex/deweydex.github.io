@@ -1,0 +1,517 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 5A: Angles, Radians, and the Unit Circle},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 5A: Angles, Radians, and the Unit Circle}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+Trigonometry began with ancient astronomers trying to measure the
+heavens. Today it's essential for everything from GPS satellites to
+semiconductor manufacturing.
+
+We start with two ways to measure angles (degrees and radians) and
+introduce the unit circle --- a tool that will make everything else in
+trigonometry click into place.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-degrees-and-radians-two-languages-for-angles-20-problems}{%
+\subsection{Part A: Degrees and Radians --- Two Languages for Angles (20
+problems)}\label{part-a-degrees-and-radians-two-languages-for-angles-20-problems}}
+
+\hypertarget{why-two-systems}{%
+\subsubsection{Why Two Systems?}\label{why-two-systems}}
+
+\textbf{Degrees} come from ancient Babylon (360° in a circle ---
+probably because 360 has many divisors and roughly matches days in a
+year).
+
+\textbf{Radians} come from mathematics itself: one radian is the angle
+where the arc length equals the radius.
+
+\[\boxed{2\pi \text{ radians} = 360°}\]
+
+Therefore: \(\pi \text{ rad} = 180°\), and
+\(1 \text{ rad} = \frac{180°}{\pi} \approx 57.3°\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{converting-between-systems}{%
+\subsubsection{Converting Between
+Systems}\label{converting-between-systems}}
+
+\textbf{Degrees → Radians:} Multiply by \(\frac{\pi}{180}\)
+
+\textbf{Radians → Degrees:} Multiply by \(\frac{180}{\pi}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Convert to radians (leave answers in terms of \(\pi\)):}
+
+\textbf{1.} \(90° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\textbf{2.} \(180° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\textbf{3.} \(45° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\textbf{4.} \(60° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\textbf{5.} \(30° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\textbf{6.} \(120° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\textbf{7.} \(270° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\textbf{8.} \(315° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\textbf{9.} \(150° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\textbf{10.} \(225° ={}\) \_\_\_\_\_\_\_\_\_\_ rad
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Convert to degrees:}
+
+\textbf{11.} \(\frac{\pi}{6}\) rad \(={}\) \_\_\_\_\_\_\_\_\_\_°
+
+\textbf{12.} \(\frac{\pi}{4}\) rad \(={}\) \_\_\_\_\_\_\_\_\_\_°
+
+\textbf{13.} \(\frac{\pi}{3}\) rad \(={}\) \_\_\_\_\_\_\_\_\_\_°
+
+\textbf{14.} \(\frac{2\pi}{3}\) rad \(={}\) \_\_\_\_\_\_\_\_\_\_°
+
+\textbf{15.} \(\frac{5\pi}{6}\) rad \(={}\) \_\_\_\_\_\_\_\_\_\_°
+
+\textbf{16.} \(\frac{5\pi}{4}\) rad \(={}\) \_\_\_\_\_\_\_\_\_\_°
+
+\textbf{17.} \(\frac{7\pi}{6}\) rad \(={}\) \_\_\_\_\_\_\_\_\_\_°
+
+\textbf{18.} \(\frac{11\pi}{6}\) rad \(={}\) \_\_\_\_\_\_\_\_\_\_°
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Why Radians Matter**
+
+\textbf{19.} In calculus, the derivative of \(\sin(x)\) is \(\cos(x)\)
+--- but \textbf{only if \(x\) is in radians!}
+
+If we used degrees, we'd get:
+\(\frac{d}{dx}\sin(x°) = \frac{\pi}{180}\cos(x°)\)
+
+That ugly factor disappears with radians. This is why all scientific
+computing uses radians.
+
+\textbf{20.} A satellite dish must be aimed within \(0.1°\) of the
+correct angle. Convert this to radians.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-arc-length-and-the-radian-definition-12-problems}{%
+\subsection{Part B: Arc Length and the Radian Definition (12
+problems)}\label{part-b-arc-length-and-the-radian-definition-12-problems}}
+
+\hypertarget{the-key-formula}{%
+\subsubsection{The Key Formula}\label{the-key-formula}}
+
+For a circle of radius \(r\) and central angle \(\theta\) (in radians):
+
+\[\boxed{s = r\theta}\]
+
+where \(s\) is the \textbf{arc length}.
+
+This formula is beautifully simple --- but only works with radians!
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{21.} A circle has radius 10 cm. Find the arc length for a
+central angle of: - (a) \(\frac{\pi}{2}\) rad - (b) \(\pi\) rad - (c)
+\(2\pi\) rad (verify this gives the circumference!)
+
+\textbf{22.} Earth's radius is approximately 6,371 km.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    If you travel along Earth's surface through an angle of 1 radian (as
+    measured from Earth's center), how far have you traveled?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Dublin is at latitude 53.3°N. Convert this to radians.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is the arc length from the equator to Dublin along a meridian?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: How Eratosthenes Measured Earth**
+
+Around 240 BCE, Eratosthenes noticed that at noon on the summer
+solstice, the sun was directly overhead in Syene (modern Aswan, Egypt)
+--- it shone straight down a well.
+
+But in Alexandria, 800 km north, the sun cast a shadow at an angle of
+about 7.2° from vertical.
+
+\textbf{23.} - (a) Convert 7.2° to radians. - (b) The arc length between
+the cities is 800 km. Using \(s = r\theta\), solve for \(r\) (Earth's
+radius). - (c) The actual radius is about 6,371 km. How close was this
+ancient measurement?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Astronomy: Angular Size**
+
+When we look at distant objects, we measure their \textbf{angular
+diameter} --- how big they appear in the sky.
+
+\textbf{24.} The Moon's angular diameter is about 0.52° as seen from
+Earth. - (a) Convert to radians. - (b) The Moon is about 384,400 km
+away. Using \(s = r\theta\) (treating the Moon's diameter as an arc),
+estimate the Moon's actual diameter. - (c) The actual diameter is about
+3,474 km. How close is your estimate?
+
+\textbf{25.} The Sun's angular diameter is also about 0.53° --- almost
+the same as the Moon! This is why solar eclipses are possible. The Sun
+is about 150 million km away. Estimate the Sun's diameter.
+
+\textbf{26.} Jupiter's angular diameter varies from 0.55 arcminutes to
+0.83 arcminutes depending on its distance from Earth (1 arcminute = 1/60
+of a degree). - (a) Convert 0.83 arcminutes to radians. - (b) At closest
+approach, Jupiter is about 588 million km away. Estimate its diameter.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-the-unit-circle-your-new-best-friend-24-problems}{%
+\subsection{Part C: The Unit Circle --- Your New Best Friend (24
+problems)}\label{part-c-the-unit-circle-your-new-best-friend-24-problems}}
+
+\hypertarget{what-is-it}{%
+\subsubsection{What Is It?}\label{what-is-it}}
+
+The \textbf{unit circle} is a circle with radius 1, centered at the
+origin.
+
+For any angle \(\theta\) measured from the positive x-axis: - The
+x-coordinate of the point on the circle is \(\cos(\theta)\) - The
+y-coordinate is \(\sin(\theta)\)
+
+\[\boxed{(\cos\theta, \sin\theta) = \text{coordinates on unit circle at angle } \theta}\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{special-angles-to-memorize}{%
+\subsubsection{Special Angles to
+Memorize}\label{special-angles-to-memorize}}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Angle (°) & Angle (rad) & \(\cos\theta\) & \(\sin\theta\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0° & 0 & 1 & 0 \\
+30° & \(\frac{\pi}{6}\) & \(\frac{\sqrt{3}}{2}\) & \(\frac{1}{2}\) \\
+45° & \(\frac{\pi}{4}\) & \(\frac{\sqrt{2}}{2}\) &
+\(\frac{\sqrt{2}}{2}\) \\
+60° & \(\frac{\pi}{3}\) & \(\frac{1}{2}\) & \(\frac{\sqrt{3}}{2}\) \\
+90° & \(\frac{\pi}{2}\) & 0 & 1 \\
+\end{longtable}
+
+\textbf{Memory trick:} For sine at 0°, 30°, 45°, 60°, 90°:
+\(\frac{\sqrt{0}}{2}, \frac{\sqrt{1}}{2}, \frac{\sqrt{2}}{2}, \frac{\sqrt{3}}{2}, \frac{\sqrt{4}}{2}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the exact values without a calculator:}
+
+\textbf{27.} \(\cos(0) ={}\) \_\_\_\_\_ , \(\sin(0) ={}\) \_\_\_\_\_
+
+\textbf{28.} \(\cos\left(\frac{\pi}{6}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{\pi}{6}\right) ={}\) \_\_\_\_\_
+
+\textbf{29.} \(\cos\left(\frac{\pi}{4}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{\pi}{4}\right) ={}\) \_\_\_\_\_
+
+\textbf{30.} \(\cos\left(\frac{\pi}{3}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{\pi}{3}\right) ={}\) \_\_\_\_\_
+
+\textbf{31.} \(\cos\left(\frac{\pi}{2}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{\pi}{2}\right) ={}\) \_\_\_\_\_
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{extending-to-all-four-quadrants}{%
+\subsubsection{Extending to All Four
+Quadrants}\label{extending-to-all-four-quadrants}}
+
+\textbf{ASTC Rule:} Which functions are positive in each quadrant? -
+\textbf{A}ll (Quadrant I): Both sin and cos positive - \textbf{S}in
+(Quadrant II): Only sin positive - \textbf{T}an (Quadrant III): Only tan
+positive - \textbf{C}os (Quadrant IV): Only cos positive
+
+\textbf{Reference Angle:} The acute angle to the x-axis. Use symmetry!
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the exact values:}
+
+\textbf{32.} \(\cos\left(\frac{2\pi}{3}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{2\pi}{3}\right) ={}\) \_\_\_\_\_
+
+\emph{Hint: \(\frac{2\pi}{3}\) is in Q2, reference angle is
+\(\frac{\pi}{3}\)}
+
+\textbf{33.} \(\cos\left(\frac{3\pi}{4}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{3\pi}{4}\right) ={}\) \_\_\_\_\_
+
+\textbf{34.} \(\cos\left(\frac{5\pi}{6}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{5\pi}{6}\right) ={}\) \_\_\_\_\_
+
+\textbf{35.} \(\cos(\pi) ={}\) \_\_\_\_\_ , \(\sin(\pi) ={}\) \_\_\_\_\_
+
+\textbf{36.} \(\cos\left(\frac{7\pi}{6}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{7\pi}{6}\right) ={}\) \_\_\_\_\_
+
+\textbf{37.} \(\cos\left(\frac{5\pi}{4}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{5\pi}{4}\right) ={}\) \_\_\_\_\_
+
+\textbf{38.} \(\cos\left(\frac{4\pi}{3}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{4\pi}{3}\right) ={}\) \_\_\_\_\_
+
+\textbf{39.} \(\cos\left(\frac{3\pi}{2}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{3\pi}{2}\right) ={}\) \_\_\_\_\_
+
+\textbf{40.} \(\cos\left(\frac{5\pi}{3}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{5\pi}{3}\right) ={}\) \_\_\_\_\_
+
+\textbf{41.} \(\cos\left(\frac{7\pi}{4}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{7\pi}{4}\right) ={}\) \_\_\_\_\_
+
+\textbf{42.} \(\cos\left(\frac{11\pi}{6}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{11\pi}{6}\right) ={}\) \_\_\_\_\_
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{negative-angles-and-angles-beyond-2pi}{%
+\subsubsection{\texorpdfstring{Negative Angles and Angles Beyond
+\(2\pi\)}{Negative Angles and Angles Beyond 2\textbackslash pi}}\label{negative-angles-and-angles-beyond-2pi}}
+
+\textbf{43.} \(\cos(-\frac{\pi}{4}) ={}\) \_\_\_\_\_ ,
+\(\sin(-\frac{\pi}{4}) ={}\) \_\_\_\_\_
+
+\textbf{44.} \(\cos(-\frac{\pi}{6}) ={}\) \_\_\_\_\_ ,
+\(\sin(-\frac{\pi}{6}) ={}\) \_\_\_\_\_
+
+\textbf{45.} \(\cos\left(\frac{13\pi}{6}\right) ={}\) \_\_\_\_\_ ,
+\(\sin\left(\frac{13\pi}{6}\right) ={}\) \_\_\_\_\_
+
+\emph{Hint: \(\frac{13\pi}{6} = 2\pi + \frac{\pi}{6}\)}
+
+\textbf{46.} \(\cos(3\pi) ={}\) \_\_\_\_\_ , \(\sin(3\pi) ={}\)
+\_\_\_\_\_
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{the-pythagorean-identity}{%
+\subsubsection{The Pythagorean
+Identity}\label{the-pythagorean-identity}}
+
+\textbf{47.} On the unit circle, a point is at
+\((\cos\theta, \sin\theta)\). The distance from this point to the origin
+is the radius, which equals 1.
+
+Using the distance formula: \(\sqrt{\cos^2\theta + \sin^2\theta} = 1\)
+
+Square both sides: \(\cos^2\theta + \sin^2\theta ={}\) \_\_\_\_\_
+
+\textbf{This is the most important identity in trigonometry!}
+
+\textbf{48.} Verify the identity for \(\theta = \frac{\pi}{4}\):
+
+\(\cos^2\left(\frac{\pi}{4}\right) + \sin^2\left(\frac{\pi}{4}\right) = \left(\frac{\sqrt{2}}{2}\right)^2 + \left(\frac{\sqrt{2}}{2}\right)^2 ={}\)
+\_\_\_\_\_
+
+\textbf{49.} Verify for \(\theta = \frac{\pi}{3}\).
+
+\textbf{50.} If \(\sin\theta = \frac{3}{5}\) and \(\theta\) is in
+Quadrant I, find \(\cos\theta\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-the-tangent-function-and-more-14-problems}{%
+\subsection{Part D: The Tangent Function and More (14
+problems)}\label{part-d-the-tangent-function-and-more-14-problems}}
+
+\hypertarget{definition}{%
+\subsubsection{Definition}\label{definition}}
+
+\[\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{y}{x} = \text{slope of the line from origin to point on circle}\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the exact values:}
+
+\textbf{51.} \(\tan(0) ={}\) \_\_\_\_\_
+
+\textbf{52.} \(\tan\left(\frac{\pi}{6}\right) ={}\) \_\_\_\_\_
+
+\textbf{53.} \(\tan\left(\frac{\pi}{4}\right) ={}\) \_\_\_\_\_
+
+\textbf{54.} \(\tan\left(\frac{\pi}{3}\right) ={}\) \_\_\_\_\_
+
+\textbf{55.} \(\tan\left(\frac{\pi}{2}\right) ={}\) \_\_\_\_\_ (What
+happens here?)
+
+\textbf{56.} \(\tan\left(\frac{2\pi}{3}\right) ={}\) \_\_\_\_\_
+
+\textbf{57.} \(\tan\left(\frac{3\pi}{4}\right) ={}\) \_\_\_\_\_
+
+\textbf{58.} \(\tan(\pi) ={}\) \_\_\_\_\_
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Angles of Incidence and Reflection**
+
+\textbf{59.} In optics, when light hits a surface, the angle of
+incidence equals the angle of reflection (measured from the
+perpendicular ``normal'' line).
+
+A laser beam hits a mirror at an angle of \(\frac{\pi}{6}\) radians from
+the normal. - (a) What is the angle of reflection? - (b) What is the
+total deflection of the beam (angle between incoming and outgoing rays)?
+
+\textbf{60.} In a periscope, light bounces off two mirrors. If each
+mirror is angled at 45° to the horizontal, through what total angle is
+the light path bent?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Microscopy: Numerical Aperture**
+
+The \textbf{numerical aperture} (NA) of a microscope objective
+determines its resolving power:
+
+\[NA = n \cdot \sin(\theta)\]
+
+where \(n\) is the refractive index of the medium and \(\theta\) is the
+half-angle of the cone of light entering the objective.
+
+\textbf{61.} An air-immersion objective (\(n = 1.0\)) has a half-angle
+of 60°. - (a) Find \(\sin(60°)\). - (b) Calculate the numerical
+aperture.
+
+\textbf{62.} An oil-immersion objective (\(n = 1.52\)) has a half-angle
+of 70°. - (a) Find \(\sin(70°)\) using a calculator (≈ 0.940). - (b)
+Calculate the numerical aperture. - (c) Why does using oil allow for
+higher NA and better resolution?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Lithography: The Diffraction Limit**
+
+In semiconductor manufacturing, the smallest feature size that can be
+printed is limited by:
+
+\[\text{Resolution} = k_1 \cdot \frac{\lambda}{NA}\]
+
+where \(\lambda\) is the wavelength of light, NA is the numerical
+aperture, and \(k_1\) is a process factor (typically around 0.25-0.4).
+
+\textbf{63.} Extreme ultraviolet (EUV) lithography uses
+\(\lambda = 13.5\) nm and has NA ≈ 0.33. - (a) With \(k_1 = 0.3\), what
+is the theoretical minimum feature size? - (b) Current chips have 3nm
+features. Does this seem achievable with these parameters?
+
+\textbf{64.} Older lithography used deep ultraviolet (DUV) light at
+\(\lambda = 193\) nm with NA ≈ 1.35 (using immersion). - (a) With
+\(k_1 = 0.3\), what resolution is achievable? - (b) Why did the industry
+need to move to EUV for smaller features?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}

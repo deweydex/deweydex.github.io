@@ -1,0 +1,391 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 4C: Advanced Rules --- Derivatives and Their Integral Inverses},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 4C: Advanced Rules --- Derivatives and Their Integral
+Inverses}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+Each derivative rule has an integral counterpart: - \textbf{Product
+Rule} ↔ \textbf{Integration by Parts}\\
+- \textbf{Chain Rule} ↔ \textbf{Substitution (u-sub)}
+
+These are inverse operations!
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-the-product-rule-12-problems}{%
+\subsection{Part A: The Product Rule (12
+problems)}\label{part-a-the-product-rule-12-problems}}
+
+\[\frac{d}{dx}[u \cdot v] = u' \cdot v + u \cdot v'\]
+
+\textbf{Find the derivative:}
+
+\textbf{1.} \(f(x) = x^2(x + 1)\)
+
+\textbf{2.} \(g(t) = t^3(t - 4)\)
+
+\textbf{3.} \(h(p) = (p + 2)(p - 5)\)
+
+\textbf{4.} \(y = (2x + 1)(3x - 2)\)
+
+\textbf{5.} \(f(m) = m^2(m^2 + 3m - 1)\)
+
+\textbf{6.} \(g(r) = (r^2 - 1)(r^2 + 1)\)
+
+\textbf{7.} Verify problem 3 by expanding first.
+
+\textbf{8.} Verify problem 6 by simplifying first:
+\((r^2-1)(r^2+1) = ?\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{With Chain Rule:}
+
+\textbf{9.} \(h(x) = x^2(x + 1)^3\)
+
+\textbf{10.} \(y = (t + 1)^2(t - 1)^3\)
+
+\textbf{11.} \(f(k) = k(2k + 1)^4\)
+
+\textbf{12.} \(g(n) = (n^2 + 1)^2(n - 1)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-integration-by-parts-reversing-product-rule-10-problems}{%
+\subsection{Part B: Integration by Parts --- Reversing Product Rule (10
+problems)}\label{part-b-integration-by-parts-reversing-product-rule-10-problems}}
+
+\[\int u \, dv = uv - \int v \, du\]
+
+\textbf{Connection:} If \(\frac{d}{dx}[f \cdot g] = f'g + fg'\), then
+\(\int (f'g + fg') dx = fg + C\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{13.} The derivative of \(x^2(x+1)\) is \(3x^2 + 2x\).
+
+Therefore: \(\int (3x^2 + 2x) dx ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{14.} The derivative of \((x-1)(x+3)\) is \(2x + 2\).
+
+Therefore: \(\int (2x + 2) dx ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{15.} Find \(\frac{d}{dx}[(2x+1)(x-2)]\). Then verify
+\(\int [\text{your answer}] dx\) gives back \((2x+1)(x-2) + C\).
+
+\textbf{16.} Start with \(f(x) = x(x+1)^2\). Differentiate, then
+integrate your answer.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Direct Integration (for comparison):}
+
+\textbf{17.} \(\int (3x^2 + 2x) dx ={}\)
+
+\textbf{18.} \(\int (2x + 2) dx ={}\)
+
+\textbf{19.} Compare: Are problems 13 \& 17 the same? Are 14 \& 18 the
+same (up to constants)?
+
+\textbf{20.} Explain why integration is ``harder'' than differentiation:
+
+\begin{itemize}
+\tightlist
+\item
+  Differentiation: clear rules always work
+\item
+  Integration: may require \_\_\_\_\_\_\_\_\_\_ or may not have closed
+  form
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Preview: Integration by Parts with transcendentals (Worksheet
+4D)}
+
+\textbf{21.} We'll need by parts for \(\int x \cdot e^x dx\) because we
+can't \_\_\_\_\_\_\_\_\_\_.
+
+\textbf{22.} And for \(\int x \cdot \sin(x) dx\) because
+\_\_\_\_\_\_\_\_\_\_.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-the-quotient-rule-10-problems}{%
+\subsection{Part C: The Quotient Rule (10
+problems)}\label{part-c-the-quotient-rule-10-problems}}
+
+\[\frac{d}{dx}\left[\frac{u}{v}\right] = \frac{u'v - uv'}{v^2}\]
+
+\textbf{Find the derivative:}
+
+\textbf{23.} \(f(x) = \frac{x}{x + 2}\)
+
+\textbf{24.} \(g(t) = \frac{t^2}{t - 1}\)
+
+\textbf{25.} \(h(p) = \frac{p + 1}{p - 1}\)
+
+\textbf{26.} \(y = \frac{x^2 + 1}{x}\)
+
+\textbf{27.} \(f(m) = \frac{1}{m^2 + 1}\)
+
+\textbf{28.} \(g(r) = \frac{r^3}{r^2 + 1}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Quotient Rule vs.~Rewriting:}
+
+\textbf{29.} Find \(\frac{d}{dx}\left[\frac{1}{x^3}\right]\) two ways: -
+(a) Quotient rule - (b) Rewrite as \(x^{-3}\)
+
+\textbf{30.} Find \(\frac{d}{dx}\left[\frac{x^4 + 2x^2}{x^2}\right]\) by
+simplifying first.
+
+\textbf{31.} Simplify first, then differentiate:
+\(\frac{x^2 - 1}{x + 1}\)
+
+\textbf{32.} When MUST you use quotient rule? (When denominator has
+\_\_\_\_\_\_\_\_ that don't cancel)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-the-chain-rule-16-problems}{%
+\subsection{Part D: The Chain Rule (16
+problems)}\label{part-d-the-chain-rule-16-problems}}
+
+\[\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)\]
+
+\textbf{``Derivative of outside × derivative of inside''}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the derivative:}
+
+\textbf{33.} \(f(x) = (x + 3)^4\)
+
+\textbf{34.} \(g(t) = (2t - 1)^5\)
+
+\textbf{35.} \(h(p) = (p^2 + 1)^3\)
+
+\textbf{36.} \(y = (3x^2 - x)^4\)
+
+\textbf{37.} \(f(m) = (m^3 + m)^2\)
+
+\textbf{38.} \(g(r) = (1 - r^2)^6\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Negative and Fractional Powers:}
+
+\textbf{39.} \(h(x) = (x + 1)^{-1}\)
+
+\textbf{40.} \(y = (t^2 + 4)^{-2}\)
+
+\textbf{41.} \(f(k) = \sqrt{k + 5}\)
+
+\textbf{42.} \(g(n) = \sqrt{n^2 + 1}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Verify by Expanding:}
+
+\textbf{43.} \((x + 2)^3\): Use chain rule, then expand and
+differentiate. Same answer?
+
+\textbf{44.} \((2x - 1)^2\): Both methods.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Combining Rules:}
+
+\textbf{45.} \(f(x) = x^2(x + 1)^3\) (product + chain)
+
+\textbf{46.} \(g(t) = \frac{t}{(t + 1)^2}\) (quotient + chain)
+
+\textbf{47.} \(h(x) = \sqrt{x(x + 4)}\) (chain with product inside)
+
+\textbf{48.} \(y = \left(\frac{x}{x+1}\right)^3\) (chain on quotient)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-e-substitution-reversing-the-chain-rule-16-problems}{%
+\subsection{Part E: Substitution --- Reversing the Chain Rule (16
+problems)}\label{part-e-substitution-reversing-the-chain-rule-16-problems}}
+
+\[\int f(g(x)) \cdot g'(x) \, dx = F(g(x)) + C\]
+
+\textbf{Let \(u = g(x)\), then \(du = g'(x) dx\)}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Perfect Cases:}
+
+\textbf{49.} \(\int 3x^2(x^3 + 1)^4 \, dx\)
+
+Let \(u = x^3 + 1\), \(du = 3x^2 dx\)
+
+\(= \int u^4 du ={}\)
+
+\textbf{50.} \(\int 2t(t^2 - 3)^5 \, dt\)
+
+\textbf{51.} \(\int 4p^3(p^4 + 2)^{-2} \, dp\)
+
+\textbf{52.} \(\int \frac{6x^2}{\sqrt{x^3 + 1}} \, dx\)
+
+\textbf{53.} \(\int (2m + 1)(m^2 + m)^3 \, dm\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Adjusting Constants:}
+
+\textbf{54.} \(\int x(x^2 + 1)^3 \, dx\)
+
+We need \(2x dx\) but have \(x dx\). So:
+\(x dx = \frac{1}{2}(2x dx) = \frac{1}{2}du\)
+
+\(= \frac{1}{2}\int u^3 du ={}\)
+
+\textbf{55.} \(\int t(t^2 + 5)^4 \, dt\)
+
+\textbf{56.} \(\int \frac{x}{\sqrt{x^2 + 4}} \, dx\)
+
+\textbf{57.} \(\int p^2(p^3 - 1)^2 \, dp\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Verify by Differentiating:}
+
+\textbf{58.} Check problem 49: Differentiate \(\frac{(x^3+1)^5}{5}\)
+using chain rule.
+
+\textbf{59.} Check problem 54: Differentiate \(\frac{(x^2+1)^4}{8}\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Connection to Chain Rule:}
+
+\textbf{60.} Chain rule: \(\frac{d}{dx}[(x^2+1)^5] = 10x(x^2+1)^4\)
+
+Therefore: \(\int 10x(x^2+1)^4 dx ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{61.} Chain rule: \(\frac{d}{dx}[(t^3-2)^4] = 12t^2(t^3-2)^3\)
+
+Therefore: \(\int 12t^2(t^3-2)^3 dt ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{62.} Explain: Substitution is ``chain rule backwards.''
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{More Practice:}
+
+\textbf{63.} \(\int (3x - 2)^4 \, dx\)
+
+\textbf{64.} \(\int (5t + 1)^{-3} \, dt\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-f-combining-everything-10-problems}{%
+\subsection{Part F: Combining Everything (10
+problems)}\label{part-f-combining-everything-10-problems}}
+
+\textbf{Differentiate:}
+
+\textbf{65.} \(\frac{x^2}{(x+1)^3}\)
+
+\textbf{66.} \(x(x^2 + 1)^{1/2}\)
+
+\textbf{67.} \(\frac{(x-1)^2}{(x+1)^2}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Integrate:}
+
+\textbf{68.} \(\int \frac{2x}{(x^2 + 1)^3} dx\)
+
+\textbf{69.} \(\int \frac{x}{\sqrt{x^2 + 9}} dx\)
+
+\textbf{70.} \(\int (x+1)(x^2 + 2x)^4 dx\)
+
+\emph{Hint: \(\frac{d}{dx}(x^2 + 2x) = 2x + 2 = 2(x + 1)\)}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Round-Trips:}
+
+\textbf{71.} Start with \((x^2 + 1)^3\). Differentiate, then integrate
+back.
+
+\textbf{72.} Start with \(x(x + 1)^2\). Differentiate, then integrate
+back.
+
+\textbf{73.} Start with \(\frac{x}{x+1}\). Differentiate, then integrate
+back.
+
+\textbf{74.} Why does ``differentiate then integrate'' give
+\(f(x) + C\), but ``integrate then differentiate'' gives exactly
+\(f(x)\)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}

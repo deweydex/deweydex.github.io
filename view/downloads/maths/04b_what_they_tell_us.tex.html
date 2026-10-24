@@ -1,0 +1,595 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name='robots' content='noindex'><title>04b_what_they_tell_us.tex | Joshua Aaron</title><meta name="description" content=""><style>
+:root{--ink:#1B2A4A;--accent:#C25A1E;--paper:#fbfaf7;--muted:#5f6b7a;--line:#e5e2da;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--ink:#e8ebf2;--accent:#f08a4b;--paper:#12182a;--muted:#a3adbd;--line:#2a3452;--card:#1a2238}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1rem}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:baseline;padding:.7rem 1rem}
+.brand{font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem}
+nav a{color:var(--ink);text-decoration:none;font-size:.95rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+section{scroll-margin-top:5.5rem;padding-top:1rem}section+section{border-top:1px solid var(--line);margin-top:2.5rem}
+h1{font-weight:normal;font-size:2.2rem;line-height:1.2;margin:2.2rem 0 .4rem}
+h2{font-weight:normal;font-size:1.7rem;margin:1.2rem 0 .6rem}h3{font-weight:normal;font-size:1.35rem;margin:2rem 0 .3rem;color:var(--accent)}
+h4{font-size:1.1rem;margin:1.6rem 0 .1rem}h4+p em{color:var(--muted)}
+.lede{color:var(--muted);font-size:1.15rem;margin-top:0}
+a.card{display:grid;gap:.1rem;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:.7rem 1rem;margin:.8rem 0;color:var(--ink);text-decoration:none}
+a.card .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}a.card .n{color:var(--muted);font-size:.95rem}
+.callout{border-left:4px solid var(--accent);background:var(--card);padding:.7rem 1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.callout::before{content:"Note";display:block;font:600 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.callout.tip{border-left-color:#2f7d4f}.callout.tip::before{content:"Tip";color:#2f7d4f}
+.callout.info{border-left-color:#2b6cb0}.callout.info::before{content:"Information";color:#2b6cb0}
+.callout.warning{border-left-color:#b7791f}.callout.warning::before{content:"Warning";color:#b7791f}
+.callout>p:last-child{margin-bottom:0}
+a.dl-btn{background:var(--accent);color:var(--paper);min-height:2.75rem;padding:0 1.3rem}a.dl-btn::after{content:" 97"}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.1rem 1rem;margin:1rem 0}summary{cursor:pointer;min-height:2.4rem;display:flex;align-items:center;font-weight:600}
+.pdf iframe{width:100%;height:32rem;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:.4rem .7rem;text-align:left}
+pre{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem;overflow:auto;font-size:.88rem}img{max-width:100%;height:auto}
+.sheet{border-top:1px solid var(--line);padding:.2rem 0 .6rem}.sheet h4{margin:1rem 0 .2rem}.sheet p{margin:.2rem 0}.crumb{margin:1.4rem 0 0;font-size:.95rem}
+.file{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0}
+.file.compact{padding:.45rem .7rem;margin:.35rem 0}
+.file .ext{grid-row:1;min-width:3.6rem;text-align:center;font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;padding:.45rem .3rem}
+.file .meta{display:grid;min-width:0}.file .meta strong{font-weight:600}.file .n{color:var(--muted);font-size:.9rem}
+.file .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}
+.file.compact .acts{grid-column:3;grid-row:1}.file.compact{grid-template-columns:auto 1fr auto}
+a.act,button.act{display:inline-flex;align-items:center;min-height:2.4rem;padding:0 .9rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;font:600 .88rem system-ui,sans-serif}
+a.act.dl{background:var(--accent);color:var(--paper)}a.act.dl::before{content:"↓ "}a.act.out::after{content:" ↗"}
+a.act:hover,a.act:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media(min-width:34rem){.file .acts{grid-column:3;grid-row:1}.file{grid-template-columns:auto 1fr auto}}
+.src{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem;overflow:auto;font:.85rem/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;tab-size:4}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}button.act{background:none;cursor:pointer;color:var(--accent)}
+.katex-display{overflow-x:auto;overflow-y:hidden}
+footer{border-top:1px solid var(--line);margin-top:4rem;padding:1.5rem 0;color:var(--muted);font-size:.9rem}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="brand" href="../../../#top">Joshua Aaron</a><nav><a href='../../../#projects'>Current Stuff</a><a href='../../../#about'>About</a><a href='../../../#contact'>Contact</a><a href='https://docs.superhuman.com/d/_dXwmZI3vjrc/_suQ2icZa' rel='noopener'>Current classes and workshops &#8599;</a></nav></div></header>
+<main class="wrap"><section id='top'><p class='crumb'><a href='javascript:history.back()'>&larr; Back</a></p><h1>04b_what_they_tell_us.tex</h1><div class='bar'><a class='act dl' href='../../../downloads/maths/04b_what_they_tell_us.tex' download>Download</a><button class='act' type='button' onclick="navigator.clipboard.writeText(document.getElementById('src').textContent).then(()=>{this.textContent='Copied'})">Copy text</button></div><pre class='src' id='src'>% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 4B: What Derivatives and Integrals Tell Us},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 4B: What Derivatives and Integrals Tell Us}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+We&#x27;ve learned \emph{how} to compute derivatives and integrals. Now:
+\emph{what do they mean}?
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Derivatives} → rate of change, slope, velocity,
+  increasing/decreasing
+\item
+  \textbf{Integrals} → accumulation, area, total distance, total
+  quantity
+\end{itemize}
+
+These interpretations are why calculus is so powerful!
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-derivatives-rate-of-change-and-slope-16-problems}{%
+\subsection{Part A: Derivatives --- Rate of Change and Slope (16
+problems)}\label{part-a-derivatives-rate-of-change-and-slope-16-problems}}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Derivative &amp; Meaning \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(f&#x27;(x) &gt; 0\) &amp; Function increasing ↗ \\
+\(f&#x27;(x) &lt; 0\) &amp; Function decreasing ↘ \\
+\(f&#x27;(x) = 0\) &amp; Horizontal tangent (potential max/min) \\
+\(f&#x27;&#x27;(x) &gt; 0\) &amp; Concave up ∪ \\
+\(f&#x27;&#x27;(x) &lt; 0\) &amp; Concave down ∩ \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{1.} For \(f(x) = x^2\), \(f&#x27;(x) = 2x\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Where is \(f\) increasing? Decreasing?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Where is the tangent horizontal?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is the slope at \(x = 3\)?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{2.} For \(g(x) = x^3 - 3x\):
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Find \(g&#x27;(x)\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Find critical points (where \(g&#x27;(x) = 0\)).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Classify as local max or min.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{3.} For \(h(t) = t^4 - 8t^2\):
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Find all critical points.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Use the first or second derivative test to classify each.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{4.} Find the tangent line to \(f(x) = x^2\) at \((2, 4)\).
+
+\textbf{5.} Find the tangent line to \(g(x) = x^3 - x\) at \(x = 1\).
+
+\textbf{6.} At what point(s) on \(y = x^3 - 12x\) is the tangent
+horizontal?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Physics Applications:}
+
+\textbf{7.} Height: \(h(t) = 20t - 5t^2\) meters.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Find velocity \(v(t) = h&#x27;(t)\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    When is velocity zero? What&#x27;s happening then?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Find acceleration \(a(t) = h&#x27;&#x27;(t)\). Interpret it.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{8.} Position: \(s(t) = t^3 - 6t^2 + 9t\) meters.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Find velocity and acceleration.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    When is the object at rest?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    When is acceleration zero?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Second Derivative and Concavity:}
+
+\textbf{9.} For \(f(x) = x^3\): - Where is \(f&#x27;&#x27;(x) &gt; 0\)? (Concave up)
+- Where is \(f&#x27;&#x27;(x) &lt; 0\)? (Concave down) - Where is the inflection
+point?
+
+\textbf{10.} For \(g(x) = x^4 - 6x^2\): - Find inflection points. -
+Describe concavity on each interval.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Optimization:}
+
+\textbf{11.} Profit: \(P(x) = -x^2 + 80x - 1200\). - Find the quantity
+maximizing profit. - Find maximum profit.
+
+\textbf{12.} Area with fixed perimeter: A rectangle has perimeter 100m.
+- Express area as \(A(w) = w(50 - w) = 50w - w^2\). - Find dimensions
+maximizing area.
+
+\textbf{13.} A ball&#x27;s height is \(h(t) = -5t^2 + 30t + 10\). - When does
+it reach maximum height? - What is the maximum height?
+
+\textbf{14.} Revenue: \(R(p) = 500p - 2p^2\). - Find price maximizing
+revenue. - Find maximum revenue.
+
+\textbf{15.} Cost: \(C(q) = q^3 - 12q^2 + 60q + 100\). - Find marginal
+cost \(C&#x27;(q)\). - At what quantity is marginal cost minimized?
+
+\textbf{16.} Summary: The derivative being zero tells us
+\_\_\_\_\_\_\_\_\_\_, and the second derivative&#x27;s sign tells us
+\_\_\_\_\_\_\_\_\_\_.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-integrals-accumulation-and-area-16-problems}{%
+\subsection{Part B: Integrals --- Accumulation and Area (16
+problems)}\label{part-b-integrals-accumulation-and-area-16-problems}}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Integral &amp; Meaning \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\int_a^b f(x) \, dx\) &amp; Signed area under curve \\
+\(\int v(t) \, dt\) &amp; Displacement \\
+\(\int r(t) \, dt\) &amp; Total quantity accumulated \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Area Under Curves:}
+
+\textbf{17.} Find the area under \(f(x) = 3\) from \(x = 1\) to
+\(x = 5\). - Geometrically: rectangle with base \_\_\_ and height \_\_\_
+- By integral: \(\int_1^5 3 \, dx ={}\)
+
+\textbf{18.} Find the area under \(f(x) = x\) from \(x = 0\) to
+\(x = 4\). - Geometrically: triangle - By integral:
+\(\int_0^4 x \, dx ={}\)
+
+\textbf{19.} \(\int_0^2 x^2 \, dx ={}\)
+
+\textbf{20.} \(\int_1^3 (2x + 1) \, dx ={}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Signed Area:}
+
+\textbf{21.} \(\int_{-2}^2 x \, dx ={}\) \_\_\_\_\_
+
+Why? (Think about symmetry)
+
+\textbf{22.} \(\int_{-1}^1 x^3 \, dx ={}\) \_\_\_\_\_
+
+This is an odd function on a symmetric interval.
+
+\textbf{23.} \(\int_{-2}^2 x^2 \, dx ={}\) \_\_\_\_\_
+
+This is an even function: \(\int_{-a}^a f(x) dx = 2\int_0^a f(x) dx\)
+
+\textbf{24.} For \(f(x) = x - 1\) from \(x = 0\) to \(x = 2\): - Sketch
+the function. - Where is it positive? Negative? - Calculate
+\(\int_0^2 (x - 1) dx\). Interpret the result.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Physical Applications:}
+
+\textbf{25.} Velocity: \(v(t) = 3t^2\) m/s. Find displacement from
+\(t = 0\) to \(t = 2\).
+
+\textbf{26.} Velocity: \(v(t) = t - 2\) m/s from \(t = 0\) to \(t = 4\).
+- (a) When is the object moving forward? Backward? - (b) Find net
+displacement: \(\int_0^4 (t - 2) dt\) - (c) Find total distance
+traveled.
+
+\textbf{27.} Flow rate: \(r(t) = 100 - 4t\) liters/min. - Find total
+flow from \(t = 0\) to \(t = 10\).
+
+\textbf{28.} Population growth rate: \(P&#x27;(t) = 200 + 10t\) people/year.
+- Find total growth over 5 years.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Accumulation Functions:}
+
+\textbf{29.} Let \(A(x) = \int_0^x t^2 \, dt\). - (a) Compute \(A(x)\)
+explicitly. - (b) Find \(A(1)\), \(A(2)\), \(A(3)\). - (c) Find
+\(A&#x27;(x)\). What do you notice?
+
+\textbf{30.} If \(F(x) = \int_1^x (t^3 + 1) dt\), what is \(F&#x27;(x)\)?
+
+(Use the Fundamental Theorem --- no need to compute the integral!)
+
+\textbf{31.} If \(G(x) = \int_0^x \sqrt{t} \, dt\), what is \(G&#x27;(x)\)?
+
+\textbf{32.} Explain: ``Integrating then differentiating gets you back
+to where you started.&#x27;&#x27;
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-the-fundamental-theorem-tying-it-together-12-problems}{%
+\subsection{Part C: The Fundamental Theorem --- Tying It Together (12
+problems)}\label{part-c-the-fundamental-theorem-tying-it-together-12-problems}}
+
+\textbf{The Fundamental Theorem of Calculus:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\frac{d}{dx}\left[\int_a^x f(t) \, dt\right] = f(x)\)
+\item
+  \(\int_a^b f(x) \, dx = F(b) - F(a)\) where \(F&#x27; = f\)
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Using Part 1:}
+
+\textbf{33.} \(\frac{d}{dx}\left[\int_0^x t^4 \, dt\right] ={}\)
+
+\textbf{34.} \(\frac{d}{dx}\left[\int_2^x (3s^2 - s) \, ds\right] ={}\)
+
+\textbf{35.}
+\(\frac{d}{dx}\left[\int_1^x \frac{1}{t^2} \, dt\right] ={}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Using Part 2:}
+
+\textbf{36.} \(\int_0^3 2x \, dx ={}\) (use antiderivative \(x^2\))
+
+\textbf{37.} \(\int_1^4 (x^2 - 1) \, dx ={}\)
+
+\textbf{38.} \(\int_0^8 x^{1/3} \, dx ={}\)
+
+\textbf{39.} \(\int_1^e \frac{1}{x} \, dx ={}\) (antiderivative is
+\(\ln x\); we&#x27;ll derive this in 4D!)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Round-Trip Verification:}
+
+\textbf{40.} Start with \(f(x) = x^3\). - Integrate:
+\(\int f(x) dx ={}\) - Differentiate your answer. - Did you get \(f(x)\)
+back?
+
+\textbf{41.} Start with \(g(x) = 6x^2 - 4x\). - Differentiate:
+\(g&#x27;(x) ={}\) - Integrate your answer. - Did you get \(g(x)\) back (plus
+C)?
+
+\textbf{42.} Explain the asymmetry: - Differentiating then integrating
+gives \(f(x) + C\) - Integrating then differentiating gives exactly
+\(f(x)\)
+
+Why the difference?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Connecting Position, Velocity, Acceleration:}
+
+\textbf{43.} Complete the chain:
+
+Position \(s(t)\) \(\xrightarrow{\text{derivative}}\) \_\_\_\_\_\_\_\_
+\(\xrightarrow{\text{derivative}}\) \_\_\_\_\_\_\_\_
+
+\_\_\_\_\_\_\_\_ \(\xrightarrow{\text{integral}}\) Velocity
+\(\xrightarrow{\text{integral}}\) \_\_\_\_\_\_\_\_
+
+\textbf{44.} An object has acceleration \(a(t) = 6t\), with \(v(0) = 2\)
+and \(s(0) = 1\). - Find \(v(t)\) by integrating \(a(t)\) and using the
+initial condition. - Find \(s(t)\) by integrating \(v(t)\) and using the
+initial condition.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-area-between-curves-8-problems}{%
+\subsection{Part D: Area Between Curves (8
+problems)}\label{part-d-area-between-curves-8-problems}}
+
+Area between \(f(x)\) and \(g(x)\) from \(a\) to \(b\):
+
+\[\text{Area} = \int_a^b |f(x) - g(x)| \, dx\]
+
+If \(f(x) \geq g(x)\) on \([a,b]\): Area
+\(= \int_a^b (f(x) - g(x)) \, dx\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{45.} Find area between \(y = x^2\) and \(y = x\) from \(x = 0\)
+to \(x = 1\). - Which is on top? - Set up and compute the integral.
+
+\textbf{46.} Find area between \(y = x^2\) and \(y = 4\). - Find
+intersection points. - Set up and compute.
+
+\textbf{47.} Find area enclosed by \(y = x^2\) and \(y = 2x\). - Find
+intersections. - Integrate from intersection to intersection.
+
+\textbf{48.} Find area between \(y = x^3\) and \(y = x\) from \(x = -1\)
+to \(x = 1\). - Careful: which is on top changes at \(x = 0\)!
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Applications:}
+
+\textbf{49.} Consumer Surplus: Demand is \(p = 50 - 2q\), equilibrium
+price is \(p^* = 30\). - Consumer surplus =
+\(\int_0^{q^*} (50 - 2q - 30) dq\) - Find \(q^*\) and calculate surplus.
+
+\textbf{50.} The area between a velocity curve and the t-axis represents
+\_\_\_\_\_\_\_\_\_\_.
+
+\textbf{51.} The area between two position curves represents the
+\_\_\_\_\_\_\_\_\_\_ between them.
+
+\textbf{52.} Gini Coefficient: Perfect equality is \(y = x\). A Lorenz
+curve is \(y = x^2\). - Gini =
+\(\frac{\text{Area between curves}}{\text{Area under } y = x}\) -
+Calculate it.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-e-connecting-to-ml-and-optimization-8-problems}{%
+\subsection{Part E: Connecting to ML and Optimization (8
+problems)}\label{part-e-connecting-to-ml-and-optimization-8-problems}}
+
+\textbf{53.} Loss function: \(L(w) = w^2 - 6w + 10\). - Find \(L&#x27;(w)\).
+- Find the minimum. - Verify with second derivative.
+
+\textbf{54.} Gradient descent update:
+\(w_{new} = w_{old} - \alpha \cdot L&#x27;(w_{old})\)
+
+For \(L(w) = w^2 - 4w + 5\) with \(\alpha = 0.1\), starting at
+\(w_0 = 0\): - Calculate \(w_1\), \(w_2\), \(w_3\). - What value is
+\(w\) approaching?
+
+\textbf{55.} Total loss over dataset \([0, 4]\) with loss function
+\(\ell(x) = (x - 2)^2\):
+
+Total = \(\int_0^4 (x-2)^2 dx\). Calculate it.
+
+\textbf{56.} Mean loss = \(\frac{1}{4}\int_0^4 (x-2)^2 dx\). Calculate
+it.
+
+\textbf{57.} Regularized loss: \(L(w) = (w - 5)^2 + 0.5w^2\). - Expand
+and simplify. - Find optimal \(w\). - Compare to unregularized optimum
+\(w = 5\).
+
+\textbf{58.} Explain: Why is finding where \(L&#x27;(w) = 0\) central to
+training ML models?
+
+\textbf{59.} Explain: Why might we care about \(\int L(w) dw\) over a
+region of weight space?
+
+\textbf{60.} The Fundamental Theorem connects local information
+(derivative at a point) to global information (integral over an
+interval). How does this relate to: - Local vs.~global minima in
+optimization? - Gradient (local) vs.~total loss (global)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}
+</pre></section></main>
+<footer><div class="wrap"><p>Joshua Aaron, Dublin. Teaching material is shared under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a> unless a page says otherwise.</p></div></footer><script></script></body></html>

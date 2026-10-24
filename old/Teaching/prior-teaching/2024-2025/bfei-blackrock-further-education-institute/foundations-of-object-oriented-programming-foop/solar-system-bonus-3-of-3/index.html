@@ -1,0 +1,238 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>Solar System Explorer — Bonus 3 of 3 (archive)</title><style>
+body{margin:0;background:#fbfaf7;color:#1B2A4A;font-family:Georgia,serif;line-height:1.6}
+main{max-width:44rem;margin:0 auto;padding:1.5rem 1rem 4rem}a{color:#D4692A}
+.banner{background:#1B2A4A;color:#fff;padding:.6rem 1rem;font-size:.9rem}.banner a{color:#fff}
+nav ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1rem}
+table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:.3rem .6rem}img{max-width:100%}pre{overflow:auto;background:#fff;padding:.7rem;border:1px solid #e5e2da}
+</style></head><body><div class="banner">Archive of the previous site. It is no longer updated. <a href="/">Go to the current site</a></div>
+<main><nav><ul><li><a href="/old/">Archive home</a></li><li><a href="/old/Consulting-and-Collaboration/">For Colleagues</a></li><li><a href="/old/Teaching/">Teaching</a></li><li><a href="/old/Writings/">Writings</a></li><li><a href="/old/contact/">Contact</a></li><li><a href="/old/current-teaching/">Current Teaching</a></li></ul></nav><h1>Solar System Explorer — Bonus 3 of 3</h1><h1 id="solar-system-explorer-advanced-extensions">Solar System Explorer: Advanced Extensions</h1>
+<p><em>Part 3 of 3 — Adding new location types, a fuel system, distance calculation, and weather</em></p>
+<p>This bonus instalment extends the Solar System Explorer with features that demonstrate more advanced OOP concepts: inheritance from a concrete class (not just an abstract base), composition, and richer polymorphic behaviour.</p>
+<hr />
+<h2 id="new-location-types">New Location Types</h2>
+<h3 id="asteroid">Asteroid</h3>
+<pre><code class="language-csharp">public class Asteroid : CelestialLocation
+{
+    public double Size { get; set; } // diameter in km
+    public bool IsMiningOperation { get; set; }
+
+    public Asteroid(string name, double size, bool isMiningOperation, string funFact) 
+        : base(name, funFact)
+    {
+        Size = size;
+        IsMiningOperation = isMiningOperation;
+    }
+
+    public override string GetInfo()
+    {
+        string miningStatus = IsMiningOperation 
+            ? &quot;Active mining operation — watch out for flying rocks!&quot; 
+            : &quot;Pristine asteroid — great for sightseeing!&quot;;
+        return $&quot;{base.GetInfo()}\nSize: {Size} km diameter\n{miningStatus}&quot;;
+    }
+
+    public override string GetArrivalMessage()
+    {
+        string activity = IsMiningOperation 
+            ? &quot;Mining lasers detected! Activating protective shields!&quot; 
+            : &quot;Beautiful quiet rock in space. Perfect for some zero-gravity meditation.&quot;;
+        return $&quot;Anchoring to asteroid {Name} with gravity hooks! {activity}&quot;;
+    }
+
+    public override string GetDepartureMessage()
+    {
+        return $&quot;Detaching from {Name}. &quot; + 
+               (IsMiningOperation ? &quot;Collecting those space rocks was exhausting!&quot; 
+                                  : &quot;Mind the floating debris on the way out!&quot;);
+    }
+}
+</code></pre>
+<h3 id="blackhole">BlackHole</h3>
+<pre><code class="language-csharp">public class BlackHole : CelestialLocation
+{
+    public double Mass { get; set; } // in solar masses
+    public bool IsSupermassive { get; set; }
+
+    public BlackHole(string name, double mass, bool isSupermassive, string funFact) 
+        : base(name, funFact)
+    {
+        Mass = mass;
+        IsSupermassive = isSupermassive;
+    }
+
+    public override string GetInfo()
+    {
+        string sizeCategory = IsSupermassive ? &quot;Supermassive&quot; : &quot;Stellar&quot;;
+        return $&quot;{base.GetInfo()}\n{sizeCategory} Black Hole\nMass: {Mass} solar masses\n&quot; +
+               &quot;WARNING: Approach within safe distance only. Time dilation in effect.&quot;;
+    }
+
+    public override string GetArrivalMessage()
+    {
+        if (IsSupermassive)
+            return $&quot;Approaching {Name} at safe observation distance. &quot; +
+                   &quot;Time dilation detected — you may age differently than expected. &quot; +
+                   &quot;Please synchronize your watches upon return.&quot;;
+
+        return $&quot;Observing stellar black hole {Name} from a very safe distance. &quot; +
+               &quot;Spaghettification risk assessed: high. Staying right here.&quot;;
+    }
+
+    public override string GetDepartureMessage()
+    {
+        return $&quot;Firing escape thrusters at maximum power to leave {Name}'s gravitational influence. &quot; +
+               &quot;Note: Due to time dilation, slightly more time has passed back home than it feels like.&quot;;
+    }
+}
+</code></pre>
+<hr />
+<h2 id="fuel-system">Fuel System</h2>
+<pre><code class="language-csharp">public class EnhancedSolarSystemMap : SolarSystemMap
+{
+    public double FuelLevel { get; private set; }
+    public double MaxFuel { get; private set; }
+
+    public EnhancedSolarSystemMap(double maxFuel = 1000.0) : base()
+    {
+        MaxFuel = maxFuel;
+        FuelLevel = maxFuel;
+    }
+
+    public double CalculateTravelCost(CelestialLocation from, CelestialLocation to)
+    {
+        double baseCost = 50.0;
+
+        // Planet-to-planet: cost based on distance difference
+        if (from is Planet fromPlanet &amp;&amp; to is Planet toPlanet)
+            return baseCost + Math.Abs(fromPlanet.DistanceFromSun - toPlanet.DistanceFromSun) * 0.1;
+
+        // Moons are cheaper to reach from their parent planet
+        if (to is Moon moon &amp;&amp; from is Planet planet &amp;&amp; moon.ParentPlanet == planet.Name)
+            return baseCost * 0.5;
+
+        // Space stations are cheap to dock with
+        if (to is SpaceStation)
+            return baseCost * 0.3;
+
+        // Black holes: premium pricing for the experience
+        if (to is BlackHole)
+            return baseCost * 5.0;
+
+        return baseCost;
+    }
+
+    public double CalculateDistance(CelestialLocation from, CelestialLocation to)
+    {
+        if (from is Planet fromPlanet &amp;&amp; to is Planet toPlanet)
+            return Math.Abs(fromPlanet.DistanceFromSun - toPlanet.DistanceFromSun);
+
+        return 50.0; // simplified for moons/stations
+    }
+
+    public void Refuel(double amount)
+    {
+        double added = Math.Min(amount, MaxFuel - FuelLevel);
+        FuelLevel += added;
+        Console.WriteLine($&quot;Refueled +{added:F1} units. Tank: {FuelLevel:F1}/{MaxFuel:F1}&quot;);
+    }
+
+    public List&lt;CelestialLocation&gt; ShowNearbyLocations(double maxDistance = 500.0)
+    {
+        return GetAllLocations()
+            .Where(loc =&gt; loc != CurrentLocation &amp;&amp; CalculateDistance(CurrentLocation, loc) &lt;= maxDistance)
+            .OrderBy(loc =&gt; CalculateDistance(CurrentLocation, loc))
+            .ToList();
+    }
+}
+</code></pre>
+<hr />
+<h2 id="weather-system-composition">Weather System (Composition)</h2>
+<p><code>WeatherSystem</code> is not a subclass of anything — it's a standalone component that could be held by the map and consulted during travel.</p>
+<pre><code class="language-csharp">public class WeatherCondition
+{
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public bool AffectsTravel { get; set; }
+    public double FuelCostMultiplier { get; set; }
+
+    public WeatherCondition(string name, string description, bool affectsTravel, double fuelCostMultiplier = 1.0)
+    {
+        Name = name;
+        Description = description;
+        AffectsTravel = affectsTravel;
+        FuelCostMultiplier = fuelCostMultiplier;
+    }
+}
+
+public class WeatherSystem
+{
+    private static Random random = new Random();
+
+    private static List&lt;WeatherCondition&gt; possibleConditions = new List&lt;WeatherCondition&gt;
+    {
+        new WeatherCondition(&quot;Clear&quot;, &quot;Perfect visibility. Stars visible in all directions.&quot;, false, 1.0),
+        new WeatherCondition(&quot;Solar Wind&quot;, &quot;Charged particles from the sun. Minor navigation adjustment required.&quot;, true, 1.2),
+        new WeatherCondition(&quot;Meteor Shower&quot;, &quot;Beautiful but hazardous debris field. Shields up!&quot;, true, 1.5),
+        new WeatherCondition(&quot;Cosmic Ray Burst&quot;, &quot;High-energy particles. Electronic systems may be affected.&quot;, true, 1.3),
+        new WeatherCondition(&quot;Gravitational Anomaly&quot;, &quot;Unexpected mass detected. Navigation computers working overtime.&quot;, true, 1.8),
+        new WeatherCondition(&quot;Nebula Cloud&quot;, &quot;Dense ionized gas cloud. Visibility reduced but spectacular.&quot;, true, 1.4)
+    };
+
+    public static WeatherCondition GetCurrentCondition()
+    {
+        return possibleConditions[random.Next(possibleConditions.Count)];
+    }
+
+    public static void ReportWeather()
+    {
+        WeatherCondition condition = GetCurrentCondition();
+        Console.WriteLine($&quot;\n=== Space Weather Report ===&quot;);
+        Console.WriteLine($&quot;Condition: {condition.Name}&quot;);
+        Console.WriteLine($&quot;Description: {condition.Description}&quot;);
+
+        if (condition.AffectsTravel)
+            Console.WriteLine($&quot;Travel Impact: Fuel costs x{condition.FuelCostMultiplier:F1}&quot;);
+        else
+            Console.WriteLine(&quot;Travel Impact: None&quot;);
+    }
+}
+</code></pre>
+<hr />
+<h2 id="full-demo">Full Demo</h2>
+<pre><code class="language-csharp">class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(&quot;=== Solar System Explorer 3.0: Advanced Edition ===\n&quot;);
+
+        WeatherSystem.ReportWeather();
+
+        EnhancedSolarSystemMap solarSystem = new EnhancedSolarSystemMap(maxFuel: 2000.0);
+
+        solarSystem.AddLocation(new Planet(&quot;Mars&quot;, 227.9, false, &quot;Home to Olympus Mons!&quot;));
+        solarSystem.AddLocation(new Planet(&quot;Saturn&quot;, 1433.5, true, &quot;Ring system fills the Earth-Moon distance!&quot;));
+        solarSystem.AddLocation(new Moon(&quot;Europa&quot;, &quot;Jupiter&quot;, true, &quot;Subsurface ocean detected!&quot;));
+        solarSystem.AddLocation(new SpaceStation(&quot;Refuelling Depot Alpha&quot;, &quot;Mars&quot;, 50, 
+            &quot;Best fuel prices in the inner solar system!&quot;));
+        solarSystem.AddLocation(new Asteroid(&quot;Ceres&quot;, 940, true, 
+            &quot;Largest object in the asteroid belt — with miners!&quot;));
+        solarSystem.AddLocation(new BlackHole(&quot;Cygnus X-1&quot;, 14.8, false, 
+            &quot;First black hole ever confirmed. Classic.&quot;));
+
+        Console.WriteLine(&quot;\n=== Journey Begins ===&quot;);
+        solarSystem.TravelTo(&quot;Refuelling Depot Alpha&quot;);
+        solarSystem.Refuel(500);
+        solarSystem.TravelTo(&quot;Saturn&quot;);
+        solarSystem.TravelTo(&quot;Cygnus X-1&quot;);
+    }
+}
+</code></pre>
+<hr />
+<h2 id="what-these-extensions-demonstrate">What These Extensions Demonstrate</h2>
+<p><strong>Inheritance from a concrete class</strong>: <code>EnhancedSolarSystemMap</code> extends <code>SolarSystemMap</code>. This adds fuel tracking and distance calculation without rewriting the core map logic.</p>
+<p><strong>Composition over inheritance</strong>: <code>WeatherSystem</code> is not a subclass of anything. The map could hold a <code>WeatherSystem</code> instance and consult it during travel calculations. This keeps concerns separated without forcing an inheritance relationship.</p>
+<p><strong>Polymorphism still works</strong>: <code>Asteroid</code> and <code>BlackHole</code> are new subclasses of <code>CelestialLocation</code>. <code>TravelTo</code> doesn't need to know about either — it just calls <code>GetArrivalMessage()</code> and the right version runs.</p>
+<p><strong>Open/closed principle</strong>: The system is open for extension (add a new location type) and closed for modification (no changes to existing code needed to support it).</p>
+<hr />
+<p><em>See <a href="./solar-system-oop-1-of-3">Solar System 1 of 3</a> for the original procedural-vs-OOP comparison, or <a href="./solar-system-2-of-3">Solar System 2 of 3</a> for the notebook version.</em></p></main></body></html>

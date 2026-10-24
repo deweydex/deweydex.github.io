@@ -1,0 +1,473 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>Solar System Explorer — OOP 1 of 3 (archive)</title><style>
+body{margin:0;background:#fbfaf7;color:#1B2A4A;font-family:Georgia,serif;line-height:1.6}
+main{max-width:44rem;margin:0 auto;padding:1.5rem 1rem 4rem}a{color:#D4692A}
+.banner{background:#1B2A4A;color:#fff;padding:.6rem 1rem;font-size:.9rem}.banner a{color:#fff}
+nav ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1rem}
+table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:.3rem .6rem}img{max-width:100%}pre{overflow:auto;background:#fff;padding:.7rem;border:1px solid #e5e2da}
+</style></head><body><div class="banner">Archive of the previous site. It is no longer updated. <a href="/">Go to the current site</a></div>
+<main><nav><ul><li><a href="/old/">Archive home</a></li><li><a href="/old/Consulting-and-Collaboration/">For Colleagues</a></li><li><a href="/old/Teaching/">Teaching</a></li><li><a href="/old/Writings/">Writings</a></li><li><a href="/old/contact/">Contact</a></li><li><a href="/old/current-teaching/">Current Teaching</a></li></ul></nav><h1>Solar System Explorer — OOP 1 of 3</h1><h1 id="solar-system-explorer-a-whimsical-journey-through-oop">Solar System Explorer: A Whimsical Journey Through OOP</h1>
+<p><em>Part 1 of 3 — Managing Solar System Locations with Basic Data Structures, then rebuilding with classes</em></p>
+<hr />
+<h2 id="part-1-the-procedural-approach">Part 1: The Procedural Approach</h2>
+<p>Let's start by creating a simple solar system explorer using basic C# data structures — lists and dictionaries — and see where it breaks down.</p>
+<pre><code class="language-csharp">using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Create lists of locations by type
+        List&lt;Dictionary&lt;string, object&gt;&gt; planets = new List&lt;Dictionary&lt;string, object&gt;&gt;
+        {
+            new Dictionary&lt;string, object&gt;
+            {
+                {&quot;name&quot;, &quot;Mars&quot;}, 
+                {&quot;distanceFromSun&quot;, 227.9}, 
+                {&quot;hasRings&quot;, false}, 
+                {&quot;funFact&quot;, &quot;Home to Olympus Mons, the tallest mountain in the solar system!&quot;}
+            },
+            new Dictionary&lt;string, object&gt;
+            {
+                {&quot;name&quot;, &quot;Saturn&quot;}, 
+                {&quot;distanceFromSun&quot;, 1433.5}, 
+                {&quot;hasRings&quot;, true}, 
+                {&quot;funFact&quot;, &quot;Its rings would make a fabulous hula hoop for a giant!&quot;}
+            }
+        };
+
+        List&lt;Dictionary&lt;string, object&gt;&gt; moons = new List&lt;Dictionary&lt;string, object&gt;&gt;
+        {
+            new Dictionary&lt;string, object&gt;
+            {
+                {&quot;name&quot;, &quot;Europa&quot;}, 
+                {&quot;parentPlanet&quot;, &quot;Jupiter&quot;}, 
+                {&quot;hasWater&quot;, true}, 
+                {&quot;funFact&quot;, &quot;Has an ocean under its icy crust where space fish might be doing the backstroke!&quot;}
+            },
+            new Dictionary&lt;string, object&gt;
+            {
+                {&quot;name&quot;, &quot;Titan&quot;}, 
+                {&quot;parentPlanet&quot;, &quot;Saturn&quot;}, 
+                {&quot;hasWater&quot;, false}, 
+                {&quot;funFact&quot;, &quot;Has lakes of liquid methane! Not recommended for skinny dipping.&quot;}
+            }
+        };
+
+        List&lt;Dictionary&lt;string, object&gt;&gt; spaceStations = new List&lt;Dictionary&lt;string, object&gt;&gt;
+        {
+            new Dictionary&lt;string, object&gt;
+            {
+                {&quot;name&quot;, &quot;ISS&quot;}, 
+                {&quot;orbitingBody&quot;, &quot;Earth&quot;}, 
+                {&quot;crewCapacity&quot;, 7}, 
+                {&quot;funFact&quot;, &quot;Astronauts see 16 sunrises every day! Talk about needing coffee.&quot;}
+            },
+            new Dictionary&lt;string, object&gt;
+            {
+                {&quot;name&quot;, &quot;Lunar Gateway&quot;}, 
+                {&quot;orbitingBody&quot;, &quot;Moon&quot;}, 
+                {&quot;crewCapacity&quot;, 4}, 
+                {&quot;funFact&quot;, &quot;Future lunar outpost where astronauts will practice their moon walks!&quot;}
+            }
+        };
+
+        // Track current location
+        Dictionary&lt;string, object&gt; currentLocation = planets[0]; // Start on Mars
+        string currentLocationType = &quot;planet&quot;;
+
+        Console.WriteLine(&quot;Welcome to the Solar System Explorer 1.0!&quot;);
+        Console.WriteLine($&quot;You are currently on {currentLocation[&quot;name&quot;]}, a {currentLocationType}.&quot;);
+        Console.WriteLine($&quot;Fun fact: {currentLocation[&quot;funFact&quot;]}&quot;);
+
+        TravelTo(&quot;Titan&quot;, currentLocation, currentLocationType, planets, moons, spaceStations);
+    }
+
+    static void TravelTo(string destinationName, Dictionary&lt;string, object&gt; currentLocation, string currentLocationType,
+                         List&lt;Dictionary&lt;string, object&gt;&gt; planets, List&lt;Dictionary&lt;string, object&gt;&gt; moons, 
+                         List&lt;Dictionary&lt;string, object&gt;&gt; spaceStations)
+    {
+        Dictionary&lt;string, object&gt; destination = null;
+        string destinationType = null;
+
+        foreach (var planet in planets)
+        {
+            if ((string)planet[&quot;name&quot;] == destinationName)
+            {
+                destination = planet;
+                destinationType = &quot;planet&quot;;
+                break;
+            }
+        }
+
+        if (destination == null)
+        {
+            foreach (var moon in moons)
+            {
+                if ((string)moon[&quot;name&quot;] == destinationName)
+                {
+                    destination = moon;
+                    destinationType = &quot;moon&quot;;
+                    break;
+                }
+            }
+        }
+
+        if (destination == null)
+        {
+            foreach (var station in spaceStations)
+            {
+                if ((string)station[&quot;name&quot;] == destinationName)
+                {
+                    destination = station;
+                    destinationType = &quot;space station&quot;;
+                    break;
+                }
+            }
+        }
+
+        if (destination == null)
+        {
+            Console.WriteLine($&quot;Oh no! {destinationName} couldn't be found on any star chart!&quot;);
+            return;
+        }
+
+        Console.WriteLine($&quot;\nFiring up the warp drives! Zooooom!&quot;);
+        Console.WriteLine($&quot;Traveling from {currentLocation[&quot;name&quot;]} to {destination[&quot;name&quot;]}...&quot;);
+
+        if (currentLocationType == &quot;planet&quot; &amp;&amp; destinationType == &quot;moon&quot;)
+            Console.WriteLine(&quot;Planet to moon travel: Reducing thrusters as we approach this smaller celestial body!&quot;);
+        else if (currentLocationType == &quot;moon&quot; &amp;&amp; destinationType == &quot;planet&quot;)
+            Console.WriteLine(&quot;Moon to planet travel: Increasing gravity compensators for landing on this massive orb!&quot;);
+        else if (destinationType == &quot;space station&quot;)
+            Console.WriteLine(&quot;Approaching space station: Remember to use the docking protocols and not the parking brake!&quot;);
+
+        Console.WriteLine($&quot;Arrival complete at {destination[&quot;name&quot;]}, a {destinationType}.&quot;);
+        Console.WriteLine($&quot;Fun fact: {destination[&quot;funFact&quot;]}&quot;);
+    }
+}
+</code></pre>
+<h3 id="limitations-of-the-procedural-approach">Limitations of the Procedural Approach</h3>
+<p>This works, but it has real problems:</p>
+<ol>
+<li><strong>Repetitive code</strong> — We need separate loops to find each location type, and this gets unmanageable as we add more types.</li>
+<li><strong>Parameter overload</strong> — Look at all those parameters in <code>TravelTo</code>. It's like trying to pack an entire rocket in your carry-on.</li>
+<li><strong>State management</strong> — Tracking current location and its type separately is error-prone. What if they get out of sync?</li>
+<li><strong>Separation of data and logic</strong> — The travel logic is completely separated from the location data.</li>
+<li><strong>No type safety</strong> — We're using strings to track types, which is about as reliable as delivering pizza to Jupiter.</li>
+</ol>
+<p>Let's fix all of this with OOP.</p>
+<hr />
+<h2 id="part-2-a-class-based-solar-system-explorer">Part 2: A Class-Based Solar System Explorer</h2>
+<pre><code class="language-csharp">using System;
+
+// Base class for all space locations
+public abstract class CelestialLocation
+{
+    public string Name { get; set; }
+    public string FunFact { get; set; }
+
+    public CelestialLocation(string name, string funFact)
+    {
+        Name = name;
+        FunFact = funFact;
+    }
+
+    public virtual string GetInfo()
+    {
+        return $&quot;{Name}: {FunFact}&quot;;
+    }
+
+    // Each location type provides its own messaging
+    public abstract string GetArrivalMessage();
+    public abstract string GetDepartureMessage();
+}
+
+public class Planet : CelestialLocation
+{
+    public double DistanceFromSun { get; set; } // millions of km
+    public bool HasRings { get; set; }
+
+    public Planet(string name, double distanceFromSun, bool hasRings, string funFact) 
+        : base(name, funFact)
+    {
+        DistanceFromSun = distanceFromSun;
+        HasRings = hasRings;
+    }
+
+    public override string GetInfo()
+    {
+        string ringsInfo = HasRings ? &quot;Has magnificent rings!&quot; : &quot;No rings, how ordinary.&quot;;
+        return $&quot;{base.GetInfo()}\nDistance from Sun: {DistanceFromSun} million km\n{ringsInfo}&quot;;
+    }
+
+    public override string GetArrivalMessage()
+    {
+        return $&quot;Touchdown on planet {Name}! Gravity stabilizers engaged. &quot; +
+               $&quot;{(HasRings ? &quot;Wow, those rings look even better up close!&quot; : &quot;Clear skies for landing!&quot;)}&quot;;
+    }
+
+    public override string GetDepartureMessage()
+    {
+        return $&quot;Blasting off from {Name}'s gravitational pull! Engaging warp speed in 3...2...1...&quot;;
+    }
+}
+
+public class Moon : CelestialLocation
+{
+    public string ParentPlanet { get; set; }
+    public bool HasWater { get; set; }
+
+    public Moon(string name, string parentPlanet, bool hasWater, string funFact) 
+        : base(name, funFact)
+    {
+        ParentPlanet = parentPlanet;
+        HasWater = hasWater;
+    }
+
+    public override string GetInfo()
+    {
+        string waterInfo = HasWater 
+            ? &quot;Contains water - potential for space swimming!&quot; 
+            : &quot;No water detected - bring your own beverages.&quot;;
+        return $&quot;{base.GetInfo()}\nOrbits: {ParentPlanet}\n{waterInfo}&quot;;
+    }
+
+    public override string GetArrivalMessage()
+    {
+        return $&quot;Soft landing on {Name}, a moon of {ParentPlanet}! &quot; +
+               &quot;Reduced gravity detected - watch your step or you might accidentally do a backflip!&quot;;
+    }
+
+    public override string GetDepartureMessage()
+    {
+        return $&quot;Gently pushing off from {Name}'s surface. The views of {ParentPlanet} from here are spectacular!&quot;;
+    }
+}
+
+public class SpaceStation : CelestialLocation
+{
+    public string OrbitingBody { get; set; }
+    public int CrewCapacity { get; set; }
+
+    public SpaceStation(string name, string orbitingBody, int crewCapacity, string funFact) 
+        : base(name, funFact)
+    {
+        OrbitingBody = orbitingBody;
+        CrewCapacity = crewCapacity;
+    }
+
+    public override string GetInfo()
+    {
+        return $&quot;{base.GetInfo()}\nOrbits: {OrbitingBody}\nCrew Capacity: {CrewCapacity} space explorers&quot;;
+    }
+
+    public override string GetArrivalMessage()
+    {
+        return $&quot;*Mechanical docking sounds* Connected to {Name} space station! &quot; +
+               &quot;Please wait for the airlock to pressurize.&quot;;
+    }
+
+    public override string GetDepartureMessage()
+    {
+        return $&quot;Disconnecting docking clamps from {Name}. Don't forget to wave to the crew!&quot;;
+    }
+}
+</code></pre>
+<p>Now the <code>SolarSystemMap</code> class that manages everything:</p>
+<pre><code class="language-csharp">using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class SolarSystemMap
+{
+    private List&lt;CelestialLocation&gt; locations;
+    public CelestialLocation CurrentLocation { get; private set; }
+
+    public SolarSystemMap()
+    {
+        locations = new List&lt;CelestialLocation&gt;();
+    }
+
+    public void AddLocation(CelestialLocation location)
+    {
+        locations.Add(location);
+        if (locations.Count == 1)
+        {
+            CurrentLocation = location;
+            Console.WriteLine($&quot;Starting our adventure at {location.Name}!&quot;);
+            Console.WriteLine(location.GetArrivalMessage());
+            Console.WriteLine($&quot;Fun Fact: {location.FunFact}&quot;);
+        }
+    }
+
+    public void DisplayAllLocations()
+    {
+        Console.WriteLine(&quot;\n Solar System Map: All Known Locations&quot;);
+
+        var planets = locations.OfType&lt;Planet&gt;().ToList();
+        var moons = locations.OfType&lt;Moon&gt;().ToList();
+        var stations = locations.OfType&lt;SpaceStation&gt;().ToList();
+
+        Console.WriteLine($&quot;\nPlanets ({planets.Count}):&quot;);
+        foreach (var planet in planets)
+        {
+            string current = planet == CurrentLocation ? &quot; [YOU ARE HERE]&quot; : &quot;&quot;;
+            Console.WriteLine($&quot;  - {planet.Name} ({planet.DistanceFromSun} million km from Sun){current}&quot;);
+        }
+
+        Console.WriteLine($&quot;\nMoons ({moons.Count}):&quot;);
+        foreach (var moon in moons)
+        {
+            string current = moon == CurrentLocation ? &quot; [YOU ARE HERE]&quot; : &quot;&quot;;
+            Console.WriteLine($&quot;  - {moon.Name} (Orbits: {moon.ParentPlanet}){current}&quot;);
+        }
+
+        Console.WriteLine($&quot;\nSpace Stations ({stations.Count}):&quot;);
+        foreach (var station in stations)
+        {
+            string current = station == CurrentLocation ? &quot; [YOU ARE HERE]&quot; : &quot;&quot;;
+            Console.WriteLine($&quot;  - {station.Name} (Orbits: {station.OrbitingBody}, Crew: {station.CrewCapacity}){current}&quot;);
+        }
+    }
+
+    public bool TravelTo(string destinationName)
+    {
+        CelestialLocation destination = locations.FirstOrDefault(loc =&gt; loc.Name == destinationName);
+
+        if (destination == null)
+        {
+            Console.WriteLine($&quot;Error: {destinationName} not found in our star charts!&quot;);
+            return false;
+        }
+
+        if (destination == CurrentLocation)
+        {
+            Console.WriteLine($&quot;You're already at {destinationName}! Save fuel for interstellar donut runs.&quot;);
+            return false;
+        }
+
+        Console.WriteLine(&quot;\n=== COMMENCING TRAVEL SEQUENCE ===&quot;);
+        Console.WriteLine(CurrentLocation.GetDepartureMessage());
+        Console.WriteLine($&quot;\nTRAVELING from {CurrentLocation.Name} to {destination.Name}&quot;);
+
+        Console.WriteLine(&quot;\n&quot; + destination.GetArrivalMessage());
+        Console.WriteLine($&quot;Fun Fact: {destination.FunFact}&quot;);
+
+        CurrentLocation = destination;
+        return true;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine(&quot;Welcome to Solar System Explorer 2.0!&quot;);
+
+        SolarSystemMap solarSystem = new SolarSystemMap();
+
+        solarSystem.AddLocation(new Planet(&quot;Mars&quot;, 227.9, false, 
+            &quot;Home to Olympus Mons, the tallest mountain in the solar system!&quot;));
+        solarSystem.AddLocation(new Planet(&quot;Saturn&quot;, 1433.5, true, 
+            &quot;Its rings would make a fabulous hula hoop for a giant!&quot;));
+        solarSystem.AddLocation(new Planet(&quot;Earth&quot;, 149.6, false, 
+            &quot;The only planet known to have chocolate cake. Coincidence? I think not.&quot;));
+
+        solarSystem.AddLocation(new Moon(&quot;Europa&quot;, &quot;Jupiter&quot;, true, 
+            &quot;Has an ocean under its icy crust where space fish might be doing the backstroke!&quot;));
+        solarSystem.AddLocation(new Moon(&quot;Titan&quot;, &quot;Saturn&quot;, false, 
+            &quot;Has lakes of liquid methane! Not recommended for skinny dipping.&quot;));
+        solarSystem.AddLocation(new Moon(&quot;Luna&quot;, &quot;Earth&quot;, false, 
+            &quot;Earth's moon is simply called 'the Moon', which shows a severe lack of creativity.&quot;));
+
+        solarSystem.AddLocation(new SpaceStation(&quot;ISS&quot;, &quot;Earth&quot;, 7, 
+            &quot;Astronauts see 16 sunrises every day! Talk about needing coffee.&quot;));
+        solarSystem.AddLocation(new SpaceStation(&quot;Lunar Gateway&quot;, &quot;Moon&quot;, 4, 
+            &quot;Future lunar outpost where astronauts will practice their moon walks!&quot;));
+
+        solarSystem.DisplayAllLocations();
+
+        // Interactive travel
+        bool exploring = true;
+        while (exploring)
+        {
+            Console.WriteLine(&quot;\n=== TRAVEL MENU ===&quot;);
+            Console.WriteLine($&quot;You are currently at: {solarSystem.CurrentLocation.Name}&quot;);
+            Console.WriteLine(&quot;Where would you like to go? (type a name, 'map', or 'exit')&quot;);
+
+            string input = Console.ReadLine();
+
+            if (input.ToLower() == &quot;exit&quot;)
+            {
+                exploring = false;
+                Console.WriteLine(&quot;Thank you for exploring the solar system!&quot;);
+            }
+            else if (input.ToLower() == &quot;map&quot;)
+            {
+                solarSystem.DisplayAllLocations();
+            }
+            else
+            {
+                solarSystem.TravelTo(input);
+            }
+        }
+    }
+}
+</code></pre>
+<hr />
+<h2 id="part-3-benefits-of-the-class-based-approach">Part 3: Benefits of the Class-Based Approach</h2>
+<p>Comparing the two implementations:</p>
+<ol>
+<li><strong>Clean abstraction</strong> — <code>CelestialLocation</code> defines the common interface for all locations.</li>
+<li><strong>Polymorphism</strong> — Each location type implements its own arrival and departure messages.</li>
+<li><strong>Encapsulation</strong> — Travel logic lives in <code>SolarSystemMap</code>, not scattered across the program.</li>
+<li><strong>State management</strong> — Current location is an object reference; type/object mismatch is impossible.</li>
+<li><strong>Extensibility</strong> — Adding a new location type doesn't require changing <code>TravelTo</code>.</li>
+<li><strong>Richer behaviours</strong> — Each location can have specialised behaviours without cluttering the main program.</li>
+</ol>
+<hr />
+<h2 id="part-4-taking-it-further">Part 4: Taking It Further</h2>
+<p>Some directions to extend:</p>
+<pre><code class="language-csharp">// Adding a travel cost system
+public double CalculateTravelCost(CelestialLocation from, CelestialLocation to)
+{
+    double baseCost = 100;
+
+    if (from is Planet fromPlanet &amp;&amp; to is Planet toPlanet)
+        return baseCost * Math.Abs(fromPlanet.DistanceFromSun - toPlanet.DistanceFromSun) / 50;
+
+    if (to is Moon moon)
+        return baseCost + (moon.HasWater ? 50 : 20); // Water moons are tourist attractions!
+
+    return baseCost;
+}
+
+// Adding a new location type
+public class Asteroid : CelestialLocation
+{
+    public double Size { get; set; }
+    public bool IsMiningOperation { get; set; }
+
+    public Asteroid(string name, double size, bool isMiningOperation, string funFact) 
+        : base(name, funFact)
+    {
+        Size = size;
+        IsMiningOperation = isMiningOperation;
+    }
+
+    public override string GetArrivalMessage()
+    {
+        return $&quot;Anchoring to asteroid {Name} with gravity hooks! Remember to wear magnetic boots.&quot;;
+    }
+
+    public override string GetDepartureMessage()
+    {
+        return $&quot;Detaching from {Name}. Mind the floating debris!&quot;;
+    }
+}
+</code></pre>
+<p>Adding a new type requires no changes to <code>SolarSystemMap.TravelTo</code> — it just works. That's the real payoff of the OOP approach.</p>
+<hr />
+<p><em>Continue to <a href="./solar-system-2-of-3">Solar System 2 of 3</a> for the notebook version, or <a href="./solar-system-bonus-3-of-3">Solar System Bonus 3 of 3</a> for advanced extensions including a fuel system and weather.</em></p></main></body></html>

@@ -1,0 +1,152 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name='robots' content='noindex'><title>Joshua Aaron</title><meta name="description" content="I am an insatiable learner based in Ireland, though I come from lots of places. If you are looking for my teaching material, my thoughts on education, or a way to reach me for work, you have come to the right place."><style>
+:root{--ink:#1B2A4A;--accent:#C25A1E;--paper:#fbfaf7;--muted:#5f6b7a;--line:#e5e2da;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--ink:#e8ebf2;--accent:#f08a4b;--paper:#12182a;--muted:#a3adbd;--line:#2a3452;--card:#1a2238}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1rem}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:baseline;padding:.7rem 1rem}
+.brand{font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem}
+nav a{color:var(--ink);text-decoration:none;font-size:.95rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+section{scroll-margin-top:5.5rem;padding-top:1rem}section+section{border-top:1px solid var(--line);margin-top:2.5rem}
+h1{font-weight:normal;font-size:2.2rem;line-height:1.2;margin:2.2rem 0 .4rem}
+h2{font-weight:normal;font-size:1.7rem;margin:1.2rem 0 .6rem}h3{font-weight:normal;font-size:1.35rem;margin:2rem 0 .3rem;color:var(--accent)}
+h4{font-size:1.1rem;margin:1.6rem 0 .1rem}h4+p em{color:var(--muted)}
+.lede{color:var(--muted);font-size:1.15rem;margin-top:0}
+a.card{display:grid;gap:.1rem;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:.7rem 1rem;margin:.8rem 0;color:var(--ink);text-decoration:none}
+a.card .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}a.card .n{color:var(--muted);font-size:.95rem}
+.callout{border-left:4px solid var(--accent);background:var(--card);padding:.7rem 1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.callout::before{content:"Note";display:block;font:600 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.callout.tip{border-left-color:#2f7d4f}.callout.tip::before{content:"Tip";color:#2f7d4f}
+.callout.info{border-left-color:#2b6cb0}.callout.info::before{content:"Information";color:#2b6cb0}
+.callout.warning{border-left-color:#b7791f}.callout.warning::before{content:"Warning";color:#b7791f}
+.callout>p:last-child{margin-bottom:0}
+a.dl-btn{background:var(--accent);color:var(--paper);min-height:2.75rem;padding:0 1.3rem}a.dl-btn::after{content:" 97"}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.1rem 1rem;margin:1rem 0}summary{cursor:pointer;min-height:2.4rem;display:flex;align-items:center;font-weight:600}
+.pdf iframe{width:100%;height:32rem;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:.4rem .7rem;text-align:left}
+pre{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem;overflow:auto;font-size:.88rem}img{max-width:100%;height:auto}
+.sheet{border-top:1px solid var(--line);padding:.2rem 0 .6rem}.sheet h4{margin:1rem 0 .2rem}.sheet p{margin:.2rem 0}.crumb{margin:1.4rem 0 0;font-size:.95rem}
+.file{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0}
+.file.compact{padding:.45rem .7rem;margin:.35rem 0}
+.file .ext{grid-row:1;min-width:3.6rem;text-align:center;font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;padding:.45rem .3rem}
+.file .meta{display:grid;min-width:0}.file .meta strong{font-weight:600}.file .n{color:var(--muted);font-size:.9rem}
+.file .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}
+.file.compact .acts{grid-column:3;grid-row:1}.file.compact{grid-template-columns:auto 1fr auto}
+a.act,button.act{display:inline-flex;align-items:center;min-height:2.4rem;padding:0 .9rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;font:600 .88rem system-ui,sans-serif}
+a.act.dl{background:var(--accent);color:var(--paper)}a.act.dl::before{content:"↓ "}a.act.out::after{content:" ↗"}
+a.act:hover,a.act:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media(min-width:34rem){.file .acts{grid-column:3;grid-row:1}.file{grid-template-columns:auto 1fr auto}}
+.src{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem;overflow:auto;font:.85rem/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;tab-size:4}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}button.act{background:none;cursor:pointer;color:var(--accent)}
+.katex-display{overflow-x:auto;overflow-y:hidden}
+footer{border-top:1px solid var(--line);margin-top:4rem;padding:1.5rem 0;color:var(--muted);font-size:.9rem}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="brand" href="#top">Joshua Aaron</a><nav><a href='#projects'>Current Stuff</a><a href='#about'>About</a><a href='#contact'>Contact</a><a href='https://docs.superhuman.com/d/_dXwmZI3vjrc/_suQ2icZa' rel='noopener'>Current classes and workshops &#8599;</a></nav></div></header>
+<main class="wrap"><section id='top'><h1>Joshua Aaron</h1><p class='lede'>I am an insatiable learner based in Ireland, though I come from lots of places. If you are looking for my teaching material, my thoughts on education, or a way to reach me for work, you have come to the right place.</p><p>I teach computer science, mathematics and the foundations of machine learning and AI at further education level in Dublin, and I run AI literacy workshops for teachers and parents. Most of what I make starts as something I needed for a class, and then it grows into something that other teachers and learners can use.</p>
+<p>Students can find this year's class pages under <strong>Current teaching</strong>. Everything else is below.</p></section><section id='projects'><h2>What I am working on</h2><p>Each project began with a problem in a class, or with a tool I wanted and could not find. Everything runs in a web browser, and the code is public, so you may read it, copy it and change it. Some entries are attempts that I keep revising.</p>
+<p><strong>Computer science:</strong> <a href="#dewlab">dewlab</a>, <a href="#dewsharp">dewsharp</a>, <a href="#html-css-sql-lessons">HTML, CSS and SQL lessons</a>, <a href="#one-page-intro">a one-page introduction</a>, <a href="#starter-sites">starter websites</a>, <a href="#click-to-database">from a click to a database</a><br />
+<strong>Mathematics:</strong> <a href="#dewmath">dewmath</a>, <a href="#worksheets">worksheets</a>, <a href="#retirement-planner">retirement planner</a><br />
+<strong>Literacy:</strong> <a href="#ai-literacy">AI literacy workshops</a>, <a href="#coding-with-ai">coding with AI</a>, <a href="#media-literacy">media and critical literacy</a>, <a href="#guides">project guides and reflections</a></p>
+<h3>Computer science</h3>
+<h4 id="dewlab">dewlab</h4>
+<p><em>Learn programming, mathematics, databases and web development by running code in the browser.</em></p>
+<p><strong>The problem.</strong> A beginner often meets code in a tutorial that they cannot run, or has to install software before they can write a line. By the time the setup works, the curiosity has faded.</p>
+<p><strong>The idea.</strong> Each lesson puts a short explanation and editable code side by side on one page, and the code runs in the browser. The code is mostly Python, a programming language that is often used to teach beginners. A learner can search for a topic, and the search also finds a lesson that teaches the idea under another name, so "loop" finds "iteration".</p>
+<p><strong>What I hope learners do.</strong> Try something, see the result at once and change one thing. I want learners to learn by experimenting rather than by copying a finished answer.</p>
+<p><a href="https://deweydex.github.io/dewlab">Open dewlab</a> · <a href="https://github.com/deweydex/dewlab">Code on GitHub</a></p>
+<h4 id="dewsharp">dewsharp</h4>
+<p><em>C# lessons that run in a web browser.</em></p>
+<p><strong>The problem.</strong> C# (pronounced "C sharp") is a programming language that some of my courses use, and a student normally has to install a large program before they can write any. The first week then goes on installation rather than on ideas.</p>
+<p><strong>The idea.</strong> A lesson explains an idea, and the learner edits the C# beside it and runs it on the page. The code runs on the learner's own computer, and nothing they type is sent anywhere. Any program can be downloaded as a Visual Studio project, which is the program many people use to write C# on their own computer.</p>
+<p><strong>What I hope learners do.</strong> Spend the first lessons on variables, loops and decisions. The move to the real tool comes later, when the ideas are already familiar.</p>
+<p><a href="https://deweydex.github.io/dewsharp">Open dewsharp</a> · <a href="https://github.com/deweydex/dewsharp">Code on GitHub</a></p>
+<h4 id="html-css-sql-lessons">HTML, CSS and SQL lessons</h4>
+<p><em>Thirteen lessons on building a website, and two SQL quizzes.</em></p>
+<p><strong>The problem.</strong> Building a website means learning several languages at once: HTML, which gives a page its structure, and CSS, which styles it. Beginners can feel overwhelmed. A database adds a third language, SQL, which asks the database questions.</p>
+<p><strong>The idea.</strong> Each lesson teaches one idea, from HTML basics through layout and pages that work on a phone to publishing a site with GitHub Pages, a free way to put a website online. The two SQL quizzes wrap the questions in a story. In the plushies quiz the learner looks after a shop full of toys, and the timetable quiz uses a school week to practise joins, which combine information from two tables.</p>
+<p><strong>What I hope learners do.</strong> Finish with a real website that is online and belongs to the learner. In the quizzes, answer SQL questions that matter inside a story instead of in the abstract.</p>
+<p><a href="https://deweydex.github.io/WADB_Tutorials">Open the lessons</a> · <a href="https://github.com/deweydex/WADB_Tutorials">Code on GitHub</a></p>
+<h4 id="one-page-intro">HTML, CSS and SQL on one page</h4>
+<p><em>A short interactive page that gives a first taste.</em></p>
+<p><strong>The problem.</strong> A person who is deciding whether to learn web development may not want to commit to thirteen lessons first.</p>
+<p><strong>The idea.</strong> One page teaches a little HTML, CSS and SQL, with examples that the reader edits and runs.</p>
+<p><strong>What I hope learners do.</strong> Learn that these languages are approachable, and that nothing they try can break anything.</p>
+<p><a href="https://deweydex.github.io/HTML-CSS-SQL-JS">Open the page</a> · <a href="https://github.com/deweydex/HTML-CSS-SQL-JS">Code on GitHub</a></p>
+<h4 id="starter-sites">Starter websites</h4>
+<p><em>Two websites for students to copy and make their own.</em></p>
+<p><strong>The problem.</strong> A blank folder is a hard place to begin a website, and many students stall before they write anything.</p>
+<p><strong>The idea.</strong> The <strong>project template</strong> has five pages: Home, About, Gallery, Contact and Resources. The links appear in the same order on every page, which is what makes a site feel consistent. Placeholder text says what belongs in each part, and comments in the code explain why the structure works. The <strong>portfolio template</strong> is a smaller personal site. A student copies a template into their own GitHub account, a free online home for code.</p>
+<p><strong>What I hope learners do.</strong> Study how a good site is built, and then replace the text, restyle the pages and publish the result.</p>
+<p><a href="https://deweydex.github.io/project_wad">Open the project template</a> · <a href="https://deweydex.github.io/portfolio_wad">Open the portfolio template</a> · <a href="https://github.com/deweydex/project_wad">Code for the project template</a> · <a href="https://github.com/deweydex/portfolio_wad">Code for the portfolio template</a></p>
+<h4 id="click-to-database">From a click to a database</h4>
+<p><em>A walk through everything that happens when you press a button on a web page.</em></p>
+<p><strong>The problem.</strong> Pressing a button changes the screen, and the steps in between are invisible. Each step is usually taught on its own, so students rarely see how the pieces connect.</p>
+<p><strong>The idea.</strong> The tutorial follows one small project, a vending machine page, from the click to the database and back. Every line of code is explained beside it. The steps are the browser, the network, a server, an API (the agreed way that a page asks a server for something), SQL, a database, JSON (a plain text format for passing data around) and the DOM (the browser's live model of the page). There are two editions that build the same page, one with the server in Python and one with it in TypeScript.</p>
+<p><strong>What I hope learners do.</strong> Name each step, say what it hands to the next, and notice that the design stays the same when the language changes.</p>
+<p><a href="https://deweydex.github.io/E2E">Open the tutorial</a> · <a href="https://github.com/deweydex/E2E">Code on GitHub</a></p>
+<h3>Mathematics</h3>
+<h4 id="dewmath">dewmath</h4>
+<p><em>A maths test that shows why a student answered wrongly, and not only whether they did.</em></p>
+<p><strong>The problem.</strong> On the first day of a maths class I do not know what each student already understands. A mark does not say why an answer was wrong.</p>
+<p><strong>The idea.</strong> A teacher chooses the skills to ask about at three levels, foundation, core and advanced, and sets the wording, the order and a time limit. Everything is packed into one link that students open. A student can answer "I don't know" or "I don't understand" and can say how confident they are. Each wrong answer is matched to the misunderstanding that most likely caused it, and the class report shows which misunderstandings are common.</p>
+<p><strong>What I hope learners do.</strong> Answer honestly without guessing, and learn to judge how sure they are. The teacher then starts from the common misunderstandings.</p>
+<p><a href="https://deweydex.github.io/dewmath">Open dewmath</a> · <a href="https://github.com/deweydex/dewmath">Code on GitHub</a></p>
+<h4 id="worksheets">Mathematics worksheets</h4>
+<p><em>Worksheets on fractions, algebra, graphs, calculus and statistics.</em></p>
+<p><strong>The problem.</strong> Many worksheets state a rule and then ask for practice, so a learner follows the rule without seeing why it works.</p>
+<p><strong>The idea.</strong> Each worksheet begins with something to try and notice. The words and rules come after that. The set of eighteen runs from fractions through lines and vectors, quadratics and graphing, calculus and trigonometry to statistics and probability. Each comes as a PDF to print and as a TeX file to change, and one also comes as a notebook, which is a document that mixes writing with code that runs.</p>
+<p><strong>What I hope learners do.</strong> Notice a pattern first and name it afterwards, so that the rule feels like something they found. Teachers are welcome to print and adapt the worksheets.</p>
+<p><a href="maths-worksheets/">Open the worksheets</a> · <a href="https://github.com/deweydex/Mathematics">Code on GitHub</a></p>
+<h4 id="retirement-planner">Retirement planner</h4>
+<p><em>A model that follows a family's savings, income and spending through retirement, year by year.</em></p>
+<p><strong>The problem.</strong> Retirement planning rests on guesses about markets and about how long people will live. A spreadsheet can hold the guesses, but it is awkward to change one and watch what happens.</p>
+<p><strong>The idea.</strong> A user enters each person's age, income, accounts and spending, and the planner shows year by year whether the money lasts. It uses United States account types, such as IRAs and 401(k) plans, which are accounts for retirement savings, and it taxes each one by its own rules. A user can compare scenarios, and a stress test replaces the usual investment return with a lower one.</p>
+<p><strong>What I hope learners do.</strong> See how an assumption changes an outcome, and ask whether a plan survives a poor year instead of whether it predicts the future. It is a tool for thinking and it is not financial advice.</p>
+<p><a href="https://deweydex.github.io/planningtools">Open the planner</a> · <a href="https://github.com/deweydex/planningtools">Code on GitHub</a></p>
+<h3>Literacy</h3>
+<h4 id="ai-literacy">AI literacy workshops</h4>
+<p><em>Workshops and handouts about what large language models are and how people use them.</em></p>
+<p><strong>The problem.</strong> People use chatbots such as ChatGPT and Claude every day, and most have never been shown how they work or where they fail. Some fear them, and others trust them without checking.</p>
+<p><strong>The idea.</strong> A large language model is a program trained on a great deal of text so that it can write and answer questions in ordinary language. I run workshops for teachers, some with no code and some in which we build a small neural network ourselves, and I give talks for parents. The materials are drafts that I change after each session.</p>
+<p><strong>What I hope learners do.</strong> Examine these tools carefully, so that they can say what a tool is good for and what it gets wrong.</p>
+<p><a href="ai-literacy/">Open the AI literacy page</a></p>
+<h4 id="coding-with-ai">Coding with AI</h4>
+<p><em>A single session in which a learner builds a small program together with an AI assistant.</em></p>
+<p><strong>The problem.</strong> An AI assistant can write a program for a learner, which makes it easy to produce code without understanding it.</p>
+<p><strong>The idea.</strong> In 80 to 90 minutes a learner picks one of five small projects and works through it with an AI assistant. A prompt is the instruction a person gives an AI tool, and the site includes a guide to writing good ones. It also has a page for teachers.</p>
+<p><strong>What I hope learners do.</strong> Break a problem into small pieces, describe each piece clearly, and check what the assistant produces. The learner stays the one who decides what to build.</p>
+<p><a href="https://deweydex.github.io/2plus1Coding">Open the activity</a> · <a href="https://github.com/deweydex/2plus1Coding">Code on GitHub</a></p>
+<h4 id="media-literacy">Media and critical literacy</h4>
+<p><em>How to read a source, a news story or an argument with care.</em></p>
+<p><strong>The problem.</strong> A fact can be true and still mislead, because of what the story around it leaves out. Students often meet sources before they have words for asking who made them and why.</p>
+<p><strong>The idea.</strong> In my courses on research and study skills and on communication, students take one ordinary subject, such as the banana, and look at it through different frames. Each frame brings forward different true facts.</p>
+<p><strong>What I hope learners do.</strong> Choose a frame on purpose, say why they chose it, and notice what the frame leaves out.</p>
+<p><a href="media-and-critical-literacy/">Open the page</a></p>
+<h4 id="guides">Project guides and reflections</h4>
+<p><em>Plain accounts of how I think about learning and teaching.</em></p>
+<p><strong>The problem.</strong> I kept explaining the same things to students: how to get unstuck, how to approach mathematics after a bad school experience, and why I teach mathematics through programming.</p>
+<p><strong>The idea.</strong> I wrote the explanations down as guides for learners and as reflections for other teachers. They are attempts, and I revise them.</p>
+<p><strong>What I hope learners do.</strong> Find a way into a subject that suits them, and feel less alone with the difficulty of learning it.</p>
+<p><a href="project-guides-and-reflections/">Open the guides</a></p></section><section id='about'><h2>About</h2><p>I love learning. That is the strongest thread through everything I have done for the past decade and a half.</p>
+<p>Those years have taken me to a number of cities and jobs, and I have been lucky to learn from fantastic teachers and students in each of them. My first degree was in Computer Science and Mathematics at McGill University in Montreal. The most interesting work always seems to happen where the technical fields meet the humanistic ones. I went on to study machine learning and intelligent systems, and what those systems mean for society, at the Technical University of Berlin. I hold an MSc in Human-Centered AI from TU Dublin.</p>
+<p>I now teach programming, mathematics and AI at Dublin College Dundrum and Blackrock Further Education Institute. I have also taught at the Nelson Mandela School in Berlin and worked in the tutor management team at Paper in Toronto.</p>
+<p>Most of my earlier materials belong to the organisations I made them for. The ones on this site are mine, and teachers are welcome to use them.</p>
+<p>I teach machine learning from the ground up. A learner starts with fitting a line to data, then builds a single artificial neuron and then a small neural network, and then meets probability and text generation with Markov chains. My master's thesis looked at how well tutoring systems built on large language models work for teaching science, technology, engineering and mathematics. A large language model is a program trained on a great deal of text so that it can write and answer questions in ordinary language.</p></section><section id='contact'><h2>Contact</h2><p><a class='card link' href='mailto:jsaaron@jsaaron.com'><span class='k'>Open</span><strong>Email me</strong><span class='n'>jsaaron@jsaaron.com</span></a></p>
+<p><a class='card link' href='https://tally.so/r/Z9jMYa' rel='noopener' target='_blank'><span class='k'>Open</span><strong>Write to me through a form</strong><span class='n'>Opens a short form that reaches me by email</span></a></p>
+<p>If you are asking about a project, please include a rough timeline and budget as well as whatever description you feel comfortable sharing. If you represent a public school or a nonprofit and worry about cost, please write anyway. I am confident that we can find an arrangement that suits your context.</p>
+<p>Students at the college should use their college address, which is on the page for your class.</p></section></main>
+<footer><div class="wrap"><p>Joshua Aaron, Dublin. Teaching material is shared under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a> unless a page says otherwise.</p></div></footer><script>
+const links=[...document.querySelectorAll('nav a[href^="#"]')];
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+    links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));}});},
+    {rootMargin:'-20% 0px -70% 0px'});
+  links.forEach(a=>{const s=document.querySelector(a.getAttribute('href'));if(s)io.observe(s);});
+}
+</script></body></html>

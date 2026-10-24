@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name='robots' content='noindex'><title>AI literacy | Joshua Aaron</title><meta name="description" content="Workshops and handouts that help teachers, and in time parents, understand what large language models are and how students use them."><style>
+:root{--ink:#1B2A4A;--accent:#C25A1E;--paper:#fbfaf7;--muted:#5f6b7a;--line:#e5e2da;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--ink:#e8ebf2;--accent:#f08a4b;--paper:#12182a;--muted:#a3adbd;--line:#2a3452;--card:#1a2238}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:1.08rem/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--accent)}
+header.top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1rem}
+header.top .wrap{display:flex;flex-wrap:wrap;gap:.2rem 1.2rem;align-items:baseline;padding:.7rem 1rem}
+.brand{font-size:1.15rem;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;flex-wrap:wrap;gap:.1rem 1.1rem}
+nav a{color:var(--ink);text-decoration:none;font-size:.95rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover,nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+section{scroll-margin-top:5.5rem;padding-top:1rem}section+section{border-top:1px solid var(--line);margin-top:2.5rem}
+h1{font-weight:normal;font-size:2.2rem;line-height:1.2;margin:2.2rem 0 .4rem}
+h2{font-weight:normal;font-size:1.7rem;margin:1.2rem 0 .6rem}h3{font-weight:normal;font-size:1.35rem;margin:2rem 0 .3rem;color:var(--accent)}
+h4{font-size:1.1rem;margin:1.6rem 0 .1rem}h4+p em{color:var(--muted)}
+.lede{color:var(--muted);font-size:1.15rem;margin-top:0}
+a.card{display:grid;gap:.1rem;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:.7rem 1rem;margin:.8rem 0;color:var(--ink);text-decoration:none}
+a.card .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}a.card .n{color:var(--muted);font-size:.95rem}
+.callout{border-left:4px solid var(--accent);background:var(--card);padding:.7rem 1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.callout::before{content:"Note";display:block;font:600 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.callout.tip{border-left-color:#2f7d4f}.callout.tip::before{content:"Tip";color:#2f7d4f}
+.callout.info{border-left-color:#2b6cb0}.callout.info::before{content:"Information";color:#2b6cb0}
+.callout.warning{border-left-color:#b7791f}.callout.warning::before{content:"Warning";color:#b7791f}
+.callout>p:last-child{margin-bottom:0}
+a.dl-btn{background:var(--accent);color:var(--paper);min-height:2.75rem;padding:0 1.3rem}a.dl-btn::after{content:" 97"}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.1rem 1rem;margin:1rem 0}summary{cursor:pointer;min-height:2.4rem;display:flex;align-items:center;font-weight:600}
+.pdf iframe{width:100%;height:32rem;border:1px solid var(--line);border-radius:6px;background:#fff}
+table{border-collapse:collapse;width:100%;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:.4rem .7rem;text-align:left}
+pre{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.8rem;overflow:auto;font-size:.88rem}img{max-width:100%;height:auto}
+.sheet{border-top:1px solid var(--line);padding:.2rem 0 .6rem}.sheet h4{margin:1rem 0 .2rem}.sheet p{margin:.2rem 0}.crumb{margin:1.4rem 0 0;font-size:.95rem}
+.file{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0}
+.file.compact{padding:.45rem .7rem;margin:.35rem 0}
+.file .ext{grid-row:1;min-width:3.6rem;text-align:center;font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);border:1.5px solid var(--accent);border-radius:6px;padding:.45rem .3rem}
+.file .meta{display:grid;min-width:0}.file .meta strong{font-weight:600}.file .n{color:var(--muted);font-size:.9rem}
+.file .acts{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:.5rem}
+.file.compact .acts{grid-column:3;grid-row:1}.file.compact{grid-template-columns:auto 1fr auto}
+a.act,button.act{display:inline-flex;align-items:center;min-height:2.4rem;padding:0 .9rem;border:1px solid var(--accent);border-radius:999px;color:var(--accent);text-decoration:none;font:600 .88rem system-ui,sans-serif}
+a.act.dl{background:var(--accent);color:var(--paper)}a.act.dl::before{content:"↓ "}a.act.out::after{content:" ↗"}
+a.act:hover,a.act:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media(min-width:34rem){.file .acts{grid-column:3;grid-row:1}.file{grid-template-columns:auto 1fr auto}}
+.src{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:.9rem;overflow:auto;font:.85rem/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre;tab-size:4}
+.bar{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}button.act{background:none;cursor:pointer;color:var(--accent)}
+.katex-display{overflow-x:auto;overflow-y:hidden}
+footer{border-top:1px solid var(--line);margin-top:4rem;padding:1.5rem 0;color:var(--muted);font-size:.9rem}
+</style></head>
+<body><header class="top"><div class="wrap"><a class="brand" href="../#top">Joshua Aaron</a><nav><a href='../#projects'>Current Stuff</a><a href='../#about'>About</a><a href='../#contact'>Contact</a><a href='https://docs.superhuman.com/d/_dXwmZI3vjrc/_suQ2icZa' rel='noopener'>Current classes and workshops &#8599;</a></nav></div></header>
+<main class="wrap"><section id='top'><p class='crumb'><a href='../#projects'>&larr; Current Stuff</a></p><h1>AI literacy</h1><p class='lede'>Workshops and handouts that help teachers, and in time parents, understand what large language models are and how students use them.</p><p>A large language model is a program trained on a great deal of text so that it can write and answer questions in ordinary language. Chatbots such as ChatGPT, Claude and Gemini run on large language models. Most people who use them have never been shown how they work, where they fail, or how a student might use them well. These workshops try to fill that gap, in two forms.</p>
+<p>I wrote the materials for my own workshops with teachers, and they are drafts. I changed them after each session and I expect to change them again. Each link below opens a page in the archive of my earlier site, which is why it carries a banner saying so.</p>
+<h3>Workshops without code</h3>
+<p>These sessions need no programming. They give a teacher the vocabulary and the habits of mind to judge what a chatbot says.</p>
+<ul>
+<li><a href="../old/Teaching/prior-teaching/2025-26/ai-workshops-for-teachers/non-technical-ai-workshops-for-teachers/0-ai-technologies/">AI technologies</a> compares four ways a tool finds information: a search engine, a model with no internet, a model that reads your own documents, and a mix of those.</li>
+<li><a href="../old/Teaching/prior-teaching/2025-26/ai-workshops-for-teachers/non-technical-ai-workshops-for-teachers/1-understanding-llms-in-context/">Understanding LLMs in context</a> explains what a large language model is and how it produces its output.</li>
+<li><a href="../old/Teaching/prior-teaching/2025-26/ai-workshops-for-teachers/non-technical-ai-workshops-for-teachers/2-tool-limitations/2-tool-limitations-filled/">Tool limitations</a> is an exercise in doubting a chatbot with care, by working out which part of a tool produced which part of an answer.</li>
+<li><a href="../old/Teaching/prior-teaching/2025-26/ai-workshops-for-teachers/non-technical-ai-workshops-for-teachers/3-llms-and-teaching/">LLMs and teaching</a> looks at how students use these tools, and why the conversation about detection and prohibition hides more useful questions.</li>
+</ul>
+<h3>Workshops with code</h3>
+<p>These sessions build machine learning from the bottom, for teachers who want to see inside the machine. Each uses Python notebooks that run in a browser.</p>
+<ul>
+<li><a href="../old/Teaching/prior-teaching/2025-26/ai-workshops-for-teachers/technical-ai-workshops-for-teachers/day-1-intro-learning-a-line-and-artificial-neurons/">Day 1: learning a line and artificial neurons</a> starts with fitting a straight line to data and moves to a single artificial neuron.</li>
+<li><a href="../old/Teaching/prior-teaching/2025-26/ai-workshops-for-teachers/technical-ai-workshops-for-teachers/day-2-3-from-lines-to-neurons-to-networks/">Day 2 and 3: from lines to neurons to networks</a> joins neurons into small networks.</li>
+<li><a href="../old/Teaching/prior-teaching/2025-26/ai-workshops-for-teachers/technical-ai-workshops-for-teachers/day-3/">Day 3</a> has assignments in which you build a neuron and a multi-class network yourself.</li>
+</ul>
+<h3>Talks for parents</h3>
+<p>I also give a short talk on AI literacy for the parents of primary school children. The handout is not on this site yet.</p></section></main>
+<footer><div class="wrap"><p>Joshua Aaron, Dublin. Teaching material is shared under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a> unless a page says otherwise.</p></div></footer><script></script></body></html>
