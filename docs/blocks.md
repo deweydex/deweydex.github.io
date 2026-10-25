@@ -89,12 +89,12 @@ Closed on first view. It uses the browser's own details element, so it needs no 
 slug: maths-worksheets          # the address of the page
 title: Maths worksheets
 summary: One sentence under the title and in link previews.
-parent: projects                # the section that the back link returns to
+parent: what-i-am-working-on    # the section of the front page that the back link returns to
 draft: true                     # optional, keeps the page off the site
 ---
 ```
 
-Section files under `content/sections/` use `id` and `title` instead of `slug`.
+The front page is the single file `content/index.md`. Each `## heading` in it becomes a section, and the heading text, lower-cased with hyphens, is its address (`## About` becomes `#about`). The links in the header are listed in `content/_site.yaml` and must match a heading.
 
 ## Where uploaded files go
 

@@ -1,5 +1,5 @@
 """Build the one-page site from content/ into public/index.html. Run: python3 tools/build.py
-content/index.md is the introduction. content/sections/*.md are the sections, in file order.
+content/index.md is the whole front page. Each ## heading in it becomes a section and a link target.
 Blocks are directives, see docs/blocks.md:  ::file{title="..." path="..."}   :::callout{type="tip"} ... :::"""
 import re, html, yaml, markdown, shutil, os, pathlib
 from pathlib import Path
@@ -170,7 +170,7 @@ def prefixed(html_text, prefix):
     if not prefix: return html_text
     return re.sub(r"(href|src)=(['\"])(?!https?:|mailto:|#|/)([^'\"]*)\2", lambda m: f"{m.group(1)}={m.group(2)}{prefix}{m.group(3)}{m.group(2)}", html_text)
 
-def shell(title, summary, inner, prefix, src="", secmap=None):
+def shell(title, summary, inner, prefix, src=""):
     nav = "".join(f"<a href='{prefix or ''}#{n['id']}'>{esc(n['title'])}</a>" for n in SITE["nav"])
     nav += "".join(f"<a href='{esc(x['href'])}' rel='noopener'>{esc(x['title'])} &#8599;</a>" for x in SITE.get("external", []))
     robots = "<meta name='robots' content='noindex'>" if SITE.get("noindex") else ""
@@ -183,8 +183,8 @@ def shell(title, summary, inner, prefix, src="", secmap=None):
     P = prefix + "edit/"
     edit = (f"<script>(function(){{if(!/[?&]edit(=|&|$)/.test(location.search))return;"
             f"var P={_json.dumps(P)},u=new URL(P,location.href).href,t=!1;try{{t=!!(localStorage.getItem('access_token')||localStorage.getItem('github_token'))}}catch(e){{}}"
-            f"window.__edit={{src:{_json.dumps(src)},secmap:{_json.dumps(secmap or {})},shell:u}};"
-            "if(!t){var m=window.__edit.secmap[location.hash.slice(1)]||window.__edit.src;location.replace(u+'?src='+encodeURIComponent(m)+'&return='+encodeURIComponent(location.href));return}"
+            f"window.__edit={{src:{_json.dumps(src)},shell:u}};"
+            "if(!t){location.replace(u+'?src='+encodeURIComponent(window.__edit.src)+'&return='+encodeURIComponent(location.href));return}"
             "var l=document.createElement('link');l.rel='stylesheet';l.href=u+'inplace.css';document.head.appendChild(l);"
             "var s=document.createElement('script');s.type='module';s.src=u+'inplace.js';document.head.appendChild(s)})();</script>") if src else ""
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -193,30 +193,29 @@ def shell(title, summary, inner, prefix, src="", secmap=None):
 <main class="wrap">{inner}</main>
 <footer><div class="wrap">{SITE['footer']}</div></footer><script>{js}</script>{kjs}</body></html>"""
 
-meta, intro = parse(CONTENT / "index.md")
-secs = []
-secmap = {}
+meta, body = parse(CONTENT / "index.md")
 CURRENT[0] = "content/index.md"
-home_intro = render(intro)
-for f in sorted((CONTENT / "sections").glob("*.md")):
-    m, b = parse(f)
-    if m.get("draft"): continue
-    CURRENT[0] = f"content/sections/{f.name}"
-    secmap[m["id"]] = CURRENT[0]
-    secs.append(f"<section id='{esc(m['id'])}' data-src='{CURRENT[0]}'><h2>{esc(m['title'])}</h2>{render(b)}</section>")
-home = f"<section id='top' data-src='content/index.md'><h1>{esc(meta['title'])}</h1><p class='lede'>{esc(meta.get('summary',''))}</p>{home_intro}</section>{''.join(secs)}"
+def slugify(t): return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
+parts = re.split(r"(?m)^## +(.+?) *$", body)   # [intro, title, text, title, text, ...]
+home_intro = render(parts[0])
+secs = []
+for title, text in zip(parts[1::2], parts[2::2]):
+    secs.append(f"<section id='{slugify(title)}'><h2>{esc(title)}</h2>{render(text)}</section>")
+for n in SITE["nav"]:
+    if n["id"] not in {slugify(t) for t in parts[1::2]}: fail(f"The navigation links to #{n['id']}, but index.md has no ## heading that becomes it.")
+home = f"<div data-src='content/index.md'><section id='top'><h1>{esc(meta['title'])}</h1><p class='lede'>{esc(meta.get('summary',''))}</p>{home_intro}</section>{''.join(secs)}</div>"
 
 for child in PUBLIC.iterdir():
     if child.name in {"old", "edit"}: continue
     shutil.rmtree(child) if child.is_dir() else child.unlink()
-(PUBLIC / "index.html").write_text(shell(SITE['name'], meta.get('summary',''), home, "", "content/index.md", secmap), encoding="utf-8")
+(PUBLIC / "index.html").write_text(shell(SITE['name'], meta.get('summary',''), home, "", "content/index.md"), encoding="utf-8")
 
 pages = 0
 for f in sorted((CONTENT / "pages").glob("*.md")):
     m, b = parse(f)
     if m.get("draft"): continue
     CURRENT[0] = f"content/pages/{f.name}"
-    inner = (f"<section id='top' data-src='content/pages/{f.name}'><p class='crumb'><a href='../#{esc(m.get('parent','projects'))}'>&larr; {esc(m.get('parent_title','Current Stuff'))}</a></p>"
+    inner = (f"<section id='top' data-src='content/pages/{f.name}'><p class='crumb'><a href='../#{esc(m.get('parent','what-i-am-working-on'))}'>&larr; {esc(m.get('parent_title','Current Stuff'))}</a></p>"
              f"<h1>{esc(m['title'])}</h1><p class='lede'>{esc(m.get('summary',''))}</p>{prefixed(render(b), '../')}</section>")
     d = PUBLIC / m["slug"]; d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(shell(m["title"] + " | " + SITE['name'], m.get('summary',''), inner, "../", f"content/pages/{f.name}"), encoding="utf-8")

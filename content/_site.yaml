@@ -2,7 +2,7 @@ name: Joshua Aaron
 noindex: true
 footer: "<p>Joshua Aaron, Dublin. Teaching material is shared under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY-NC-SA 4.0</a> unless a page says otherwise.</p>"
 nav:
-  - {id: projects, title: Current Stuff}
+  - {id: what-i-am-working-on, title: Current Stuff}
   - {id: about, title: About}
   - {id: contact, title: Contact}
 external:
