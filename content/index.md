@@ -36,15 +36,23 @@ These smaller sites supplement dewlab in my classes. They let students explore H
 
 ## About
 
-I love learning. That is the strongest thread through everything I have done for the past decade and a half.
+I love learning, and it is the thread through everything I have done for the past fifteen years. I teach computer science, mathematics and the foundations of machine learning and AI at further education level in Dublin, at Dublin College Dundrum and Blackrock Further Education Institute. I am finishing an MSc in Human-Centered AI at TU Dublin, and my thesis asks why the usual metrics for educational chatbots say so little about whether they teach well. My first degree was in Computer Science and Mathematics at McGill University. The most interesting work always seems to happen where the technical fields meet the humanistic ones.
 
-Those years have taken me to a number of cities and jobs, and I have been lucky to learn from fantastic teachers and students in each of them. My first degree was in Computer Science and Mathematics at McGill University in Montreal. The most interesting work always seems to happen where the technical fields meet the humanistic ones. I went on to study machine learning and intelligent systems, and what those systems mean for society, at the Technical University of Berlin. I hold an MSc in Human-Centered AI from TU Dublin.
+### Where I have lived
 
-I now teach programming, mathematics and AI at Dublin College Dundrum and Blackrock Further Education Institute. I have also taught at the Nelson Mandela School in Berlin and worked in the tutor management team at Paper in Toronto.
+Learning has moved me around a good deal. I studied in Montreal, worked for a year in Seattle and spent a year in Los Angeles as a maths partner teacher in a public high school. I then lived in Berlin for four years, where I taught maths at the Nelson Mandela School and ran programming at Archetyp, a café, podcast studio and community space. After that I spent two years in Toronto, working with tutors, learners and teachers at Paper, at Nelson Education and at Youth Employment Services. Since 2024 I have lived in Dublin, where I still get lost in the best way. I speak German, and I miss Berlin on most grey Tuesdays.
 
-Most of my earlier materials belong to the organisations I made them for. The ones on this site are mine, and teachers are welcome to use them.
+### Making things
 
-I teach machine learning from the ground up. A learner starts with fitting a line to data, then builds a single artificial neuron and then a small neural network, and then meets probability and text generation with Markov chains. My master's thesis looked at how well tutoring systems built on large language models work for teaching science, technology, engineering and mathematics. A large language model is a program trained on a great deal of text so that it can write and answer questions in ordinary language.
+I like arts and crafts of nearly every kind. I work with wood (some of it is at [mrmr](https://mrmr.studio)), I take photographs, and I have a soft spot for ceramics and oil paint. I am happiest when a project needs both my hands and my head. Some of my favourite work belongs to people I know. You can see paintings and photographs by [Elena Barschazki](https://barschazki.com), photographs by [David Aaron](https://dhaimages.com) and pottery by [Yuni Aaron](https://www.yuniaaronart.com/).
+
+### Walking and reading
+
+I hike whenever the weather and the calendar allow it, and I read a lot of fiction for a person who spends his days with equations. My shelf holds [Becky Chambers](https://en.wikipedia.org/wiki/Becky_Chambers), [Adrian Tchaikovsky](https://www.adriantchaikovsky.com), [Douglas Adams](https://www.douglasadams.com) and [Terry Pratchett](https://www.terrypratchett.com), and in German it holds [Walter Moers](https://en.wikipedia.org/wiki/Walter_Moers), who wrote *The 13½ Lives of Captain Bluebear*. I also like [Yanis Varoufakis](https://www.yanisvaroufakis.eu) on economics and [Sarah Bakewell](https://en.wikipedia.org/wiki/Sarah_Bakewell) on philosophy.
+
+My thinking about teaching comes from [John Dewey](https://en.wikipedia.org/wiki/John_Dewey) and [Maria Montessori](https://en.wikipedia.org/wiki/Maria_Montessori), and from more recent people who tried to change schools in practice. They include [Margret Rasfeld](https://de.wikipedia.org/wiki/Margret_Rasfeld), who wrote *Schule im Aufbruch*, [Dennis Littky](https://en.wikipedia.org/wiki/Dennis_Littky) and [Elliot Washor](https://www.bigpicture.org) of Big Picture Learning, [Ken Robinson](https://en.wikipedia.org/wiki/Ken_Robinson_%28educationalist%29), [Michael Apple](https://en.wikipedia.org/wiki/Michael_Apple) and [Patrick J. Finn](https://en.wikipedia.org/wiki/Literacy_with_an_Attitude), whose book *Literacy with an Attitude* has stayed with me for years.
+
+Most of my earlier teaching materials belong to the organisations I made them for. The ones on this site are mine, and teachers are welcome to use them.
 
 ## Contact
 
