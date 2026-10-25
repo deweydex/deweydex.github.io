@@ -44,7 +44,7 @@ Learning has moved me around a good deal. I studied in Montreal, worked for a ye
 
 ### Making things
 
-I like arts and crafts of nearly every kind. I work with wood (some of it is at [mrmr](https://mrmr.studio)), I take photographs, and I have a soft spot for ceramics and oil paint. I am happiest when a project needs both my hands and my head. Some of my favourite work belongs to people I know. You can see paintings and photographs by [Elena Barschazki](https://barschazki.com), photographs by [David Aaron](https://dhaimages.com) and pottery by [Yuni Aaron](https://www.yuniaaronart.com/).
+I like arts and crafts of nearly every kind. I love woodworking, and my friend [mrmr](https://mrmr.studio) makes wonderful things from it. I also love photography, ceramics and oil paint. I am happiest when a project needs both my hands and my head. Some of my favourite work belongs to people close to me. You can see paintings and photographs by [Elena Barschazki](https://barschazki.com), photographs by [David Aaron](https://dhaimages.com) and pottery by [Yuni Aaron](https://www.yuniaaronart.com/).
 
 ### Walking and reading
 
