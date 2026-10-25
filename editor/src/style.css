@@ -1,0 +1,42 @@
+.jb{display:grid;gap:.1rem;border:1px solid #e5e2da;border-left:4px solid #C25A1E;border-radius:6px;padding:.5rem .8rem;margin:.3rem 0;font:.95rem system-ui,sans-serif;background:#fff;color:#1B2A4A}
+.jb-k{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#C25A1E}
+.jb-n{color:#5f6b7a;font-size:.88rem;word-break:break-all}
+.jb-file{grid-template-columns:auto 1fr;align-items:center;gap:.2rem .8rem}
+.jb-ext{min-width:3rem;text-align:center;font:600 .7rem system-ui;text-transform:uppercase;color:#C25A1E;border:1.5px solid #C25A1E;border-radius:6px;padding:.4rem .2rem}
+.jb-front{white-space:pre-wrap;font:.85rem ui-monospace,Menlo,monospace;background:#f3f1ea;border-radius:6px;padding:.6rem .8rem;margin-bottom:1rem;color:#1B2A4A}
+/* site blocks: the published page's own classes, so a block looks as it will to a reader.
+   The rules repeat the site's, scoped to the editor, for the editor screen that has no site CSS. */
+.milkdown{--accent:var(--accent,#C25A1E)}
+.milkdown .site-block{position:relative;margin:.8rem 0;border:1px dashed transparent;border-radius:8px;padding:.2rem}
+.milkdown .site-block:hover,.milkdown .ProseMirror-selectednode.site-block{border-color:var(--line,#e5e2da)}
+.milkdown .site-block-bar{font:600 .68rem system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#5f6b7a);padding:.1rem .3rem}
+.milkdown .site-edit{position:absolute;top:.2rem;right:.3rem;font:600 .8rem system-ui;min-height:2rem;padding:0 .8rem;border:1px solid var(--accent,#C25A1E);border-radius:999px;background:var(--paper,#fbfaf7);color:var(--accent,#C25A1E);cursor:pointer}
+.milkdown .site-preview{pointer-events:none}
+.milkdown .site-fields{display:grid;grid-template-columns:1fr;gap:.2rem .8rem;padding:.4rem .4rem .6rem;font:.95rem system-ui,sans-serif}
+.milkdown .site-fields[hidden]{display:none}
+@media(min-width:34rem){.milkdown .site-fields{grid-template-columns:1fr 1fr}.milkdown .site-fields .wide{grid-column:1/-1}}
+.milkdown .site-fields label{margin:.2rem 0 0;font:600 .75rem system-ui;color:var(--muted,#5f6b7a)}
+.milkdown .site-fields input,.milkdown .site-details-bar input{width:100%;font:.95rem system-ui;padding:.45rem .6rem;border:1px solid var(--line,#e5e2da);border-radius:6px;background:var(--paper,#fbfaf7);color:var(--ink,#1B2A4A);margin:.15rem 0}
+.milkdown .file{display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;align-items:center;background:var(--card,#fff);border:1px solid var(--line,#e5e2da);border-radius:8px;padding:.7rem .9rem;margin:.6rem 0;font:1rem Georgia,serif}
+.milkdown .file.compact{padding:.45rem .7rem;margin:.35rem 0}
+.milkdown .file .ext{min-width:3.6rem;text-align:center;font:600 .72rem/1 system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent,#C25A1E);border:1.5px solid var(--accent,#C25A1E);border-radius:6px;padding:.45rem .3rem}
+.milkdown .file .meta{display:grid;min-width:0}.milkdown .file .n{color:var(--muted,#5f6b7a);font-size:.9rem}
+.milkdown .file .acts{grid-column:1/-1;display:flex;gap:.5rem}
+.milkdown .act{display:inline-flex;align-items:center;min-height:2.4rem;padding:0 .9rem;border:1px solid var(--accent,#C25A1E);border-radius:999px;color:var(--accent,#C25A1E);font:600 .88rem system-ui,sans-serif}
+.milkdown .act.dl,.milkdown .act.dl-btn{background:var(--accent,#C25A1E);color:var(--paper,#fbfaf7)}
+.milkdown .card{display:grid;gap:.1rem;background:var(--card,#fff);border:1px solid var(--line,#e5e2da);border-left:4px solid var(--accent,#C25A1E);border-radius:6px;padding:.7rem 1rem;margin:.8rem 0}
+.milkdown .card .k{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent,#C25A1E);font-family:system-ui}.milkdown .card .n{color:var(--muted,#5f6b7a);font-size:.95rem}
+.milkdown .sheet{border-top:1px solid var(--line,#e5e2da);padding:.2rem 0 .6rem}.milkdown .sheet h4{margin:1rem 0 .2rem;font-size:1.1rem}
+.milkdown .pdf-box{border:1px solid var(--line,#e5e2da);border-radius:6px;padding:2rem 1rem;text-align:center;color:var(--muted,#5f6b7a);background:var(--card,#fff);font:.95rem system-ui}
+.milkdown .callout{border-left:4px solid var(--accent,#C25A1E);background:var(--card,#fff);padding:.3rem 1rem;margin:1.2rem 0;border-radius:0 6px 6px 0}
+.milkdown .callout::before{content:"Note";display:block;font:600 .72rem system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--accent,#C25A1E)}
+.milkdown .callout.tip{border-left-color:#2f7d4f}.milkdown .callout.tip::before{content:"Tip";color:#2f7d4f}
+.milkdown .callout.info{border-left-color:#2b6cb0}.milkdown .callout.info::before{content:"Information";color:#2b6cb0}
+.milkdown .callout.warning{border-left-color:#b7791f}.milkdown .callout.warning::before{content:"Warning";color:#b7791f}
+.milkdown .site-callout-bar{display:none}
+.milkdown .site-callout-bar select{font:600 .72rem system-ui;border:0;background:none;color:var(--muted,#5f6b7a)}
+.milkdown .callout:hover .site-callout-bar,.milkdown .callout:focus-within .site-callout-bar{display:block}
+.milkdown .site-details{border:1px solid var(--line,#e5e2da);border-radius:8px;padding:.4rem .9rem;margin:.8rem 0;background:var(--card,#fff)}
+.milkdown .site-details-bar{display:grid;gap:.2rem;margin-bottom:.4rem}
+.milkdown .site-kind{font:600 .72rem system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#5f6b7a)}
+.milkdown .jb-front,.milkdown [data-front-matter]{white-space:pre-wrap;font:.85rem ui-monospace,Menlo,monospace;background:var(--card,#f3f1ea);border-radius:6px;padding:.6rem .8rem;margin-bottom:1rem;color:var(--ink,#1B2A4A)}

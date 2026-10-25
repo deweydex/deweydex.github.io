@@ -1,0 +1,852 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 5C: Graphs of Sine and Cosine},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 5C: Graphs of Sine and Cosine}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+Sine and cosine don't just solve triangles --- they describe anything
+that oscillates, cycles, or waves. Sound, light, electricity, ocean
+tides, seasonal temperatures, and even the vibration of atoms all follow
+sinusoidal patterns.
+
+Understanding how to read and manipulate these graphs is essential for
+signal processing, communications, and the Fourier analysis that
+underlies much of modern technology.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-the-basic-sine-and-cosine-curves-16-problems}{%
+\subsection{Part A: The Basic Sine and Cosine Curves (16
+problems)}\label{part-a-the-basic-sine-and-cosine-curves-16-problems}}
+
+\hypertarget{the-parent-functions}{%
+\subsubsection{The Parent Functions}\label{the-parent-functions}}
+
+\[y = \sin(x) \quad \text{and} \quad y = \cos(x)\]
+
+\textbf{Key Properties:} - \textbf{Period:} \(2\pi\) (one complete
+cycle) - \textbf{Amplitude:} 1 (distance from center to peak) -
+\textbf{Range:} \([-1, 1]\) - \textbf{Domain:} All real numbers
+
+\textbf{The only difference:} Cosine is sine shifted left by
+\(\frac{\pi}{2}\): \[\cos(x) = \sin\left(x + \frac{\pi}{2}\right)\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{1.} Complete the table for \(y = \sin(x)\):
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0450}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0450}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0631}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1622}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0721}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(x\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(0\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{\pi}{6}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{\pi}{4}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{\pi}{3}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{\pi}{2}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\pi\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{3\pi}{2}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(2\pi\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\sin(x)\) & & & & & & & & \\
+\end{longtable}
+
+\textbf{2.} Complete the table for \(y = \cos(x)\):
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0450}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0450}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1532}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0631}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.1622}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 16\tabcolsep) * \real{0.0721}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(x\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(0\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{\pi}{6}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{\pi}{4}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{\pi}{3}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{\pi}{2}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\pi\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{3\pi}{2}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(2\pi\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\cos(x)\) & & & & & & & & \\
+\end{longtable}
+
+\textbf{3.} Sketch both functions on the same axes from \(x = 0\) to
+\(x = 2\pi\).
+
+\textbf{4.} At what x-values does \(\sin(x) = \cos(x)\) in the interval
+\([0, 2\pi]\)?
+
+\textbf{5.} At what x-values does \(\sin(x) = 0\) in the interval
+\([0, 2\pi]\)?
+
+\textbf{6.} At what x-values does \(\cos(x) = 0\) in the interval
+\([0, 2\pi]\)?
+
+\textbf{7.} At what x-value does \(\sin(x)\) reach its maximum in
+\([0, 2\pi]\)? Its minimum?
+
+\textbf{8.} At what x-value does \(\cos(x)\) reach its maximum in
+\([0, 2\pi]\)? Its minimum?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{symmetry}{%
+\subsubsection{Symmetry}\label{symmetry}}
+
+\textbf{9.} \(\sin(-x) ={}\) \_\_\_\_\_\_\_\_\_\_ (Sine is an
+\textbf{odd} function)
+
+\textbf{10.} \(\cos(-x) ={}\) \_\_\_\_\_\_\_\_\_\_ (Cosine is an
+\textbf{even} function)
+
+\textbf{11.} Verify: \(\sin(-\frac{\pi}{4}) = -\sin(\frac{\pi}{4})\)
+
+\textbf{12.} Verify: \(\cos(-\frac{\pi}{3}) = \cos(\frac{\pi}{3})\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Sound Waves**
+
+\textbf{13.} A pure musical tone is a sine wave. The note ``A'' above
+middle C has a frequency of 440 Hz (cycles per second). - (a) What is
+the period of this sound wave in seconds? - (b) How many complete cycles
+occur in 1 second?
+
+\textbf{14.} The equation for this sound wave (simplified) is:
+\[y(t) = A\sin(2\pi \cdot 440 \cdot t)\] where \(t\) is time in seconds
+and \(A\) is amplitude.
+
+At \(t = 0\), what is \(y(0)\)?
+
+\textbf{15.} At \(t = \frac{1}{880}\) seconds, what is \(y(t)\)?
+
+\textbf{16.} At what time does the first peak occur?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-amplitude-vertical-stretch-14-problems}{%
+\subsection{Part B: Amplitude --- Vertical Stretch (14
+problems)}\label{part-b-amplitude-vertical-stretch-14-problems}}
+
+\hypertarget{the-general-form}{%
+\subsubsection{The General Form}\label{the-general-form}}
+
+\[y = A\sin(x) \quad \text{or} \quad y = A\cos(x)\]
+
+\textbf{Amplitude} \(= |A|\) (the distance from the midline to the peak)
+
+\begin{itemize}
+\tightlist
+\item
+  If \(A > 1\): vertical stretch (taller waves)
+\item
+  If \(0 < A < 1\): vertical compression (shorter waves)
+\item
+  If \(A < 0\): reflection across the x-axis
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Identify the amplitude and sketch one period:}
+
+\textbf{17.} \(y = 3\sin(x)\)
+
+\textbf{18.} \(y = 0.5\cos(x)\)
+
+\textbf{19.} \(y = -2\sin(x)\)
+
+\textbf{20.} \(y = -\cos(x)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Write the equation of a sine function with:}
+
+\textbf{21.} Amplitude 4, no other transformations.
+
+\textbf{22.} Amplitude \(\frac{1}{3}\), reflected across the x-axis.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Sound Intensity**
+
+\textbf{23.} A quiet whisper might have amplitude 0.01 (in arbitrary
+units), while a loud shout might have amplitude 1.0.
+
+If quiet sound is \(y = 0.01\sin(x)\) and loud sound is
+\(y = 1.0\sin(x)\): - (a) How many times larger is the amplitude of the
+shout? - (b) Sound intensity is proportional to amplitude squared. How
+many times more intense is the shout?
+
+\textbf{24.} Noise-canceling headphones work by generating a sound wave
+that is the \textbf{negative} of the incoming noise.
+
+If noise is \(y = A\sin(x)\), what wave cancels it?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Light Waves**
+
+\textbf{25.} Light is an electromagnetic wave. The electric field
+oscillates as a sine wave.
+
+If blue light has a smaller amplitude than red light (same intensity),
+which has: - (a) More energy per photon? (Hint: This depends on
+frequency, not amplitude) - (b) More photons for the same total energy?
+
+\textbf{26.} In interference experiments, two waves can: - Add
+constructively (peaks align): \(\sin(x) + \sin(x) = 2\sin(x)\) - Add
+destructively (peaks align with troughs):
+\(\sin(x) + \sin(x + \pi) = 0\)
+
+Verify the destructive case:
+\(\sin(x) + \sin(x + \pi) = \sin(x) + (-\sin(x)) = 0\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Radio Waves**
+
+\textbf{27.} AM radio (Amplitude Modulation) encodes information by
+varying the amplitude of a carrier wave.
+
+The carrier might be \(y = \sin(1000000 \cdot 2\pi t)\) (1 MHz).
+
+When you speak, the amplitude changes:
+\(y = A(t)\sin(1000000 \cdot 2\pi t)\)
+
+If \(A(t)\) varies between 0.5 and 1.5, what are the minimum and maximum
+peak heights of the signal?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-period-horizontal-stretchcompression-18-problems}{%
+\subsection{Part C: Period --- Horizontal Stretch/Compression (18
+problems)}\label{part-c-period-horizontal-stretchcompression-18-problems}}
+
+\hypertarget{the-general-form-1}{%
+\subsubsection{The General Form}\label{the-general-form-1}}
+
+\[y = \sin(Bx) \quad \text{or} \quad y = \cos(Bx)\]
+
+\textbf{Period} \(= \frac{2\pi}{|B|}\)
+
+\begin{itemize}
+\tightlist
+\item
+  If \(B > 1\): horizontal compression (faster oscillation, shorter
+  period)
+\item
+  If \(0 < B < 1\): horizontal stretch (slower oscillation, longer
+  period)
+\end{itemize}
+
+\textbf{Frequency} \(= \frac{|B|}{2\pi} = \frac{1}{\text{Period}}\)
+(cycles per unit)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find the period:}
+
+\textbf{28.} \(y = \sin(2x)\)
+
+\textbf{29.} \(y = \cos(3x)\)
+
+\textbf{30.} \(y = \sin\left(\frac{x}{2}\right)\)
+
+\textbf{31.} \(y = \cos(4\pi x)\)
+
+\textbf{32.} \(y = \sin\left(\frac{\pi x}{3}\right)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find B if the period is:}
+
+\textbf{33.} Period \(= \pi\)
+
+\textbf{34.} Period \(= 4\pi\)
+
+\textbf{35.} Period \(= 1\) (useful for time in seconds!)
+
+\textbf{36.} Period \(= \frac{1}{60}\) (one cycle per minute)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Musical Frequencies**
+
+\textbf{37.} Middle C has frequency 261.6 Hz. - (a) What is the period
+in seconds? - (b) Write the equation for this sound wave:
+\(y = \sin(Bt)\) where the period is in seconds.
+
+\textbf{38.} An octave higher means double the frequency. What is the
+frequency of C one octave above middle C?
+
+\textbf{39.} The note E above middle C has frequency 329.6 Hz. - (a)
+Write the equation. - (b) If you play both C and E together, what
+mathematical operation combines them?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Radio Frequencies**
+
+\textbf{40.} FM radio station 98.5 FM broadcasts at 98.5 MHz (megahertz
+= million Hz). - (a) What is the period of this electromagnetic wave? -
+(b) How does this compare to AM radio at 1 MHz?
+
+\textbf{41.} Wi-Fi operates at either 2.4 GHz or 5 GHz (gigahertz =
+billion Hz). - (a) What is the period of a 2.4 GHz wave? - (b) What is
+the period of a 5 GHz wave? - (c) Which has more cycles per second?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: X-rays and Visible Light**
+
+\textbf{42.} Visible light has frequencies around \(5 \times 10^{14}\)
+Hz (500 THz). - (a) What is the period? - (b) Light travels at
+\(c = 3 \times 10^8\) m/s. Wavelength \(\lambda = c \cdot T\) where
+\(T\) is period. Find the wavelength.
+
+\textbf{43.} X-rays have frequencies around \(10^{18}\) Hz. - (a) What
+is the period? - (b) What is the wavelength? - (c) Why can X-rays
+``see'' smaller features than visible light?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: EUV Lithography**
+
+\textbf{44.} Extreme ultraviolet (EUV) light used in chip manufacturing
+has wavelength 13.5 nm. - (a) Convert to meters. - (b) Using
+\(\lambda = c \cdot T\), find the period. - (c) Find the frequency.
+
+\textbf{45.} The light in EUV lithography can be modeled as
+\(E(t) = E_0\sin(2\pi f t)\). With \(f\) from problem 44: - (a) What is
+\(B\) in \(E(t) = E_0\sin(Bt)\)? - (b) This is an incredibly large
+number! What does this tell you about how fast the electric field
+oscillates?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-phase-shift-horizontal-translation-14-problems}{%
+\subsection{Part D: Phase Shift --- Horizontal Translation (14
+problems)}\label{part-d-phase-shift-horizontal-translation-14-problems}}
+
+\hypertarget{the-general-form-2}{%
+\subsubsection{The General Form}\label{the-general-form-2}}
+
+\[y = \sin(x - C) \quad \text{or} \quad y = \cos(x - C)\]
+
+\textbf{Phase shift} \(= C\) (shifts right if \(C > 0\), left if
+\(C < 0\))
+
+Note: In \(y = \sin(Bx - C)\), the phase shift is \(\frac{C}{B}\), not
+\(C\)!
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Identify the phase shift:}
+
+\textbf{46.} \(y = \sin\left(x - \frac{\pi}{4}\right)\)
+
+\textbf{47.} \(y = \cos\left(x + \frac{\pi}{3}\right)\)
+
+\textbf{48.} \(y = \sin(2x - \pi)\) --- \emph{Careful! Factor out B
+first.}
+
+\textbf{49.} \(y = \cos\left(3x + \frac{\pi}{2}\right)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Write the equation:}
+
+\textbf{50.} Sine function shifted right by \(\frac{\pi}{6}\).
+
+\textbf{51.} Cosine function shifted left by \(\frac{\pi}{4}\).
+
+\textbf{52.} Sine function with period \(\pi\) and phase shift
+\(\frac{\pi}{4}\) to the right.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: AC Electricity**
+
+\textbf{53.} In three-phase electrical power, three sine waves are used,
+each shifted by 120° (or \(\frac{2\pi}{3}\) radians):
+
+\[V_1 = V_0\sin(\omega t)\]
+\[V_2 = V_0\sin\left(\omega t - \frac{2\pi}{3}\right)\]
+\[V_3 = V_0\sin\left(\omega t - \frac{4\pi}{3}\right)\]
+
+At \(t = 0\), calculate \(V_1\), \(V_2\), and \(V_3\) in terms of
+\(V_0\).
+
+\textbf{54.} Show that \(V_1 + V_2 + V_3 = 0\) at \(t = 0\).
+
+\emph{This is always true! The three phases always sum to zero, which is
+important for power transmission.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Signal Phase**
+
+\textbf{55.} GPS works by comparing the phase of signals from multiple
+satellites. If two satellites send identical sine waves but one signal
+travels farther:
+
+Satellite A: \(y_A = \sin(\omega t)\) Satellite B:
+\(y_B = \sin(\omega t - \phi)\)
+
+If the phase difference \(\phi = \frac{\pi}{2}\) and the wave has
+frequency 1.575 GHz, how much extra time did signal B take?
+
+\emph{Hint: Phase difference \(\phi\) corresponds to time difference
+\(\Delta t = \frac{\phi}{\omega} = \frac{\phi}{2\pi f}\)}
+
+\textbf{56.} At the speed of light (\(3 \times 10^8\) m/s), what extra
+distance did signal B travel?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Interference in Thin Films**
+
+\textbf{57.} When light reflects off a thin film (like oil on water),
+the two reflections (top and bottom of film) can interfere.
+
+If the film thickness causes a phase shift of \(\phi = \pi\), what
+happens when the two waves combine?
+
+\textbf{58.} At what phase shift do you get constructive interference
+(bright colors)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-e-vertical-shift-moving-the-midline-10-problems}{%
+\subsection{Part E: Vertical Shift --- Moving the Midline (10
+problems)}\label{part-e-vertical-shift-moving-the-midline-10-problems}}
+
+\hypertarget{the-general-form-3}{%
+\subsubsection{The General Form}\label{the-general-form-3}}
+
+\[y = \sin(x) + D \quad \text{or} \quad y = \cos(x) + D\]
+
+\textbf{Vertical shift} \(= D\) (midline moves to \(y = D\))
+
+\textbf{Range:} \([D - A, D + A]\) where \(A\) is amplitude
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Identify amplitude, period, phase shift, and vertical shift:}
+
+\textbf{59.} \(y = 2\sin(x) + 3\)
+
+\textbf{60.} \(y = -3\cos(2x) - 1\)
+
+\textbf{61.} \(y = 4\sin\left(x - \frac{\pi}{2}\right) + 5\)
+
+\textbf{62.} \(y = \frac{1}{2}\cos(4x + \pi) - 2\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Temperature Cycles**
+
+\textbf{63.} Dublin's average daily temperature varies roughly
+sinusoidally through the year: - Average: 10°C - Varies by about ±5°C
+from the average - Coldest around January 15, warmest around July 15
+
+Let \(t\) be days after January 1.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the amplitude?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the vertical shift (midline)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is the period?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Write an equation using cosine: \(T(t) = A\cos(B(t - C)) + D\)
+  \end{enumerate}
+\end{itemize}
+
+\emph{Hint: Use cosine with the coldest point as the ``start'' of the
+cycle.}
+
+\textbf{64.} Using your equation: - (a) What temperature does it predict
+for March 15 (\(t = 73\))? - (b) For June 1 (\(t = 151\))?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Tides**
+
+\textbf{65.} Ocean tides follow roughly sinusoidal patterns (actually
+more complex due to Sun and Moon interactions).
+
+A simplified model: High tide at midnight (12:00 AM) with height 3.2 m,
+low tide at 6:15 AM with height 0.8 m.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the amplitude?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the midline (average tide level)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is the period?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Write the equation using cosine.
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Circadian Rhythms**
+
+\textbf{66.} Your body temperature varies throughout the day: - Lowest
+around 4:00 AM: 36.2°C - Highest around 4:00 PM: 37.4°C
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the amplitude and midline?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Write an equation where \(t\) is hours after midnight.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is your predicted body temperature at 8:00 AM?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-f-the-complete-general-form-10-problems}{%
+\subsection{Part F: The Complete General Form (10
+problems)}\label{part-f-the-complete-general-form-10-problems}}
+
+\hypertarget{putting-it-all-together}{%
+\subsubsection{Putting It All Together}\label{putting-it-all-together}}
+
+\[y = A\sin(B(x - C)) + D \quad \text{or} \quad y = A\cos(B(x - C)) + D\]
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Parameter & Effect \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\|A\|\) & Amplitude (vertical stretch) \\
+\(A < 0\) & Reflection across midline \\
+\(\frac{2\pi}{\|B\|}\) & Period (horizontal stretch) \\
+\(C\) & Phase shift (horizontal translation) \\
+\(D\) & Vertical shift (midline) \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{For each function, identify all parameters and sketch:}
+
+\textbf{67.} \(y = 3\sin(2x - \pi) + 1\)
+
+\textbf{68.} \(y = -2\cos\left(\frac{x}{2} + \frac{\pi}{4}\right) - 3\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Write the equation given:}
+
+\textbf{69.} Amplitude 5, period \(4\pi\), phase shift \(\frac{\pi}{2}\)
+right, midline \(y = -2\), using sine.
+
+\textbf{70.} Amplitude 2, period 1 (useful for signals!), no phase
+shift, midline \(y = 3\), using cosine.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Musical Synthesis**
+
+\textbf{71.} A synthesizer creates complex sounds by adding sine waves.
+A simple ``flute-like'' tone might be:
+
+\[y(t) = 1.0\sin(2\pi \cdot 440t) + 0.3\sin(2\pi \cdot 880t) + 0.1\sin(2\pi \cdot 1320t)\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What are the three frequencies present?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What are the three amplitudes?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    The first frequency is the ``fundamental.'' What is the relationship
+    between the other frequencies and the fundamental?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{72.} A square wave can be approximated by:
+
+\[y(t) = \sin(t) + \frac{1}{3}\sin(3t) + \frac{1}{5}\sin(5t) + \frac{1}{7}\sin(7t) + \cdots\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What pattern do you see in the frequencies?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What pattern do you see in the amplitudes?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    This is a \textbf{Fourier series}! It shows any periodic wave can be
+    built from sine waves.
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Quantum Mechanics Preview**
+
+\textbf{73.} In quantum mechanics, a particle in a box has wave
+functions that are sine waves:
+
+\[\psi_n(x) = A\sin\left(\frac{n\pi x}{L}\right)\]
+
+where \(L\) is the box length and \(n = 1, 2, 3, ...\)
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the ``period'' of \(\psi_1(x)\)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the ``period'' of \(\psi_2(x)\)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    How many half-wavelengths fit in the box for \(\psi_n(x)\)?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Sampling and Aliasing**
+
+\textbf{74.} When digitizing a signal, you must sample at least twice
+per period (Nyquist theorem).
+
+A signal has frequency 1000 Hz. - (a) What is the minimum sampling rate
+needed? - (b) If you sample at 800 Hz (too slow), the signal ``aliases''
+to a lower frequency. The aliased frequency is \(|f - f_s|\) where
+\(f_s\) is the sample rate. What frequency would you hear?
+
+\textbf{75.} CDs sample audio at 44,100 Hz. - (a) What is the highest
+frequency that can be accurately recorded? - (b) Why is this sufficient
+for human hearing (which goes up to about 20,000 Hz)?
+
+\textbf{76.} A scientist digitizes a signal at 100 samples per second.
+She observes a frequency of 30 Hz in the data. Could the original signal
+actually have been 70 Hz? Explain.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}

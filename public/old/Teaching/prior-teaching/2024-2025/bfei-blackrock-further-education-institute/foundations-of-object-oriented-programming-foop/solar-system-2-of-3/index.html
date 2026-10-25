@@ -1,0 +1,303 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>Solar System Explorer — OOP 2 of 3 (archive)</title><style>
+body{margin:0;background:#fbfaf7;color:#1B2A4A;font-family:Georgia,serif;line-height:1.6}
+main{max-width:44rem;margin:0 auto;padding:1.5rem 1rem 4rem}a{color:#D4692A}
+.banner{background:#1B2A4A;color:#fff;padding:.6rem 1rem;font-size:.9rem}.banner a{color:#fff}
+nav ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1rem}
+table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:.3rem .6rem}img{max-width:100%}pre{overflow:auto;background:#fff;padding:.7rem;border:1px solid #e5e2da}
+</style></head><body><div class="banner">Archive of the previous site. It is no longer updated. <a href="/">Go to the current site</a></div>
+<main><nav><ul><li><a href="/old/">Archive home</a></li><li><a href="/old/Consulting-and-Collaboration/">For Colleagues</a></li><li><a href="/old/Teaching/">Teaching</a></li><li><a href="/old/Writings/">Writings</a></li><li><a href="/old/contact/">Contact</a></li><li><a href="/old/current-teaching/">Current Teaching</a></li></ul></nav><h1>Solar System Explorer — OOP 2 of 3</h1><h1 id="solar-system-explorer-notebook-version">Solar System Explorer: Notebook Version</h1>
+<p><em>Part 2 of 3 — The same class-based implementation, structured as a step-by-step notebook for classroom use</em></p>
+<p>This version of the Solar System Explorer is designed to be worked through cell by cell, so you can see the effect of each piece before adding the next. Run each cell in order.</p>
+<hr />
+<h2 id="cell-1-the-base-class">Cell 1: The Base Class</h2>
+<pre><code class="language-csharp">using System;
+
+public abstract class CelestialLocation
+{
+    public string Name { get; set; }
+    public string FunFact { get; set; }
+
+    public CelestialLocation(string name, string funFact)
+    {
+        Name = name;
+        FunFact = funFact;
+    }
+
+    public virtual string GetInfo()
+    {
+        return $&quot;{Name}: {FunFact}&quot;;
+    }
+
+    public abstract string GetArrivalMessage();
+    public abstract string GetDepartureMessage();
+}
+
+Console.WriteLine(&quot;CelestialLocation base class defined.&quot;);
+Console.WriteLine(&quot;Note: We can't create a CelestialLocation directly — it's abstract.&quot;);
+Console.WriteLine(&quot;We can only create subclasses that fill in the abstract methods.&quot;);
+</code></pre>
+<hr />
+<h2 id="cell-2-the-planet-subclass">Cell 2: The Planet Subclass</h2>
+<pre><code class="language-csharp">public class Planet : CelestialLocation
+{
+    public double DistanceFromSun { get; set; }
+    public bool HasRings { get; set; }
+
+    public Planet(string name, double distanceFromSun, bool hasRings, string funFact) 
+        : base(name, funFact)
+    {
+        DistanceFromSun = distanceFromSun;
+        HasRings = hasRings;
+    }
+
+    public override string GetInfo()
+    {
+        string ringsInfo = HasRings ? &quot;Has magnificent rings!&quot; : &quot;No rings, how ordinary.&quot;;
+        return $&quot;{base.GetInfo()}\nDistance from Sun: {DistanceFromSun} million km\n{ringsInfo}&quot;;
+    }
+
+    public override string GetArrivalMessage()
+    {
+        return $&quot;Touchdown on planet {Name}! Gravity stabilizers engaged. &quot; +
+               $&quot;{(HasRings ? &quot;Wow, those rings look even better up close!&quot; : &quot;Clear skies for landing!&quot;)}&quot;;
+    }
+
+    public override string GetDepartureMessage()
+    {
+        return $&quot;Blasting off from {Name}'s gravitational pull! Engaging warp speed in 3...2...1...&quot;;
+    }
+}
+
+// Test it immediately
+Planet mars = new Planet(&quot;Mars&quot;, 227.9, false, 
+    &quot;Home to Olympus Mons, the tallest mountain in the solar system!&quot;);
+
+Console.WriteLine(&quot;=== Planet Test ===&quot;);
+Console.WriteLine(mars.GetInfo());
+Console.WriteLine();
+Console.WriteLine(mars.GetArrivalMessage());
+Console.WriteLine(mars.GetDepartureMessage());
+</code></pre>
+<hr />
+<h2 id="cell-3-the-moon-subclass">Cell 3: The Moon Subclass</h2>
+<pre><code class="language-csharp">public class Moon : CelestialLocation
+{
+    public string ParentPlanet { get; set; }
+    public bool HasWater { get; set; }
+
+    public Moon(string name, string parentPlanet, bool hasWater, string funFact) 
+        : base(name, funFact)
+    {
+        ParentPlanet = parentPlanet;
+        HasWater = hasWater;
+    }
+
+    public override string GetInfo()
+    {
+        string waterInfo = HasWater 
+            ? &quot;Contains water - potential for space swimming!&quot; 
+            : &quot;No water detected - bring your own beverages.&quot;;
+        return $&quot;{base.GetInfo()}\nOrbits: {ParentPlanet}\n{waterInfo}&quot;;
+    }
+
+    public override string GetArrivalMessage()
+    {
+        return $&quot;Soft landing on {Name}, a moon of {ParentPlanet}! &quot; +
+               &quot;Reduced gravity detected - watch your step or you might accidentally do a backflip!&quot;;
+    }
+
+    public override string GetDepartureMessage()
+    {
+        return $&quot;Gently pushing off from {Name}'s surface. The views of {ParentPlanet} from here are spectacular!&quot;;
+    }
+}
+
+// Test it
+Moon europa = new Moon(&quot;Europa&quot;, &quot;Jupiter&quot;, true, 
+    &quot;Has an ocean under its icy crust where space fish might be doing the backstroke!&quot;);
+
+Console.WriteLine(&quot;=== Moon Test ===&quot;);
+Console.WriteLine(europa.GetInfo());
+Console.WriteLine();
+Console.WriteLine(europa.GetArrivalMessage());
+</code></pre>
+<hr />
+<h2 id="cell-4-the-spacestation-subclass">Cell 4: The SpaceStation Subclass</h2>
+<pre><code class="language-csharp">public class SpaceStation : CelestialLocation
+{
+    public string OrbitingBody { get; set; }
+    public int CrewCapacity { get; set; }
+
+    public SpaceStation(string name, string orbitingBody, int crewCapacity, string funFact) 
+        : base(name, funFact)
+    {
+        OrbitingBody = orbitingBody;
+        CrewCapacity = crewCapacity;
+    }
+
+    public override string GetInfo()
+    {
+        return $&quot;{base.GetInfo()}\nOrbits: {OrbitingBody}\nCrew Capacity: {CrewCapacity} space explorers&quot;;
+    }
+
+    public override string GetArrivalMessage()
+    {
+        return $&quot;*Mechanical docking sounds* Connected to {Name} space station! &quot; +
+               &quot;Please wait for the airlock to pressurize.&quot;;
+    }
+
+    public override string GetDepartureMessage()
+    {
+        return $&quot;Disconnecting docking clamps from {Name}. Don't forget to wave to the crew!&quot;;
+    }
+}
+
+// Test it
+SpaceStation iss = new SpaceStation(&quot;ISS&quot;, &quot;Earth&quot;, 7, 
+    &quot;Astronauts see 16 sunrises every day! Talk about needing coffee.&quot;);
+
+Console.WriteLine(&quot;=== SpaceStation Test ===&quot;);
+Console.WriteLine(iss.GetInfo());
+Console.WriteLine();
+Console.WriteLine(iss.GetArrivalMessage());
+</code></pre>
+<hr />
+<h2 id="cell-5-polymorphism-in-action">Cell 5: Polymorphism in Action</h2>
+<pre><code class="language-csharp">using System.Collections.Generic;
+
+// Create a mixed list using the base type
+List&lt;CelestialLocation&gt; locations = new List&lt;CelestialLocation&gt;();
+locations.Add(new Planet(&quot;Mars&quot;, 227.9, false, &quot;Home to Olympus Mons!&quot;));
+locations.Add(new Moon(&quot;Europa&quot;, &quot;Jupiter&quot;, true, &quot;Possible subsurface ocean!&quot;));
+locations.Add(new SpaceStation(&quot;ISS&quot;, &quot;Earth&quot;, 7, &quot;16 sunrises per day!&quot;));
+
+Console.WriteLine(&quot;=== Polymorphism Demo ===&quot;);
+Console.WriteLine(&quot;Calling GetArrivalMessage() on each — notice different output from same method call:\n&quot;);
+
+foreach (CelestialLocation location in locations)
+{
+    Console.WriteLine($&quot;--- {location.Name} ({location.GetType().Name}) ---&quot;);
+    Console.WriteLine(location.GetArrivalMessage());
+    Console.WriteLine();
+}
+</code></pre>
+<hr />
+<h2 id="cell-6-the-solarsystemmap">Cell 6: The SolarSystemMap</h2>
+<pre><code class="language-csharp">using System.Linq;
+
+public class SolarSystemMap
+{
+    private List&lt;CelestialLocation&gt; locations;
+    public CelestialLocation CurrentLocation { get; private set; }
+
+    public SolarSystemMap()
+    {
+        locations = new List&lt;CelestialLocation&gt;();
+    }
+
+    public void AddLocation(CelestialLocation location)
+    {
+        locations.Add(location);
+        if (locations.Count == 1)
+        {
+            CurrentLocation = location;
+            Console.WriteLine($&quot;Starting our adventure at {location.Name}!&quot;);
+        }
+    }
+
+    public void DisplayAllLocations()
+    {
+        Console.WriteLine(&quot;\n=== Solar System Map ===&quot;);
+
+        foreach (var planet in locations.OfType&lt;Planet&gt;())
+        {
+            string here = planet == CurrentLocation ? &quot; &lt;&lt; YOU ARE HERE&quot; : &quot;&quot;;
+            Console.WriteLine($&quot;[Planet] {planet.Name}{here}&quot;);
+        }
+        foreach (var moon in locations.OfType&lt;Moon&gt;())
+        {
+            string here = moon == CurrentLocation ? &quot; &lt;&lt; YOU ARE HERE&quot; : &quot;&quot;;
+            Console.WriteLine($&quot;[Moon]   {moon.Name} (orbits {moon.ParentPlanet}){here}&quot;);
+        }
+        foreach (var station in locations.OfType&lt;SpaceStation&gt;())
+        {
+            string here = station == CurrentLocation ? &quot; &lt;&lt; YOU ARE HERE&quot; : &quot;&quot;;
+            Console.WriteLine($&quot;[Station] {station.Name}{here}&quot;);
+        }
+    }
+
+    public bool TravelTo(string destinationName)
+    {
+        CelestialLocation destination = locations.FirstOrDefault(loc =&gt; loc.Name == destinationName);
+
+        if (destination == null)
+        {
+            Console.WriteLine($&quot;Error: {destinationName} not found!&quot;);
+            return false;
+        }
+
+        if (destination == CurrentLocation)
+        {
+            Console.WriteLine($&quot;Already at {destinationName}!&quot;);
+            return false;
+        }
+
+        Console.WriteLine($&quot;\n{CurrentLocation.GetDepartureMessage()}&quot;);
+        Console.WriteLine($&quot;Traveling to {destination.Name}...&quot;);
+        Console.WriteLine(destination.GetArrivalMessage());
+
+        CurrentLocation = destination;
+        return true;
+    }
+}
+
+Console.WriteLine(&quot;SolarSystemMap class defined.&quot;);
+</code></pre>
+<hr />
+<h2 id="cell-7-putting-it-all-together">Cell 7: Putting It All Together</h2>
+<pre><code class="language-csharp">SolarSystemMap solarSystem = new SolarSystemMap();
+
+solarSystem.AddLocation(new Planet(&quot;Mars&quot;, 227.9, false, 
+    &quot;Home to Olympus Mons, the tallest mountain in the solar system!&quot;));
+solarSystem.AddLocation(new Planet(&quot;Saturn&quot;, 1433.5, true, 
+    &quot;Its rings would make a fabulous hula hoop for a giant!&quot;));
+solarSystem.AddLocation(new Moon(&quot;Europa&quot;, &quot;Jupiter&quot;, true, 
+    &quot;Has an ocean under its icy crust!&quot;));
+solarSystem.AddLocation(new Moon(&quot;Titan&quot;, &quot;Saturn&quot;, false, 
+    &quot;Has lakes of liquid methane. Not recommended for swimming.&quot;));
+solarSystem.AddLocation(new SpaceStation(&quot;ISS&quot;, &quot;Earth&quot;, 7, 
+    &quot;Astronauts see 16 sunrises every day!&quot;));
+
+solarSystem.DisplayAllLocations();
+
+Console.WriteLine(&quot;\n=== Travel Sequence ===&quot;);
+solarSystem.TravelTo(&quot;Europa&quot;);
+solarSystem.DisplayAllLocations();
+
+Console.WriteLine();
+solarSystem.TravelTo(&quot;ISS&quot;);
+solarSystem.DisplayAllLocations();
+</code></pre>
+<hr />
+<h2 id="student-exercises">Student Exercises</h2>
+<p>Try these extensions once you've run all the cells above:</p>
+<ol>
+<li>
+<p><strong>Add an AsteroidBelt class</strong> — What properties should it have? What would arrival and departure messages look like?</p>
+</li>
+<li>
+<p><strong>Search by orbiting body</strong> — Add a method to <code>SolarSystemMap</code> that returns all locations orbiting a given body. For example, <code>GetLocationsOrbitingBody("Saturn")</code> should return Titan and possibly a space station.</p>
+</li>
+<li>
+<p><strong>Fuel system</strong> — Add a <code>FuelLevel</code> property to <code>SolarSystemMap</code>. Travel costs fuel based on how far apart the locations are. What happens when you run out?</p>
+</li>
+<li>
+<p><strong>Distance calculator</strong> — For planets, calculate approximate distance between two planets based on their <code>DistanceFromSun</code>. What additional information would you need to make this realistic?</p>
+</li>
+<li>
+<p><strong>Nearby locations</strong> — Add a method that shows which locations are "close" to the current one (within some threshold). Define "close" however makes sense for your chosen measurement.</p>
+</li>
+</ol>
+<hr />
+<p><em>See <a href="./solar-system-oop-1-of-3">Solar System 1 of 3</a> for the full narrative version, or <a href="./solar-system-bonus-3-of-3">Solar System Bonus 3 of 3</a> for advanced extensions.</em></p></main></body></html>

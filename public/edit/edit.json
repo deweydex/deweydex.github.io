@@ -1,0 +1,11 @@
+{
+  "host": "github",
+  "repo": "deweydex/deweydex.github.io",
+  "branch": "main",
+  "gitlab": "",
+  "projectId": 0,
+  "clientId": "",
+  "roots": ["content"],
+  "contentRoot": "content",
+  "siteBase": "https://deweydex.github.io/"
+}

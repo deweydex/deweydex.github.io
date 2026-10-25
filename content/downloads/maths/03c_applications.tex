@@ -1,0 +1,1134 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 3C: Quadratics --- Real-World Applications},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 3C: Quadratics --- Real-World Applications}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+Quadratics aren't just abstract algebra --- they show up everywhere: -
+Objects flying through the air follow parabolic paths - Trigonometric
+functions can be approximated by polynomials - Probability distributions
+use binomial expansions - Compound growth involves expanding expressions
+like \((1 + r)^n\)
+
+This worksheet connects the algebra you've learned to real applications.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-projectile-motion-12-problems}{%
+\subsection{Part A: Projectile Motion (12
+problems)}\label{part-a-projectile-motion-12-problems}}
+
+When you throw a ball, drop an object, or launch a rocket, its height
+follows a quadratic equation:
+
+\[h(t) = h_0 + v_0 t - \frac{1}{2}gt^2\]
+
+Where: - \(h(t)\) = height at time \(t\) - \(h_0\) = initial height
+(starting height) - \(v_0\) = initial velocity (positive = upward,
+negative = downward) - \(g\) = acceleration due to gravity
+(\(\approx 10 \text{ m/s}^2\) or \(32 \text{ ft/s}^2\)) - \(t\) = time
+
+\textbf{Simplified form (using \(g = 10\) m/s²):}
+
+\[h(t) = h_0 + v_0 t - 5t^2\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{1.} A ball is thrown upward from ground level with initial
+velocity 20 m/s.
+
+\[h(t) = 0 + 20t - 5t^2 = 20t - 5t^2\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the height at \(t = 1\) second?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the height at \(t = 2\) seconds?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is the height at \(t = 4\) seconds? What does this answer tell
+    you?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{2.} Using the same equation \(h(t) = 20t - 5t^2\):
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Factor the right side: \(h(t) ={}\) \_\_\_\_\_\_\_\_\_\_
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Set \(h(t) = 0\) and solve. What do the two solutions represent
+    physically?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{3.} A ball is dropped from a 45-meter building (no initial
+velocity).
+
+\[h(t) = 45 - 5t^2\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    How high is the ball after 1 second?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    How high after 2 seconds?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    When does the ball hit the ground? (Set \(h(t) = 0\) and solve)
+  \end{enumerate}
+\end{itemize}
+
+\textbf{4.} A ball is thrown downward from a 80-meter cliff with initial
+velocity 10 m/s downward.
+
+\[h(t) = 80 - 10t - 5t^2\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Why is the \(v_0\) term negative?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    When does the ball hit the ground?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    How fast is it falling? (This requires calculus, but estimate: is it
+    speeding up or slowing down?)
+  \end{enumerate}
+\end{itemize}
+
+\textbf{5.} A rocket is launched upward with initial velocity 50 m/s
+from a platform 20 meters high.
+
+\[h(t) = 20 + 50t - 5t^2\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Rewrite in standard form: \(h(t) = -5t^2 + 50t + 20\)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is \(h(0)\)? Does this match the problem description?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Use the quadratic formula to find when \(h(t) = 0\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Why do you get two answers? Which one makes physical sense?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{6.} \textbf{Finding Maximum Height}
+
+For \(h(t) = -5t^2 + 20t\), the maximum occurs at \(t = \frac{-b}{2a}\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Identify \(a\) and \(b\) from the equation.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calculate \(t_{max} = \frac{-b}{2a}\)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Find the maximum height by plugging \(t_{max}\) back into \(h(t)\).
+  \end{enumerate}
+\end{itemize}
+
+\textbf{7.} For the rocket in problem 5, \(h(t) = -5t^2 + 50t + 20\):
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    At what time does it reach maximum height?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    What is the maximum height?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{8.} A football is kicked with the path
+\(h(t) = -5t^2 + 15t + 1\) (height in meters).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What was the initial height? (The kicker's foot height)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    When does it reach maximum height?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What is the maximum height?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    When does it hit the ground?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{9.} \textbf{Horizontal Distance}
+
+When launched at an angle, a projectile's horizontal distance is:
+
+\[x(t) = v_x \cdot t\]
+
+And vertical height is:
+
+\[y(t) = v_y \cdot t - 5t^2\]
+
+A ball is kicked with \(v_x = 10\) m/s (horizontal) and \(v_y = 15\) m/s
+(vertical).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Write the equation for \(y(t)\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    When does the ball land (\(y = 0\))?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    How far horizontally has it traveled when it lands?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{10.} Eliminate \(t\) from the equations in problem 9:
+
+\begin{itemize}
+\tightlist
+\item
+  From \(x = 10t\), we get \(t = \frac{x}{10}\)
+\item
+  Substitute into \(y(t)\):
+  \(y = 15 \cdot \frac{x}{10} - 5 \cdot \left(\frac{x}{10}\right)^2\)
+\item
+  Simplify to show that \(y\) is a quadratic function of \(x\) (a
+  parabola!)
+\end{itemize}
+
+\textbf{11.} A ball thrown from height 2m follows
+\(h(t) = 2 + 12t - 5t^2\).
+
+Write an equation to answer: ``When is the ball at height 10m?'' Then
+solve it.
+
+\textbf{12.} Two balls are thrown: - Ball A: \(h_A(t) = 30t - 5t^2\)
+(from ground, fast) - Ball B: \(h_B(t) = 25 + 10t - 5t^2\) (from 25m
+platform, slower)
+
+When are they at the same height? (Set \(h_A = h_B\) and solve)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-area-problems-8-problems}{%
+\subsection{Part B: Area Problems (8
+problems)}\label{part-b-area-problems-8-problems}}
+
+\textbf{13.} A rectangular garden has length 3 meters more than its
+width. Let \(w\) = width.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Write an expression for the length in terms of \(w\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Write an expression for the area \(A\) in terms of \(w\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    If the area is 70 m², write and solve an equation to find the
+    dimensions.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{14.} A farmer has 100 meters of fencing to enclose a rectangular
+field against a river (no fence needed on the river side).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    If the width is \(w\), what is the length in terms of \(w\)? (Hint:
+    \(2w + L = 100\))
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Write the area as a function of \(w\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    This is a quadratic! Find the width that maximizes the area.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    What is the maximum area?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{15.} A square has its side length increased by 4 cm. The new
+area is 81 cm².
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Let \(s\) = original side length. Write an equation.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Solve for \(s\).
+  \end{enumerate}
+\end{itemize}
+
+\textbf{16.} The product of two consecutive positive integers is 182.
+Find them.
+
+\emph{(Let \(n\) = first integer, so \(n + 1\) = second integer)}
+
+\textbf{17.} The product of two consecutive even integers is 288. Find
+them.
+
+\textbf{18.} A rectangular photo is 4 cm longer than it is wide. A frame
+of uniform width 2 cm surrounds it. The total area (photo + frame) is
+165 cm².
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    If the photo width is \(w\), what are the outer dimensions?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Write an equation for the total area.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Solve for the photo dimensions.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{19.} A box with no lid is made from a 20 cm × 30 cm sheet by
+cutting squares of side \(x\) from each corner and folding up.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What are the dimensions of the box in terms of \(x\)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Write the volume as a function of \(x\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    If the volume must be 1008 cm³, find \(x\).
+  \end{enumerate}
+\end{itemize}
+
+\textbf{20.} The sum of a number and its square is 72. Find all possible
+values.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-polynomial-approximations-of-trig-functions-10-problems}{%
+\subsection{Part C: Polynomial Approximations of Trig Functions (10
+problems)}\label{part-c-polynomial-approximations-of-trig-functions-10-problems}}
+
+\begin{quote}
+\textbf{Key Insight:} Sine, cosine, and other transcendental functions
+can be approximated by polynomials! These are called \textbf{Taylor
+series} approximations.
+
+For small values of \(\theta\) (in radians):
+\end{quote}
+
+\[\sin(\theta) \approx \theta - \frac{\theta^3}{6} + \frac{\theta^5}{120} - \cdots\]
+
+\[\cos(\theta) \approx 1 - \frac{\theta^2}{2} + \frac{\theta^4}{24} - \cdots\]
+
+\textbf{These are just polynomials!} All your algebra skills apply.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{21.} Using the first two terms of the sine approximation:
+\(\sin(\theta) \approx \theta - \frac{\theta^3}{6}\)
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Calculate this approximation for \(\theta = 0.1\) radians.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Your calculator says \(\sin(0.1) = 0.0998334...\). How close is your
+    approximation?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{22.} Using the first two terms of the cosine approximation:
+\(\cos(\theta) \approx 1 - \frac{\theta^2}{2}\)
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Calculate this approximation for \(\theta = 0.2\) radians.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Compare to the actual value \(\cos(0.2) = 0.980067...\)
+  \end{enumerate}
+\end{itemize}
+
+\textbf{23.} Factor \(\theta\) out of the sine approximation
+\(\theta - \frac{\theta^3}{6}\):
+
+\[\sin(\theta) \approx \theta\left(1 - \frac{\theta^2}{6}\right)\]
+
+What does this tell you about \(\sin(\theta)\) when \(\theta\) is very
+small?
+
+\textbf{24.} The cosine approximation \(1 - \frac{\theta^2}{2}\) is a
+quadratic in \(\theta\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the ``vertex'' of this parabola?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Does this match what you know about the cosine function at
+    \(\theta = 0\)?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{25.} For small angles, engineers often use
+\(\sin(\theta) \approx \theta\) and \(\cos(\theta) \approx 1\).
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    For what range of \(\theta\) is this reasonable? (When does
+    \(\frac{\theta^2}{2}\) become significant?)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    If you need \(\cos(\theta)\) to be accurate within 1\%, how small
+    must \(\theta\) be?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{26.} The tangent function can be approximated as:
+
+\[\tan(\theta) \approx \theta + \frac{\theta^3}{3}\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Factor out \(\theta\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calculate \(\tan(0.1)\) using this approximation.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Compare to actual: \(\tan(0.1) = 0.1003347...\)
+  \end{enumerate}
+\end{itemize}
+
+\textbf{27.} \textbf{Combining Approximations}
+
+Using \(\sin(\theta) \approx \theta - \frac{\theta^3}{6}\) and
+\(\cos(\theta) \approx 1 - \frac{\theta^2}{2}\):
+
+Calculate \(\sin^2(\theta) + \cos^2(\theta)\) for \(\theta = 0.1\) using
+the approximations.
+
+Does it equal 1? (It should be close!)
+
+\textbf{28.} The approximation \(e^x \approx 1 + x + \frac{x^2}{2}\) is
+also a polynomial.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Calculate \(e^{0.1}\) using this approximation.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Actual value: \(e^{0.1} = 1.10517...\). How close?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{29.} Using
+\(e^x \approx 1 + x + \frac{x^2}{2} + \frac{x^3}{6}\):
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    This is a polynomial of degree \_\_\_.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calculate \(e^{0.5}\) using all four terms.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Actual value: \(e^{0.5} = 1.6487...\). How's the accuracy?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{30.} \textbf{Connection to Euler's Formula}
+
+The famous formula \(e^{i\theta} = \cos(\theta) + i\sin(\theta)\)
+connects exponentials and trig.
+
+Using the polynomial approximations, verify this is consistent for small
+\(\theta\) by comparing: -
+\(e^{i\theta} \approx 1 + i\theta + \frac{(i\theta)^2}{2} = 1 + i\theta - \frac{\theta^2}{2}\)
+(since \(i^2 = -1\)) -
+\(\cos(\theta) + i\sin(\theta) \approx \left(1 - \frac{\theta^2}{2}\right) + i(\theta)\)
+
+Are they the same?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-binomial-expansion-and-probability-10-problems}{%
+\subsection{Part D: Binomial Expansion and Probability (10
+problems)}\label{part-d-binomial-expansion-and-probability-10-problems}}
+
+\begin{quote}
+\textbf{Connection:} When you flip a coin \(n\) times, the probability
+of getting exactly \(k\) heads involves the binomial coefficient from
+Pascal's Triangle!
+\end{quote}
+
+\[P(k \text{ heads in } n \text{ flips}) = \binom{n}{k} p^k (1-p)^{n-k}\]
+
+Where \(\binom{n}{k}\) is the entry in row \(n\), position \(k\) of
+Pascal's Triangle.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{31.} Expand \((H + T)^3\) where \(H\) and \(T\) represent heads
+and tails.
+
+This represents all possible outcomes of 3 coin flips!
+
+\textbf{32.} From your expansion, identify: - (a) How many ways to get 0
+heads (all tails)? - (b) How many ways to get exactly 1 head? - (c) How
+many ways to get exactly 2 heads? - (d) How many ways to get 3 heads? -
+(e) Total number of outcomes?
+
+\textbf{33.} For a fair coin (\(p = 0.5\)), expand \((0.5 + 0.5)^3\) to
+find the probability of each outcome.
+
+\textbf{34.} A biased coin has \(P(\text{heads}) = 0.6\) and
+\(P(\text{tails}) = 0.4\).
+
+Expand \((0.6 + 0.4)^3\) to find: - (a) \(P(\text{0 heads})\) - (b)
+\(P(\text{1 head})\) - (c) \(P(\text{2 heads})\) - (d)
+\(P(\text{3 heads})\)
+
+\textbf{35.} Using Pascal's Triangle row 4: \textbf{1, 4, 6, 4, 1}
+
+For 4 flips of a fair coin, calculate: - (a)
+\(P(\text{exactly 2 heads})\) - (b) \(P(\text{at least 3 heads})\)
+
+\textbf{36.} Expand \((p + q)^4\) where \(p + q = 1\).
+
+This is the general probability distribution for 4 trials!
+
+\textbf{37.} A multiple choice test has 5 questions, each with 4 options
+(so \(P(\text{correct by guessing}) = 0.25\)).
+
+Using the binomial expansion, what's the probability of getting exactly
+3 correct by pure guessing?
+
+\emph{(Use row 5 of Pascal's Triangle: 1, 5, 10, 10, 5, 1)}
+
+\textbf{38.} In the same test, what's the probability of getting at
+least 4 correct by guessing?
+
+\textbf{39.} \textbf{Expected Value Connection}
+
+For \(n\) flips of a fair coin, the expected number of heads is
+\(\frac{n}{2}\).
+
+Verify this makes sense: In \((H + T)^4\) expanded, which term has the
+largest coefficient? What does this represent?
+
+\textbf{40.} A basketball player makes 70\% of free throws. Using
+\((0.7 + 0.3)^3\): - (a) What's the probability of making all 3 shots? -
+(b) What's the probability of making at least 2?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-e-compound-growth-and-finance-10-problems}{%
+\subsection{Part E: Compound Growth and Finance (10
+problems)}\label{part-e-compound-growth-and-finance-10-problems}}
+
+\begin{quote}
+\textbf{The Compound Interest Formula:}
+
+\[A = P\left(1 + \frac{r}{n}\right)^{nt}\]
+
+Where: - \(A\) = final amount - \(P\) = principal (initial amount) -
+\(r\) = annual interest rate (as decimal) - \(n\) = number of times
+compounded per year - \(t\) = time in years
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{41.} You invest €1000 at 5\% annual interest, compounded yearly,
+for 2 years.
+
+\[A = 1000(1 + 0.05)^2 = 1000(1.05)^2\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Expand \((1.05)^2\) using \((1 + 0.05)^2 = 1 + 2(0.05) + (0.05)^2\)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calculate the final amount.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    How much was earned in interest?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{42.} Same investment, but for 3 years: \(A = 1000(1.05)^3\)
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Expand \((1.05)^3\) using Pascal's Triangle coefficients: 1, 3, 3, 1
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calculate the final amount.
+  \end{enumerate}
+\end{itemize}
+
+\textbf{43.} \textbf{The Rule of 72}
+
+To estimate how long it takes money to double at interest rate \(r\%\):
+
+\[\text{Doubling time} \approx \frac{72}{r}\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    At 6\% interest, approximately how many years to double?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Verify: Calculate \((1.06)^{12}\) (you can use the approximation or
+    calculator).
+  \end{enumerate}
+\end{itemize}
+
+\textbf{44.} Expand \((1 + r)^2\) symbolically.
+
+If \(r = 0.1\) (10\% return), calculate the growth factor after 2 years.
+
+\textbf{45.} For small \(r\), the approximation
+\((1 + r)^n \approx 1 + nr\) is sometimes used.
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Using this approximation, what is \((1.02)^5\)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Using exact expansion (or calculator), what is \((1.02)^5\)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    When is the approximation good enough?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{46.} \textbf{Inflation and Purchasing Power}
+
+If inflation is 3\% per year, the purchasing power of €100 after \(n\)
+years is:
+
+\[\text{Value} = 100 \cdot (1 - 0.03)^n = 100 \cdot (0.97)^n\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What is the purchasing power after 2 years?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    After 5 years?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Approximately how many years until the value is halved?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{47.} \textbf{Population Growth}
+
+A town's population grows 2\% per year from an initial 50,000.
+
+\[P(t) = 50000(1.02)^t\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    What's the population after 3 years?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Using logarithms or trial, when does it reach 60,000?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{48.} \textbf{Depreciation}
+
+A car worth €20,000 depreciates 15\% per year.
+
+\[V(t) = 20000(1 - 0.15)^t = 20000(0.85)^t\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Value after 1 year?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Value after 3 years?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    When is it worth less than €10,000?
+  \end{enumerate}
+\end{itemize}
+
+\textbf{49.} \textbf{Continuous Compounding Limit}
+
+As \(n \to \infty\),
+\(\left(1 + \frac{1}{n}\right)^n \to e \approx 2.718\)
+
+Calculate for: - (a) \(n = 1\) - (b) \(n = 2\) - (c) \(n = 10\) - (d)
+\(n = 100\)
+
+Watch it approach \(e\)!
+
+\textbf{50.} \textbf{Loan Payments}
+
+A simplified loan payment formula involves:
+
+\[\text{Payment} = P \cdot \frac{r(1+r)^n}{(1+r)^n - 1}\]
+
+For a €10,000 loan at 0.5\% monthly interest (\(r = 0.005\)) for 24
+months:
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \tightlist
+  \item
+    Calculate \((1.005)^{24}\) (use calculator or approximation)
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Find the monthly payment.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    What's the total paid over 24 months?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{(\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    How much was interest?
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}

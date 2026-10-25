@@ -1,0 +1,6 @@
+editor/node_modules/
+# public/ is built by the pipeline from content/. Only the archive of the old
+# site and the built editor are kept in the repository.
+public/*
+!public/old
+!public/edit

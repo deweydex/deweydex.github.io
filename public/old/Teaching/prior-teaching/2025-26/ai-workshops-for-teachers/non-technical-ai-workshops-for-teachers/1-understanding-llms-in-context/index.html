@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex"><title>1 Understanding LLMs In Context (archive)</title><style>
+body{margin:0;background:#fbfaf7;color:#1B2A4A;font-family:Georgia,serif;line-height:1.6}
+main{max-width:44rem;margin:0 auto;padding:1.5rem 1rem 4rem}a{color:#D4692A}
+.banner{background:#1B2A4A;color:#fff;padding:.6rem 1rem;font-size:.9rem}.banner a{color:#fff}
+nav ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1rem}
+table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:.3rem .6rem}img{max-width:100%}pre{overflow:auto;background:#fff;padding:.7rem;border:1px solid #e5e2da}
+</style></head><body><div class="banner">Archive of the previous site. It is no longer updated. <a href="/">Go to the current site</a></div>
+<main><nav><ul><li><a href="/old/">Archive home</a></li><li><a href="/old/Consulting-and-Collaboration/">For Colleagues</a></li><li><a href="/old/Teaching/">Teaching</a></li><li><a href="/old/Writings/">Writings</a></li><li><a href="/old/contact/">Contact</a></li><li><a href="/old/current-teaching/">Current Teaching</a></li></ul></nav><h1>1 Understanding LLMs In Context</h1><h2 id="section-1-what-is-a-large-language-model-10-minutes">Section 1: What Is a Large Language Model? (10 minutes)</h2>
+<p>A Large Language Model (LLM) is a type of artificial intelligence trained on vast amounts of text to predict what words come next in a sequence. Think of it less as a <em>knowing entity</em> and more as a sophisticated <em>pattern completion system</em>. When you provide a prompt, the model generates text by continuously predicting the most statistically likely next token (word or word-piece) based on patterns learned during training.</p>
+<h3 id="key-concepts">Key Concepts</h3>
+<p><strong>Training:</strong> LLMs learn from enormous text datasets (books, websites, articles) by identifying statistical relationships between words, phrases, and concepts. They do not "understand" in the human sense; they recognize and reproduce patterns.</p>
+<p><strong>Parameters:</strong> The billions of numerical values that encode these patterns. More parameters generally means more nuanced pattern recognition, but not necessarily more accurate knowledge.</p>
+<p><strong>Tokens:</strong> The basic units LLMs process. A token might be a whole word, part of a word, or punctuation. The model predicts tokens one at a time, building responses sequentially.</p>
+<h3 id="a-hermeneutic-of-suspicion">A Hermeneutic of Suspicion</h3>
+<p>Understanding how LLMs work should make us appropriately skeptical of their outputs. Because they operate through statistical pattern matching rather than understanding, several consequences follow:</p>
+<ul>
+<li>
+<p><strong>Fluency does not equal accuracy:</strong> LLMs generate grammatically correct, coherent-sounding text even when the content is false</p>
+</li>
+<li>
+<p><strong>Confidence is not reliability:</strong> The model has no mechanism to assess its own certainty or indicate when it lacks information</p>
+</li>
+<li>
+<p><strong>Patterns reflect training data:</strong> Outputs reproduce whatever patterns exist in the training corpus, including biases, errors, and outdated information</p>
+</li>
+<li>
+<p><strong>Reasoning is simulated:</strong> What appears to be logical thinking is pattern matching that mimics reasoning structures from training data</p>
+</li>
+</ul>
+<h3 id="reflection-question">Reflection Question</h3>
+<p><em>If an LLM generates text by predicting what is statistically likely to come next, what implications might this have for the accuracy or originality of its outputs? How might we teach students to evaluate AI-generated text critically?</em></p>
+<hr />
+<h2 id="section-2-llms-vs-search-engines-10-minutes">Section 2: LLMs vs. Search Engines (10 minutes)</h2>
+<p>Understanding the difference between LLMs and search engines is crucial for developing appropriate critical evaluation strategies.</p>
+<h3 id="search-engines">Search Engines</h3>
+<p>Search engines like Google index existing web content and return links to sources. They <em>retrieve</em> information that already exists somewhere. The search engine does not create content; it finds and ranks existing content.</p>
+<h3 id="large-language-models">Large Language Models</h3>
+<p>LLMs <em>generate</em> new text based on patterns. They do not retrieve specific documents or cite sources (unless specifically designed to do so). This fundamental difference creates different risk profiles:</p>
+<ul>
+<li>
+<p>Generated text may not correspond to any real source</p>
+</li>
+<li>
+<p>"Hallucinations" occur when the model generates plausible-sounding but false information</p>
+</li>
+<li>
+<p>There is no built-in mechanism for verifying factual accuracy</p>
+</li>
+<li>
+<p>Citations, when provided, may be fabricated with the same confidence as real ones</p>
+</li>
+</ul>
+<h3 id="reflection-question_1">Reflection Question</h3>
+<p><em>How might students' prior experiences with search engines create false confidence in LLM outputs? What specific strategies could help them develop appropriate skepticism?</em></p>
+<hr />
+<h2 id="section-3-retrieval-augmented-generation-rag-10-minutes">Section 3: Retrieval-Augmented Generation (RAG) (10 minutes)</h2>
+<p>To address some limitations of pure LLMs, many commercial systems now use Retrieval-Augmented Generation (RAG). This architecture combines the generative capabilities of LLMs with actual information retrieval.</p>
+<h3 id="how-rag-works">How RAG Works</h3>
+<p>When you query a RAG system, it first searches a database of documents to find relevant information. It then provides this retrieved content to the LLM as context, and the LLM generates a response based on both its training and the retrieved documents.</p>
+<h3 id="what-rag-improves">What RAG Improves</h3>
+<p>RAG systems can cite sources, provide more current information, and ground responses in actual documents.</p>
+<h3 id="what-rag-does-not-solve">What RAG Does Not Solve</h3>
+<p>The LLM still synthesizes and paraphrases the retrieved content. It may misinterpret sources, combine information inappropriately, present retrieved information with unwarranted confidence, or fail to retrieve the most relevant documents.</p>
+<h3 id="maintaining-critical-distance">Maintaining Critical Distance</h3>
+<p>Even with citations, verification remains the user's responsibility. RAG makes verification <em>possible</em> in more cases, but does not make it automatic.</p>
+<h3 id="reflection-question_2">Reflection Question</h3>
+<p><em>Given that RAG systems combine retrieval and generation, how might we help students develop appropriate critical evaluation skills for AI-generated content that includes citations?</em></p></main></body></html>

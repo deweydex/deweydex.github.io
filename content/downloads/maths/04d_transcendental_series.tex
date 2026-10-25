@@ -1,0 +1,650 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 4D: Transcendental Functions via Series},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 4D: Transcendental Functions via Series}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+So far, we've worked with polynomials. But what about functions like
+\(e^x\), \(\sin(x)\), \(\cos(x)\), and \(\ln(x)\)?
+
+Here's the beautiful secret: \textbf{These functions can be written as
+infinite polynomials (series)!}
+
+Once we write them as polynomials, we can differentiate and integrate
+term by term using the power rule. This lets us \emph{discover} their
+derivatives rather than just memorizing them.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-the-exponential-function-ex-18-problems}{%
+\subsection{\texorpdfstring{Part A: The Exponential Function \(e^x\) (18
+problems)}{Part A: The Exponential Function e\^{}x (18 problems)}}\label{part-a-the-exponential-function-ex-18-problems}}
+
+\hypertarget{the-series-definition}{%
+\subsubsection{The Series Definition}\label{the-series-definition}}
+
+The number \(e \approx 2.71828...\) is defined as:
+
+\[e = 1 + 1 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots\]
+
+And the exponential function \(e^x\) is:
+
+\[\boxed{e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots = \sum_{n=0}^{\infty} \frac{x^n}{n!}}\]
+
+\textbf{Reminder:}
+\(n! = n \times (n-1) \times \cdots \times 2 \times 1\), and \(0! = 1\)
+by convention.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Understanding the Series:}
+
+\textbf{1.} Calculate the first five terms of the series for
+\(e^1 = e\):
+
+\(1 + 1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+\textbf{2.} Compare your answer to \(e \approx 2.71828\). How close?
+
+\textbf{3.} Write out the first 6 terms of the series for \(e^x\):
+
+\(e^x = 1 + x +{}\) \_\_\_\_\_\_\_\_\_\_ \(+\) \_\_\_\_\_\_\_\_\_\_
+\(+\) \_\_\_\_\_\_\_\_\_\_ \(+\) \_\_\_\_\_\_\_\_\_\_ \(+ \cdots\)
+
+\textbf{4.} Use the first 4 terms to approximate \(e^{0.5}\):
+
+\(e^{0.5} \approx 1 + 0.5 + \frac{0.25}{2} + \frac{0.125}{6} ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+Actual value: \(e^{0.5} \approx 1.6487\). How close?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{differentiating-ex-term-by-term}{%
+\subsubsection{\texorpdfstring{Differentiating \(e^x\) Term by
+Term}{Differentiating e\^{}x Term by Term}}\label{differentiating-ex-term-by-term}}
+
+\textbf{5.} Differentiate each term of the series
+\(e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots\)
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Term & Derivative \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(1\) & \\
+\(x\) & \\
+\(\frac{x^2}{2!} = \frac{x^2}{2}\) & \\
+\(\frac{x^3}{3!} = \frac{x^3}{6}\) & \\
+\(\frac{x^4}{4!} = \frac{x^4}{24}\) & \\
+\(\frac{x^5}{5!} = \frac{x^5}{120}\) & \\
+\end{longtable}
+
+\textbf{6.} Write out the derivative series you get:
+
+\(\frac{d}{dx}e^x = 0 + 1 +{}\) \_\_\_\_\_\_ \(+\) \_\_\_\_\_\_ \(+\)
+\_\_\_\_\_\_ \(+ \cdots\)
+
+\textbf{7.} Compare to the original series. What do you notice?
+
+\textbf{8.} Complete: \(\frac{d}{dx}e^x ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{This is remarkable!} The exponential function is its own
+derivative!
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{integrating-ex-term-by-term}{%
+\subsubsection{\texorpdfstring{Integrating \(e^x\) Term by
+Term}{Integrating e\^{}x Term by Term}}\label{integrating-ex-term-by-term}}
+
+\textbf{9.} Integrate each term of
+\(e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{x^4}{24} + \cdots\)
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Term & Integral \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(1\) & \\
+\(x\) & \\
+\(\frac{x^2}{2}\) & \\
+\(\frac{x^3}{6}\) & \\
+\(\frac{x^4}{24}\) & \\
+\end{longtable}
+
+\textbf{10.} Write out the integrated series:
+
+\(\int e^x \, dx = x + \frac{x^2}{2} +{}\) \_\_\_\_\_\_ \(+\)
+\_\_\_\_\_\_ \(+\) \_\_\_\_\_\_ \(+ C\)
+
+\textbf{11.} Factor out from each term to show this equals \(e^x + C\):
+
+Hint: \(x = \frac{x^1}{1!}\), \(\frac{x^2}{2} = \frac{x^2}{2!}\), etc.
+
+\textbf{12.} Complete: \(\int e^x \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\(+ C\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{the-derivative-and-integral-are-inverses}{%
+\subsubsection{The Derivative and Integral are
+Inverses}\label{the-derivative-and-integral-are-inverses}}
+
+\textbf{13.} Start with \(f(x) = e^x\). Differentiate, then integrate:
+
+\(f'(x) ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\(\int f'(x) \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{14.} Start with \(g(x) = e^x\). Integrate, then differentiate:
+
+\(\int g(x) \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\(\frac{d}{dx}\left[\int g(x) \, dx\right] ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{chain-rule-and-substitution-with-ex}{%
+\subsubsection{\texorpdfstring{Chain Rule and Substitution with
+\(e^x\)}{Chain Rule and Substitution with e\^{}x}}\label{chain-rule-and-substitution-with-ex}}
+
+\textbf{15.} Using the chain rule:
+\(\frac{d}{dx}e^{2x} = e^{2x} \cdot 2 = 2e^{2x}\)
+
+Find: \(\frac{d}{dx}e^{3x} ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{16.} Find: \(\frac{d}{dx}e^{-x} ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{17.} Using substitution: \(\int e^{2x} \, dx\)
+
+Let \(u = 2x\), so \(du = 2dx\), meaning \(dx = \frac{1}{2}du\)
+
+\(\int e^{2x} \, dx = \int e^u \cdot \frac{1}{2} du = \frac{1}{2}e^u + C ={}\)
+\_\_\_\_\_\_\_\_\_\_ \(+ C\)
+
+\textbf{18.} Find: \(\int e^{5x} \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\(+ C\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-sine-and-cosine-via-series-24-problems}{%
+\subsection{Part B: Sine and Cosine via Series (24
+problems)}\label{part-b-sine-and-cosine-via-series-24-problems}}
+
+\hypertarget{the-series-definitions}{%
+\subsubsection{The Series Definitions}\label{the-series-definitions}}
+
+\[\boxed{\sin(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}}\]
+
+\[\boxed{\cos(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!}}\]
+
+\textbf{Note:} \(x\) is in \textbf{radians}, not degrees!
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Understanding the Patterns:}
+
+\textbf{19.} The sine series has only \_\_\_\_\_\_\_\_\_\_ powers of
+\(x\) (odd/even).
+
+\textbf{20.} The cosine series has only \_\_\_\_\_\_\_\_\_\_ powers of
+\(x\) (odd/even).
+
+\textbf{21.} Both series alternate signs: \(+ \, - \, + \, - \, \cdots\)
+
+\textbf{22.} Use the first 3 terms to approximate \(\sin(0.5)\):
+
+\(\sin(0.5) \approx 0.5 - \frac{(0.5)^3}{6} + \frac{(0.5)^5}{120} ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+Actual: \(\sin(0.5) \approx 0.4794\). How close?
+
+\textbf{23.} Use the first 3 terms to approximate \(\cos(0.5)\):
+
+\(\cos(0.5) \approx 1 - \frac{(0.5)^2}{2} + \frac{(0.5)^4}{24} ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+Actual: \(\cos(0.5) \approx 0.8776\). How close?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{discovering-the-derivative-of-sine}{%
+\subsubsection{Discovering the Derivative of
+Sine}\label{discovering-the-derivative-of-sine}}
+
+\textbf{24.} Differentiate each term of
+\(\sin(x) = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots\)
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Term & Derivative \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(x\) & \\
+\(-\frac{x^3}{6}\) & \\
+\(\frac{x^5}{120}\) & \\
+\(-\frac{x^7}{5040}\) & \\
+\end{longtable}
+
+\textbf{25.} Write the derivative series:
+
+\(\frac{d}{dx}\sin(x) = 1 -{}\) \_\_\_\_\_\_ \(+\) \_\_\_\_\_\_ \(-\)
+\_\_\_\_\_\_ \(+ \cdots\)
+
+\textbf{26.} Compare to the cosine series. What is
+\(\frac{d}{dx}\sin(x)\)?
+
+\[\boxed{\frac{d}{dx}\sin(x) = \cos(x)}\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{discovering-the-derivative-of-cosine}{%
+\subsubsection{Discovering the Derivative of
+Cosine}\label{discovering-the-derivative-of-cosine}}
+
+\textbf{27.} Differentiate each term of
+\(\cos(x) = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + \cdots\)
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Term & Derivative \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(1\) & \\
+\(-\frac{x^2}{2}\) & \\
+\(\frac{x^4}{24}\) & \\
+\(-\frac{x^6}{720}\) & \\
+\end{longtable}
+
+\textbf{28.} Write the derivative series:
+
+\(\frac{d}{dx}\cos(x) = 0 - x +{}\) \_\_\_\_\_\_ \(-\) \_\_\_\_\_\_
+\(+ \cdots\)
+
+\textbf{29.} Factor out \(-1\) and compare to the sine series:
+
+\(\frac{d}{dx}\cos(x) = -\left(x - \frac{x^3}{6} + \frac{x^5}{120} - \cdots\right) ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+\[\boxed{\frac{d}{dx}\cos(x) = -\sin(x)}\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{the-beautiful-cycle}{%
+\subsubsection{The Beautiful Cycle}\label{the-beautiful-cycle}}
+
+\textbf{30.} Fill in the differentiation cycle:
+
+\(\sin(x) \xrightarrow{\frac{d}{dx}}\) \_\_\_\_\_\_
+\(\xrightarrow{\frac{d}{dx}}\) \_\_\_\_\_\_
+\(\xrightarrow{\frac{d}{dx}}\) \_\_\_\_\_\_
+\(\xrightarrow{\frac{d}{dx}}\) \_\_\_\_\_\_
+
+\textbf{31.} How many derivatives does it take to get back to
+\(\sin(x)\)?
+
+\textbf{32.} What is \(\frac{d^4}{dx^4}\sin(x)\)? (The fourth
+derivative)
+
+\textbf{33.} What is \(\frac{d^{100}}{dx^{100}}\cos(x)\)?
+
+\emph{Hint: \(100 = 4 \times 25\), so we go around the cycle 25 times.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{integrating-sine-and-cosine}{%
+\subsubsection{Integrating Sine and
+Cosine}\label{integrating-sine-and-cosine}}
+
+\textbf{34.} Since \(\frac{d}{dx}\sin(x) = \cos(x)\), what is
+\(\int \cos(x) \, dx\)?
+
+\textbf{35.} Since \(\frac{d}{dx}\cos(x) = -\sin(x)\), what is
+\(\int \sin(x) \, dx\)?
+
+\emph{Careful with the sign!}
+
+\textbf{36.} Verify by differentiating: \(\frac{d}{dx}(-\cos(x)) ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+\textbf{37.} Fill in the integration cycle:
+
+\(\sin(x) \xrightarrow{\int}\) \_\_\_\_\_\_ \(\xrightarrow{\int}\)
+\_\_\_\_\_\_ \(\xrightarrow{\int}\) \_\_\_\_\_\_ \(\xrightarrow{\int}\)
+\_\_\_\_\_\_
+
+\emph{(Don't forget the \(+C\) in practice, but ignore it for the
+cycle)}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{chain-rule-and-substitution-with-trig}{%
+\subsubsection{Chain Rule and Substitution with
+Trig}\label{chain-rule-and-substitution-with-trig}}
+
+\textbf{38.} Find: \(\frac{d}{dx}\sin(2x) ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{39.} Find: \(\frac{d}{dx}\cos(3x) ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{40.} Find: \(\frac{d}{dx}\sin(x^2) ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{41.} Find: \(\int \cos(4x) \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\(+ C\)
+
+\textbf{42.} Find: \(\int \sin(2x) \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+\(+ C\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-the-natural-logarithm-lnx-16-problems}{%
+\subsection{\texorpdfstring{Part C: The Natural Logarithm \(\ln(x)\) (16
+problems)}{Part C: The Natural Logarithm \textbackslash ln(x) (16 problems)}}\label{part-c-the-natural-logarithm-lnx-16-problems}}
+
+\hypertarget{a-different-approach}{%
+\subsubsection{A Different Approach}\label{a-different-approach}}
+
+Unlike \(e^x\), \(\sin\), and \(\cos\), the series for \(\ln(x)\)
+doesn't converge for all \(x\). But we can use a related series:
+
+\[\ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots \quad \text{for } -1 < x \leq 1\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{43.} Use the first 4 terms to approximate
+\(\ln(1.5) = \ln(1 + 0.5)\):
+
+\(\ln(1.5) \approx 0.5 - \frac{0.25}{2} + \frac{0.125}{3} - \frac{0.0625}{4} ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+Actual: \(\ln(1.5) \approx 0.4055\). How close?
+
+\textbf{44.} Use the first 4 terms to approximate
+\(\ln(2) = \ln(1 + 1)\):
+
+\(\ln(2) \approx 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+Actual: \(\ln(2) \approx 0.6931\). (The series converges slowly here!)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{the-derivative-of-lnx}{%
+\subsubsection{\texorpdfstring{The Derivative of
+\(\ln(x)\)}{The Derivative of \textbackslash ln(x)}}\label{the-derivative-of-lnx}}
+
+\textbf{45.} Differentiate each term of
+\(\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots\)
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Term & Derivative \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(x\) & \\
+\(-\frac{x^2}{2}\) & \\
+\(\frac{x^3}{3}\) & \\
+\(-\frac{x^4}{4}\) & \\
+\end{longtable}
+
+\textbf{46.} Write the derivative series:
+
+\(\frac{d}{dx}\ln(1+x) = 1 - x +{}\) \_\_\_\_\_\_ \(-\) \_\_\_\_\_\_
+\(+ \cdots\)
+
+\textbf{47.} This is a geometric series! Recall:
+\(1 - x + x^2 - x^3 + \cdots = \frac{1}{1+x}\)
+
+So: \(\frac{d}{dx}\ln(1+x) ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{48.} Using the chain rule: If \(u = 1 + x\), then
+\(\frac{d}{dx}\ln(u) = \frac{1}{u} \cdot \frac{du}{dx} = \frac{1}{1+x} \cdot 1\)
+
+For general \(\ln(x)\): \(\frac{d}{dx}\ln(x) ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\[\boxed{\frac{d}{dx}\ln(x) = \frac{1}{x}}\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{the-integral-of-frac1x}{%
+\subsubsection{\texorpdfstring{The Integral of
+\(\frac{1}{x}\)}{The Integral of \textbackslash frac\{1\}\{x\}}}\label{the-integral-of-frac1x}}
+
+\textbf{49.} We now know: \(\int \frac{1}{x} \, dx = \ln|x| + C\)
+
+Why the absolute value? Because \(\ln(x)\) is only defined for
+\(x > 0\), but \(\frac{1}{x}\) exists for \(x \neq 0\).
+
+\textbf{50.} Verify: \(\frac{d}{dx}\ln|x| = \frac{1}{x}\) for both
+\(x > 0\) and \(x < 0\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{chain-rule-and-substitution-with-ln}{%
+\subsubsection{\texorpdfstring{Chain Rule and Substitution with
+\(\ln\)}{Chain Rule and Substitution with \textbackslash ln}}\label{chain-rule-and-substitution-with-ln}}
+
+\textbf{51.} Find: \(\frac{d}{dx}\ln(2x) ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{52.} Find: \(\frac{d}{dx}\ln(x^2) ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\emph{Two ways: chain rule, or use \(\ln(x^2) = 2\ln(x)\) first}
+
+\textbf{53.} Find: \(\frac{d}{dx}\ln(x^2 + 1) ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{54.} Find: \(\int \frac{2x}{x^2 + 1} \, dx ={}\)
+\_\_\_\_\_\_\_\_\_\_ \(+ C\)
+
+\emph{Hint: Let \(u = x^2 + 1\)}
+
+\textbf{55.} Find: \(\int \frac{3x^2}{x^3 + 5} \, dx ={}\)
+\_\_\_\_\_\_\_\_\_\_ \(+ C\)
+
+\textbf{56.} Find: \(\int \frac{1}{2x + 3} \, dx ={}\)
+\_\_\_\_\_\_\_\_\_\_ \(+ C\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{the-ln-and-ex-connection}{%
+\subsubsection{\texorpdfstring{The \(\ln\) and \(e^x\)
+Connection}{The \textbackslash ln and e\^{}x Connection}}\label{the-ln-and-ex-connection}}
+
+\textbf{57.} Since \(e^x\) and \(\ln(x)\) are inverse functions:
+
+\(\ln(e^x) ={}\) \_\_\_\_\_\_\_\_\_\_ and \(e^{\ln(x)} ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+\textbf{58.} Differentiate \(\ln(e^x)\) using the chain rule and verify
+it equals 1.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-putting-it-all-together-18-problems}{%
+\subsection{Part D: Putting It All Together (18
+problems)}\label{part-d-putting-it-all-together-18-problems}}
+
+\hypertarget{summary-table}{%
+\subsubsection{Summary Table}\label{summary-table}}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Function & Derivative & Integral \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(e^x\) & \(e^x\) & \(e^x + C\) \\
+\(\sin(x)\) & \(\cos(x)\) & \(-\cos(x) + C\) \\
+\(\cos(x)\) & \(-\sin(x)\) & \(\sin(x) + C\) \\
+\(\ln(x)\) & \(\frac{1}{x}\) & \(x\ln(x) - x + C\) \\
+\(\frac{1}{x}\) & \(-\frac{1}{x^2}\) & \(\ln|x| + C\) \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{mixed-practice-derivatives}{%
+\subsubsection{Mixed Practice ---
+Derivatives}\label{mixed-practice-derivatives}}
+
+\textbf{59.} \(\frac{d}{dx}(e^x + \sin(x))\)
+
+\textbf{60.} \(\frac{d}{dx}(x^2 + \cos(x))\)
+
+\textbf{61.} \(\frac{d}{dx}(e^x \cdot x)\) --- \emph{Product rule!}
+
+\textbf{62.} \(\frac{d}{dx}(x \cdot \sin(x))\)
+
+\textbf{63.} \(\frac{d}{dx}\left(\frac{e^x}{x}\right)\) ---
+\emph{Quotient rule!}
+
+\textbf{64.} \(\frac{d}{dx}(e^{\sin(x)})\) --- \emph{Chain rule!}
+
+\textbf{65.} \(\frac{d}{dx}(\sin(e^x))\)
+
+\textbf{66.} \(\frac{d}{dx}(\ln(\cos(x)))\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{mixed-practice-integrals}{%
+\subsubsection{Mixed Practice ---
+Integrals}\label{mixed-practice-integrals}}
+
+\textbf{67.} \(\int (e^x + x^2) \, dx\)
+
+\textbf{68.} \(\int (3\cos(x) - 2\sin(x)) \, dx\)
+
+\textbf{69.} \(\int \frac{e^x + 1}{e^x} \, dx\) --- \emph{Simplify
+first!}
+
+\textbf{70.} \(\int x \cdot e^x \, dx\) --- \emph{Integration by parts!}
+
+Let \(u = x\), \(dv = e^x dx\). Then \(du = dx\), \(v = e^x\).
+
+\(= xe^x - \int e^x \, dx ={}\) \_\_\_\_\_\_\_\_\_\_
+
+\textbf{71.} \(\int x \cdot \cos(x) \, dx\) --- \emph{Integration by
+parts!}
+
+\textbf{72.} \(\int e^x \cdot \sin(x) \, dx\) --- \emph{This requires
+parts twice!} (Challenge)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{eulers-formula-the-grand-unification}{%
+\subsubsection{Euler's Formula --- The Grand
+Unification}\label{eulers-formula-the-grand-unification}}
+
+\textbf{73.} Recall: \(e^{ix} = \cos(x) + i\sin(x)\) where
+\(i = \sqrt{-1}\)
+
+Using the series for \(e^x\) with \(x\) replaced by \(ix\):
+
+\(e^{ix} = 1 + (ix) + \frac{(ix)^2}{2!} + \frac{(ix)^3}{3!} + \frac{(ix)^4}{4!} + \cdots\)
+
+Calculate the first few powers of \(i\): - \(i^1 = i\) - \(i^2 = -1\) -
+\(i^3 = -i\) - \(i^4 = 1\) - \(i^5 ={}\) \_\_\_\_\_
+
+\textbf{74.} Separate the real and imaginary parts of \(e^{ix}\):
+
+Real part: \(1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+Imaginary part: \(x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots ={}\)
+\_\_\_\_\_\_\_\_\_\_
+
+\textbf{75.} This proves: \(e^{ix} = \cos(x) + i\sin(x)\)
+
+At \(x = \pi\): \(e^{i\pi} = \cos(\pi) + i\sin(\pi) = -1 + 0 = -1\)
+
+So: \(e^{i\pi} + 1 = 0\)
+
+This is called \textbf{Euler's identity} --- often called the most
+beautiful equation in mathematics!
+
+\textbf{76.} Explain in your own words why \(e\), \(i\), \(\pi\), \(1\),
+and \(0\) appearing in one equation is remarkable.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}

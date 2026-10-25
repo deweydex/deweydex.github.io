@@ -1,0 +1,523 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=2.2cm]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Worksheet 5D: Trigonometric Identities and Equations},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Worksheet 5D: Trigonometric Identities and Equations}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\textbf{What This Worksheet Is About}
+
+Trigonometric identities are equations that are true for all values of
+the variable. They're not problems to solve --- they're tools that let
+us simplify expressions, prove relationships, and solve equations.
+
+These identities appear constantly in physics, engineering, and signal
+processing. Mastering them gives you powerful algebraic tools.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-a-fundamental-identities-18-problems}{%
+\subsection{Part A: Fundamental Identities (18
+problems)}\label{part-a-fundamental-identities-18-problems}}
+
+\hypertarget{the-pythagorean-identity}{%
+\subsubsection{The Pythagorean
+Identity}\label{the-pythagorean-identity}}
+
+From the unit circle, we know:
+\[\boxed{\sin^2\theta + \cos^2\theta = 1}\]
+
+\textbf{Derived forms:} - \(\sin^2\theta = 1 - \cos^2\theta\) -
+\(\cos^2\theta = 1 - \sin^2\theta\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Simplify using the Pythagorean identity:}
+
+\textbf{1.} \(\sin^2(x) + \cos^2(x)\)
+
+\textbf{2.} \(1 - \sin^2(x)\)
+
+\textbf{3.} \(1 - \cos^2(x)\)
+
+\textbf{4.} \(\frac{\sin^2(x)}{1 - \cos^2(x)}\)
+
+\textbf{5.} \(\frac{1 - \sin^2(x)}{\cos(x)}\)
+
+\textbf{6.} \((\sin(x) + \cos(x))^2\)
+
+\emph{Hint: Expand, then use the identity.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{quotient-and-reciprocal-identities}{%
+\subsubsection{Quotient and Reciprocal
+Identities}\label{quotient-and-reciprocal-identities}}
+
+\[\tan\theta = \frac{\sin\theta}{\cos\theta} \qquad \cot\theta = \frac{\cos\theta}{\sin\theta} = \frac{1}{\tan\theta}\]
+
+\[\sec\theta = \frac{1}{\cos\theta} \qquad \csc\theta = \frac{1}{\sin\theta}\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Simplify:}
+
+\textbf{7.} \(\frac{\sin(x)}{\cos(x)}\)
+
+\textbf{8.} \(\sin(x) \cdot \sec(x)\)
+
+\textbf{9.} \(\cos(x) \cdot \csc(x)\)
+
+\textbf{10.} \(\tan(x) \cdot \cos(x)\)
+
+\textbf{11.} \(\frac{\sec(x)}{\csc(x)}\)
+
+\textbf{12.} \(\sin^2(x) + \sin^2(x)\tan^2(x)\)
+
+\emph{Hint: Factor out \(\sin^2(x)\).}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{more-pythagorean-identities}{%
+\subsubsection{More Pythagorean
+Identities}\label{more-pythagorean-identities}}
+
+Dividing \(\sin^2\theta + \cos^2\theta = 1\) by \(\cos^2\theta\):
+\[\boxed{\tan^2\theta + 1 = \sec^2\theta}\]
+
+Dividing by \(\sin^2\theta\):
+\[\boxed{1 + \cot^2\theta = \csc^2\theta}\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Simplify:}
+
+\textbf{13.} \(\sec^2(x) - 1\)
+
+\textbf{14.} \(\csc^2(x) - 1\)
+
+\textbf{15.} \(\sec^2(x) - \tan^2(x)\)
+
+\textbf{16.} \(\frac{\tan^2(x)}{\sec^2(x) - 1}\)
+
+\textbf{17.} \(\tan^2(x) + \cot^2(x) + 2\)
+
+\emph{Hint: Rewrite using \(\sec^2 - 1\) and \(\csc^2 - 1\).}
+
+\textbf{18.} \(\frac{1 - \cos^2(x)}{\sin(x)}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-b-sum-and-difference-formulas-20-problems}{%
+\subsection{Part B: Sum and Difference Formulas (20
+problems)}\label{part-b-sum-and-difference-formulas-20-problems}}
+
+\hypertarget{the-formulas}{%
+\subsubsection{The Formulas}\label{the-formulas}}
+
+\[\boxed{\sin(A \pm B) = \sin A \cos B \pm \cos A \sin B}\]
+
+\[\boxed{\cos(A \pm B) = \cos A \cos B \mp \sin A \sin B}\]
+
+\[\boxed{\tan(A \pm B) = \frac{\tan A \pm \tan B}{1 \mp \tan A \tan B}}\]
+
+\textbf{Memory aid:} - Sine: ``sine-cosine, cosine-sine'' with SAME sign
+as the original - Cosine: ``cosine-cosine, sine-sine'' with OPPOSITE
+sign
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find exact values using sum/difference formulas:}
+
+\textbf{19.} \(\sin(75°) = \sin(45° + 30°)\)
+
+\textbf{20.} \(\cos(75°)\)
+
+\textbf{21.} \(\sin(15°) = \sin(45° - 30°)\)
+
+\textbf{22.} \(\cos(15°)\)
+
+\textbf{23.} \(\tan(75°)\)
+
+\textbf{24.} \(\sin(105°)\) --- \emph{Write as 60° + 45°}
+
+\textbf{25.} \(\cos(105°)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Verify identities:}
+
+\textbf{26.} Show that \(\sin(x + \frac{\pi}{2}) = \cos(x)\)
+
+\textbf{27.} Show that \(\cos(x - \frac{\pi}{2}) = \sin(x)\)
+
+\textbf{28.} Show that \(\sin(\pi - x) = \sin(x)\)
+
+\textbf{29.} Show that \(\cos(\pi - x) = -\cos(x)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Phase in Wave Addition**
+
+\textbf{30.} When two waves of the same frequency but different phases
+combine:
+
+\[y_1 = A\sin(\omega t) \quad \text{and} \quad y_2 = A\sin(\omega t + \phi)\]
+
+Using the sum formula on \(y_2\):
+
+\(y_2 = A[\sin(\omega t)\cos\phi + \cos(\omega t)\sin\phi]\)
+
+\(y_1 + y_2 = A\sin(\omega t) + A\sin(\omega t)\cos\phi + A\cos(\omega t)\sin\phi\)
+
+\(= A(1 + \cos\phi)\sin(\omega t) + A\sin\phi\cos(\omega t)\)
+
+If \(\phi = \frac{\pi}{2}\), simplify this expression.
+
+\textbf{31.} If \(\phi = \pi\) (waves completely out of phase), what is
+\(y_1 + y_2\)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Rotation Matrices**
+
+\textbf{32.} In computer graphics and robotics, rotation by angle
+\(\theta\) uses the matrix:
+
+\[R = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}\]
+
+To rotate first by \(\alpha\), then by \(\beta\), you multiply matrices.
+The result should be rotation by \(\alpha + \beta\). This is equivalent
+to showing:
+
+\(\cos(\alpha)\cos(\beta) - \sin(\alpha)\sin(\beta) = \cos(\alpha + \beta)\)
+
+Verify this matches the sum formula for cosine!
+
+\textbf{33.} Rotating a point \((1, 0)\) by 30°, then by 60°, should
+give the same result as rotating by 90°. - (a) What is \(\cos(90°)\) and
+\(\sin(90°)\)? - (b) Verify that
+\(\cos(30°)\cos(60°) - \sin(30°)\sin(60°) = \cos(90°)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Astronomy: Orbital Mechanics**
+
+\textbf{34.} The position of a planet in an elliptical orbit involves
+angles that add and subtract.
+
+If a satellite's angular position is the sum of two angles:
+\(\theta_{total} = \theta_1 + \theta_2\)
+
+where \(\theta_1 = 45°\) and \(\theta_2 = 60°\), find
+\(\cos(\theta_{total})\) and \(\sin(\theta_{total})\) exactly.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-c-double-angle-and-half-angle-formulas-18-problems}{%
+\subsection{Part C: Double Angle and Half Angle Formulas (18
+problems)}\label{part-c-double-angle-and-half-angle-formulas-18-problems}}
+
+\hypertarget{double-angle-formulas}{%
+\subsubsection{Double Angle Formulas}\label{double-angle-formulas}}
+
+Setting \(A = B\) in the sum formulas:
+
+\[\boxed{\sin(2\theta) = 2\sin\theta\cos\theta}\]
+
+\[\boxed{\cos(2\theta) = \cos^2\theta - \sin^2\theta = 2\cos^2\theta - 1 = 1 - 2\sin^2\theta}\]
+
+\[\boxed{\tan(2\theta) = \frac{2\tan\theta}{1 - \tan^2\theta}}\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Simplify:}
+
+\textbf{35.} \(2\sin(30°)\cos(30°)\)
+
+\textbf{36.} \(\cos^2(45°) - \sin^2(45°)\)
+
+\textbf{37.} \(2\cos^2(30°) - 1\)
+
+\textbf{38.} \(1 - 2\sin^2(60°)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find exact values:}
+
+\textbf{39.} If \(\sin\theta = \frac{3}{5}\) and \(\theta\) is in
+Quadrant I, find: - (a) \(\cos\theta\) - (b) \(\sin(2\theta)\) - (c)
+\(\cos(2\theta)\)
+
+\textbf{40.} If \(\cos\theta = \frac{5}{13}\) and \(\theta\) is in
+Quadrant I, find \(\sin(2\theta)\) and \(\cos(2\theta)\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{half-angle-formulas}{%
+\subsubsection{Half Angle Formulas}\label{half-angle-formulas}}
+
+\[\sin\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 - \cos\theta}{2}}\]
+
+\[\cos\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 + \cos\theta}{2}}\]
+
+(Sign depends on which quadrant \(\frac{\theta}{2}\) is in)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Find exact values:}
+
+\textbf{41.} \(\sin(22.5°)\) --- \emph{Use \(\theta = 45°\)}
+
+\textbf{42.} \(\cos(22.5°)\)
+
+\textbf{43.} \(\sin(15°)\) --- \emph{Use \(\theta = 30°\)} --- Compare
+to your answer from Problem 21!
+
+\textbf{44.} \(\cos(15°)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Power Reduction**
+
+In electronics, it's often necessary to convert between powers of trig
+functions and multiple angles.
+
+\textbf{45.} The power reduction formulas come from solving the
+double-angle formulas:
+
+\[\sin^2\theta = \frac{1 - \cos(2\theta)}{2} \qquad \cos^2\theta = \frac{1 + \cos(2\theta)}{2}\]
+
+Verify by expanding \(\cos(2\theta) = 1 - 2\sin^2\theta\) and solving
+for \(\sin^2\theta\).
+
+\textbf{46.} In AC circuits, power is proportional to
+\(\sin^2(\omega t)\) or \(\cos^2(\omega t)\).
+
+Using the power reduction formula, show that:
+\(\sin^2(\omega t) = \frac{1}{2} - \frac{1}{2}\cos(2\omega t)\)
+
+What does this tell you about the frequency of power oscillation
+compared to voltage oscillation?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Interference Patterns**
+
+\textbf{47.} When two identical beams of light interfere, the intensity
+is proportional to:
+
+\[I \propto \cos^2\left(\frac{\phi}{2}\right)\]
+
+where \(\phi\) is the phase difference.
+
+Using the half-angle relationship, rewrite this as:
+\(I \propto \frac{1 + \cos\phi}{2}\)
+
+\textbf{48.} In Young's double-slit experiment, the phase difference is
+\(\phi = \frac{2\pi d \sin\theta}{\lambda}\) where \(d\) is slit
+separation, \(\theta\) is angle from center, and \(\lambda\) is
+wavelength.
+
+At what values of \(\phi\) do you get: - (a) Maximum intensity (bright
+fringes)? - (b) Minimum intensity (dark fringes)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Lithography Interference**
+
+\textbf{49.} Interference lithography creates patterns by interfering
+two laser beams. The pattern has period:
+
+\[p = \frac{\lambda}{2\sin\theta}\]
+
+where \(\theta\) is the half-angle between the beams.
+
+Using \(\lambda = 193\) nm and \(\theta = 30°\), what pattern period can
+be achieved?
+
+\textbf{50.} To create 10 nm features, you need \(p = 20\) nm. If
+\(\lambda = 13.5\) nm (EUV), what angle \(\theta\) is needed?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{part-d-solving-trigonometric-equations-20-problems}{%
+\subsection{Part D: Solving Trigonometric Equations (20
+problems)}\label{part-d-solving-trigonometric-equations-20-problems}}
+
+\hypertarget{strategy}{%
+\subsubsection{Strategy}\label{strategy}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Isolate the trig function if possible
+\item
+  Use identities to simplify
+\item
+  Find all solutions in the required interval
+\item
+  Remember: trig functions are periodic!
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Solve for \(x\) in \([0, 2\pi)\):}
+
+\textbf{51.} \(\sin(x) = \frac{1}{2}\)
+
+\textbf{52.} \(\cos(x) = -\frac{\sqrt{2}}{2}\)
+
+\textbf{53.} \(\tan(x) = 1\)
+
+\textbf{54.} \(\sin(x) = -\frac{\sqrt{3}}{2}\)
+
+\textbf{55.} \(2\cos(x) - 1 = 0\)
+
+\textbf{56.} \(2\sin(x) + \sqrt{3} = 0\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Solve (may require factoring or identities):}
+
+\textbf{57.} \(2\sin^2(x) - 1 = 0\)
+
+\textbf{58.} \(\cos^2(x) - \cos(x) = 0\)
+
+\textbf{59.} \(2\sin^2(x) - \sin(x) - 1 = 0\)
+
+\textbf{60.} \(\tan^2(x) - 3 = 0\)
+
+\textbf{61.} \(\sin(2x) = \frac{\sqrt{3}}{2}\) in \([0, 2\pi)\)
+
+\emph{Hint: Let \(u = 2x\), solve for \(u\) in \([0, 4\pi)\), then find
+\(x\).}
+
+\textbf{62.} \(\cos(2x) = -\frac{1}{2}\) in \([0, 2\pi)\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Use identities to solve:}
+
+\textbf{63.} \(\sin^2(x) - \cos^2(x) = 0\)
+
+\emph{Hint: This is \(-\cos(2x) = 0\)}
+
+\textbf{64.} \(\sin(x)\cos(x) = \frac{1}{4}\)
+
+\emph{Hint: Use \(\sin(2x) = 2\sin(x)\cos(x)\)}
+
+\textbf{65.} \(1 - \sin^2(x) = \frac{1}{2}\)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Resonance**
+
+\textbf{66.} A system oscillates at frequency \(\omega\). Resonance
+occurs when the driving frequency matches the natural frequency, i.e.,
+when:
+
+\(\sin(\omega_d t) = \sin(\omega_n t)\)
+
+If \(\omega_d = 2\pi\) rad/s and \(\omega_n = 2\pi\) rad/s, at what
+times \(t\) in \([0, 1)\) seconds do the phases align (equal to each
+other)?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Standing Waves**
+
+\textbf{67.} A standing wave on a string is described by:
+
+\(y(x,t) = 2A\sin(kx)\cos(\omega t)\)
+
+The nodes (points that don't move) occur where \(\sin(kx) = 0\).
+
+If \(k = \frac{\pi}{0.5} = 2\pi\) m\(^{-1}\), find all nodes in the
+interval \(x \in [0, 2]\) meters.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+** Science Connection: Diffraction Minima**
+
+\textbf{68.} In single-slit diffraction, dark fringes occur when:
+
+\(\sin\theta = \frac{m\lambda}{a}\)
+
+where \(a\) is slit width, \(\lambda\) is wavelength, and
+\(m = \pm 1, \pm 2, ...\)
+
+For \(a = 1000\) nm and \(\lambda = 500\) nm, find all angles \(\theta\)
+where dark fringes occur (within the physical range where
+\(|\sin\theta| \leq 1\)).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{General Solutions:}
+
+\textbf{69.} Give the general solution (all solutions) for
+\(\sin(x) = \frac{1}{2}\).
+
+\textbf{70.} Give the general solution for \(\cos(x) = 0\).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{document}
