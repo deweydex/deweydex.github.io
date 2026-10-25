@@ -36,11 +36,11 @@ These smaller sites supplement dewlab in my classes. They let students explore H
 
 ## About
 
-I love learning, and it is the thread through everything I have done for the past fifteen years. I teach computer science, mathematics and the foundations of machine learning and AI at further education level in Dublin, at Dublin College Dundrum and Blackrock Further Education Institute. I am finishing an MSc in Human-Centered AI at TU Dublin, and my thesis asks why the usual metrics for educational chatbots say so little about whether they teach well. My first degree was in Computer Science and Mathematics at McGill University. The most interesting work always seems to happen where the technical fields meet the humanistic ones.
+I love learning, and it is the thread through everything I have done for the past fifteen years. I teach computer science, mathematics and the foundations of machine learning and AI in Dublin. The most interesting work always seems to happen where the technical fields meet the humanistic ones.
 
 ### Where I have lived
 
-Learning has moved me around a good deal. I studied in Montreal, worked for a year in Seattle and spent a year in Los Angeles as a maths partner teacher in a public high school. I then lived in Berlin for four years, where I taught maths at the Nelson Mandela School and ran programming at Archetyp, a café, podcast studio and community space. After that I spent two years in Toronto, working with tutors, learners and teachers at Paper, at Nelson Education and at Youth Employment Services. Since 2024 I have lived in Dublin, where I still get lost in the best way. I speak German, and I miss Berlin on most grey Tuesdays.
+Learning has taken me through Montreal, Seattle, Los Angeles, Berlin and Toronto, and since 2024 I have lived in Dublin.
 
 ### Art and craft I enjoy
 
