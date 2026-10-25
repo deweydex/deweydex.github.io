@@ -42,9 +42,9 @@ I love learning, and it is the thread through everything I have done for the pas
 
 Learning has taken me through Montreal, Seattle, Los Angeles, Berlin and Toronto, and since 2024 I have lived in Dublin.
 
-### Art and craft I enjoy
+### Art and craft
 
-I love arts and crafts of many kinds, from [woodworking](https://mrmr.studio) and [ceramics](https://www.yuniaaronart.com/) to [oil painting](https://barschazki.com) and [photography](https://dhaimages.com). I do not make them myself, but friends and family do, and each link goes to their work.
+[Woodworking](https://mrmr.studio) · [Ceramics](https://www.yuniaaronart.com/) · [Oil painting](https://barschazki.com) · [Photography](https://dhaimages.com)
 
 ### Reading
 
