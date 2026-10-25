@@ -44,7 +44,7 @@ Learning has moved me around a good deal. I studied in Montreal, worked for a ye
 
 ### Art and craft I enjoy
 
-I love arts and crafts of nearly every kind, and I am happiest looking at work that shows how much care went into it. Woodworking, photography, ceramics and oil painting are my favourites. I do not make these things myself, but I am lucky that friends and family do. You can see the woodwork of my friend [mrmr](https://mrmr.studio), paintings and photographs by [Elena Barschazki](https://barschazki.com), photographs by [David Aaron](https://dhaimages.com) and pottery by [Yuni Aaron](https://www.yuniaaronart.com/).
+I love arts and crafts of many kinds, from [woodworking](https://mrmr.studio) and [ceramics](https://www.yuniaaronart.com/) to [oil painting](https://barschazki.com) and [photography](https://dhaimages.com). I do not make them myself, but friends and family do, and each link goes to their work.
 
 ### Walking and reading
 
