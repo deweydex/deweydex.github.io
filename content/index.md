@@ -38,15 +38,9 @@ These smaller sites supplement dewlab in my classes. They let students explore H
 
 I love learning, and it is the thread through everything I have done for the past fifteen years. I teach computer science, mathematics and the foundations of machine learning and AI in Dublin. The most interesting work always seems to happen where the technical fields meet the humanistic ones.
 
-### Where I have lived
-
 Learning has taken me through Montreal, Seattle, Los Angeles, Berlin and Toronto, and since 2024 I have lived in Dublin.
 
-### Art and craft
-
 [Woodworking](https://mrmr.studio) · [Ceramics](https://www.yuniaaronart.com/) · [Oil painting](https://barschazki.com) · [Photography](https://dhaimages.com)
-
-### Reading
 
 On my shelf are [Becky Chambers](https://en.wikipedia.org/wiki/Becky_Chambers), [Musa Okwonga](https://www.musaokwonga.com), [Adrian Tchaikovsky](https://www.adriantchaikovsky.com), [Douglas Adams](https://www.douglasadams.com) and [Terry Pratchett](https://www.terrypratchett.com), and in German it holds [Walter Moers](https://en.wikipedia.org/wiki/Walter_Moers), who wrote *The 13½ Lives of Captain Bluebear*. I also like [Yanis Varoufakis](https://www.yanisvaroufakis.eu) on economics and [Sarah Bakewell](https://en.wikipedia.org/wiki/Sarah_Bakewell) on philosophy.
 
